@@ -30,10 +30,8 @@
         {
             this.mbDataView = new System.Windows.Forms.DataGridView();
             this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonEditItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonDebug = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
@@ -66,26 +64,6 @@
             this.mbButtonNewItem.UseVisualStyleBackColor = true;
             this.mbButtonNewItem.Click += new System.EventHandler(this.mbButtonNewItem_Click);
             // 
-            // mbButtonEditItem
-            // 
-            this.mbButtonEditItem.AutoSize = false;
-            this.mbButtonEditItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonEditItem.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonEditItem.Depth = 0;
-            this.mbButtonEditItem.HighEmphasis = true;
-            this.mbButtonEditItem.Icon = null;
-            this.mbButtonEditItem.Location = new System.Drawing.Point(7, 116);
-            this.mbButtonEditItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonEditItem.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonEditItem.Name = "mbButtonEditItem";
-            this.mbButtonEditItem.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonEditItem.Size = new System.Drawing.Size(216, 36);
-            this.mbButtonEditItem.TabIndex = 2;
-            this.mbButtonEditItem.Text = "Edit";
-            this.mbButtonEditItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonEditItem.UseAccentColor = false;
-            this.mbButtonEditItem.UseVisualStyleBackColor = true;
-            // 
             // mbButtonExit
             // 
             this.mbButtonExit.AutoSize = false;
@@ -115,7 +93,7 @@
             this.mbButtonRemoveItem.Depth = 0;
             this.mbButtonRemoveItem.HighEmphasis = true;
             this.mbButtonRemoveItem.Icon = null;
-            this.mbButtonRemoveItem.Location = new System.Drawing.Point(7, 164);
+            this.mbButtonRemoveItem.Location = new System.Drawing.Point(7, 118);
             this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbButtonRemoveItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonRemoveItem.Name = "mbButtonRemoveItem";
@@ -127,27 +105,6 @@
             this.mbButtonRemoveItem.UseAccentColor = false;
             this.mbButtonRemoveItem.UseVisualStyleBackColor = true;
             this.mbButtonRemoveItem.Click += new System.EventHandler(this.mbButtonRemoveItem_Click);
-            // 
-            // mbButtonDebug
-            // 
-            this.mbButtonDebug.AutoSize = false;
-            this.mbButtonDebug.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonDebug.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonDebug.Depth = 0;
-            this.mbButtonDebug.HighEmphasis = true;
-            this.mbButtonDebug.Icon = null;
-            this.mbButtonDebug.Location = new System.Drawing.Point(7, 254);
-            this.mbButtonDebug.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonDebug.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonDebug.Name = "mbButtonDebug";
-            this.mbButtonDebug.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonDebug.Size = new System.Drawing.Size(216, 36);
-            this.mbButtonDebug.TabIndex = 5;
-            this.mbButtonDebug.Text = "SaveThenLoad";
-            this.mbButtonDebug.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonDebug.UseAccentColor = false;
-            this.mbButtonDebug.UseVisualStyleBackColor = true;
-            this.mbButtonDebug.Click += new System.EventHandler(this.mbButtonDebug_Click);
             // 
             // mbButtonOptions
             // 
@@ -175,10 +132,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mbButtonOptions);
-            this.Controls.Add(this.mbButtonDebug);
             this.Controls.Add(this.mbButtonRemoveItem);
             this.Controls.Add(this.mbButtonExit);
-            this.Controls.Add(this.mbButtonEditItem);
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
             this.Name = "mbMainMenu";
@@ -192,10 +147,8 @@
 
         private System.Windows.Forms.DataGridView mbDataView;
         private MaterialSkin.Controls.MaterialButton mbButtonNewItem;
-        private MaterialSkin.Controls.MaterialButton mbButtonEditItem;
         private MaterialSkin.Controls.MaterialButton mbButtonExit;
         private MaterialSkin.Controls.MaterialButton mbButtonRemoveItem;
-        private MaterialSkin.Controls.MaterialButton mbButtonDebug;
         private MaterialSkin.Controls.MaterialButton mbButtonOptions;
     }
 }

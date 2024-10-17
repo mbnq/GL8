@@ -32,7 +32,7 @@ namespace GL8.CORE
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         private mbDialogAddNew _DialogAddNew;
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
-
+        private bool unsavedChanges = false;
         public mbMainMenu()
         {
             InitializeComponent();
@@ -45,6 +45,10 @@ namespace GL8.CORE
             CreateDataFileIfMissing();
 
             LoadPSWDData();
+
+            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
+            mbDataView.RowValidated += mbDataView_RowValidated;
+            this.FormClosing += mbMainMenu_FormClosing;
         }
 
         public void LoadPSWDData()
@@ -128,6 +132,54 @@ namespace GL8.CORE
                     "No Selection",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
+        }
+
+        private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            unsavedChanges = true;
+        }
+        private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (unsavedChanges)
+            {
+                var result = MessageBox.Show(
+                    "You have made changes to this row. Do you want to save them now?",
+                    "Save Changes",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    SavePSWDData();
+                    unsavedChanges = false;
+                }
+                else
+                {
+                    // Optionally, keep unsavedChanges as true to prompt later
+                }
+            }
+        }
+        private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (unsavedChanges)
+            {
+                var result = MessageBox.Show(
+                    "You have unsaved changes. Do you want to save them before exiting?",
+                    "Unsaved Changes",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    SavePSWDData();
+                    unsavedChanges = false;
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true; // Cancel the form closing
+                }
+                // If 'No', proceed without saving
             }
         }
     }
