@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-namespace GL8.GUI
+namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
