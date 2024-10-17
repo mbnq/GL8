@@ -16,7 +16,7 @@ namespace GL8.CORE
     {
         private mbPSWD _pswdItem;
         private mbMainMenu _mainMenuInstance;
-        public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem, string selectedColumnName)
+        public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
@@ -40,43 +40,7 @@ namespace GL8.CORE
             mbTextBoxEditEmail.Hint = "eMail";
             mbTextBoxEditAdditionalInfo.Hint = "Notes";
 
-            this.Shown += (sender, e) => FocusCorrespondingTextBox(selectedColumnName);
         }
-        private void FocusCorrespondingTextBox(string columnName)
-        {
-            this.BeginInvoke ( (MethodInvoker) delegate {
-                // MessageBox.Show($"{columnName}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information); 
-
-                switch (columnName)
-                {
-                    case "pswdName":
-                        mbTextBoxEditName.Select();
-                        break;
-                    case "pswdAddress":
-                        mbTextBoxEditAddress.Select();
-                        break;
-                    case "pswdCategory":
-                        mbTextBoxEditCategory.Select();
-                        break;
-                    case "pswdLogin":
-                        mbTextBoxEditLogin.Select();
-                        break;
-                    case "pswdPass":
-                        mbTextBoxEditPassword.Select();
-                        break;
-                    case "pswdEmail":
-                        mbTextBoxEditEmail.Select();
-                        break;
-                    case "pswdAdditionalInfo":
-                        mbTextBoxEditAdditionalInfo.Select();
-                        break;
-                    default:
-                        mbTextBoxEditName.Select();
-                        break;
-                }
-            });
-        }
-
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
             _pswdItem.pswdName = mbTextBoxEditName.Text;
