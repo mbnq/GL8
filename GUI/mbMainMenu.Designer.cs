@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mbDataView = new System.Windows.Forms.ListView();
+            this.mbDataView = new System.Windows.Forms.DataGridView();
             this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonEditItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
@@ -39,12 +39,12 @@
             // 
             // mbDataView
             // 
-            this.mbDataView.HideSelection = false;
+            // this.mbDataView.HideSelection = false;
             this.mbDataView.Location = new System.Drawing.Point(230, 67);
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.Size = new System.Drawing.Size(564, 377);
             this.mbDataView.TabIndex = 0;
-            this.mbDataView.UseCompatibleStateImageBehavior = false;
+            // this.mbDataView.UseCompatibleStateImageBehavior = false;
             // 
             // mbButtonNewItem
             // 
@@ -186,7 +186,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView mbDataView;
+        private System.Windows.Forms.DataGridView mbDataView;
         private MaterialSkin.Controls.MaterialButton mbButtonNewItem;
         private MaterialSkin.Controls.MaterialButton mbButtonEditItem;
         private MaterialSkin.Controls.MaterialButton mbButtonExit;
