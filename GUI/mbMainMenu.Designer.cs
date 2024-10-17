@@ -38,9 +38,15 @@
             // 
             // mbDataView
             // 
-            this.mbDataView.Location = new System.Drawing.Point(230, 67);
+            this.mbDataView.AllowUserToAddRows = false;
+            this.mbDataView.AllowUserToDeleteRows = false;
+            this.mbDataView.ColumnHeadersHeight = 29;
+            this.mbDataView.Location = new System.Drawing.Point(307, 82);
+            this.mbDataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mbDataView.Name = "mbDataView";
-            this.mbDataView.Size = new System.Drawing.Size(564, 377);
+            this.mbDataView.ReadOnly = true;
+            this.mbDataView.RowHeadersWidth = 51;
+            this.mbDataView.Size = new System.Drawing.Size(752, 464);
             this.mbDataView.TabIndex = 0;
             // 
             // mbButtonNewItem
@@ -51,12 +57,12 @@
             this.mbButtonNewItem.Depth = 0;
             this.mbButtonNewItem.HighEmphasis = true;
             this.mbButtonNewItem.Icon = null;
-            this.mbButtonNewItem.Location = new System.Drawing.Point(7, 70);
-            this.mbButtonNewItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonNewItem.Location = new System.Drawing.Point(9, 86);
+            this.mbButtonNewItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonNewItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonNewItem.Name = "mbButtonNewItem";
             this.mbButtonNewItem.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonNewItem.Size = new System.Drawing.Size(216, 36);
+            this.mbButtonNewItem.Size = new System.Drawing.Size(288, 44);
             this.mbButtonNewItem.TabIndex = 1;
             this.mbButtonNewItem.Text = "Add New";
             this.mbButtonNewItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -72,12 +78,12 @@
             this.mbButtonExit.Depth = 0;
             this.mbButtonExit.HighEmphasis = true;
             this.mbButtonExit.Icon = null;
-            this.mbButtonExit.Location = new System.Drawing.Point(7, 405);
-            this.mbButtonExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonExit.Location = new System.Drawing.Point(9, 498);
+            this.mbButtonExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonExit.Name = "mbButtonExit";
             this.mbButtonExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonExit.Size = new System.Drawing.Size(216, 36);
+            this.mbButtonExit.Size = new System.Drawing.Size(288, 44);
             this.mbButtonExit.TabIndex = 3;
             this.mbButtonExit.Text = "Exit";
             this.mbButtonExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -93,12 +99,12 @@
             this.mbButtonRemoveItem.Depth = 0;
             this.mbButtonRemoveItem.HighEmphasis = true;
             this.mbButtonRemoveItem.Icon = null;
-            this.mbButtonRemoveItem.Location = new System.Drawing.Point(7, 118);
-            this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 145);
+            this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonRemoveItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonRemoveItem.Name = "mbButtonRemoveItem";
             this.mbButtonRemoveItem.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonRemoveItem.Size = new System.Drawing.Size(216, 36);
+            this.mbButtonRemoveItem.Size = new System.Drawing.Size(288, 44);
             this.mbButtonRemoveItem.TabIndex = 4;
             this.mbButtonRemoveItem.Text = "Delete";
             this.mbButtonRemoveItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -114,12 +120,12 @@
             this.mbButtonOptions.Depth = 0;
             this.mbButtonOptions.HighEmphasis = true;
             this.mbButtonOptions.Icon = null;
-            this.mbButtonOptions.Location = new System.Drawing.Point(7, 357);
-            this.mbButtonOptions.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonOptions.Location = new System.Drawing.Point(9, 439);
+            this.mbButtonOptions.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonOptions.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonOptions.Name = "mbButtonOptions";
             this.mbButtonOptions.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonOptions.Size = new System.Drawing.Size(216, 36);
+            this.mbButtonOptions.Size = new System.Drawing.Size(288, 44);
             this.mbButtonOptions.TabIndex = 6;
             this.mbButtonOptions.Text = "Settings";
             this.mbButtonOptions.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -128,15 +134,17 @@
             // 
             // mbMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.mbButtonOptions);
             this.Controls.Add(this.mbButtonRemoveItem);
             this.Controls.Add(this.mbButtonExit);
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "mbMainMenu";
+            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
             this.Text = "GL8 Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
             this.ResumeLayout(false);
