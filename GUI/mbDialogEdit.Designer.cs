@@ -313,7 +313,7 @@
             this.Controls.Add(this.mbTextBoxEditAddress);
             this.Controls.Add(this.mbTextBoxEditName);
             this.Name = "mbDialogEdit";
-            this.Text = "Form1";
+            this.Text = "Edit";
             this.ResumeLayout(false);
 
         }

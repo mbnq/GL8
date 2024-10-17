@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GL8.GUI;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
@@ -40,6 +41,7 @@ namespace GL8.CORE
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         private mbDialogAddNew _DialogAddNew;
+        private mbDialogEdit _DialogEdit;
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
         private bool unsavedChanges = false;
 
@@ -70,6 +72,41 @@ namespace GL8.CORE
         {
             _DialogAddNew = new mbDialogAddNew(this);
             _DialogAddNew.ShowDialog();
+        }
+
+        private void mbButtonEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = null;
+
+            if (mbDataView.SelectedRows.Count > 0)
+            {
+                selectedRow = mbDataView.SelectedRows[0];
+            }
+            else if (mbDataView.SelectedCells.Count > 0)
+            {
+                int rowIndex = mbDataView.SelectedCells[0].RowIndex;
+                selectedRow = mbDataView.Rows[rowIndex];
+            }
+
+            if (selectedRow != null)
+            {
+                // Get the bound data item
+                mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
+                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD);
+
+                editDialog.ShowDialog();
+
+                this.Refresh();
+                SavePSWDData();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Please select a row or cell to edit.",
+                    "No Selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
         private void mbButtonDebug_Click(object sender, EventArgs e)
         {
@@ -162,11 +199,6 @@ namespace GL8.CORE
                     unsavedChanges = false;
                 }
             }
-        }
-
-        private void mbButtonEdit_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

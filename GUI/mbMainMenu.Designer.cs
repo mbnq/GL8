@@ -43,7 +43,7 @@
             this.mbDataView.AllowUserToDeleteRows = false;
             this.mbDataView.ColumnHeadersHeight = 29;
             this.mbDataView.Location = new System.Drawing.Point(307, 82);
-            this.mbDataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
@@ -58,7 +58,7 @@
             this.mbButtonNewItem.Depth = 0;
             this.mbButtonNewItem.HighEmphasis = true;
             this.mbButtonNewItem.Icon = null;
-            this.mbButtonNewItem.Location = new System.Drawing.Point(9, 86);
+            this.mbButtonNewItem.Location = new System.Drawing.Point(10, 82);
             this.mbButtonNewItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonNewItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonNewItem.Name = "mbButtonNewItem";
@@ -100,7 +100,7 @@
             this.mbButtonRemoveItem.Depth = 0;
             this.mbButtonRemoveItem.HighEmphasis = true;
             this.mbButtonRemoveItem.Icon = null;
-            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 202);
+            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 198);
             this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonRemoveItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonRemoveItem.Name = "mbButtonRemoveItem";
@@ -141,7 +141,7 @@
             this.mbButtonEdit.Depth = 0;
             this.mbButtonEdit.HighEmphasis = true;
             this.mbButtonEdit.Icon = null;
-            this.mbButtonEdit.Location = new System.Drawing.Point(9, 144);
+            this.mbButtonEdit.Location = new System.Drawing.Point(9, 140);
             this.mbButtonEdit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonEdit.Name = "mbButtonEdit";
@@ -152,6 +152,7 @@
             this.mbButtonEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonEdit.UseAccentColor = false;
             this.mbButtonEdit.UseVisualStyleBackColor = true;
+            this.mbButtonEdit.Click += new System.EventHandler(this.mbButtonEdit_Click);
             // 
             // mbMainMenu
             // 
@@ -164,10 +165,10 @@
             this.Controls.Add(this.mbButtonEdit);
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mbMainMenu";
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
-            this.Text = "GL8 Main Menu";
+            this.Text = "GL8";
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
             this.ResumeLayout(false);
 
@@ -175,7 +176,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView mbDataView;
+        public System.Windows.Forms.DataGridView mbDataView;
         private MaterialSkin.Controls.MaterialButton mbButtonNewItem;
         private MaterialSkin.Controls.MaterialButton mbButtonExit;
         private MaterialSkin.Controls.MaterialButton mbButtonRemoveItem;
