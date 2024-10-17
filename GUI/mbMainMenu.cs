@@ -74,9 +74,10 @@ namespace GL8.CORE
             _DialogAddNew.ShowDialog();
         }
 
-        private void mbButtonEdit_Click(object sender, EventArgs e)
+        private void mbButtonEdit_Click0(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = null;
+            string fieldToFocus = null;
 
             if (mbDataView.SelectedRows.Count > 0)
             {
@@ -90,9 +91,10 @@ namespace GL8.CORE
 
             if (selectedRow != null)
             {
-                // Get the bound data item
                 mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
-                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD);
+
+                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD, fieldToFocus);
+                editDialog.ShowDialog();
 
                 editDialog.ShowDialog();
 
@@ -108,6 +110,51 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
+
+        private void mbButtonEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = null;
+            string fieldToFocus = null;
+
+            // Check if any row is selected
+            if (mbDataView.SelectedRows.Count > 0)
+            {
+                selectedRow = mbDataView.SelectedRows[0];
+            }
+            else if (mbDataView.SelectedCells.Count > 0)
+            {
+                int rowIndex = mbDataView.SelectedCells[0].RowIndex;
+                int columnIndex = mbDataView.SelectedCells[0].ColumnIndex;
+                selectedRow = mbDataView.Rows[rowIndex];
+
+                // Get the column's DataPropertyName, which should match the field name
+                string columnName = mbDataView.Columns[columnIndex].DataPropertyName;
+
+                // Map the column name to the field name
+                fieldToFocus = columnName;
+            }
+
+            if (selectedRow != null)
+            {
+                mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
+
+                // Open the edit dialog, passing the field to focus
+                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD, fieldToFocus);
+                editDialog.ShowDialog();
+
+                this.Refresh();
+                SavePSWDData();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Please select a row or cell to edit.",
+                    "No Selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
         private void mbButtonDebug_Click(object sender, EventArgs e)
         {
             SavePSWDData();
