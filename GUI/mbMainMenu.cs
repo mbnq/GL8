@@ -51,6 +51,8 @@ namespace GL8.CORE
 
             LoadPSWDData();
 
+            mbSearchTextBox.Hint = "Search:";
+
             mbDataView.CellValueChanged += mbDataView_CellValueChanged;
             mbDataView.RowValidated += mbDataView_RowValidated;
             mbDataView.CellFormatting += mbDataView_CellFormatting;

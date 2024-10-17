@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.mbDataView = new System.Windows.Forms.DataGridView();
-            this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdAdditionalInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
+            this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdAdditionalInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mbSearchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,10 +52,10 @@
             this.mbDataView.ColumnHeadersHeight = 29;
             this.mbDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pswdName,
-            this.pswdAddress,
-            this.pswdCategory,
             this.pswdLogin,
             this.pswdPass,
+            this.pswdAddress,
+            this.pswdCategory,
             this.pswdEmail,
             this.pswdAdditionalInfo});
             this.mbDataView.Location = new System.Drawing.Point(307, 82);
@@ -66,69 +67,6 @@
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.mbDataView.Size = new System.Drawing.Size(752, 464);
             this.mbDataView.TabIndex = 0;
-            // 
-            // pswdName
-            // 
-            this.pswdName.DataPropertyName = "pswdName";
-            this.pswdName.HeaderText = "Name";
-            this.pswdName.MinimumWidth = 6;
-            this.pswdName.Name = "pswdName";
-            this.pswdName.ReadOnly = true;
-            this.pswdName.Width = 125;
-            // 
-            // pswdAddress
-            // 
-            this.pswdAddress.DataPropertyName = "pswdAddress";
-            this.pswdAddress.HeaderText = "Site";
-            this.pswdAddress.MinimumWidth = 6;
-            this.pswdAddress.Name = "pswdAddress";
-            this.pswdAddress.ReadOnly = true;
-            this.pswdAddress.Width = 125;
-            // 
-            // pswdCategory
-            // 
-            this.pswdCategory.DataPropertyName = "pswdCategory";
-            this.pswdCategory.HeaderText = "Category";
-            this.pswdCategory.MinimumWidth = 6;
-            this.pswdCategory.Name = "pswdCategory";
-            this.pswdCategory.ReadOnly = true;
-            this.pswdCategory.Width = 125;
-            // 
-            // pswdLogin
-            // 
-            this.pswdLogin.DataPropertyName = "pswdLogin";
-            this.pswdLogin.HeaderText = "Login";
-            this.pswdLogin.MinimumWidth = 6;
-            this.pswdLogin.Name = "pswdLogin";
-            this.pswdLogin.ReadOnly = true;
-            this.pswdLogin.Width = 125;
-            // 
-            // pswdPass
-            // 
-            this.pswdPass.DataPropertyName = "pswdPass";
-            this.pswdPass.HeaderText = "Password";
-            this.pswdPass.MinimumWidth = 6;
-            this.pswdPass.Name = "pswdPass";
-            this.pswdPass.ReadOnly = true;
-            this.pswdPass.Width = 125;
-            // 
-            // pswdEmail
-            // 
-            this.pswdEmail.DataPropertyName = "pswdEmail";
-            this.pswdEmail.HeaderText = "eMail";
-            this.pswdEmail.MinimumWidth = 6;
-            this.pswdEmail.Name = "pswdEmail";
-            this.pswdEmail.ReadOnly = true;
-            this.pswdEmail.Width = 125;
-            // 
-            // pswdAdditionalInfo
-            // 
-            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.HeaderText = "Notes";
-            this.pswdAdditionalInfo.MinimumWidth = 6;
-            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.ReadOnly = true;
-            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbButtonNewItem
             // 
@@ -234,11 +172,105 @@
             this.mbButtonEdit.UseVisualStyleBackColor = true;
             this.mbButtonEdit.Click += new System.EventHandler(this.mbButtonEdit_Click);
             // 
+            // pswdName
+            // 
+            this.pswdName.DataPropertyName = "pswdName";
+            this.pswdName.HeaderText = "Name";
+            this.pswdName.MinimumWidth = 6;
+            this.pswdName.Name = "pswdName";
+            this.pswdName.ReadOnly = true;
+            this.pswdName.Width = 125;
+            // 
+            // pswdLogin
+            // 
+            this.pswdLogin.DataPropertyName = "pswdLogin";
+            this.pswdLogin.HeaderText = "Login";
+            this.pswdLogin.MinimumWidth = 6;
+            this.pswdLogin.Name = "pswdLogin";
+            this.pswdLogin.ReadOnly = true;
+            this.pswdLogin.Width = 125;
+            // 
+            // pswdPass
+            // 
+            this.pswdPass.DataPropertyName = "pswdPass";
+            this.pswdPass.HeaderText = "Password";
+            this.pswdPass.MinimumWidth = 6;
+            this.pswdPass.Name = "pswdPass";
+            this.pswdPass.ReadOnly = true;
+            this.pswdPass.Width = 125;
+            // 
+            // pswdAddress
+            // 
+            this.pswdAddress.DataPropertyName = "pswdAddress";
+            this.pswdAddress.HeaderText = "Site";
+            this.pswdAddress.MinimumWidth = 6;
+            this.pswdAddress.Name = "pswdAddress";
+            this.pswdAddress.ReadOnly = true;
+            this.pswdAddress.Width = 125;
+            // 
+            // pswdCategory
+            // 
+            this.pswdCategory.DataPropertyName = "pswdCategory";
+            this.pswdCategory.HeaderText = "Category";
+            this.pswdCategory.MinimumWidth = 6;
+            this.pswdCategory.Name = "pswdCategory";
+            this.pswdCategory.ReadOnly = true;
+            this.pswdCategory.Width = 125;
+            // 
+            // pswdEmail
+            // 
+            this.pswdEmail.DataPropertyName = "pswdEmail";
+            this.pswdEmail.HeaderText = "eMail";
+            this.pswdEmail.MinimumWidth = 6;
+            this.pswdEmail.Name = "pswdEmail";
+            this.pswdEmail.ReadOnly = true;
+            this.pswdEmail.Width = 125;
+            // 
+            // pswdAdditionalInfo
+            // 
+            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.HeaderText = "Notes";
+            this.pswdAdditionalInfo.MinimumWidth = 6;
+            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.ReadOnly = true;
+            this.pswdAdditionalInfo.Width = 125;
+            // 
+            // mbSearchTextBox
+            // 
+            this.mbSearchTextBox.AnimateReadOnly = false;
+            this.mbSearchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.mbSearchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.mbSearchTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mbSearchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.mbSearchTextBox.Depth = 0;
+            this.mbSearchTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbSearchTextBox.HideSelection = true;
+            this.mbSearchTextBox.LeadingIcon = null;
+            this.mbSearchTextBox.Location = new System.Drawing.Point(9, 299);
+            this.mbSearchTextBox.MaxLength = 32767;
+            this.mbSearchTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbSearchTextBox.Name = "mbSearchTextBox";
+            this.mbSearchTextBox.PasswordChar = '\0';
+            this.mbSearchTextBox.PrefixSuffixText = null;
+            this.mbSearchTextBox.ReadOnly = false;
+            this.mbSearchTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mbSearchTextBox.SelectedText = "";
+            this.mbSearchTextBox.SelectionLength = 0;
+            this.mbSearchTextBox.SelectionStart = 0;
+            this.mbSearchTextBox.ShortcutsEnabled = true;
+            this.mbSearchTextBox.Size = new System.Drawing.Size(288, 48);
+            this.mbSearchTextBox.TabIndex = 7;
+            this.mbSearchTextBox.TabStop = false;
+            this.mbSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mbSearchTextBox.TrailingIcon = null;
+            this.mbSearchTextBox.UseSystemPasswordChar = false;
+            // 
             // mbMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
             this.Controls.Add(this.mbButtonRemoveItem);
             this.Controls.Add(this.mbButtonExit);
@@ -263,11 +295,12 @@
         private MaterialSkin.Controls.MaterialButton mbButtonOptions;
         private MaterialSkin.Controls.MaterialButton mbButtonEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pswdAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pswdCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdPass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pswdAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pswdCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdAdditionalInfo;
+        private MaterialSkin.Controls.MaterialTextBox2 mbSearchTextBox;
     }
 }
