@@ -295,6 +295,7 @@
             this.mbButtonAddCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonAddCancel.UseAccentColor = false;
             this.mbButtonAddCancel.UseVisualStyleBackColor = true;
+            this.mbButtonAddCancel.Click += new System.EventHandler(this.mbButtonAddCancel_Click);
             // 
             // mbDialogAddNew
             // 

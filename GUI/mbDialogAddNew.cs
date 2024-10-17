@@ -17,5 +17,10 @@ namespace GL8.GUI
         {
             InitializeComponent();
         }
+
+        private void mbButtonAddCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

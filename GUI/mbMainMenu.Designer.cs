@@ -35,16 +35,15 @@
             this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonDebug = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
+            ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // mbDataView
             // 
-            // this.mbDataView.HideSelection = false;
             this.mbDataView.Location = new System.Drawing.Point(230, 67);
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.Size = new System.Drawing.Size(564, 377);
             this.mbDataView.TabIndex = 0;
-            // this.mbDataView.UseCompatibleStateImageBehavior = false;
             // 
             // mbButtonNewItem
             // 
@@ -65,6 +64,7 @@
             this.mbButtonNewItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonNewItem.UseAccentColor = false;
             this.mbButtonNewItem.UseVisualStyleBackColor = true;
+            this.mbButtonNewItem.Click += new System.EventHandler(this.mbButtonNewItem_Click);
             // 
             // mbButtonEditItem
             // 
@@ -180,6 +180,7 @@
             this.Controls.Add(this.mbDataView);
             this.Name = "mbMainMenu";
             this.Text = "GL8 Main Menu";
+            ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GL8.GUI;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -28,11 +29,18 @@ namespace GL8.CORE
         }
 
         private BindingList<mbPSWD> _mbPSWD = new BindingList<mbPSWD>();
+        private mbDialogAddNew _DialogAddNew;
 
         public mbMainMenu()
         {
             InitializeComponent();
             mbDataView.DataSource = _mbPSWD;
+        }
+
+        private void mbButtonNewItem_Click(object sender, EventArgs e)
+        {
+            _DialogAddNew = new mbDialogAddNew();
+            _DialogAddNew.ShowDialog();
         }
     }
 }
