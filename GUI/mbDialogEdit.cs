@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static GL8.CORE.mbMainMenu;
 
-namespace GL8.GUI
+namespace GL8.CORE
 {
     public partial class mbDialogEdit : MaterialForm
     {
         private mbPSWD _pswdItem;
-        private GL8.CORE.mbMainMenu _mainMenuInstance;
+        private mbMainMenu _mainMenuInstance;
         private string _fieldToFocus;
         public mbDialogEdit(GL8.CORE.mbMainMenu mainMenuInstance, mbPSWD pswdItem, string fieldToFocus)
         {
@@ -73,9 +73,11 @@ namespace GL8.GUI
 
         private void SetFocusToField(string fieldName)
         {
+            // Debugging statement
+            MessageBox.Show("Field to focus in SetFocusToField: " + fieldName);
+
             if (string.IsNullOrEmpty(fieldName))
             {
-                // If no field specified, set focus to the first field or any default field
                 mbTextBoxEditName.Focus();
                 return;
             }
@@ -105,9 +107,11 @@ namespace GL8.GUI
                     mbTextBoxEditAdditionalInfo.Focus();
                     break;
                 default:
+                    // If the field name doesn't match, set focus to the first field
                     mbTextBoxEditName.Focus();
                     break;
             }
         }
+
     }
 }

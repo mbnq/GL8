@@ -1,4 +1,4 @@
-﻿namespace GL8.GUI
+﻿namespace GL8.CORE
 {
     partial class mbDialogEdit
     {
