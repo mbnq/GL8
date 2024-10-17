@@ -90,6 +90,37 @@ namespace GL8.CORE
             }
         }
 
+        // ------------------- Search ----------------------
+
+        private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = mbSearchTextBox.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // When the search box is empty, show all items
+                mbDataView.DataSource = mbPSWDList;
+            }
+            else
+            {
+                // Filter the list based on the search text
+                var filteredList = new BindingList<mbPSWD>(
+                    mbPSWDList.Where(pswd =>
+                        pswd.pswdName.ToLower().Contains(searchText) ||
+                        pswd.pswdAddress.ToLower().Contains(searchText) ||
+                        pswd.pswdCategory.ToLower().Contains(searchText) ||
+                        pswd.pswdLogin.ToLower().Contains(searchText) ||
+                        pswd.pswdEmail.ToLower().Contains(searchText) ||
+                        pswd.pswdAdditionalInfo.ToLower().Contains(searchText))
+                    .ToList()
+                );
+
+                mbDataView.DataSource = filteredList;
+            }
+            mbDataView.Refresh();
+        }
+
+
         // ------------------- GUI Controls ----------------------
         private void mbButtonNewItem_Click(object sender, EventArgs e)
         {

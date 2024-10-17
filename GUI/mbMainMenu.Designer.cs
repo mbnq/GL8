@@ -264,6 +264,7 @@
             this.mbSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbSearchTextBox.TrailingIcon = null;
             this.mbSearchTextBox.UseSystemPasswordChar = false;
+            this.mbSearchTextBox.TextChanged += new System.EventHandler(this.mbSearchTextBox_TextChanged);
             // 
             // mbMainMenu
             // 
