@@ -65,7 +65,7 @@
             this.mbTextBoxAddName.Size = new System.Drawing.Size(530, 48);
             this.mbTextBoxAddName.TabIndex = 0;
             this.mbTextBoxAddName.TabStop = false;
-            this.mbTextBoxAddName.Text = "Name";
+            this.mbTextBoxAddName.Text = "";
             this.mbTextBoxAddName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddName.TrailingIcon = null;
             this.mbTextBoxAddName.UseSystemPasswordChar = false;
@@ -96,7 +96,7 @@
             this.mbTextBoxAddAddress.Size = new System.Drawing.Size(531, 48);
             this.mbTextBoxAddAddress.TabIndex = 0;
             this.mbTextBoxAddAddress.TabStop = false;
-            this.mbTextBoxAddAddress.Text = "Address";
+            this.mbTextBoxAddAddress.Text = "";
             this.mbTextBoxAddAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAddress.TrailingIcon = null;
             this.mbTextBoxAddAddress.UseSystemPasswordChar = false;
@@ -127,7 +127,7 @@
             this.mbTextBoxAddCategory.Size = new System.Drawing.Size(532, 48);
             this.mbTextBoxAddCategory.TabIndex = 0;
             this.mbTextBoxAddCategory.TabStop = false;
-            this.mbTextBoxAddCategory.Text = "Category";
+            this.mbTextBoxAddCategory.Text = "";
             this.mbTextBoxAddCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddCategory.TrailingIcon = null;
             this.mbTextBoxAddCategory.UseSystemPasswordChar = false;
@@ -158,7 +158,7 @@
             this.mbTextBoxAddLogin.Size = new System.Drawing.Size(250, 48);
             this.mbTextBoxAddLogin.TabIndex = 0;
             this.mbTextBoxAddLogin.TabStop = false;
-            this.mbTextBoxAddLogin.Text = "Login";
+            this.mbTextBoxAddLogin.Text = "";
             this.mbTextBoxAddLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddLogin.TrailingIcon = null;
             this.mbTextBoxAddLogin.UseSystemPasswordChar = false;
@@ -189,7 +189,7 @@
             this.mbTextBoxAddPassword.Size = new System.Drawing.Size(250, 48);
             this.mbTextBoxAddPassword.TabIndex = 0;
             this.mbTextBoxAddPassword.TabStop = false;
-            this.mbTextBoxAddPassword.Text = "Password";
+            this.mbTextBoxAddPassword.Text = "";
             this.mbTextBoxAddPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddPassword.TrailingIcon = null;
             this.mbTextBoxAddPassword.UseSystemPasswordChar = false;
@@ -220,7 +220,7 @@
             this.mbTextBoxAddEmail.Size = new System.Drawing.Size(250, 48);
             this.mbTextBoxAddEmail.TabIndex = 0;
             this.mbTextBoxAddEmail.TabStop = false;
-            this.mbTextBoxAddEmail.Text = "eMail";
+            this.mbTextBoxAddEmail.Text = "";
             this.mbTextBoxAddEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddEmail.TrailingIcon = null;
             this.mbTextBoxAddEmail.UseSystemPasswordChar = false;
@@ -251,7 +251,7 @@
             this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(532, 48);
             this.mbTextBoxAddAdditionalInfo.TabIndex = 0;
             this.mbTextBoxAddAdditionalInfo.TabStop = false;
-            this.mbTextBoxAddAdditionalInfo.Text = "Notes";
+            this.mbTextBoxAddAdditionalInfo.Text = "";
             this.mbTextBoxAddAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAdditionalInfo.TrailingIcon = null;
             this.mbTextBoxAddAdditionalInfo.UseSystemPasswordChar = false;
@@ -271,7 +271,7 @@
             this.mbButtonAddAddItem.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbButtonAddAddItem.Size = new System.Drawing.Size(158, 36);
             this.mbButtonAddAddItem.TabIndex = 1;
-            this.mbButtonAddAddItem.Text = "Add";
+            this.mbButtonAddAddItem.Text = "Add and Save";
             this.mbButtonAddAddItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonAddAddItem.UseAccentColor = false;
             this.mbButtonAddAddItem.UseVisualStyleBackColor = true;

@@ -21,6 +21,14 @@ namespace GL8.CORE
         {
             InitializeComponent();
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
+
+            mbTextBoxAddName.Hint = "Name";
+            mbTextBoxAddAddress.Hint = "Site Address";
+            mbTextBoxAddCategory.Hint = "Category";
+            mbTextBoxAddLogin.Hint = "Login";
+            mbTextBoxAddPassword.Hint = "Password";
+            mbTextBoxAddEmail.Hint = "eMail";
+            mbTextBoxAddAdditionalInfo.Hint = "Notes";
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
