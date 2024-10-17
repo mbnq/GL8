@@ -45,7 +45,7 @@ namespace GL8.CORE
         private void FocusCorrespondingTextBox(string columnName)
         {
             this.BeginInvoke ( (MethodInvoker) delegate {
-                // MessageBox.Show($"{columnName}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show($"{columnName}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information); 
 
                 switch (columnName)
                 {
