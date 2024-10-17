@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.mbDataView = new System.Windows.Forms.DataGridView();
-            this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
             this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +36,11 @@
             this.pswdPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdAdditionalInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,69 @@
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.mbDataView.Size = new System.Drawing.Size(752, 464);
             this.mbDataView.TabIndex = 0;
-            this.mbDataView.AutoGenerateColumns = false;
+            // 
+            // pswdName
+            // 
+            this.pswdName.DataPropertyName = "pswdName";
+            this.pswdName.HeaderText = "Name";
+            this.pswdName.MinimumWidth = 6;
+            this.pswdName.Name = "pswdName";
+            this.pswdName.ReadOnly = true;
+            this.pswdName.Width = 125;
+            // 
+            // pswdAddress
+            // 
+            this.pswdAddress.DataPropertyName = "pswdAddress";
+            this.pswdAddress.HeaderText = "Site";
+            this.pswdAddress.MinimumWidth = 6;
+            this.pswdAddress.Name = "pswdAddress";
+            this.pswdAddress.ReadOnly = true;
+            this.pswdAddress.Width = 125;
+            // 
+            // pswdCategory
+            // 
+            this.pswdCategory.DataPropertyName = "pswdCategory";
+            this.pswdCategory.HeaderText = "Category";
+            this.pswdCategory.MinimumWidth = 6;
+            this.pswdCategory.Name = "pswdCategory";
+            this.pswdCategory.ReadOnly = true;
+            this.pswdCategory.Width = 125;
+            // 
+            // pswdLogin
+            // 
+            this.pswdLogin.DataPropertyName = "pswdLogin";
+            this.pswdLogin.HeaderText = "Login";
+            this.pswdLogin.MinimumWidth = 6;
+            this.pswdLogin.Name = "pswdLogin";
+            this.pswdLogin.ReadOnly = true;
+            this.pswdLogin.Width = 125;
+            // 
+            // pswdPass
+            // 
+            this.pswdPass.DataPropertyName = "pswdPass";
+            this.pswdPass.HeaderText = "Password";
+            this.pswdPass.MinimumWidth = 6;
+            this.pswdPass.Name = "pswdPass";
+            this.pswdPass.ReadOnly = true;
+            this.pswdPass.Width = 125;
+            // 
+            // pswdEmail
+            // 
+            this.pswdEmail.DataPropertyName = "pswdEmail";
+            this.pswdEmail.HeaderText = "eMail";
+            this.pswdEmail.MinimumWidth = 6;
+            this.pswdEmail.Name = "pswdEmail";
+            this.pswdEmail.ReadOnly = true;
+            this.pswdEmail.Width = 125;
+            // 
+            // pswdAdditionalInfo
+            // 
+            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.HeaderText = "Notes";
+            this.pswdAdditionalInfo.MinimumWidth = 6;
+            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.ReadOnly = true;
+            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbButtonNewItem
             // 
@@ -171,69 +233,6 @@
             this.mbButtonEdit.UseAccentColor = false;
             this.mbButtonEdit.UseVisualStyleBackColor = true;
             this.mbButtonEdit.Click += new System.EventHandler(this.mbButtonEdit_Click);
-            // 
-            // pswdName
-            // 
-            this.pswdName.HeaderText = "Name";
-            this.pswdName.MinimumWidth = 6;
-            this.pswdName.Name = "pswdName";
-            this.pswdName.DataPropertyName = "pswdName";
-            this.pswdName.ReadOnly = true;
-            this.pswdName.Width = 125;
-            // 
-            // pswdAddress
-            // 
-            this.pswdAddress.HeaderText = "Site";
-            this.pswdAddress.MinimumWidth = 6;
-            this.pswdAddress.Name = "pswdAddress";
-            this.pswdAddress.DataPropertyName = "pswdAddress";
-            this.pswdAddress.ReadOnly = true;
-            this.pswdAddress.Width = 125;
-            // 
-            // pswdCategory
-            // 
-            this.pswdCategory.HeaderText = "Category";
-            this.pswdCategory.MinimumWidth = 6;
-            this.pswdCategory.Name = "pswdCategory";
-            this.pswdCategory.DataPropertyName = "pswdCategory";
-            this.pswdCategory.ReadOnly = true;
-            this.pswdCategory.Width = 125;
-            // 
-            // pswdLogin
-            // 
-            this.pswdLogin.HeaderText = "Login";
-            this.pswdLogin.MinimumWidth = 6;
-            this.pswdLogin.Name = "pswdLogin";
-            this.pswdLogin.DataPropertyName = "pswdLogin";
-            this.pswdLogin.ReadOnly = true;
-            this.pswdLogin.Width = 125;
-            // 
-            // pswdPass
-            // 
-            this.pswdPass.HeaderText = "Password";
-            this.pswdPass.MinimumWidth = 6;
-            this.pswdPass.Name = "pswdPass";
-            this.pswdPass.DataPropertyName = "pswdPass";
-            this.pswdPass.ReadOnly = true;
-            this.pswdPass.Width = 125;
-            // 
-            // pswdEmail
-            // 
-            this.pswdEmail.HeaderText = "eMail";
-            this.pswdEmail.MinimumWidth = 6;
-            this.pswdEmail.Name = "pswdEmail";
-            this.pswdEmail.DataPropertyName = "pswdEmail";
-            this.pswdEmail.ReadOnly = true;
-            this.pswdEmail.Width = 125;
-            // 
-            // pswdAdditionalInfo
-            // 
-            this.pswdAdditionalInfo.HeaderText = "Notes";
-            this.pswdAdditionalInfo.MinimumWidth = 6;
-            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.ReadOnly = true;
-            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbMainMenu
             // 
