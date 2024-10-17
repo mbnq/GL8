@@ -145,6 +145,7 @@
             this.mbButtonDebug.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonDebug.UseAccentColor = false;
             this.mbButtonDebug.UseVisualStyleBackColor = true;
+            this.mbButtonDebug.Click += new System.EventHandler(this.mbButtonDebug_Click);
             // 
             // mbButtonOptions
             // 

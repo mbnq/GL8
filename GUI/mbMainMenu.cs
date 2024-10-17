@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Newtonsoft.Json;
 
 namespace GL8.CORE
 {
@@ -29,10 +31,16 @@ namespace GL8.CORE
 
         public static BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         private mbDialogAddNew _DialogAddNew;
+        private string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json";
 
         public mbMainMenu()
         {
             InitializeComponent();
+
+            if (File.Exists(mbFilePath) == false) File.Create(mbFilePath).Dispose();
+
+            var json = File.ReadAllText(mbFilePath);
+            mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(json);
             mbDataView.DataSource = mbPSWDList;
         }
 
@@ -40,6 +48,12 @@ namespace GL8.CORE
         {
             _DialogAddNew = new mbDialogAddNew();
             _DialogAddNew.ShowDialog();
+        }
+
+        private void mbButtonDebug_Click(object sender, EventArgs e)
+        {
+            var json = JsonConvert.SerializeObject(mbPSWDList);
+            File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(mbPSWDList));
         }
     }
 }
