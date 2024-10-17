@@ -10,6 +10,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 
@@ -101,28 +102,40 @@ namespace GL8.CORE
         }
         private void mbButtonRemoveItem_Click(object sender, EventArgs e)
         {
-            // 0.) Check if any row from mbDataView.DataSource is selected
+            DataGridViewRow selectedRow = null;
+
+            // Get the selected row either by selected row or selected cell
             if (mbDataView.SelectedRows.Count > 0)
             {
+                selectedRow = mbDataView.SelectedRows[0];
+            }
+            else if (mbDataView.SelectedCells.Count > 0)
+            {
+                int rowIndex = mbDataView.SelectedCells[0].RowIndex;
+                selectedRow = mbDataView.Rows[rowIndex];
+            }
+
+            if (selectedRow != null)
+            {
+                // Check the first cell's value in the selected row
+                var firstCellValue = selectedRow.Cells[0].Value?.ToString();
+                string displayValue = !string.IsNullOrWhiteSpace(firstCellValue) ? firstCellValue : "[Empty]";
+
                 var result = MessageBox.Show(
-                    "Are you sure you want to delete the selected entry?",
+                    $"Are you sure you want to delete the selected entry {displayValue}?",
                     "Confirm Delete",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-
-                    // get the selected row
-                    DataGridViewRow selectedRow = mbDataView.SelectedRows[0];
-
-                    // get the bound data item
+                    // Get the bound data item
                     mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
 
-                    // remove it from the BindingList
+                    // Remove it from the BindingList
                     mbPSWDList.Remove(selectedPSWD);
 
-                    // save the updated data to the file
+                    // Save the updated data to the file
                     SavePSWDData();
                     mbDataView.Refresh();
                 }
@@ -136,6 +149,7 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
+
         private void mbButtonExit_Click(object sender, EventArgs e)
         {
             SavePSWDData();
