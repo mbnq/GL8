@@ -53,11 +53,40 @@ namespace GL8.CORE
 
             mbDataView.CellValueChanged += mbDataView_CellValueChanged;
             mbDataView.RowValidated += mbDataView_RowValidated;
+            mbDataView.CellFormatting += mbDataView_CellFormatting;
+            mbDataView.KeyDown += mbDataView_KeyDown;
             this.FormClosing += mbMainMenu_FormClosing;
         }
         // ------------------- Main ----------------------
 
+        private void mbDataView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null)
+            {
+                e.Value = new string('*', e.Value.ToString().Length);
+            }
+        }
 
+        private void mbDataView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                if (mbDataView.CurrentCell != null && mbDataView.CurrentCell.ColumnIndex == mbDataView.Columns["pswdPass"].Index)
+                {
+                    var selectedRow = mbDataView.CurrentRow;
+                    if (selectedRow != null)
+                    {
+                        mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
+                        if (selectedPSWD != null)
+                        {
+                            Clipboard.SetText(selectedPSWD.pswdPass);
+                        }
+
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
 
         // ------------------- GUI Controls ----------------------
         private void mbButtonNewItem_Click(object sender, EventArgs e)
