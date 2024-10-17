@@ -44,9 +44,11 @@
             this.mbDataView.ColumnHeadersHeight = 29;
             this.mbDataView.Location = new System.Drawing.Point(307, 82);
             this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
+            this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
+            this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.mbDataView.Size = new System.Drawing.Size(752, 464);
             this.mbDataView.TabIndex = 0;
             // 
