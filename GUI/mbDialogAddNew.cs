@@ -14,17 +14,26 @@ namespace GL8.CORE
 {
     public partial class mbDialogAddNew : MaterialForm
     {
-        public mbDialogAddNew()
+        private mbMainMenu _mainMenuInstance;
+
+        public static BindingList<mbPSWD> mbPSWDList = mbPSWDList ?? new BindingList<mbPSWD>();
+        public mbDialogAddNew(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
+            _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
         }
-
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void mbButtonAddAddItem_Click(object sender, EventArgs e)
+        {
+            AddPSWD();
+            this.Close();
+        }
+
+        private void AddPSWD()
         {
             var mbPSWDData = new mbPSWD
             {
@@ -39,8 +48,7 @@ namespace GL8.CORE
                 pswdLastEditTime = DateTime.Now
             };
 
-            mbMainMenu.mbPSWDList.Add(mbPSWDData);
-            this.Close();
+            _mainMenuInstance.mbPSWDList.Add(mbPSWDData);
         }
     }
 }

@@ -105,6 +105,7 @@
             this.mbButtonExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonExit.UseAccentColor = false;
             this.mbButtonExit.UseVisualStyleBackColor = true;
+            this.mbButtonExit.Click += new System.EventHandler(this.mbButtonExit_Click);
             // 
             // mbButtonRemoveItem
             // 
@@ -125,6 +126,7 @@
             this.mbButtonRemoveItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonRemoveItem.UseAccentColor = false;
             this.mbButtonRemoveItem.UseVisualStyleBackColor = true;
+            this.mbButtonRemoveItem.Click += new System.EventHandler(this.mbButtonRemoveItem_Click);
             // 
             // mbButtonDebug
             // 
