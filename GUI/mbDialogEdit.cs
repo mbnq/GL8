@@ -16,13 +16,11 @@ namespace GL8.CORE
     {
         private mbPSWD _pswdItem;
         private mbMainMenu _mainMenuInstance;
-        private string _fieldToFocus;
-        public mbDialogEdit(GL8.CORE.mbMainMenu mainMenuInstance, mbPSWD pswdItem, string fieldToFocus)
+        public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
             _pswdItem = pswdItem ?? throw new ArgumentNullException(nameof(pswdItem));
-            _fieldToFocus = fieldToFocus;
 
             // Pre-fill the textboxes with the existing data
             mbTextBoxEditName.Text = _pswdItem.pswdName;
@@ -41,13 +39,9 @@ namespace GL8.CORE
             mbTextBoxEditPassword.Hint = "Password";
             mbTextBoxEditEmail.Hint = "eMail";
             mbTextBoxEditAdditionalInfo.Hint = "Notes";
-
-            // Set focus to the appropriate field
-            SetFocusToField(_fieldToFocus);
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
-            // Update the _pswdItem with new values
             _pswdItem.pswdName = mbTextBoxEditName.Text;
             _pswdItem.pswdAddress = mbTextBoxEditAddress.Text;
             _pswdItem.pswdCategory = mbTextBoxEditCategory.Text;
@@ -57,61 +51,14 @@ namespace GL8.CORE
             _pswdItem.pswdAdditionalInfo = mbTextBoxEditAdditionalInfo.Text;
             _pswdItem.pswdLastEditTime = DateTime.Now;
 
-            // Refresh the DataGridView
             _mainMenuInstance.mbDataView.Refresh();
-
-            // Save the updated data
             _mainMenuInstance.SavePSWDData();
 
-            // Close the edit form
             this.Close();
         }
         private void mbButtonEditCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void SetFocusToField(string fieldName)
-        {
-            // Debugging statement
-            MessageBox.Show("Field to focus in SetFocusToField: " + fieldName);
-
-            if (string.IsNullOrEmpty(fieldName))
-            {
-                mbTextBoxEditName.Focus();
-                return;
-            }
-
-            // Map the field name to the corresponding textbox
-            switch (fieldName)
-            {
-                case "pswdName":
-                    mbTextBoxEditName.Focus();
-                    break;
-                case "pswdAddress":
-                    mbTextBoxEditAddress.Focus();
-                    break;
-                case "pswdCategory":
-                    mbTextBoxEditCategory.Focus();
-                    break;
-                case "pswdLogin":
-                    mbTextBoxEditLogin.Focus();
-                    break;
-                case "pswdPass":
-                    mbTextBoxEditPassword.Focus();
-                    break;
-                case "pswdEmail":
-                    mbTextBoxEditEmail.Focus();
-                    break;
-                case "pswdAdditionalInfo":
-                    mbTextBoxEditAdditionalInfo.Focus();
-                    break;
-                default:
-                    // If the field name doesn't match, set focus to the first field
-                    mbTextBoxEditName.Focus();
-                    break;
-            }
-        }
-
     }
 }
