@@ -113,7 +113,11 @@ namespace GL8.CORE
             {
                 mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
 
-                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD);
+                // Get the name of the currently selected column
+                string selectedColumnName = mbDataView.Columns[mbDataView.CurrentCell.ColumnIndex].Name;
+
+                // Pass the selected column name to the dialog
+                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD, selectedColumnName);
 
                 editDialog.ShowDialog();
 
@@ -129,6 +133,7 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
+
         private void mbButtonRemoveItem_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = null;
