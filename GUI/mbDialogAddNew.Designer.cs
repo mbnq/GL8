@@ -1,4 +1,4 @@
-﻿namespace GL8.GUI
+﻿namespace GL8.CORE
 {
     partial class mbDialogAddNew
     {
@@ -34,7 +34,7 @@
             this.mbTextBoxAddLogin = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxAddPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxAddEmail = new MaterialSkin.Controls.MaterialTextBox2();
-            this.mbTextBoxAddAdditional = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbTextBoxAddAdditionalInfo = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbButtonAddAddItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonAddCancel = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.mbTextBoxAddName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.mbTextBoxAddName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.mbTextBoxAddName.Depth = 0;
-            this.mbTextBoxAddName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbTextBoxAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddName.HideSelection = true;
             this.mbTextBoxAddName.LeadingIcon = null;
             this.mbTextBoxAddName.Location = new System.Drawing.Point(6, 67);
@@ -225,36 +225,36 @@
             this.mbTextBoxAddEmail.TrailingIcon = null;
             this.mbTextBoxAddEmail.UseSystemPasswordChar = false;
             // 
-            // mbTextBoxAddAdditional
+            // mbTextBoxAddAdditionalInfo
             // 
-            this.mbTextBoxAddAdditional.AnimateReadOnly = false;
-            this.mbTextBoxAddAdditional.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.mbTextBoxAddAdditional.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.mbTextBoxAddAdditional.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mbTextBoxAddAdditional.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.mbTextBoxAddAdditional.Depth = 0;
-            this.mbTextBoxAddAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mbTextBoxAddAdditional.HideSelection = true;
-            this.mbTextBoxAddAdditional.LeadingIcon = null;
-            this.mbTextBoxAddAdditional.Location = new System.Drawing.Point(6, 229);
-            this.mbTextBoxAddAdditional.MaxLength = 32767;
-            this.mbTextBoxAddAdditional.MouseState = MaterialSkin.MouseState.OUT;
-            this.mbTextBoxAddAdditional.Name = "mbTextBoxAddAdditional";
-            this.mbTextBoxAddAdditional.PasswordChar = '\0';
-            this.mbTextBoxAddAdditional.PrefixSuffixText = null;
-            this.mbTextBoxAddAdditional.ReadOnly = false;
-            this.mbTextBoxAddAdditional.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mbTextBoxAddAdditional.SelectedText = "";
-            this.mbTextBoxAddAdditional.SelectionLength = 0;
-            this.mbTextBoxAddAdditional.SelectionStart = 0;
-            this.mbTextBoxAddAdditional.ShortcutsEnabled = true;
-            this.mbTextBoxAddAdditional.Size = new System.Drawing.Size(532, 48);
-            this.mbTextBoxAddAdditional.TabIndex = 0;
-            this.mbTextBoxAddAdditional.TabStop = false;
-            this.mbTextBoxAddAdditional.Text = "Notes";
-            this.mbTextBoxAddAdditional.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.mbTextBoxAddAdditional.TrailingIcon = null;
-            this.mbTextBoxAddAdditional.UseSystemPasswordChar = false;
+            this.mbTextBoxAddAdditionalInfo.AnimateReadOnly = false;
+            this.mbTextBoxAddAdditionalInfo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.mbTextBoxAddAdditionalInfo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.mbTextBoxAddAdditionalInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mbTextBoxAddAdditionalInfo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.mbTextBoxAddAdditionalInfo.Depth = 0;
+            this.mbTextBoxAddAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbTextBoxAddAdditionalInfo.HideSelection = true;
+            this.mbTextBoxAddAdditionalInfo.LeadingIcon = null;
+            this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(6, 229);
+            this.mbTextBoxAddAdditionalInfo.MaxLength = 32767;
+            this.mbTextBoxAddAdditionalInfo.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbTextBoxAddAdditionalInfo.Name = "mbTextBoxAddAdditionalInfo";
+            this.mbTextBoxAddAdditionalInfo.PasswordChar = '\0';
+            this.mbTextBoxAddAdditionalInfo.PrefixSuffixText = null;
+            this.mbTextBoxAddAdditionalInfo.ReadOnly = false;
+            this.mbTextBoxAddAdditionalInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mbTextBoxAddAdditionalInfo.SelectedText = "";
+            this.mbTextBoxAddAdditionalInfo.SelectionLength = 0;
+            this.mbTextBoxAddAdditionalInfo.SelectionStart = 0;
+            this.mbTextBoxAddAdditionalInfo.ShortcutsEnabled = true;
+            this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(532, 48);
+            this.mbTextBoxAddAdditionalInfo.TabIndex = 0;
+            this.mbTextBoxAddAdditionalInfo.TabStop = false;
+            this.mbTextBoxAddAdditionalInfo.Text = "Notes";
+            this.mbTextBoxAddAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mbTextBoxAddAdditionalInfo.TrailingIcon = null;
+            this.mbTextBoxAddAdditionalInfo.UseSystemPasswordChar = false;
             // 
             // mbButtonAddAddItem
             // 
@@ -275,6 +275,7 @@
             this.mbButtonAddAddItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonAddAddItem.UseAccentColor = false;
             this.mbButtonAddAddItem.UseVisualStyleBackColor = true;
+            this.mbButtonAddAddItem.Click += new System.EventHandler(this.mbButtonAddAddItem_Click);
             // 
             // mbButtonAddCancel
             // 
@@ -304,7 +305,7 @@
             this.ClientSize = new System.Drawing.Size(800, 380);
             this.Controls.Add(this.mbButtonAddCancel);
             this.Controls.Add(this.mbButtonAddAddItem);
-            this.Controls.Add(this.mbTextBoxAddAdditional);
+            this.Controls.Add(this.mbTextBoxAddAdditionalInfo);
             this.Controls.Add(this.mbTextBoxAddEmail);
             this.Controls.Add(this.mbTextBoxAddPassword);
             this.Controls.Add(this.mbTextBoxAddLogin);
@@ -325,7 +326,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddLogin;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddPassword;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddEmail;
-        private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddAdditional;
+        private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddAdditionalInfo;
         private MaterialSkin.Controls.MaterialButton mbButtonAddAddItem;
         private MaterialSkin.Controls.MaterialButton mbButtonAddCancel;
     }

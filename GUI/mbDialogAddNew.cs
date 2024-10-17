@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GL8.CORE.mbMainMenu;
 
-namespace GL8.GUI
+namespace GL8.CORE
 {
     public partial class mbDialogAddNew : MaterialForm
     {
@@ -20,6 +21,25 @@ namespace GL8.GUI
 
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void mbButtonAddAddItem_Click(object sender, EventArgs e)
+        {
+            var mbPSWDData = new mbPSWD
+            {
+                pswdName = mbTextBoxAddName.Text,
+                pswdAddress = mbTextBoxAddAddress.Text,
+                pswdCategory = mbTextBoxAddCategory.Text,
+                pswdLogin = mbTextBoxAddLogin.Text,
+                pswdPass = mbTextBoxAddPassword.Text,
+                pswdEmail = mbTextBoxAddEmail.Text,
+                pswdAdditionalInfo = mbTextBoxAddAdditionalInfo.Text,
+                pswdCreateTime = DateTime.Now,
+                pswdLastEditTime = DateTime.Now
+            };
+
+            mbMainMenu.mbPSWDList.Add(mbPSWDData);
             this.Close();
         }
     }

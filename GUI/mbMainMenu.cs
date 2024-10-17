@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GL8.GUI;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -15,7 +14,7 @@ namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
-        internal class mbPSWD
+        public class mbPSWD
         {
             public string pswdName { get; set; }
             public string pswdAddress { get; set; }
@@ -28,13 +27,13 @@ namespace GL8.CORE
             public DateTime pswdLastEditTime { get; set; }
         }
 
-        private BindingList<mbPSWD> _mbPSWD = new BindingList<mbPSWD>();
+        public static BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         private mbDialogAddNew _DialogAddNew;
 
         public mbMainMenu()
         {
             InitializeComponent();
-            mbDataView.DataSource = _mbPSWD;
+            mbDataView.DataSource = mbPSWDList;
         }
 
         private void mbButtonNewItem_Click(object sender, EventArgs e)
