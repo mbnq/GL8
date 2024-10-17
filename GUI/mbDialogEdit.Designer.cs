@@ -47,7 +47,7 @@
             this.mbButtonEditCancel.Depth = 0;
             this.mbButtonEditCancel.HighEmphasis = true;
             this.mbButtonEditCancel.Icon = null;
-            this.mbButtonEditCancel.Location = new System.Drawing.Point(533, 396);
+            this.mbButtonEditCancel.Location = new System.Drawing.Point(460, 396);
             this.mbButtonEditCancel.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonEditCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonEditCancel.Name = "mbButtonEditCancel";
@@ -68,7 +68,7 @@
             this.mbButtonEditSave.Depth = 0;
             this.mbButtonEditSave.HighEmphasis = true;
             this.mbButtonEditSave.Icon = null;
-            this.mbButtonEditSave.Location = new System.Drawing.Point(754, 396);
+            this.mbButtonEditSave.Location = new System.Drawing.Point(681, 396);
             this.mbButtonEditSave.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonEditSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonEditSave.Name = "mbButtonEditSave";
@@ -105,7 +105,7 @@
             this.mbTextBoxEditAdditionalInfo.SelectionLength = 0;
             this.mbTextBoxEditAdditionalInfo.SelectionStart = 0;
             this.mbTextBoxEditAdditionalInfo.ShortcutsEnabled = true;
-            this.mbTextBoxEditAdditionalInfo.Size = new System.Drawing.Size(958, 48);
+            this.mbTextBoxEditAdditionalInfo.Size = new System.Drawing.Size(883, 48);
             this.mbTextBoxEditAdditionalInfo.TabIndex = 6;
             this.mbTextBoxEditAdditionalInfo.TabStop = false;
             this.mbTextBoxEditAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -123,7 +123,7 @@
             this.mbTextBoxEditEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditEmail.HideSelection = true;
             this.mbTextBoxEditEmail.LeadingIcon = null;
-            this.mbTextBoxEditEmail.Location = new System.Drawing.Point(633, 213);
+            this.mbTextBoxEditEmail.Location = new System.Drawing.Point(594, 213);
             this.mbTextBoxEditEmail.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxEditEmail.MaxLength = 32767;
             this.mbTextBoxEditEmail.MouseState = MaterialSkin.MouseState.OUT;
@@ -136,7 +136,7 @@
             this.mbTextBoxEditEmail.SelectionLength = 0;
             this.mbTextBoxEditEmail.SelectionStart = 0;
             this.mbTextBoxEditEmail.ShortcutsEnabled = true;
-            this.mbTextBoxEditEmail.Size = new System.Drawing.Size(333, 48);
+            this.mbTextBoxEditEmail.Size = new System.Drawing.Size(300, 48);
             this.mbTextBoxEditEmail.TabIndex = 5;
             this.mbTextBoxEditEmail.TabStop = false;
             this.mbTextBoxEditEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -154,7 +154,7 @@
             this.mbTextBoxEditPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditPassword.HideSelection = true;
             this.mbTextBoxEditPassword.LeadingIcon = null;
-            this.mbTextBoxEditPassword.Location = new System.Drawing.Point(633, 147);
+            this.mbTextBoxEditPassword.Location = new System.Drawing.Point(594, 147);
             this.mbTextBoxEditPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxEditPassword.MaxLength = 32767;
             this.mbTextBoxEditPassword.MouseState = MaterialSkin.MouseState.OUT;
@@ -167,7 +167,7 @@
             this.mbTextBoxEditPassword.SelectionLength = 0;
             this.mbTextBoxEditPassword.SelectionStart = 0;
             this.mbTextBoxEditPassword.ShortcutsEnabled = true;
-            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(333, 48);
+            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(300, 48);
             this.mbTextBoxEditPassword.TabIndex = 4;
             this.mbTextBoxEditPassword.TabStop = false;
             this.mbTextBoxEditPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -185,7 +185,7 @@
             this.mbTextBoxEditLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditLogin.HideSelection = true;
             this.mbTextBoxEditLogin.LeadingIcon = null;
-            this.mbTextBoxEditLogin.Location = new System.Drawing.Point(633, 80);
+            this.mbTextBoxEditLogin.Location = new System.Drawing.Point(592, 80);
             this.mbTextBoxEditLogin.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxEditLogin.MaxLength = 32767;
             this.mbTextBoxEditLogin.MouseState = MaterialSkin.MouseState.OUT;
@@ -198,7 +198,7 @@
             this.mbTextBoxEditLogin.SelectionLength = 0;
             this.mbTextBoxEditLogin.SelectionStart = 0;
             this.mbTextBoxEditLogin.ShortcutsEnabled = true;
-            this.mbTextBoxEditLogin.Size = new System.Drawing.Size(333, 48);
+            this.mbTextBoxEditLogin.Size = new System.Drawing.Size(300, 48);
             this.mbTextBoxEditLogin.TabIndex = 3;
             this.mbTextBoxEditLogin.TabStop = false;
             this.mbTextBoxEditLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -229,7 +229,7 @@
             this.mbTextBoxEditCategory.SelectionLength = 0;
             this.mbTextBoxEditCategory.SelectionStart = 0;
             this.mbTextBoxEditCategory.ShortcutsEnabled = true;
-            this.mbTextBoxEditCategory.Size = new System.Drawing.Size(478, 48);
+            this.mbTextBoxEditCategory.Size = new System.Drawing.Size(500, 48);
             this.mbTextBoxEditCategory.TabIndex = 2;
             this.mbTextBoxEditCategory.TabStop = false;
             this.mbTextBoxEditCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -260,7 +260,7 @@
             this.mbTextBoxEditAddress.SelectionLength = 0;
             this.mbTextBoxEditAddress.SelectionStart = 0;
             this.mbTextBoxEditAddress.ShortcutsEnabled = true;
-            this.mbTextBoxEditAddress.Size = new System.Drawing.Size(479, 48);
+            this.mbTextBoxEditAddress.Size = new System.Drawing.Size(500, 48);
             this.mbTextBoxEditAddress.TabIndex = 1;
             this.mbTextBoxEditAddress.TabStop = false;
             this.mbTextBoxEditAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -291,7 +291,7 @@
             this.mbTextBoxEditName.SelectionLength = 0;
             this.mbTextBoxEditName.SelectionStart = 0;
             this.mbTextBoxEditName.ShortcutsEnabled = true;
-            this.mbTextBoxEditName.Size = new System.Drawing.Size(478, 48);
+            this.mbTextBoxEditName.Size = new System.Drawing.Size(500, 48);
             this.mbTextBoxEditName.TabIndex = 0;
             this.mbTextBoxEditName.TabStop = false;
             this.mbTextBoxEditName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(973, 450);
+            this.ClientSize = new System.Drawing.Size(900, 450);
             this.Controls.Add(this.mbButtonEditCancel);
             this.Controls.Add(this.mbButtonEditSave);
             this.Controls.Add(this.mbTextBoxEditAdditionalInfo);
