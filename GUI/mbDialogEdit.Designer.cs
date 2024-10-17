@@ -292,7 +292,7 @@
             this.mbTextBoxEditName.SelectionStart = 0;
             this.mbTextBoxEditName.ShortcutsEnabled = true;
             this.mbTextBoxEditName.Size = new System.Drawing.Size(478, 48);
-            this.mbTextBoxEditName.TabIndex = 8;
+            this.mbTextBoxEditName.TabIndex = 1;
             this.mbTextBoxEditName.TabStop = false;
             this.mbTextBoxEditName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditName.TrailingIcon = null;

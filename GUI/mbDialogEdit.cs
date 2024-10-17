@@ -39,7 +39,14 @@ namespace GL8.CORE
             mbTextBoxEditPassword.Hint = "Password";
             mbTextBoxEditEmail.Hint = "eMail";
             mbTextBoxEditAdditionalInfo.Hint = "Notes";
+
+            this.Load += mbDialogEdit_Load;
         }
+        private void mbDialogEdit_Load(object sender, EventArgs e)
+        {
+            mbTextBoxEditName.Focus();
+        }
+
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
             _pswdItem.pswdName = mbTextBoxEditName.Text;

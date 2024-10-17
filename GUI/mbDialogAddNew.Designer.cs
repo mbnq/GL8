@@ -291,7 +291,7 @@
             this.mbButtonAddCancel.Name = "mbButtonAddCancel";
             this.mbButtonAddCancel.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbButtonAddCancel.Size = new System.Drawing.Size(211, 44);
-            this.mbButtonAddCancel.TabIndex = 1;
+            this.mbButtonAddCancel.TabIndex = 8;
             this.mbButtonAddCancel.Text = "Cancel";
             this.mbButtonAddCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonAddCancel.UseAccentColor = false;
