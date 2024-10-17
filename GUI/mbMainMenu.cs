@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,29 +63,7 @@ namespace GL8.CORE
         }
         // ------------------- Main ----------------------
 
-        // ------------------- Data Handling ----------------------
-        public void LoadPSWDData()
-        {
-            var json = File.ReadAllText(mbFilePath);
-            mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(json);
 
-            if (mbPSWDList == null) {mbPSWDList = new BindingList<mbPSWD>();}
-
-            mbDataView.DataSource = mbPSWDList;
-            this.Refresh();
-        }
-        private void CreateDataFileIfMissing()
-        {
-            if (!File.Exists(mbFilePath))
-            {
-                File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(new BindingList<mbPSWD>()));
-            }
-        }
-        public void SavePSWDData()
-        {
-            var json = JsonConvert.SerializeObject(mbPSWDList);
-            File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(mbPSWDList));
-        }
 
         // ------------------- GUI Controls ----------------------
         private void mbButtonNewItem_Click(object sender, EventArgs e)
@@ -146,15 +133,14 @@ namespace GL8.CORE
                     SavePSWDData();
                     unsavedChanges = false;
                 }
-                else if (result == DialogResult.Cancel)
+                else
                 {
-                    e.Cancel = true; // Cancel the form closing
+                    e.Cancel = true;
                 }
-                // If 'No', proceed without saving
             }
         }
 
-        // ------------------- Saving / Loading ----------------------
+        // ------------------- DataView ----------------------
 
         private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
