@@ -163,5 +163,10 @@ namespace GL8.CORE
                 }
             }
         }
+
+        private void mbButtonEdit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
