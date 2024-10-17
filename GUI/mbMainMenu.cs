@@ -33,6 +33,8 @@ namespace GL8.CORE
         private mbDialogAddNew _DialogAddNew;
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
         private bool unsavedChanges = false;
+
+        // ------------------- Main ----------------------
         public mbMainMenu()
         {
             InitializeComponent();
@@ -50,21 +52,19 @@ namespace GL8.CORE
             mbDataView.RowValidated += mbDataView_RowValidated;
             this.FormClosing += mbMainMenu_FormClosing;
         }
+        // ------------------- Main ----------------------
 
+        // ------------------- Data Handling ----------------------
         public void LoadPSWDData()
         {
             var json = File.ReadAllText(mbFilePath);
             mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(json);
 
-            if (mbPSWDList == null)
-            {
-                mbPSWDList = new BindingList<mbPSWD>();
-            }
+            if (mbPSWDList == null) {mbPSWDList = new BindingList<mbPSWD>();}
 
             mbDataView.DataSource = mbPSWDList;
             this.Refresh();
         }
-
         private void CreateDataFileIfMissing()
         {
             if (!File.Exists(mbFilePath))
@@ -72,7 +72,13 @@ namespace GL8.CORE
                 File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(new BindingList<mbPSWD>()));
             }
         }
+        public void SavePSWDData()
+        {
+            var json = JsonConvert.SerializeObject(mbPSWDList);
+            File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(mbPSWDList));
+        }
 
+        // ------------------- GUI Controls ----------------------
         private void mbButtonNewItem_Click(object sender, EventArgs e)
         {
             _DialogAddNew = new mbDialogAddNew(this);
@@ -83,18 +89,6 @@ namespace GL8.CORE
             SavePSWDData();
             LoadPSWDData();
         }
-        public void SavePSWDData()
-        {
-            var json = JsonConvert.SerializeObject(mbPSWDList);
-            File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(mbPSWDList));
-        }
-
-        private void mbButtonExit_Click(object sender, EventArgs e)
-        {
-            SavePSWDData();
-            Application.Exit();
-        }
-
         private void mbButtonRemoveItem_Click(object sender, EventArgs e)
         {
             // 0.) Check if any row from mbDataView.DataSource is selected
@@ -108,20 +102,18 @@ namespace GL8.CORE
 
                 if (result == DialogResult.Yes)
                 {
-                    // 2.) Delete selected row
-                    // Get the selected row
+
+                    // get the selected row
                     DataGridViewRow selectedRow = mbDataView.SelectedRows[0];
 
-                    // Get the bound data item
+                    // get the bound data item
                     mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
 
-                    // Remove it from the BindingList
+                    // remove it from the BindingList
                     mbPSWDList.Remove(selectedPSWD);
 
-                    // Save the updated data to the file
+                    // save the updated data to the file
                     SavePSWDData();
-
-                    // Optionally refresh the DataGridView
                     mbDataView.Refresh();
                 }
             }
@@ -134,31 +126,10 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
-
-        private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void mbButtonExit_Click(object sender, EventArgs e)
         {
-            unsavedChanges = true;
-        }
-        private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (unsavedChanges)
-            {
-                var result = MessageBox.Show(
-                    "You have made changes to this row. Do you want to save them now?",
-                    "Save Changes",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    SavePSWDData();
-                    unsavedChanges = false;
-                }
-                else
-                {
-                    // Optionally, keep unsavedChanges as true to prompt later
-                }
-            }
+            SavePSWDData();
+            Application.Exit();
         }
         private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -180,6 +151,30 @@ namespace GL8.CORE
                     e.Cancel = true; // Cancel the form closing
                 }
                 // If 'No', proceed without saving
+            }
+        }
+
+        // ------------------- Saving / Loading ----------------------
+
+        private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            unsavedChanges = true;
+        }
+        private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (unsavedChanges)
+            {
+                var result = MessageBox.Show(
+                    "You have made changes to this row. Do you want to save them now?",
+                    "Save Changes",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    SavePSWDData();
+                    unsavedChanges = false;
+                }
             }
         }
     }
