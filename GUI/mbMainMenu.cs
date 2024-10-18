@@ -121,7 +121,6 @@ namespace GL8.CORE
             mbDataView.Refresh();
         }
 
-
         // ------------------- GUI Controls ---------------
         public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
