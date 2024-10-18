@@ -20,11 +20,10 @@ namespace GL8.CORE
     public partial class mbMainMenu : MaterialForm
     {
         // ------------------- Variables ------------------
-        public bool mbHidePasswords = true;
 
-        public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
-        public static string mbFilePath =           Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbData.dat");
-        public static string mbFilePathSettings =   Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
+        public BindingList<mbPSWD> mbPSWDList       = new BindingList<mbPSWD>();
+        public static string mbFilePath             = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbData.dat");
+        public static string mbFilePathSettings     = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
         private mbDialogAddNew      _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
@@ -32,7 +31,8 @@ namespace GL8.CORE
         private mbRMBMenu           _mbRMBMenu;
 
         private SecureString _userPassword;
-        private bool _unsavedChanges = false;
+        public bool mbHidePasswords     = true;
+        private bool _unsavedChanges    = false;
 
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
