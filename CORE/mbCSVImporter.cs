@@ -1,5 +1,5 @@
 ﻿/* 
-    
+        
     www.mbnq.pl 2024 
     https://mbnq.pl/
     mbnq00 on gmail
@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security;
 using System.Windows.Forms;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -29,7 +28,7 @@ namespace GL8.CORE
 
         public void ImportCsv()
         {
-            // Step 3: Prompt user to select CSV file
+            // Step 1: Prompt user to select CSV file
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Select CSV File",
@@ -53,16 +52,8 @@ namespace GL8.CORE
                 return;
             }
 
-            // Step 5: Ask user to map CSV columns to mbPSWD fields
-            List<string> csvHeaders = GetCsvHeaders(filePath);
-
-            if (csvHeaders == null || csvHeaders.Count == 0)
-            {
-                MessageBox.Show("Unable to read CSV headers. Please ensure the file is correctly formatted.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            mbCSVImportDialog mappingDialog = new mbCSVImportDialog(csvHeaders);
+            // Step 2: Show column mapping dialog, passing the file path
+            mbCSVImportDialog mappingDialog = new mbCSVImportDialog(filePath);
             DialogResult mappingResult = mappingDialog.ShowDialog();
 
             if (mappingResult != DialogResult.OK)
@@ -72,9 +63,10 @@ namespace GL8.CORE
             }
 
             Dictionary<string, string> columnMappings = mappingDialog.ColumnMappings;
+            string delimiter = mappingDialog.SelectedDelimiter;
 
-            // Step 6: Import and validate data
-            List<mbPSWD> importedPswdList = ImportData(filePath, columnMappings);
+            // Step 3: Import and validate data
+            List<mbPSWD> importedPswdList = ImportData(filePath, columnMappings, delimiter);
 
             if (importedPswdList == null || importedPswdList.Count == 0)
             {
@@ -82,13 +74,13 @@ namespace GL8.CORE
                 return;
             }
 
-            // Add imported entries to the BindingList
+            // Step 4: Add imported entries to the BindingList
             foreach (var pswd in importedPswdList)
             {
                 _mainMenuInstance.mbPSWDList.Add(pswd);
             }
 
-            // Step 7: Refresh and ask to save
+            // Step 5: Refresh and ask to save
             _mainMenuInstance.mbDataView.Refresh();
 
             DialogResult saveResult = MessageBox.Show("CSV data imported successfully. Do you want to save changes?", "Import CSV", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -99,7 +91,7 @@ namespace GL8.CORE
                 MessageBox.Show("Changes saved successfully.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Step 8: Finish
+            // Step 6: Finish
             MessageBox.Show("CSV import operation completed.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -112,7 +104,7 @@ namespace GL8.CORE
                 {
                     csv.Read();
                     csv.ReadHeader();
-                    return csv.HeaderRecord.ToList();
+                    return csv.HeaderRecord.ToList(); // Correct access
                 }
             }
             catch (Exception ex)
@@ -122,7 +114,7 @@ namespace GL8.CORE
             }
         }
 
-        private List<mbPSWD> ImportData(string filePath, Dictionary<string, string> columnMappings)
+        private List<mbPSWD> ImportData(string filePath, Dictionary<string, string> columnMappings, string delimiter)
         {
             List<mbPSWD> pswdList = new List<mbPSWD>();
 
@@ -132,6 +124,7 @@ namespace GL8.CORE
                 {
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
+                        Delimiter = delimiter,
                         MissingFieldFound = null, // Ignore missing fields
                         HeaderValidated = null,
                         IgnoreBlankLines = true,
@@ -150,8 +143,8 @@ namespace GL8.CORE
 
                             foreach (var mapping in columnMappings)
                             {
-                                string pswdProperty = mapping.Key;
-                                string csvColumn = mapping.Value;
+                                string pswdProperty = mapping.Key;   // Property name
+                                string csvColumn = mapping.Value;    // CSV column name
 
                                 string value = csvReader.GetField(csvColumn);
 

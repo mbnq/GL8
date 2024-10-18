@@ -129,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\mbCSVImportDialog.resx">
+      <DependentUpon>mbCSVImportDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbDialogAddNew.resx">
       <DependentUpon>mbDialogAddNew.cs</DependentUpon>
     </EmbeddedResource>

@@ -63,7 +63,7 @@ namespace GL8.CORE
 
         // ------------------- Search ---------------------
 
-        private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
+        private void mbSearchTextBox_TextChanged0(object sender, EventArgs e)
         {
             string searchText = mbSearchTextBox.Text.ToLower();
 
@@ -90,6 +90,37 @@ namespace GL8.CORE
             }
             mbDataView.Refresh();
         }
+        private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = mbSearchTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // When the search box is empty, show all items
+                mbDataView.DataSource = mbPSWDList;
+            }
+            else
+            {
+                // Convert search text to lowercase once for efficiency
+                string lowerSearchText = searchText.ToLower();
+
+                // Filter the list based on the search text
+                var filteredList = new BindingList<mbPSWD>(
+                    mbPSWDList.Where(pswd =>
+                        (!string.IsNullOrEmpty(pswd.pswdName) && pswd.pswdName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (!string.IsNullOrEmpty(pswd.pswdAddress) && pswd.pswdAddress.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (!string.IsNullOrEmpty(pswd.pswdCategory) && pswd.pswdCategory.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (!string.IsNullOrEmpty(pswd.pswdLogin) && pswd.pswdLogin.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (!string.IsNullOrEmpty(pswd.pswdEmail) && pswd.pswdEmail.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (!string.IsNullOrEmpty(pswd.pswdAdditionalInfo) && pswd.pswdAdditionalInfo.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0))
+                    .ToList()
+                );
+
+                mbDataView.DataSource = filteredList;
+            }
+            mbDataView.Refresh();
+        }
+
 
         // ------------------- GUI Controls ---------------
         public void mbButtonNewItem_Click(object sender, EventArgs e)
