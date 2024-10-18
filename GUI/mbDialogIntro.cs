@@ -34,7 +34,7 @@ namespace GL8.CORE
         private void mbIntroButtonLogin_Click(object sender, EventArgs e)
         {
             // Load user settings (hashed password and salt)
-            UserSettings settings = UserSettings.LoadSettings();
+            mbUserSettings settings = mbUserSettings.LoadSettings();
 
             if (string.IsNullOrEmpty(settings.Salt))
             {
@@ -48,7 +48,7 @@ namespace GL8.CORE
                 byte[] saltBytes = Convert.FromBase64String(settings.Salt);  // Check if salt conversion works
 
                 // Verify password using Argon2
-                if (PasswordManager.VerifyPassword(enteredPassword, settings.HashedPassword, saltBytes))
+                if (mbPasswordManager.VerifyPassword(enteredPassword, settings.HashedPassword, saltBytes))
                 {
                     Program.mbPassOK = true;
                     this.Close();

@@ -54,10 +54,10 @@ namespace GL8.CORE
 
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
-            UserSettings settings = UserSettings.LoadSettings();
+            mbUserSettings settings = mbUserSettings.LoadSettings();
 
             // Verify the current password
-            if (!PasswordManager.VerifyPassword(mbButtonSettingsChangeMasterPass_current.Text, settings.HashedPassword, Convert.FromBase64String(settings.Salt)))
+            if (!mbPasswordManager.VerifyPassword(mbButtonSettingsChangeMasterPass_current.Text, settings.HashedPassword, Convert.FromBase64String(settings.Salt)))
             {
                 MessageBox.Show("Current password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -71,8 +71,8 @@ namespace GL8.CORE
             }
 
             // Generate a new salt and hash the new password
-            byte[] newSalt = PasswordManager.GenerateSalt();
-            settings.HashedPassword = PasswordManager.HashPassword(mbButtonSettingsChangeMasterPass_new.Text, newSalt);
+            byte[] newSalt = mbPasswordManager.GenerateSalt();
+            settings.HashedPassword = mbPasswordManager.HashPassword(mbButtonSettingsChangeMasterPass_new.Text, newSalt);
             settings.Salt = Convert.ToBase64String(newSalt); // Store the salt as a Base64 string
             settings.SaveSettings();
 

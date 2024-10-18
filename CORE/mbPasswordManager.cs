@@ -2,7 +2,7 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
-public class PasswordManager
+public class mbPasswordManager
 {
     // Method to generate a random salt
     public static byte[] GenerateSalt(int size = 16)
