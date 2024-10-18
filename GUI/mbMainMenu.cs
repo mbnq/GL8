@@ -18,7 +18,7 @@ namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
-
+        public bool mbHidePasswords = true;
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
@@ -52,9 +52,15 @@ namespace GL8.CORE
         }
         // ------------------- Main ----------------------
 
+        public void mbRefreshMainMenu()
+        {
+            this.Refresh();
+            mbDataView.Refresh();
+        }
+
         private void mbDataView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null)
+            if ((mbHidePasswords) && (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null))
             {
                 e.Value = new string('*', e.Value.ToString().Length);
             }
