@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.mbButtonSettingsClose = new MaterialSkin.Controls.MaterialButton();
-            this.mbSettingsCheckboxHidePswd = new MaterialSkin.Controls.MaterialCheckbox();
+            this.mbSettingsSwitchHidePswd = new MaterialSkin.Controls.MaterialSwitch();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -53,31 +53,31 @@
             this.mbButtonSettingsClose.UseVisualStyleBackColor = true;
             this.mbButtonSettingsClose.Click += new System.EventHandler(this.mbButtonSettingsClose_Click);
             // 
-            // mbSettingsCheckboxHidePswd
+            // mbSettingsSwitchHidePswd
             // 
-            this.mbSettingsCheckboxHidePswd.AutoSize = true;
-            this.mbSettingsCheckboxHidePswd.Checked = true;
-            this.mbSettingsCheckboxHidePswd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mbSettingsCheckboxHidePswd.Depth = 0;
-            this.mbSettingsCheckboxHidePswd.Location = new System.Drawing.Point(3, 84);
-            this.mbSettingsCheckboxHidePswd.Margin = new System.Windows.Forms.Padding(0);
-            this.mbSettingsCheckboxHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.mbSettingsCheckboxHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbSettingsCheckboxHidePswd.Name = "mbSettingsCheckboxHidePswd";
-            this.mbSettingsCheckboxHidePswd.ReadOnly = false;
-            this.mbSettingsCheckboxHidePswd.Ripple = true;
-            this.mbSettingsCheckboxHidePswd.Size = new System.Drawing.Size(149, 37);
-            this.mbSettingsCheckboxHidePswd.TabIndex = 1;
-            this.mbSettingsCheckboxHidePswd.Text = "Hide Passwords";
-            this.mbSettingsCheckboxHidePswd.UseVisualStyleBackColor = true;
-            this.mbSettingsCheckboxHidePswd.CheckedChanged += new System.EventHandler(this.mbSettingsCheckboxHidePswd_CheckedChanged);
+            this.mbSettingsSwitchHidePswd.AutoSize = true;
+            this.mbSettingsSwitchHidePswd.Checked = true;
+            this.mbSettingsSwitchHidePswd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mbSettingsSwitchHidePswd.Depth = 0;
+            this.mbSettingsSwitchHidePswd.Location = new System.Drawing.Point(3, 84);
+            this.mbSettingsSwitchHidePswd.Margin = new System.Windows.Forms.Padding(0);
+            this.mbSettingsSwitchHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mbSettingsSwitchHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbSettingsSwitchHidePswd.Name = "mbSettingsSwitchHidePswd";
+            this.mbSettingsSwitchHidePswd.ReadOnly = false;
+            this.mbSettingsSwitchHidePswd.Ripple = true;
+            this.mbSettingsSwitchHidePswd.Size = new System.Drawing.Size(149, 37);
+            this.mbSettingsSwitchHidePswd.TabIndex = 1;
+            this.mbSettingsSwitchHidePswd.Text = "Hide Passwords";
+            this.mbSettingsSwitchHidePswd.UseVisualStyleBackColor = true;
+            this.mbSettingsSwitchHidePswd.CheckedChanged += new System.EventHandler(this.mbSettingsSwtichHidePswd_CheckedChanged);
             // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.mbSettingsCheckboxHidePswd);
+            this.Controls.Add(this.mbSettingsSwitchHidePswd);
             this.Controls.Add(this.mbButtonSettingsClose);
             this.Name = "mbDialogSettings";
             this.Text = "Settings";
@@ -89,6 +89,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsClose;
-        private MaterialSkin.Controls.MaterialCheckbox mbSettingsCheckboxHidePswd;
+        private MaterialSkin.Controls.MaterialSwitch mbSettingsSwitchHidePswd;
     }
 }

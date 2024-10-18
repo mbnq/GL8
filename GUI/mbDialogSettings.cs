@@ -26,9 +26,9 @@ namespace GL8.CORE
             this.Close();
         }
 
-        private void mbSettingsCheckboxHidePswd_CheckedChanged(object sender, EventArgs e)
+        private void mbSettingsSwtichHidePswd_CheckedChanged(object sender, EventArgs e)
         {
-            if (mbSettingsCheckboxHidePswd.Checked)
+            if (mbSettingsSwitchHidePswd.Checked)
             {
                 _mainMenuInstance.mbHidePasswords = true;
             }
