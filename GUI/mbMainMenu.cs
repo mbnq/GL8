@@ -26,6 +26,7 @@ namespace GL8.CORE
         private mbDialogAddNew _DialogAddNew;
         private mbDialogEdit _DialogEdit;
         private mbDialogSettings _DialogSettings;
+        private mbRMBMenu _mbRMBMenu;
 
         private bool _unsavedChanges = false;
 
@@ -49,6 +50,8 @@ namespace GL8.CORE
             mbDataView.CellFormatting       += mbDataView_CellFormatting;
             mbDataView.KeyDown              += mbDataView_KeyDown;
             this.FormClosing                += mbMainMenu_FormClosing;
+
+            _mbRMBMenu = new mbRMBMenu(mbDataView);
         }
         // ------------------- Main ----------------------
 
@@ -125,7 +128,7 @@ namespace GL8.CORE
             _DialogAddNew.ShowDialog();
         }
 
-        private void mbButtonEdit_Click(object sender, EventArgs e)
+        public void mbButtonEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = null;
 
