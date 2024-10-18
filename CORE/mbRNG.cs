@@ -21,7 +21,14 @@ namespace GL8.CORE
         private const string SpecialCharacters = "!@#$%^&*()_+[]{}|;:,.<>?";
 
         // Method to generate random password
-        public string GeneratePassword(int length = 8, bool includeUppercase = true, bool includeLowercase = true, bool includeNumbers = true, bool includeSpecialCharacters = true)
+        public string GeneratePassword
+            (
+                int length = 8, 
+                bool includeUppercase = true, 
+                bool includeLowercase = true, 
+                bool includeNumbers = true, 
+                bool includeSpecialCharacters = true
+            )
         {
             StringBuilder password = new StringBuilder();
             Random random = new Random();
