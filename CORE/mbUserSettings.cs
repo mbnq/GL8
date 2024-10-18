@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography;
 using Newtonsoft.Json;
 
 public class mbUserSettings
@@ -7,28 +8,38 @@ public class mbUserSettings
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
 
-    // Path to the user data file in the current program directory
     private static string userSettingsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.json");
 
-    // Method to load settings from user.json
-    public static mbUserSettings LoadSettings()
+    // Load settings from user.json using the user's password
+    public static mbUserSettings LoadSettings(string password)
     {
         if (File.Exists(userSettingsFilePath))
         {
-            string json = File.ReadAllText(userSettingsFilePath);
-            mbUserSettings settings = JsonConvert.DeserializeObject<mbUserSettings>(json);
-            return settings;
+            byte[] encryptedData = File.ReadAllBytes(userSettingsFilePath);
+
+            try
+            {
+                string json = EncryptionUtility.DecryptStringFromBytes(encryptedData, password);
+                mbUserSettings settings = JsonConvert.DeserializeObject<mbUserSettings>(json);
+                return settings;
+            }
+            catch (CryptographicException)
+            {
+                // Handle incorrect password or decryption failure
+                return null;
+            }
         }
         else
         {
-            return null;  // Return null if the file does not exist
+            return null;
         }
     }
 
-    // Method to save settings to user.json
-    public void SaveSettings()
+    // Save settings to user.json using the user's password
+    public void SaveSettings(string password)
     {
         string json = JsonConvert.SerializeObject(this);
-        File.WriteAllText(userSettingsFilePath, json);
+        byte[] encryptedData = EncryptionUtility.EncryptStringToBytes(json, password);
+        File.WriteAllBytes(userSettingsFilePath, encryptedData);
     }
 }

@@ -14,39 +14,40 @@ namespace GL8.CORE
             InitializeComponent();
 
             // Check if user.json exists
-            mbUserSettings settings = mbUserSettings.LoadSettings();
-
-            if (settings == null)
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.json")))
+            {
+                isNewUser = false;
+                mbIntroButtonLogin.Text = "Login";
+            }
+            else
             {
                 // User data file does not exist, prompt for new password
                 isNewUser = true;
                 MessageBox.Show("Welcome! Please set up your master password.", "New User", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mbIntroButtonLogin.Text = "Set Password";
             }
-            else
-            {
-                isNewUser = false;
-                mbIntroButtonLogin.Text = "Login";
-            }
         }
 
         private void mbIntroButtonLogin_Click(object sender, EventArgs e)
         {
+            string enteredPassword = mbIntroTextBoxMasterPswd.Text;
+
+            if (string.IsNullOrEmpty(enteredPassword))
+            {
+                MessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (isNewUser)
             {
                 // User is setting up a new master password
-                string newPassword = mbIntroTextBoxMasterPswd.Text;
 
-                if (string.IsNullOrEmpty(newPassword))
-                {
-                    MessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Generate salt and hash the password
+                // Generate salt for password hashing
                 byte[] salt = mbPasswordManager.GenerateSalt();
                 string base64Salt = Convert.ToBase64String(salt);
-                string hashedPassword = mbPasswordManager.HashPassword(newPassword, salt);
+
+                // Hash the password using Argon2 and the generated salt
+                string hashedPassword = mbPasswordManager.HashPassword(enteredPassword, salt);
 
                 // Save settings
                 mbUserSettings settings = new mbUserSettings
@@ -54,7 +55,7 @@ namespace GL8.CORE
                     HashedPassword = hashedPassword,
                     Salt = base64Salt
                 };
-                settings.SaveSettings();
+                settings.SaveSettings(enteredPassword); // Use the password to encrypt the file
 
                 MessageBox.Show("Master password set successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -64,23 +65,18 @@ namespace GL8.CORE
             else
             {
                 // Existing user login
-                mbUserSettings settings = mbUserSettings.LoadSettings();
+
+                // Attempt to load settings using the entered password
+                mbUserSettings settings = mbUserSettings.LoadSettings(enteredPassword);
 
                 if (settings == null)
                 {
-                    MessageBox.Show("User settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(settings.Salt))
-                {
-                    MessageBox.Show("Salt value is missing or invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Incorrect password or user settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 try
                 {
-                    string enteredPassword = mbIntroTextBoxMasterPswd.Text;
                     byte[] saltBytes = Convert.FromBase64String(settings.Salt);
 
                     // Verify password using Argon2
