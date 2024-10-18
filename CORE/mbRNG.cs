@@ -25,22 +25,18 @@ namespace GL8.CORE
         {
             StringBuilder password = new StringBuilder();
             Random random = new Random();
+
             string characterSet = "";
 
-            if (includeUppercase)
-                characterSet += UppercaseLetters;
+            if (includeUppercase) characterSet += UppercaseLetters;
 
-            if (includeLowercase)
-                characterSet += LowercaseLetters;
+            if (includeLowercase) characterSet += LowercaseLetters;
 
-            if (includeNumbers)
-                characterSet += Numbers;
+            if (includeNumbers) characterSet += Numbers;
 
-            if (includeSpecialCharacters)
-                characterSet += SpecialCharacters;
+            if (includeSpecialCharacters) characterSet += SpecialCharacters;
 
-            if (string.IsNullOrEmpty(characterSet))
-                throw new ArgumentException("At least one character set must be included.");
+            if (string.IsNullOrEmpty(characterSet)) throw new ArgumentException("At least one character set must be included.");
 
             for (int i = 0; i < length; i++)
             {
