@@ -60,6 +60,7 @@ namespace GL8.CORE
                 MessageBox.Show("Master password set successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Program.mbPassOK = true;
+                Program.SetUserPassword(enteredPassword);
                 this.Close();
             }
             else
@@ -83,6 +84,7 @@ namespace GL8.CORE
                     if (mbPasswordManager.VerifyPassword(enteredPassword, settings.HashedPassword, saltBytes))
                     {
                         Program.mbPassOK = true;
+                        Program.SetUserPassword(enteredPassword);
                         this.Close();
                     }
                     else

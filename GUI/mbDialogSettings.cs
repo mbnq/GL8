@@ -102,6 +102,8 @@ namespace GL8.CORE
             mbButtonSettingsChangeMasterPass_current.Text = string.Empty;
             mbButtonSettingsChangeMasterPass_new.Text = string.Empty;
             mbButtonSettingsChangeMasterPass_newConfirm.Text = string.Empty;
+
+            _mainMenuInstance.UpdatePassword(currentPassword, newPassword);
         }
     }
 }

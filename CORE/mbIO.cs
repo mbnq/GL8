@@ -7,8 +7,10 @@
 
 */
 
+using System;
 using System.ComponentModel;
 using System.IO;
+using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
 
@@ -19,10 +21,24 @@ namespace GL8.CORE
         // ------------------- Data Handling ----------------------
         public void LoadPSWDData()
         {
-            var json = File.ReadAllText(mbFilePath);
-            mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(json);
-
-            if (mbPSWDList == null) { mbPSWDList = new BindingList<mbPSWD>(); }
+            if (File.Exists(mbFilePath))
+            {
+                try
+                {
+                    byte[] encryptedData = File.ReadAllBytes(mbFilePath);
+                    string jsonData = EncryptionUtility.DecryptStringFromBytes(encryptedData, _userPassword);
+                    mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(jsonData);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mbPSWDList = new BindingList<mbPSWD>();
+                }
+            }
+            else
+            {
+                mbPSWDList = new BindingList<mbPSWD>();
+            }
 
             mbDataView.DataSource = mbPSWDList;
 
@@ -34,17 +50,27 @@ namespace GL8.CORE
 
             this.Refresh();
         }
+
         private void CreateDataFileIfMissing()
         {
             if (!File.Exists(mbFilePath))
             {
-                File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(new BindingList<mbPSWD>()));
+                SavePSWDData();
             }
         }
         public void SavePSWDData()
         {
-            var json = JsonConvert.SerializeObject(mbPSWDList);
-            File.WriteAllText(mbFilePath, JsonConvert.SerializeObject(mbPSWDList));
+            try
+            {
+                string jsonData = JsonConvert.SerializeObject(mbPSWDList);
+                byte[] encryptedData = EncryptionUtility.EncryptStringToBytes(jsonData, _userPassword);
+                File.WriteAllBytes(mbFilePath, encryptedData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

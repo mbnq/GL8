@@ -28,12 +28,14 @@ namespace GL8.CORE
         private mbDialogSettings _DialogSettings;
         private mbRMBMenu _mbRMBMenu;
 
+        private string _userPassword;
         private bool _unsavedChanges = false;
 
         // ------------------- Main ----------------------
-        public mbMainMenu()
+        public mbMainMenu(string userPassword)
         {
             InitializeComponent();
+            _userPassword = userPassword;
 
             if (mbPSWDList == null)
             {
@@ -288,5 +290,29 @@ namespace GL8.CORE
                 }
             }
         }
+
+        public void UpdatePassword(string oldPassword, string newPassword)
+        {
+            try
+            {
+                // Load data with old password
+                byte[] encryptedData = File.ReadAllBytes(mbFilePath);
+                string jsonData = EncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
+
+                // Re-encrypt data with new password
+                byte[] newEncryptedData = EncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
+                File.WriteAllBytes(mbFilePath, newEncryptedData);
+
+                // Update the stored password
+                _userPassword = newPassword;
+
+                MessageBox.Show("Data re-encrypted with new password successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating data encryption: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
