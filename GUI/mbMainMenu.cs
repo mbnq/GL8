@@ -25,6 +25,7 @@ namespace GL8.CORE
 
         private mbDialogAddNew _DialogAddNew;
         private mbDialogEdit _DialogEdit;
+        private mbDialogSettings _DialogSettings;
 
         private bool _unsavedChanges = false;
 
@@ -256,6 +257,12 @@ namespace GL8.CORE
                     _unsavedChanges = false;
                 }
             }
+        }
+
+        private void mbButtonOptions_Click(object sender, EventArgs e)
+        {
+            _DialogSettings = new mbDialogSettings(this);
+            _DialogSettings.ShowDialog();
         }
     }
 }

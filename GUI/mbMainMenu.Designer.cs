@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.mbDataView = new System.Windows.Forms.DataGridView();
-            this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
-            this.mbSearchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +36,12 @@
             this.pswdCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdAdditionalInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mbButtonNewItem = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonExit = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonRemoveItem = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
+            this.mbSearchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,81 @@
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.mbDataView.Size = new System.Drawing.Size(752, 464);
             this.mbDataView.TabIndex = 0;
+            // 
+            // pswdName
+            // 
+            this.pswdName.DataPropertyName = "pswdName";
+            this.pswdName.HeaderText = "Name";
+            this.pswdName.MinimumWidth = 6;
+            this.pswdName.Name = "pswdName";
+            this.pswdName.ReadOnly = true;
+            this.pswdName.ToolTipText = "Contains Name or other reference for credentials entry.";
+            this.pswdName.Width = 125;
+            // 
+            // pswdLogin
+            // 
+            this.pswdLogin.DataPropertyName = "pswdLogin";
+            this.pswdLogin.HeaderText = "Login";
+            this.pswdLogin.MinimumWidth = 6;
+            this.pswdLogin.Name = "pswdLogin";
+            this.pswdLogin.ReadOnly = true;
+            this.pswdLogin.ToolTipText = "Contains Login for credentials entry.";
+            this.pswdLogin.Width = 125;
+            // 
+            // pswdPass
+            // 
+            this.pswdPass.DataPropertyName = "pswdPass";
+            this.pswdPass.HeaderText = "Password";
+            this.pswdPass.MinimumWidth = 6;
+            this.pswdPass.Name = "pswdPass";
+            this.pswdPass.ReadOnly = true;
+            this.pswdPass.ToolTipText = "Contains Password for credentials entry.";
+            this.pswdPass.Width = 125;
+            // 
+            // pswdAddress
+            // 
+            this.pswdAddress.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.pswdAddress.DataPropertyName = "pswdAddress";
+            this.pswdAddress.HeaderText = "Site";
+            this.pswdAddress.LinkColor = System.Drawing.Color.Silver;
+            this.pswdAddress.MinimumWidth = 6;
+            this.pswdAddress.Name = "pswdAddress";
+            this.pswdAddress.ReadOnly = true;
+            this.pswdAddress.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.pswdAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.pswdAddress.ToolTipText = "Contains URL (link) to related site.";
+            this.pswdAddress.VisitedLinkColor = System.Drawing.Color.Gray;
+            this.pswdAddress.Width = 125;
+            // 
+            // pswdCategory
+            // 
+            this.pswdCategory.DataPropertyName = "pswdCategory";
+            this.pswdCategory.HeaderText = "Category";
+            this.pswdCategory.MinimumWidth = 6;
+            this.pswdCategory.Name = "pswdCategory";
+            this.pswdCategory.ReadOnly = true;
+            this.pswdCategory.ToolTipText = "Contains Category of credentials entry. Can be empty.";
+            this.pswdCategory.Width = 125;
+            // 
+            // pswdEmail
+            // 
+            this.pswdEmail.DataPropertyName = "pswdEmail";
+            this.pswdEmail.HeaderText = "eMail";
+            this.pswdEmail.MinimumWidth = 6;
+            this.pswdEmail.Name = "pswdEmail";
+            this.pswdEmail.ReadOnly = true;
+            this.pswdEmail.ToolTipText = "Contains eMail address for credentials entry.";
+            this.pswdEmail.Width = 125;
+            // 
+            // pswdAdditionalInfo
+            // 
+            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.HeaderText = "Notes";
+            this.pswdAdditionalInfo.MinimumWidth = 6;
+            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
+            this.pswdAdditionalInfo.ReadOnly = true;
+            this.pswdAdditionalInfo.ToolTipText = "Contains notes related to credentials entry.";
+            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbButtonNewItem
             // 
@@ -150,6 +225,7 @@
             this.mbButtonOptions.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonOptions.UseAccentColor = false;
             this.mbButtonOptions.UseVisualStyleBackColor = true;
+            this.mbButtonOptions.Click += new System.EventHandler(this.mbButtonOptions_Click);
             // 
             // mbButtonEdit
             // 
@@ -203,81 +279,6 @@
             this.mbSearchTextBox.TrailingIcon = null;
             this.mbSearchTextBox.UseSystemPasswordChar = false;
             this.mbSearchTextBox.TextChanged += new System.EventHandler(this.mbSearchTextBox_TextChanged);
-            // 
-            // pswdName
-            // 
-            this.pswdName.DataPropertyName = "pswdName";
-            this.pswdName.HeaderText = "Name";
-            this.pswdName.MinimumWidth = 6;
-            this.pswdName.Name = "pswdName";
-            this.pswdName.ReadOnly = true;
-            this.pswdName.ToolTipText = "Contains Name or other reference for credentials entry.";
-            this.pswdName.Width = 125;
-            // 
-            // pswdLogin
-            // 
-            this.pswdLogin.DataPropertyName = "pswdLogin";
-            this.pswdLogin.HeaderText = "Login";
-            this.pswdLogin.MinimumWidth = 6;
-            this.pswdLogin.Name = "pswdLogin";
-            this.pswdLogin.ReadOnly = true;
-            this.pswdLogin.ToolTipText = "Contains Login for credentials entry.";
-            this.pswdLogin.Width = 125;
-            // 
-            // pswdPass
-            // 
-            this.pswdPass.DataPropertyName = "pswdPass";
-            this.pswdPass.HeaderText = "Password";
-            this.pswdPass.MinimumWidth = 6;
-            this.pswdPass.Name = "pswdPass";
-            this.pswdPass.ReadOnly = true;
-            this.pswdPass.ToolTipText = "Contains Password for credentials entry.";
-            this.pswdPass.Width = 125;
-            // 
-            // pswdAddress
-            // 
-            this.pswdAddress.ActiveLinkColor = System.Drawing.Color.Silver;
-            this.pswdAddress.DataPropertyName = "pswdAddress";
-            this.pswdAddress.HeaderText = "Site";
-            this.pswdAddress.LinkColor = System.Drawing.Color.Silver;
-            this.pswdAddress.MinimumWidth = 6;
-            this.pswdAddress.Name = "pswdAddress";
-            this.pswdAddress.ReadOnly = true;
-            this.pswdAddress.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pswdAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pswdAddress.ToolTipText = "Contains URL (link) to related site.";
-            this.pswdAddress.VisitedLinkColor = System.Drawing.Color.Gray;
-            this.pswdAddress.Width = 125;
-            // 
-            // pswdCategory
-            // 
-            this.pswdCategory.DataPropertyName = "pswdCategory";
-            this.pswdCategory.HeaderText = "Category";
-            this.pswdCategory.MinimumWidth = 6;
-            this.pswdCategory.Name = "pswdCategory";
-            this.pswdCategory.ReadOnly = true;
-            this.pswdCategory.ToolTipText = "Contains Category of credentials entry. Can be empty.";
-            this.pswdCategory.Width = 125;
-            // 
-            // pswdEmail
-            // 
-            this.pswdEmail.DataPropertyName = "pswdEmail";
-            this.pswdEmail.HeaderText = "eMail";
-            this.pswdEmail.MinimumWidth = 6;
-            this.pswdEmail.Name = "pswdEmail";
-            this.pswdEmail.ReadOnly = true;
-            this.pswdEmail.ToolTipText = "Contains eMail address for credentials entry.";
-            this.pswdEmail.Width = 125;
-            // 
-            // pswdAdditionalInfo
-            // 
-            this.pswdAdditionalInfo.DataPropertyName = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.HeaderText = "Notes";
-            this.pswdAdditionalInfo.MinimumWidth = 6;
-            this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
-            this.pswdAdditionalInfo.ReadOnly = true;
-            this.pswdAdditionalInfo.ToolTipText = "Contains notes related to credentials entry.";
-            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbMainMenu
             // 
