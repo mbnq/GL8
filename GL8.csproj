@@ -66,6 +66,12 @@
     <Compile Include="GUI\mbDialogAddNew.Designer.cs">
       <DependentUpon>mbDialogAddNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\mbDialogIntro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\mbDialogIntro.Designer.cs">
+      <DependentUpon>mbDialogIntro.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\mbDialogSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbDialogEdit.resx">
       <DependentUpon>mbDialogEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\mbDialogIntro.resx">
+      <DependentUpon>mbDialogIntro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbDialogSettings.resx">
       <DependentUpon>mbDialogSettings.cs</DependentUpon>
