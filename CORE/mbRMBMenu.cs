@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.Windows.Forms;
 
 namespace GL8.CORE
@@ -9,26 +18,26 @@ namespace GL8.CORE
 
         public mbRMBMenu(DataGridView mbDataView)
         {
-            // Create ContextMenuStrip
             mbContextMenu = new ContextMenuStrip();
 
-            // Create menu items
             ToolStripMenuItem copyMenuItem = new ToolStripMenuItem("Copy to Clipboard");
             ToolStripMenuItem editMenuItem = new ToolStripMenuItem("Edit");
+            ToolStripMenuItem newMenuItem = new ToolStripMenuItem("New");
+            ToolStripSeparator separator = new ToolStripSeparator();
 
-            // Add menu items to the context menu
             mbContextMenu.Items.Add(copyMenuItem);
+            mbContextMenu.Items.Add(separator);
+            mbContextMenu.Items.Add(newMenuItem);
             mbContextMenu.Items.Add(editMenuItem);
 
-            // Assign event handlers
-            copyMenuItem.Click += (sender, e) => CopyMenuItem_Click(mbDataView);
-            editMenuItem.Click += (sender, e) => EditMenuItem_Click(mbDataView);
+            copyMenuItem.Click += (sender, e)   => CopyMenuItem_Click(mbDataView);
+            editMenuItem.Click += (sender, e)   => EditMenuItem_Click(mbDataView);
+            newMenuItem.Click += (sender, e)    => NewMenuItem_Click(mbDataView);
 
-            // Assign the ContextMenuStrip to the DataGridView
+            // assign the ContextMenuStrip to the DataGridView
             mbDataView.ContextMenuStrip = mbContextMenu;
         }
 
-        // Event handler for "Copy to Clipboard"
         private void CopyMenuItem_Click(DataGridView mbDataView)
         {
             if (mbDataView.CurrentCell != null)
@@ -40,12 +49,15 @@ namespace GL8.CORE
                 }
             }
         }
-
-        // Event handler for "Edit"
         private void EditMenuItem_Click(DataGridView mbDataView)
         {
             mbMainMenu mainMenu = (mbMainMenu)mbDataView.FindForm(); // Get reference to the main form
             mainMenu.mbButtonEdit_Click(mbDataView, EventArgs.Empty); // Call existing edit method
+        }
+        private void NewMenuItem_Click(DataGridView mbDataView)
+        {
+            mbMainMenu mainMenu = (mbMainMenu)mbDataView.FindForm();
+            mainMenu.mbButtonNewItem_Click(mbDataView, EventArgs.Empty);
         }
     }
 }

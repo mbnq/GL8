@@ -123,7 +123,7 @@ namespace GL8.CORE
 
 
         // ------------------- GUI Controls ----------------------
-        private void mbButtonNewItem_Click(object sender, EventArgs e)
+        public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
             _DialogAddNew = new mbDialogAddNew(this);
             _DialogAddNew.ShowDialog();
