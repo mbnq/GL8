@@ -69,6 +69,7 @@
             this.mbTextBoxAddName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddName.TrailingIcon = null;
             this.mbTextBoxAddName.UseSystemPasswordChar = false;
+            this.mbTextBoxAddName.Hint = "Password";
             // 
             // mbTextBoxAddAddress
             // 
@@ -100,6 +101,7 @@
             this.mbTextBoxAddAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAddress.TrailingIcon = null;
             this.mbTextBoxAddAddress.UseSystemPasswordChar = false;
+            this.mbTextBoxAddAddress.Hint = "Site";
             // 
             // mbTextBoxAddCategory
             // 
@@ -131,6 +133,7 @@
             this.mbTextBoxAddCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddCategory.TrailingIcon = null;
             this.mbTextBoxAddCategory.UseSystemPasswordChar = false;
+            this.mbTextBoxAddCategory.Hint = "Category";
             // 
             // mbTextBoxAddLogin
             // 
@@ -162,6 +165,7 @@
             this.mbTextBoxAddLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddLogin.TrailingIcon = null;
             this.mbTextBoxAddLogin.UseSystemPasswordChar = false;
+            this.mbTextBoxAddLogin.Hint = "Login";
             // 
             // mbTextBoxAddPassword
             // 
@@ -193,6 +197,7 @@
             this.mbTextBoxAddPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddPassword.TrailingIcon = null;
             this.mbTextBoxAddPassword.UseSystemPasswordChar = false;
+            this.mbTextBoxAddPassword.Hint = "Password";
             // 
             // mbTextBoxAddEmail
             // 
@@ -224,6 +229,7 @@
             this.mbTextBoxAddEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddEmail.TrailingIcon = null;
             this.mbTextBoxAddEmail.UseSystemPasswordChar = false;
+            this.mbTextBoxAddEmail.Hint = "eMail";
             // 
             // mbTextBoxAddAdditionalInfo
             // 
@@ -255,6 +261,7 @@
             this.mbTextBoxAddAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAdditionalInfo.TrailingIcon = null;
             this.mbTextBoxAddAdditionalInfo.UseSystemPasswordChar = false;
+            this.mbTextBoxAddAdditionalInfo.Hint = "Notes";
             // 
             // mbButtonAddAddItem
             // 
