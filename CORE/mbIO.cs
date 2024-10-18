@@ -13,6 +13,7 @@ using System.IO;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
+using System.Security;
 
 namespace GL8.CORE
 {
@@ -51,7 +52,7 @@ namespace GL8.CORE
             this.Refresh();
         }
 
-        private void CreateDataFileIfMissing()
+        public void CreateDataFileIfMissing()
         {
             if (!File.Exists(mbFilePath))
             {

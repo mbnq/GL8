@@ -1,6 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.IO;
+using System.Security;
 using System.Windows.Forms;
 
 namespace GL8.CORE
@@ -14,7 +15,7 @@ namespace GL8.CORE
             InitializeComponent();
 
             // Check if user.json exists
-            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.json")))
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.dat")))
             {
                 isNewUser = false;
                 mbIntroButtonLogin.Text = "Login";
@@ -30,9 +31,14 @@ namespace GL8.CORE
 
         private void mbIntroButtonLogin_Click(object sender, EventArgs e)
         {
-            string enteredPassword = mbIntroTextBoxMasterPswd.Text;
+            SecureString enteredPassword = new SecureString();
+            foreach (char c in mbIntroTextBoxMasterPswd.Text)
+            {
+                enteredPassword.AppendChar(c);
+            }
+            enteredPassword.MakeReadOnly();
 
-            if (string.IsNullOrEmpty(enteredPassword))
+            if (enteredPassword == null || enteredPassword.Length == 0)
             {
                 MessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

@@ -9,6 +9,8 @@
 using MaterialSkin.Controls;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Windows.Forms;
 
 namespace GL8.CORE
@@ -54,11 +56,38 @@ namespace GL8.CORE
 
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
-            string currentPassword = mbButtonSettingsChangeMasterPass_current.Text;
-            string newPassword = mbButtonSettingsChangeMasterPass_new.Text;
-            string newPasswordConfirm = mbButtonSettingsChangeMasterPass_newConfirm.Text;
+            SecureString currentPassword = new SecureString();
+            foreach (char c in mbButtonSettingsChangeMasterPass_current.Text)
+            {
+                currentPassword.AppendChar(c);
+            }
+            currentPassword.MakeReadOnly();
 
-            // Attempt to load settings using the current password
+            SecureString newPassword = new SecureString();
+            foreach (char c in mbButtonSettingsChangeMasterPass_new.Text)
+            {
+                newPassword.AppendChar(c);
+            }
+            newPassword.MakeReadOnly();
+
+            SecureString newPasswordConfirm = new SecureString();
+            foreach (char c in mbButtonSettingsChangeMasterPass_newConfirm.Text)
+            {
+                newPasswordConfirm.AppendChar(c);
+            }
+            newPasswordConfirm.MakeReadOnly();
+
+            // Compare new passwords (requires conversion)
+            string newPasswordString = ConvertToUnsecureString(newPassword);
+            string newPasswordConfirmString = ConvertToUnsecureString(newPasswordConfirm);
+
+            if (newPasswordString != newPasswordConfirmString)
+            {
+                MessageBox.Show("The new passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Proceed to verify the current password and update
             mbUserSettings settings = mbUserSettings.LoadSettings(currentPassword);
 
             if (settings == null)
@@ -67,43 +96,44 @@ namespace GL8.CORE
                 return;
             }
 
-            // Verify the current password
-            if (!mbPasswordManager.VerifyPassword(currentPassword, settings.HashedPassword, Convert.FromBase64String(settings.Salt)))
+            byte[] saltBytes = Convert.FromBase64String(settings.Salt);
+
+            if (!mbPasswordManager.VerifyPassword(currentPassword, settings.HashedPassword, saltBytes))
             {
                 MessageBox.Show("Current password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Check if the new passwords match
-            if (newPassword != newPasswordConfirm)
-            {
-                MessageBox.Show("The new passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Check if the new password is not empty
-            if (string.IsNullOrEmpty(newPassword))
-            {
-                MessageBox.Show("New password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Generate a new salt and hash the new password
+            // Generate new salt and hash the new password
             byte[] newSalt = mbPasswordManager.GenerateSalt();
             settings.HashedPassword = mbPasswordManager.HashPassword(newPassword, newSalt);
-            settings.Salt = Convert.ToBase64String(newSalt); // Store the salt as a Base64 string
+            settings.Salt = Convert.ToBase64String(newSalt);
 
-            // Save settings encrypted with the new password
+            // Save settings with new password
             settings.SaveSettings(newPassword);
+
+            // Update mbMainMenu password
+            _mainMenuInstance.UpdatePassword(currentPassword, newPassword);
 
             MessageBox.Show("Password updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Optionally, clear the password fields
-            mbButtonSettingsChangeMasterPass_current.Text = string.Empty;
-            mbButtonSettingsChangeMasterPass_new.Text = string.Empty;
-            mbButtonSettingsChangeMasterPass_newConfirm.Text = string.Empty;
+            // Clear unsecure strings
+            newPasswordString = null;
+            newPasswordConfirmString = null;
+        }
 
-            _mainMenuInstance.UpdatePassword(currentPassword, newPassword);
+        private string ConvertToUnsecureString(SecureString secureString)
+        {
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = SecureStringMarshal.SecureStringToGlobalAllocUnicode(secureString);
+                return Marshal.PtrToStringUni(unmanagedString);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
         }
     }
 }

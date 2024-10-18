@@ -1,5 +1,6 @@
 ﻿using GL8.CORE;
 using System;
+using System.Security;
 using System.Windows.Forms;
 
 namespace GL8
@@ -7,7 +8,11 @@ namespace GL8
     internal static class Program
     {
         public static bool mbPassOK = false;
-        public static string UserPassword { get; private set; }
+        public static SecureString UserPassword { get; private set; }
+        public static void SetUserPassword(SecureString password)
+        {
+            UserPassword = password;
+        }
 
         [STAThread]
         static void Main()
@@ -26,12 +31,6 @@ namespace GL8
             {
                 Application.Exit();
             }
-        }
-
-        // Method to set the user's password (called from mbDialogIntro)
-        public static void SetUserPassword(string password)
-        {
-            UserPassword = password;
         }
     }
 }

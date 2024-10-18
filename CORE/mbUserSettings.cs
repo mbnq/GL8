@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
 
@@ -8,24 +9,22 @@ public class mbUserSettings
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
 
-    private static string userSettingsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.json");
+    private static string userSettingsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.dat");
 
     // Load settings from user.json using the user's password
-    public static mbUserSettings LoadSettings(string password)
+    public static mbUserSettings LoadSettings(SecureString password)
     {
         if (File.Exists(userSettingsFilePath))
         {
             byte[] encryptedData = File.ReadAllBytes(userSettingsFilePath);
-
             try
             {
                 string json = EncryptionUtility.DecryptStringFromBytes(encryptedData, password);
-                mbUserSettings settings = JsonConvert.DeserializeObject<mbUserSettings>(json);
-                return settings;
+                return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
             {
-                // Handle incorrect password or decryption failure
+                // Handle incorrect password
                 return null;
             }
         }
@@ -36,7 +35,7 @@ public class mbUserSettings
     }
 
     // Save settings to user.json using the user's password
-    public void SaveSettings(string password)
+    public void SaveSettings(SecureString password)
     {
         string json = JsonConvert.SerializeObject(this);
         byte[] encryptedData = EncryptionUtility.EncryptStringToBytes(json, password);

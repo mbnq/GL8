@@ -1,5 +1,7 @@
 ﻿using Konscious.Security.Cryptography;
 using System;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,25 +19,33 @@ public class mbPasswordManager
     }
 
     // Method to hash a password using Argon2 with a provided salt
-    public static string HashPassword(string password, byte[] salt)
+    public static string HashPassword(SecureString password, byte[] salt)
     {
-        var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
-        {
-            Salt = salt,
-            DegreeOfParallelism = 8,  // Number of threads to use
-            MemorySize = 65536,       // Memory usage in KB (64MB)
-            Iterations = 4            // Number of iterations
-        };
+        byte[] passwordBytes = SecureStringToByteArray(password);
 
-        byte[] hash = argon2.GetBytes(32);  // Hash length (e.g., 32 bytes)
-        return Convert.ToBase64String(hash);
+        try
+        {
+            var argon2 = new Argon2id(passwordBytes)
+            {
+                Salt = salt,
+                DegreeOfParallelism = 8,
+                MemorySize = 65536,
+                Iterations = 4
+            };
+
+            byte[] hash = argon2.GetBytes(32);
+            return Convert.ToBase64String(hash);
+        }
+        finally
+        {
+            ClearByteArray(passwordBytes);
+        }
     }
 
     // Method to verify a password against a stored hash and salt
-    public static bool VerifyPassword(string enteredPassword, string storedHash, byte[] salt)
+    public static bool VerifyPassword(SecureString enteredPassword, string storedHash, byte[] salt)
     {
         string hashOfEntered = HashPassword(enteredPassword, salt);
-        // Use constant-time comparison to prevent timing attacks
         return SlowEquals(Convert.FromBase64String(hashOfEntered), Convert.FromBase64String(storedHash));
     }
 
@@ -45,5 +55,34 @@ public class mbPasswordManager
         for (int i = 0; i < a.Length && i < b.Length; i++)
             diff |= (uint)(a[i] ^ b[i]);
         return diff == 0;
+    }
+
+    private static byte[] SecureStringToByteArray(SecureString secureString)
+    {
+        if (secureString == null)
+            return null;
+
+        IntPtr unmanagedString = IntPtr.Zero;
+        try
+        {
+            unmanagedString = SecureStringMarshal.SecureStringToGlobalAllocUnicode(secureString);
+            string password = Marshal.PtrToStringUni(unmanagedString);
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+
+            // No need to clear the password string since we are avoiding unsafe code
+            // Also, due to string immutability, clearing may not be effective
+
+            return bytes;
+        }
+        finally
+        {
+            Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+        }
+    }
+
+    private static void ClearByteArray(byte[] bytes)
+    {
+        if (bytes != null)
+            Array.Clear(bytes, 0, bytes.Length);
     }
 }

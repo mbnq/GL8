@@ -11,6 +11,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 
@@ -21,18 +22,18 @@ namespace GL8.CORE
         public bool mbHidePasswords = true;
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
-        public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
+        public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.dat");
 
         private mbDialogAddNew _DialogAddNew;
         private mbDialogEdit _DialogEdit;
         private mbDialogSettings _DialogSettings;
         private mbRMBMenu _mbRMBMenu;
 
-        private string _userPassword;
+        private SecureString _userPassword;
         private bool _unsavedChanges = false;
 
         // ------------------- Main ----------------------
-        public mbMainMenu(string userPassword)
+        public mbMainMenu(SecureString userPassword)
         {
             InitializeComponent();
             _userPassword = userPassword;
@@ -291,7 +292,7 @@ namespace GL8.CORE
             }
         }
 
-        public void UpdatePassword(string oldPassword, string newPassword)
+        public void UpdatePassword(SecureString oldPassword, SecureString newPassword)
         {
             try
             {
