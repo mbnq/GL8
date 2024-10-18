@@ -202,6 +202,7 @@
             this.mbSearchTextBox.TrailingIcon = null;
             this.mbSearchTextBox.UseSystemPasswordChar = false;
             this.mbSearchTextBox.TextChanged += new System.EventHandler(this.mbSearchTextBox_TextChanged);
+            this.mbSearchTextBox.Hint = "Search:";
             // 
             // pswdName
             // 

@@ -32,10 +32,12 @@ namespace GL8.CORE
         }
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
+        public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
+
         private mbDialogAddNew _DialogAddNew;
         private mbDialogEdit _DialogEdit;
-        public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
-        private bool unsavedChanges = false;
+
+        private bool _unsavedChanges = false;
 
         // ------------------- Main ----------------------
         public mbMainMenu()
@@ -44,6 +46,7 @@ namespace GL8.CORE
 
             if (mbPSWDList == null)
             {
+                MessageBox.Show("Was unable to find existing database. Creating new one.");
                 mbPSWDList = new BindingList<mbPSWD>();
             }
 
@@ -51,13 +54,11 @@ namespace GL8.CORE
 
             LoadPSWDData();
 
-            mbSearchTextBox.Hint = "Search:";
-
-            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
-            mbDataView.RowValidated += mbDataView_RowValidated;
-            mbDataView.CellFormatting += mbDataView_CellFormatting;
-            mbDataView.KeyDown += mbDataView_KeyDown;
-            this.FormClosing += mbMainMenu_FormClosing;
+            mbDataView.CellValueChanged     += mbDataView_CellValueChanged;
+            mbDataView.RowValidated         += mbDataView_RowValidated;
+            mbDataView.CellFormatting       += mbDataView_CellFormatting;
+            mbDataView.KeyDown              += mbDataView_KeyDown;
+            this.FormClosing                += mbMainMenu_FormClosing;
         }
         // ------------------- Main ----------------------
 
@@ -224,7 +225,7 @@ namespace GL8.CORE
         }
         private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (unsavedChanges)
+            if (_unsavedChanges)
             {
                 var result = MessageBox.Show(
                     "You have unsaved changes. Do you want to save them before exiting?",
@@ -235,7 +236,7 @@ namespace GL8.CORE
                 if (result == DialogResult.Yes)
                 {
                     SavePSWDData();
-                    unsavedChanges = false;
+                    _unsavedChanges = false;
                 }
                 else
                 {
@@ -248,11 +249,11 @@ namespace GL8.CORE
 
         private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            unsavedChanges = true;
+            _unsavedChanges = true;
         }
         private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            if (unsavedChanges)
+            if (_unsavedChanges)
             {
                 var result = MessageBox.Show(
                     "You have made changes to this row. Do you want to save them now?",
@@ -263,7 +264,7 @@ namespace GL8.CORE
                 if (result == DialogResult.Yes)
                 {
                     SavePSWDData();
-                    unsavedChanges = false;
+                    _unsavedChanges = false;
                 }
             }
         }
