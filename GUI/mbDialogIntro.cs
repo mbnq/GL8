@@ -22,8 +22,6 @@ namespace GL8.CORE
         {
             if (mbIntroTextBoxMasterPswd.Text == "test")
             {
-                mbMainMenu mainMenu = new mbMainMenu();
-                mainMenu.Show();
                 Program.mbPassOK = true;
                 this.Close();
             }
