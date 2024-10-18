@@ -24,7 +24,8 @@ namespace GL8.CORE
             {
                 mbMainMenu mainMenu = new mbMainMenu();
                 mainMenu.Show();
-                this.Hide();
+                Program.mbPassOK = true;
+                this.Close();
             }
             else
             {
