@@ -37,6 +37,7 @@
             this.mbTextBoxAddAdditionalInfo = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbButtonAddAddItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonAddCancel = new MaterialSkin.Controls.MaterialButton();
+            this.mbTextBoxAddPassword_GenRandom = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // mbTextBoxAddName
@@ -49,6 +50,7 @@
             this.mbTextBoxAddName.Depth = 0;
             this.mbTextBoxAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddName.HideSelection = true;
+            this.mbTextBoxAddName.Hint = "Password";
             this.mbTextBoxAddName.LeadingIcon = null;
             this.mbTextBoxAddName.Location = new System.Drawing.Point(8, 82);
             this.mbTextBoxAddName.Margin = new System.Windows.Forms.Padding(4);
@@ -69,7 +71,6 @@
             this.mbTextBoxAddName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddName.TrailingIcon = null;
             this.mbTextBoxAddName.UseSystemPasswordChar = false;
-            this.mbTextBoxAddName.Hint = "Password";
             // 
             // mbTextBoxAddAddress
             // 
@@ -81,6 +82,7 @@
             this.mbTextBoxAddAddress.Depth = 0;
             this.mbTextBoxAddAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddAddress.HideSelection = true;
+            this.mbTextBoxAddAddress.Hint = "Site";
             this.mbTextBoxAddAddress.LeadingIcon = null;
             this.mbTextBoxAddAddress.Location = new System.Drawing.Point(7, 149);
             this.mbTextBoxAddAddress.Margin = new System.Windows.Forms.Padding(4);
@@ -101,7 +103,6 @@
             this.mbTextBoxAddAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAddress.TrailingIcon = null;
             this.mbTextBoxAddAddress.UseSystemPasswordChar = false;
-            this.mbTextBoxAddAddress.Hint = "Site";
             // 
             // mbTextBoxAddCategory
             // 
@@ -113,6 +114,7 @@
             this.mbTextBoxAddCategory.Depth = 0;
             this.mbTextBoxAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddCategory.HideSelection = true;
+            this.mbTextBoxAddCategory.Hint = "Category";
             this.mbTextBoxAddCategory.LeadingIcon = null;
             this.mbTextBoxAddCategory.Location = new System.Drawing.Point(8, 215);
             this.mbTextBoxAddCategory.Margin = new System.Windows.Forms.Padding(4);
@@ -133,7 +135,6 @@
             this.mbTextBoxAddCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddCategory.TrailingIcon = null;
             this.mbTextBoxAddCategory.UseSystemPasswordChar = false;
-            this.mbTextBoxAddCategory.Hint = "Category";
             // 
             // mbTextBoxAddLogin
             // 
@@ -145,6 +146,7 @@
             this.mbTextBoxAddLogin.Depth = 0;
             this.mbTextBoxAddLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddLogin.HideSelection = true;
+            this.mbTextBoxAddLogin.Hint = "Login";
             this.mbTextBoxAddLogin.LeadingIcon = null;
             this.mbTextBoxAddLogin.Location = new System.Drawing.Point(590, 82);
             this.mbTextBoxAddLogin.Margin = new System.Windows.Forms.Padding(4);
@@ -165,7 +167,6 @@
             this.mbTextBoxAddLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddLogin.TrailingIcon = null;
             this.mbTextBoxAddLogin.UseSystemPasswordChar = false;
-            this.mbTextBoxAddLogin.Hint = "Login";
             // 
             // mbTextBoxAddPassword
             // 
@@ -177,6 +178,7 @@
             this.mbTextBoxAddPassword.Depth = 0;
             this.mbTextBoxAddPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddPassword.HideSelection = true;
+            this.mbTextBoxAddPassword.Hint = "Password";
             this.mbTextBoxAddPassword.LeadingIcon = null;
             this.mbTextBoxAddPassword.Location = new System.Drawing.Point(590, 149);
             this.mbTextBoxAddPassword.Margin = new System.Windows.Forms.Padding(4);
@@ -197,7 +199,6 @@
             this.mbTextBoxAddPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddPassword.TrailingIcon = null;
             this.mbTextBoxAddPassword.UseSystemPasswordChar = false;
-            this.mbTextBoxAddPassword.Hint = "Password";
             // 
             // mbTextBoxAddEmail
             // 
@@ -209,6 +210,7 @@
             this.mbTextBoxAddEmail.Depth = 0;
             this.mbTextBoxAddEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddEmail.HideSelection = true;
+            this.mbTextBoxAddEmail.Hint = "eMail";
             this.mbTextBoxAddEmail.LeadingIcon = null;
             this.mbTextBoxAddEmail.Location = new System.Drawing.Point(590, 215);
             this.mbTextBoxAddEmail.Margin = new System.Windows.Forms.Padding(4);
@@ -229,7 +231,6 @@
             this.mbTextBoxAddEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddEmail.TrailingIcon = null;
             this.mbTextBoxAddEmail.UseSystemPasswordChar = false;
-            this.mbTextBoxAddEmail.Hint = "eMail";
             // 
             // mbTextBoxAddAdditionalInfo
             // 
@@ -241,6 +242,7 @@
             this.mbTextBoxAddAdditionalInfo.Depth = 0;
             this.mbTextBoxAddAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddAdditionalInfo.HideSelection = true;
+            this.mbTextBoxAddAdditionalInfo.Hint = "Notes";
             this.mbTextBoxAddAdditionalInfo.LeadingIcon = null;
             this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(7, 309);
             this.mbTextBoxAddAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
@@ -261,7 +263,6 @@
             this.mbTextBoxAddAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxAddAdditionalInfo.TrailingIcon = null;
             this.mbTextBoxAddAdditionalInfo.UseSystemPasswordChar = false;
-            this.mbTextBoxAddAdditionalInfo.Hint = "Notes";
             // 
             // mbButtonAddAddItem
             // 
@@ -271,7 +272,7 @@
             this.mbButtonAddAddItem.Depth = 0;
             this.mbButtonAddAddItem.HighEmphasis = true;
             this.mbButtonAddAddItem.Icon = null;
-            this.mbButtonAddAddItem.Location = new System.Drawing.Point(680, 395);
+            this.mbButtonAddAddItem.Location = new System.Drawing.Point(734, 395);
             this.mbButtonAddAddItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonAddAddItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddAddItem.Name = "mbButtonAddAddItem";
@@ -292,7 +293,7 @@
             this.mbButtonAddCancel.Depth = 0;
             this.mbButtonAddCancel.HighEmphasis = true;
             this.mbButtonAddCancel.Icon = null;
-            this.mbButtonAddCancel.Location = new System.Drawing.Point(459, 395);
+            this.mbButtonAddCancel.Location = new System.Drawing.Point(513, 395);
             this.mbButtonAddCancel.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonAddCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddCancel.Name = "mbButtonAddCancel";
@@ -305,11 +306,33 @@
             this.mbButtonAddCancel.UseVisualStyleBackColor = true;
             this.mbButtonAddCancel.Click += new System.EventHandler(this.mbButtonAddCancel_Click);
             // 
+            // mbTextBoxAddPassword_GenRandom
+            // 
+            this.mbTextBoxAddPassword_GenRandom.AutoSize = false;
+            this.mbTextBoxAddPassword_GenRandom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbTextBoxAddPassword_GenRandom.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbTextBoxAddPassword_GenRandom.Depth = 0;
+            this.mbTextBoxAddPassword_GenRandom.HighEmphasis = true;
+            this.mbTextBoxAddPassword_GenRandom.Icon = null;
+            this.mbTextBoxAddPassword_GenRandom.Location = new System.Drawing.Point(898, 149);
+            this.mbTextBoxAddPassword_GenRandom.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbTextBoxAddPassword_GenRandom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbTextBoxAddPassword_GenRandom.Name = "mbTextBoxAddPassword_GenRandom";
+            this.mbTextBoxAddPassword_GenRandom.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbTextBoxAddPassword_GenRandom.Size = new System.Drawing.Size(47, 56);
+            this.mbTextBoxAddPassword_GenRandom.TabIndex = 9;
+            this.mbTextBoxAddPassword_GenRandom.Text = "R";
+            this.mbTextBoxAddPassword_GenRandom.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbTextBoxAddPassword_GenRandom.UseAccentColor = false;
+            this.mbTextBoxAddPassword_GenRandom.UseVisualStyleBackColor = true;
+            this.mbTextBoxAddPassword_GenRandom.Click += new System.EventHandler(this.mbTextBoxAddPassword_GenRandom_Click);
+            // 
             // mbDialogAddNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 450);
+            this.ClientSize = new System.Drawing.Size(955, 450);
+            this.Controls.Add(this.mbTextBoxAddPassword_GenRandom);
             this.Controls.Add(this.mbButtonAddCancel);
             this.Controls.Add(this.mbButtonAddAddItem);
             this.Controls.Add(this.mbTextBoxAddAdditionalInfo);
@@ -338,5 +361,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddAdditionalInfo;
         private MaterialSkin.Controls.MaterialButton mbButtonAddAddItem;
         private MaterialSkin.Controls.MaterialButton mbButtonAddCancel;
+        private MaterialSkin.Controls.MaterialButton mbTextBoxAddPassword_GenRandom;
     }
 }

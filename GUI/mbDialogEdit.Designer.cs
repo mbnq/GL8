@@ -37,6 +37,7 @@
             this.mbTextBoxEditCategory = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditAddress = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbCheckBoxEditHidePswd = new MaterialSkin.Controls.MaterialCheckbox();
             this.SuspendLayout();
             // 
             // mbButtonEditCancel
@@ -91,6 +92,7 @@
             this.mbTextBoxEditAdditionalInfo.Depth = 0;
             this.mbTextBoxEditAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditAdditionalInfo.HideSelection = true;
+            this.mbTextBoxEditAdditionalInfo.Hint = "Notes";
             this.mbTextBoxEditAdditionalInfo.LeadingIcon = null;
             this.mbTextBoxEditAdditionalInfo.Location = new System.Drawing.Point(8, 304);
             this.mbTextBoxEditAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
@@ -111,7 +113,6 @@
             this.mbTextBoxEditAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditAdditionalInfo.TrailingIcon = null;
             this.mbTextBoxEditAdditionalInfo.UseSystemPasswordChar = false;
-            this.mbTextBoxEditAdditionalInfo.Hint = "Notes";
             // 
             // mbTextBoxEditEmail
             // 
@@ -123,8 +124,9 @@
             this.mbTextBoxEditEmail.Depth = 0;
             this.mbTextBoxEditEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditEmail.HideSelection = true;
+            this.mbTextBoxEditEmail.Hint = "eMail";
             this.mbTextBoxEditEmail.LeadingIcon = null;
-            this.mbTextBoxEditEmail.Location = new System.Drawing.Point(594, 213);
+            this.mbTextBoxEditEmail.Location = new System.Drawing.Point(592, 213);
             this.mbTextBoxEditEmail.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxEditEmail.MaxLength = 32767;
             this.mbTextBoxEditEmail.MouseState = MaterialSkin.MouseState.OUT;
@@ -137,13 +139,12 @@
             this.mbTextBoxEditEmail.SelectionLength = 0;
             this.mbTextBoxEditEmail.SelectionStart = 0;
             this.mbTextBoxEditEmail.ShortcutsEnabled = true;
-            this.mbTextBoxEditEmail.Size = new System.Drawing.Size(300, 48);
+            this.mbTextBoxEditEmail.Size = new System.Drawing.Size(302, 48);
             this.mbTextBoxEditEmail.TabIndex = 5;
             this.mbTextBoxEditEmail.TabStop = false;
             this.mbTextBoxEditEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditEmail.TrailingIcon = null;
             this.mbTextBoxEditEmail.UseSystemPasswordChar = false;
-            this.mbTextBoxEditEmail.Hint = "eMail";
             // 
             // mbTextBoxEditPassword
             // 
@@ -155,13 +156,14 @@
             this.mbTextBoxEditPassword.Depth = 0;
             this.mbTextBoxEditPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditPassword.HideSelection = true;
+            this.mbTextBoxEditPassword.Hint = "Password";
             this.mbTextBoxEditPassword.LeadingIcon = null;
-            this.mbTextBoxEditPassword.Location = new System.Drawing.Point(594, 147);
+            this.mbTextBoxEditPassword.Location = new System.Drawing.Point(592, 147);
             this.mbTextBoxEditPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxEditPassword.MaxLength = 32767;
             this.mbTextBoxEditPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxEditPassword.Name = "mbTextBoxEditPassword";
-            this.mbTextBoxEditPassword.PasswordChar = '\0';
+            this.mbTextBoxEditPassword.PasswordChar = '*';
             this.mbTextBoxEditPassword.PrefixSuffixText = null;
             this.mbTextBoxEditPassword.ReadOnly = false;
             this.mbTextBoxEditPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -169,13 +171,12 @@
             this.mbTextBoxEditPassword.SelectionLength = 0;
             this.mbTextBoxEditPassword.SelectionStart = 0;
             this.mbTextBoxEditPassword.ShortcutsEnabled = true;
-            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(300, 48);
+            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(302, 48);
             this.mbTextBoxEditPassword.TabIndex = 4;
             this.mbTextBoxEditPassword.TabStop = false;
             this.mbTextBoxEditPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditPassword.TrailingIcon = null;
             this.mbTextBoxEditPassword.UseSystemPasswordChar = false;
-            this.mbTextBoxEditPassword.Hint = "Password";
             // 
             // mbTextBoxEditLogin
             // 
@@ -187,6 +188,7 @@
             this.mbTextBoxEditLogin.Depth = 0;
             this.mbTextBoxEditLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditLogin.HideSelection = true;
+            this.mbTextBoxEditLogin.Hint = "Login";
             this.mbTextBoxEditLogin.LeadingIcon = null;
             this.mbTextBoxEditLogin.Location = new System.Drawing.Point(592, 80);
             this.mbTextBoxEditLogin.Margin = new System.Windows.Forms.Padding(4);
@@ -207,7 +209,6 @@
             this.mbTextBoxEditLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditLogin.TrailingIcon = null;
             this.mbTextBoxEditLogin.UseSystemPasswordChar = false;
-            this.mbTextBoxEditLogin.Hint = "Login";
             // 
             // mbTextBoxEditCategory
             // 
@@ -219,6 +220,7 @@
             this.mbTextBoxEditCategory.Depth = 0;
             this.mbTextBoxEditCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditCategory.HideSelection = true;
+            this.mbTextBoxEditCategory.Hint = "Category";
             this.mbTextBoxEditCategory.LeadingIcon = null;
             this.mbTextBoxEditCategory.Location = new System.Drawing.Point(7, 213);
             this.mbTextBoxEditCategory.Margin = new System.Windows.Forms.Padding(4);
@@ -239,7 +241,6 @@
             this.mbTextBoxEditCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditCategory.TrailingIcon = null;
             this.mbTextBoxEditCategory.UseSystemPasswordChar = false;
-            this.mbTextBoxEditCategory.Hint = "Category";
             // 
             // mbTextBoxEditAddress
             // 
@@ -251,6 +252,7 @@
             this.mbTextBoxEditAddress.Depth = 0;
             this.mbTextBoxEditAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditAddress.HideSelection = true;
+            this.mbTextBoxEditAddress.Hint = "Site";
             this.mbTextBoxEditAddress.LeadingIcon = null;
             this.mbTextBoxEditAddress.Location = new System.Drawing.Point(6, 147);
             this.mbTextBoxEditAddress.Margin = new System.Windows.Forms.Padding(4);
@@ -271,7 +273,6 @@
             this.mbTextBoxEditAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditAddress.TrailingIcon = null;
             this.mbTextBoxEditAddress.UseSystemPasswordChar = false;
-            this.mbTextBoxEditAddress.Hint = "Site";
             // 
             // mbTextBoxEditName
             // 
@@ -283,6 +284,7 @@
             this.mbTextBoxEditName.Depth = 0;
             this.mbTextBoxEditName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxEditName.HideSelection = true;
+            this.mbTextBoxEditName.Hint = "Name";
             this.mbTextBoxEditName.LeadingIcon = null;
             this.mbTextBoxEditName.Location = new System.Drawing.Point(7, 80);
             this.mbTextBoxEditName.Margin = new System.Windows.Forms.Padding(4);
@@ -303,7 +305,22 @@
             this.mbTextBoxEditName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditName.TrailingIcon = null;
             this.mbTextBoxEditName.UseSystemPasswordChar = false;
-            this.mbTextBoxEditName.Hint = "Name";
+            // 
+            // mbCheckBoxEditHidePswd
+            // 
+            this.mbCheckBoxEditHidePswd.AutoSize = true;
+            this.mbCheckBoxEditHidePswd.Depth = 0;
+            this.mbCheckBoxEditHidePswd.Location = new System.Drawing.Point(538, 147);
+            this.mbCheckBoxEditHidePswd.Margin = new System.Windows.Forms.Padding(0);
+            this.mbCheckBoxEditHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mbCheckBoxEditHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbCheckBoxEditHidePswd.Name = "mbCheckBoxEditHidePswd";
+            this.mbCheckBoxEditHidePswd.ReadOnly = false;
+            this.mbCheckBoxEditHidePswd.Ripple = true;
+            this.mbCheckBoxEditHidePswd.Size = new System.Drawing.Size(35, 37);
+            this.mbCheckBoxEditHidePswd.TabIndex = 9;
+            this.mbCheckBoxEditHidePswd.UseVisualStyleBackColor = true;
+            this.mbCheckBoxEditHidePswd.CheckedChanged += new System.EventHandler(this.mbCheckBoxEditHidePswd_CheckedChanged);
             // 
             // mbDialogEdit
             // 
@@ -311,6 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(900, 450);
+            this.Controls.Add(this.mbCheckBoxEditHidePswd);
             this.Controls.Add(this.mbButtonEditCancel);
             this.Controls.Add(this.mbButtonEditSave);
             this.Controls.Add(this.mbTextBoxEditAdditionalInfo);
@@ -323,6 +341,7 @@
             this.Name = "mbDialogEdit";
             this.Text = "Edit";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,5 +356,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditCategory;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditAddress;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditName;
+        private MaterialSkin.Controls.MaterialCheckbox mbCheckBoxEditHidePswd;
     }
 }

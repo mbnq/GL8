@@ -51,5 +51,12 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbPSWDList.Add(mbPSWDData);
         }
+
+        private void mbTextBoxAddPassword_GenRandom_Click(object sender, EventArgs e)
+        {
+            var passwordGenerator = new mbRND();
+            string password = passwordGenerator.GeneratePassword(12, true, true, true, true);
+            mbTextBoxAddPassword.Text = password;
+        }
     }
 }

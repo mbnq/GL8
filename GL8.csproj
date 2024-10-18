@@ -53,6 +53,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CORE\mbPSWD.cs" />
+    <Compile Include="CORE\mbRND.cs" />
     <Compile Include="GUI\mbDialogEdit.cs">
       <SubType>Form</SubType>
     </Compile>

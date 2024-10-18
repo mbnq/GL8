@@ -51,5 +51,17 @@ namespace GL8.CORE
         {
             this.Close();
         }
+
+        private void mbCheckBoxEditHidePswd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mbCheckBoxEditHidePswd.Checked) 
+            {
+                mbTextBoxEditPassword.PasswordChar = '\0';
+            }
+            else 
+            {
+                mbTextBoxEditPassword.PasswordChar = '*';
+            }
+        }
     }
 }
