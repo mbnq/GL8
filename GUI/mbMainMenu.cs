@@ -40,7 +40,7 @@ namespace GL8.CORE
 
             if (mbPSWDList == null)
             {
-                MessageBox.Show("Was unable to find existing database. Creating new one.");
+                MaterialMessageBox.Show("Was unable to find existing database. Creating new one.");
                 mbPSWDList = new BindingList<mbPSWD>();
             }
 
@@ -163,7 +163,7 @@ namespace GL8.CORE
             }
             else
             {
-                MessageBox.Show(
+                MaterialMessageBox.Show(
                     "Please select a row or cell to edit.",
                     "No Selection",
                     MessageBoxButtons.OK,
@@ -192,7 +192,7 @@ namespace GL8.CORE
                 var firstCellValue = selectedRow.Cells[0].Value?.ToString();
                 string displayValue = !string.IsNullOrWhiteSpace(firstCellValue) ? firstCellValue : "[Empty]";
 
-                var result = MessageBox.Show(
+                var result = MaterialMessageBox.Show(
                     $"Are you sure you want to delete the selected entry {displayValue}?",
                     "Confirm Delete",
                     MessageBoxButtons.YesNo,
@@ -213,7 +213,7 @@ namespace GL8.CORE
             }
             else
             {
-                MessageBox.Show(
+                MaterialMessageBox.Show(
                     "Please select an item to delete.",
                     "No Selection",
                     MessageBoxButtons.OK,
@@ -236,7 +236,7 @@ namespace GL8.CORE
         {
             if (_unsavedChanges)
             {
-                var result = MessageBox.Show(
+                var result = MaterialMessageBox.Show(
                     "You have unsaved changes. Do you want to save them before exiting?",
                     "Unsaved Changes",
                     MessageBoxButtons.YesNoCancel,
@@ -264,7 +264,7 @@ namespace GL8.CORE
         {
             if (_unsavedChanges)
             {
-                var result = MessageBox.Show(
+                var result = MaterialMessageBox.Show(
                     "You have made changes to this row. Do you want to save them now?",
                     "Save Changes",
                     MessageBoxButtons.YesNo,
@@ -298,20 +298,20 @@ namespace GL8.CORE
             {
                 // Load data with old password
                 byte[] encryptedData = File.ReadAllBytes(mbFilePath);
-                string jsonData = EncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
+                string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
 
                 // Re-encrypt data with new password
-                byte[] newEncryptedData = EncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
+                byte[] newEncryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
                 File.WriteAllBytes(mbFilePath, newEncryptedData);
 
                 // Update the stored password
                 _userPassword = newPassword;
 
-                MessageBox.Show("Data re-encrypted with new password successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("Data re-encrypted with new password successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating data encryption: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Error updating data encryption: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

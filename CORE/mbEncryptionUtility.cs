@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 
 
-public static class EncryptionUtility
+public static class mbEncryptionUtility
 {
     // Size of the salt (in bytes)
     private const int SaltSize = 16;

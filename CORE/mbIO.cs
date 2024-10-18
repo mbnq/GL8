@@ -27,12 +27,12 @@ namespace GL8.CORE
                 try
                 {
                     byte[] encryptedData = File.ReadAllBytes(mbFilePath);
-                    string jsonData = EncryptionUtility.DecryptStringFromBytes(encryptedData, _userPassword);
+                    string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, _userPassword);
                     mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(jsonData);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MaterialMessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mbPSWDList = new BindingList<mbPSWD>();
                 }
             }
@@ -64,12 +64,12 @@ namespace GL8.CORE
             try
             {
                 string jsonData = JsonConvert.SerializeObject(mbPSWDList);
-                byte[] encryptedData = EncryptionUtility.EncryptStringToBytes(jsonData, _userPassword);
+                byte[] encryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, _userPassword);
                 File.WriteAllBytes(mbFilePath, encryptedData);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Error saving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

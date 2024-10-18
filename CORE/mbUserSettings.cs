@@ -19,7 +19,7 @@ public class mbUserSettings
             byte[] encryptedData = File.ReadAllBytes(userSettingsFilePath);
             try
             {
-                string json = EncryptionUtility.DecryptStringFromBytes(encryptedData, password);
+                string json = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, password);
                 return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
@@ -38,7 +38,7 @@ public class mbUserSettings
     public void SaveSettings(SecureString password)
     {
         string json = JsonConvert.SerializeObject(this);
-        byte[] encryptedData = EncryptionUtility.EncryptStringToBytes(json, password);
+        byte[] encryptedData = mbEncryptionUtility.EncryptStringToBytes(json, password);
         File.WriteAllBytes(userSettingsFilePath, encryptedData);
     }
 }

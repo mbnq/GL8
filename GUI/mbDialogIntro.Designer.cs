@@ -30,6 +30,8 @@
         {
             this.mbIntroTextBoxMasterPswd = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbIntroButtonLogin = new MaterialSkin.Controls.MaterialButton();
+            this.mbIntroTextBoxMasterPswdConfirm = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbIntroTextBoxMasterPswdWarning = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // mbIntroTextBoxMasterPswd
@@ -44,7 +46,7 @@
             this.mbIntroTextBoxMasterPswd.HideSelection = true;
             this.mbIntroTextBoxMasterPswd.Hint = "Enter Password";
             this.mbIntroTextBoxMasterPswd.LeadingIcon = null;
-            this.mbIntroTextBoxMasterPswd.Location = new System.Drawing.Point(65, 110);
+            this.mbIntroTextBoxMasterPswd.Location = new System.Drawing.Point(65, 93);
             this.mbIntroTextBoxMasterPswd.MaxLength = 32767;
             this.mbIntroTextBoxMasterPswd.MouseState = MaterialSkin.MouseState.OUT;
             this.mbIntroTextBoxMasterPswd.Name = "mbIntroTextBoxMasterPswd";
@@ -71,7 +73,7 @@
             this.mbIntroButtonLogin.Depth = 0;
             this.mbIntroButtonLogin.HighEmphasis = true;
             this.mbIntroButtonLogin.Icon = null;
-            this.mbIntroButtonLogin.Location = new System.Drawing.Point(65, 167);
+            this.mbIntroButtonLogin.Location = new System.Drawing.Point(65, 165);
             this.mbIntroButtonLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbIntroButtonLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbIntroButtonLogin.Name = "mbIntroButtonLogin";
@@ -84,16 +86,63 @@
             this.mbIntroButtonLogin.UseVisualStyleBackColor = true;
             this.mbIntroButtonLogin.Click += new System.EventHandler(this.mbIntroButtonLogin_Click);
             // 
+            // mbIntroTextBoxMasterPswdConfirm
+            // 
+            this.mbIntroTextBoxMasterPswdConfirm.AnimateReadOnly = false;
+            this.mbIntroTextBoxMasterPswdConfirm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.mbIntroTextBoxMasterPswdConfirm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.mbIntroTextBoxMasterPswdConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mbIntroTextBoxMasterPswdConfirm.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.mbIntroTextBoxMasterPswdConfirm.Depth = 0;
+            this.mbIntroTextBoxMasterPswdConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbIntroTextBoxMasterPswdConfirm.HideSelection = true;
+            this.mbIntroTextBoxMasterPswdConfirm.Hint = "Confirm Password";
+            this.mbIntroTextBoxMasterPswdConfirm.LeadingIcon = null;
+            this.mbIntroTextBoxMasterPswdConfirm.Location = new System.Drawing.Point(65, 229);
+            this.mbIntroTextBoxMasterPswdConfirm.MaxLength = 32767;
+            this.mbIntroTextBoxMasterPswdConfirm.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbIntroTextBoxMasterPswdConfirm.Name = "mbIntroTextBoxMasterPswdConfirm";
+            this.mbIntroTextBoxMasterPswdConfirm.PasswordChar = '*';
+            this.mbIntroTextBoxMasterPswdConfirm.PrefixSuffixText = null;
+            this.mbIntroTextBoxMasterPswdConfirm.ReadOnly = false;
+            this.mbIntroTextBoxMasterPswdConfirm.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mbIntroTextBoxMasterPswdConfirm.SelectedText = "";
+            this.mbIntroTextBoxMasterPswdConfirm.SelectionLength = 0;
+            this.mbIntroTextBoxMasterPswdConfirm.SelectionStart = 0;
+            this.mbIntroTextBoxMasterPswdConfirm.ShortcutsEnabled = true;
+            this.mbIntroTextBoxMasterPswdConfirm.Size = new System.Drawing.Size(250, 48);
+            this.mbIntroTextBoxMasterPswdConfirm.TabIndex = 2;
+            this.mbIntroTextBoxMasterPswdConfirm.TabStop = false;
+            this.mbIntroTextBoxMasterPswdConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mbIntroTextBoxMasterPswdConfirm.TrailingIcon = null;
+            this.mbIntroTextBoxMasterPswdConfirm.UseSystemPasswordChar = false;
+            this.mbIntroTextBoxMasterPswdConfirm.Visible = false;
+            // 
+            // mbIntroTextBoxMasterPswdWarning
+            // 
+            this.mbIntroTextBoxMasterPswdWarning.BackColor = System.Drawing.Color.Yellow;
+            this.mbIntroTextBoxMasterPswdWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mbIntroTextBoxMasterPswdWarning.Location = new System.Drawing.Point(65, 301);
+            this.mbIntroTextBoxMasterPswdWarning.Multiline = true;
+            this.mbIntroTextBoxMasterPswdWarning.Name = "mbIntroTextBoxMasterPswdWarning";
+            this.mbIntroTextBoxMasterPswdWarning.Size = new System.Drawing.Size(250, 118);
+            this.mbIntroTextBoxMasterPswdWarning.TabIndex = 3;
+            this.mbIntroTextBoxMasterPswdWarning.Text = "This step is very important. Store your master pasword in secure way. Without it " +
+    "you will be not able to access your credentials.";
+            // 
             // mbDialogIntro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 251);
+            this.ClientSize = new System.Drawing.Size(373, 444);
+            this.Controls.Add(this.mbIntroTextBoxMasterPswdWarning);
+            this.Controls.Add(this.mbIntroTextBoxMasterPswdConfirm);
             this.Controls.Add(this.mbIntroButtonLogin);
             this.Controls.Add(this.mbIntroTextBoxMasterPswd);
             this.Name = "mbDialogIntro";
             this.Text = "Welcome";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,5 +150,7 @@
 
         private MaterialSkin.Controls.MaterialTextBox2 mbIntroTextBoxMasterPswd;
         private MaterialSkin.Controls.MaterialButton mbIntroButtonLogin;
+        private MaterialSkin.Controls.MaterialTextBox2 mbIntroTextBoxMasterPswdConfirm;
+        private System.Windows.Forms.TextBox mbIntroTextBoxMasterPswdWarning;
     }
 }
