@@ -202,8 +202,12 @@ namespace GL8.CORE
                     mbPSWDList.Remove(selectedPSWD);
 
                     // Save the updated data to the file
+
                     SavePSWDData();
+
+                    if (!string.IsNullOrEmpty(mbSearchTextBox.Text)) mbSearchTextBox.Text = null;
                     mbDataView.Refresh();
+                    this.Refresh();
                 }
             }
             else
