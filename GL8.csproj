@@ -52,6 +52,7 @@
     <Compile Include="CORE\mbIO.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CORE\mbPSWD.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

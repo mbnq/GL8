@@ -18,18 +18,7 @@ namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
-        public class mbPSWD
-        {
-            public string pswdName { get; set; }
-            public string pswdAddress { get; set; }
-            public string pswdCategory { get; set; }
-            public string pswdLogin { get; set; }
-            public string pswdPass { get; set; }
-            public string pswdEmail { get; set; }
-            public string pswdAdditionalInfo { get; set; }
-            public DateTime pswdCreateTime { get; set; }
-            public DateTime pswdLastEditTime { get; set; }
-        }
+
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.json");
