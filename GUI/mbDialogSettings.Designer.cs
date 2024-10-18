@@ -197,7 +197,6 @@
             this.mbButtonSettingsChangeMasterPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbButtonSettingsChangeMasterPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.mbButtonSettingsChangeMasterPassword.Depth = 0;
-            this.mbButtonSettingsChangeMasterPassword.Enabled = false;
             this.mbButtonSettingsChangeMasterPassword.HighEmphasis = true;
             this.mbButtonSettingsChangeMasterPassword.Icon = null;
             this.mbButtonSettingsChangeMasterPassword.Location = new System.Drawing.Point(461, 280);
