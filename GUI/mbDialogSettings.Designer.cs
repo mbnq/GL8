@@ -59,7 +59,7 @@
             this.mbSettingsCheckboxHidePswd.Checked = true;
             this.mbSettingsCheckboxHidePswd.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mbSettingsCheckboxHidePswd.Depth = 0;
-            this.mbSettingsCheckboxHidePswd.Location = new System.Drawing.Point(21, 81);
+            this.mbSettingsCheckboxHidePswd.Location = new System.Drawing.Point(3, 84);
             this.mbSettingsCheckboxHidePswd.Margin = new System.Windows.Forms.Padding(0);
             this.mbSettingsCheckboxHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mbSettingsCheckboxHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
