@@ -38,7 +38,7 @@
             this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pswdAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pswdAddress = new System.Windows.Forms.DataGridViewLinkColumn();
             this.pswdCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdAdditionalInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -182,6 +182,7 @@
             this.mbSearchTextBox.Depth = 0;
             this.mbSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbSearchTextBox.HideSelection = true;
+            this.mbSearchTextBox.Hint = "Search:";
             this.mbSearchTextBox.LeadingIcon = null;
             this.mbSearchTextBox.Location = new System.Drawing.Point(9, 363);
             this.mbSearchTextBox.MaxLength = 32767;
@@ -202,7 +203,6 @@
             this.mbSearchTextBox.TrailingIcon = null;
             this.mbSearchTextBox.UseSystemPasswordChar = false;
             this.mbSearchTextBox.TextChanged += new System.EventHandler(this.mbSearchTextBox_TextChanged);
-            this.mbSearchTextBox.Hint = "Search:";
             // 
             // pswdName
             // 
@@ -211,6 +211,7 @@
             this.pswdName.MinimumWidth = 6;
             this.pswdName.Name = "pswdName";
             this.pswdName.ReadOnly = true;
+            this.pswdName.ToolTipText = "Contains Name or other reference for credentials entry.";
             this.pswdName.Width = 125;
             // 
             // pswdLogin
@@ -220,6 +221,7 @@
             this.pswdLogin.MinimumWidth = 6;
             this.pswdLogin.Name = "pswdLogin";
             this.pswdLogin.ReadOnly = true;
+            this.pswdLogin.ToolTipText = "Contains Login for credentials entry.";
             this.pswdLogin.Width = 125;
             // 
             // pswdPass
@@ -229,15 +231,22 @@
             this.pswdPass.MinimumWidth = 6;
             this.pswdPass.Name = "pswdPass";
             this.pswdPass.ReadOnly = true;
+            this.pswdPass.ToolTipText = "Contains Password for credentials entry.";
             this.pswdPass.Width = 125;
             // 
             // pswdAddress
             // 
+            this.pswdAddress.ActiveLinkColor = System.Drawing.Color.Silver;
             this.pswdAddress.DataPropertyName = "pswdAddress";
             this.pswdAddress.HeaderText = "Site";
+            this.pswdAddress.LinkColor = System.Drawing.Color.Silver;
             this.pswdAddress.MinimumWidth = 6;
             this.pswdAddress.Name = "pswdAddress";
             this.pswdAddress.ReadOnly = true;
+            this.pswdAddress.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.pswdAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.pswdAddress.ToolTipText = "Contains URL (link) to related site.";
+            this.pswdAddress.VisitedLinkColor = System.Drawing.Color.Gray;
             this.pswdAddress.Width = 125;
             // 
             // pswdCategory
@@ -247,6 +256,7 @@
             this.pswdCategory.MinimumWidth = 6;
             this.pswdCategory.Name = "pswdCategory";
             this.pswdCategory.ReadOnly = true;
+            this.pswdCategory.ToolTipText = "Contains Category of credentials entry. Can be empty.";
             this.pswdCategory.Width = 125;
             // 
             // pswdEmail
@@ -256,6 +266,7 @@
             this.pswdEmail.MinimumWidth = 6;
             this.pswdEmail.Name = "pswdEmail";
             this.pswdEmail.ReadOnly = true;
+            this.pswdEmail.ToolTipText = "Contains eMail address for credentials entry.";
             this.pswdEmail.Width = 125;
             // 
             // pswdAdditionalInfo
@@ -265,6 +276,7 @@
             this.pswdAdditionalInfo.MinimumWidth = 6;
             this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
             this.pswdAdditionalInfo.ReadOnly = true;
+            this.pswdAdditionalInfo.ToolTipText = "Contains notes related to credentials entry.";
             this.pswdAdditionalInfo.Width = 125;
             // 
             // mbMainMenu
@@ -300,7 +312,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdName;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdPass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pswdAddress;
+        private System.Windows.Forms.DataGridViewLinkColumn pswdAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdAdditionalInfo;
