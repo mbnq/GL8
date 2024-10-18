@@ -9,6 +9,7 @@
 
 using MaterialSkin.Controls;
 using System;
+using System.Windows.Forms;
 
 namespace GL8.CORE
 {
@@ -50,5 +51,33 @@ namespace GL8.CORE
             _DialogIntro = new mbDialogIntro();
             _DialogIntro.ShowDialog();
         }
+
+        private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
+        {
+            UserSettings settings = UserSettings.LoadSettings();
+
+            // Verify the current password
+            if (!PasswordManager.VerifyPassword(mbButtonSettingsChangeMasterPass_current.Text, settings.HashedPassword, Convert.FromBase64String(settings.Salt)))
+            {
+                MessageBox.Show("Current password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if the new passwords match
+            if (mbButtonSettingsChangeMasterPass_new.Text != mbButtonSettingsChangeMasterPass_newConfirm.Text)
+            {
+                MessageBox.Show("The new passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Generate a new salt and hash the new password
+            byte[] newSalt = PasswordManager.GenerateSalt();
+            settings.HashedPassword = PasswordManager.HashPassword(mbButtonSettingsChangeMasterPass_new.Text, newSalt);
+            settings.Salt = Convert.ToBase64String(newSalt); // Store the salt as a Base64 string
+            settings.SaveSettings();
+
+            MessageBox.Show("Password updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }

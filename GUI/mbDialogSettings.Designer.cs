@@ -106,7 +106,7 @@
             this.mbButtonSettingsChangeMasterPass_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.mbButtonSettingsChangeMasterPass_current.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.mbButtonSettingsChangeMasterPass_current.Depth = 0;
-            this.mbButtonSettingsChangeMasterPass_current.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbButtonSettingsChangeMasterPass_current.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbButtonSettingsChangeMasterPass_current.HideSelection = true;
             this.mbButtonSettingsChangeMasterPass_current.Hint = "Current Password";
             this.mbButtonSettingsChangeMasterPass_current.LeadingIcon = null;
@@ -211,7 +211,7 @@
             this.mbButtonSettingsChangeMasterPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsChangeMasterPassword.UseAccentColor = false;
             this.mbButtonSettingsChangeMasterPassword.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsChangeMasterPassword.Click += new System.EventHandler(this.mbButtonSettingsClose_Click);
+            this.mbButtonSettingsChangeMasterPassword.Click += new System.EventHandler(this.mbButtonSettingsChangeMasterPassword_Click);
             // 
             // mbDialogSettings
             // 
