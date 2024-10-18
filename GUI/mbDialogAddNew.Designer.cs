@@ -54,7 +54,7 @@ namespace GL8.CORE
             this.mbTextBoxAddName.Depth = 0;
             this.mbTextBoxAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddName.HideSelection = true;
-            this.mbTextBoxAddName.Hint = "Password";
+            this.mbTextBoxAddName.Hint = "Name";
             this.mbTextBoxAddName.LeadingIcon = null;
             this.mbTextBoxAddName.Location = new System.Drawing.Point(8, 82);
             this.mbTextBoxAddName.Margin = new System.Windows.Forms.Padding(4);
