@@ -24,6 +24,7 @@ namespace GL8.CORE
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.dat");
+        public static string mbFilePathSettings = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
         private mbDialogAddNew      _DialogAddNew;
         private mbDialogEdit        _DialogEdit;

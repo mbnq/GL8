@@ -90,15 +90,15 @@ namespace GL8.CORE
 
             byte[] saltBytes = Convert.FromBase64String(settings.Salt);
 
-            if (!mbPasswordManager.VerifyPassword(currentPassword, settings.HashedPassword, saltBytes))
+            if (!mbMasterPasswordManager.VerifyPassword(currentPassword, settings.HashedPassword, saltBytes))
             {
                 MessageBox.Show("Current password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Generate new salt and hash the new password
-            byte[] newSalt = mbPasswordManager.GenerateSalt();
-            settings.HashedPassword = mbPasswordManager.HashPassword(newPassword, newSalt);
+            byte[] newSalt = mbMasterPasswordManager.GenerateSalt();
+            settings.HashedPassword = mbMasterPasswordManager.HashPassword(newPassword, newSalt);
             settings.Salt = Convert.ToBase64String(newSalt);
 
             // Save settings with new password
@@ -106,7 +106,7 @@ namespace GL8.CORE
 
             // Update the data file's encryption
             string errorMessage;
-            bool success = mbPasswordManager.UpdatePassword(mbMainMenu.mbFilePath, currentPassword, newPassword, out errorMessage);
+            bool success = mbMasterPasswordManager.UpdatePassword(mbMainMenu.mbFilePath, currentPassword, newPassword, out errorMessage);
 
             if (success)
             {

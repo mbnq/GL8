@@ -14,7 +14,7 @@ using System.Security.Cryptography;
 using System.IO;
 using GL8.CORE;
 
-public class mbPasswordManager
+public class mbMasterPasswordManager
 {
     // Method to generate a random salt
     public static byte[] GenerateSalt(int size = 16)

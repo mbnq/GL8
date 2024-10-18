@@ -24,7 +24,7 @@ namespace GL8.CORE
         {
             InitializeComponent();
 
-            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.dat")))
+            if (File.Exists(mbMainMenu.mbFilePathSettings))
             {
                 isNewUser = false;
 
@@ -86,11 +86,11 @@ namespace GL8.CORE
                 }
 
                 // Generate salt for password hashing
-                byte[] salt = mbPasswordManager.GenerateSalt();
+                byte[] salt = mbMasterPasswordManager.GenerateSalt();
                 string base64Salt = Convert.ToBase64String(salt);
 
                 // Hash the password using Argon2 and the generated salt
-                string hashedPassword = mbPasswordManager.HashPassword(enteredPassword, salt);
+                string hashedPassword = mbMasterPasswordManager.HashPassword(enteredPassword, salt);
 
                 // Save settings
                 mbUserSettings settings = new mbUserSettings
@@ -124,7 +124,7 @@ namespace GL8.CORE
                     byte[] saltBytes = Convert.FromBase64String(settings.Salt);
 
                     // Verify password using Argon2
-                    if (mbPasswordManager.VerifyPassword(enteredPassword, settings.HashedPassword, saltBytes))
+                    if (mbMasterPasswordManager.VerifyPassword(enteredPassword, settings.HashedPassword, saltBytes))
                     {
                         Program.mbPassOK = true;
                         Program.SetUserPassword(enteredPassword);
