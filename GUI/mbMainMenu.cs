@@ -38,6 +38,7 @@ namespace GL8.CORE
         public mbMainMenu(SecureString userPassword)
         {
             InitializeComponent();
+            this.CenterToScreen();
             _userPassword = userPassword;
 
             if (mbPSWDList == null)

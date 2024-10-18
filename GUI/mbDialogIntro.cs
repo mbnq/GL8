@@ -23,6 +23,7 @@ namespace GL8.CORE
         public mbDialogIntro()
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             if (File.Exists(mbMainMenu.mbFilePathSettings))
             {
