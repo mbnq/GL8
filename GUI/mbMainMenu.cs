@@ -49,6 +49,7 @@ namespace GL8.CORE
             mbDataView.RowValidated         += mbDataView_RowValidated;
             mbDataView.CellFormatting       += mbDataView_CellFormatting;
             mbDataView.KeyDown              += mbDataView_KeyDown;
+            mbDataView.CellMouseDown        += mbDataView_CellMouseDown;
             this.FormClosing                += mbMainMenu_FormClosing;
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
@@ -217,6 +218,12 @@ namespace GL8.CORE
             }
         }
 
+        private void mbButtonOptions_Click(object sender, EventArgs e)
+        {
+            _DialogSettings = new mbDialogSettings(this);
+            _DialogSettings.ShowDialog();
+        }
+
         private void mbButtonExit_Click(object sender, EventArgs e)
         {
             SavePSWDData();
@@ -268,10 +275,18 @@ namespace GL8.CORE
             }
         }
 
-        private void mbButtonOptions_Click(object sender, EventArgs e)
+        private void mbDataView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _DialogSettings = new mbDialogSettings(this);
-            _DialogSettings.ShowDialog();
+            if (e.Button == MouseButtons.Right)
+            {
+                // check if the click was inside a valid cell
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    mbDataView.CurrentCell = mbDataView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    // select the entire row if preferred
+                    mbDataView.Rows[e.RowIndex].Selected = true;
+                }
+            }
         }
     }
 }
