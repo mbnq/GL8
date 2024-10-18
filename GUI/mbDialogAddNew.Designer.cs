@@ -38,6 +38,8 @@
             this.mbButtonAddAddItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonAddCancel = new MaterialSkin.Controls.MaterialButton();
             this.mbTextBoxAddPassword_GenRandom = new MaterialSkin.Controls.MaterialButton();
+            this.mbTextBoxAddPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxAddPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
             // mbTextBoxAddName
@@ -272,7 +274,7 @@
             this.mbButtonAddAddItem.Depth = 0;
             this.mbButtonAddAddItem.HighEmphasis = true;
             this.mbButtonAddAddItem.Icon = null;
-            this.mbButtonAddAddItem.Location = new System.Drawing.Point(734, 395);
+            this.mbButtonAddAddItem.Location = new System.Drawing.Point(679, 395);
             this.mbButtonAddAddItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonAddAddItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddAddItem.Name = "mbButtonAddAddItem";
@@ -293,7 +295,7 @@
             this.mbButtonAddCancel.Depth = 0;
             this.mbButtonAddCancel.HighEmphasis = true;
             this.mbButtonAddCancel.Icon = null;
-            this.mbButtonAddCancel.Location = new System.Drawing.Point(513, 395);
+            this.mbButtonAddCancel.Location = new System.Drawing.Point(458, 395);
             this.mbButtonAddCancel.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonAddCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddCancel.Name = "mbButtonAddCancel";
@@ -314,12 +316,12 @@
             this.mbTextBoxAddPassword_GenRandom.Depth = 0;
             this.mbTextBoxAddPassword_GenRandom.HighEmphasis = true;
             this.mbTextBoxAddPassword_GenRandom.Icon = null;
-            this.mbTextBoxAddPassword_GenRandom.Location = new System.Drawing.Point(898, 149);
+            this.mbTextBoxAddPassword_GenRandom.Location = new System.Drawing.Point(535, 149);
             this.mbTextBoxAddPassword_GenRandom.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbTextBoxAddPassword_GenRandom.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbTextBoxAddPassword_GenRandom.Name = "mbTextBoxAddPassword_GenRandom";
             this.mbTextBoxAddPassword_GenRandom.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbTextBoxAddPassword_GenRandom.Size = new System.Drawing.Size(47, 56);
+            this.mbTextBoxAddPassword_GenRandom.Size = new System.Drawing.Size(47, 26);
             this.mbTextBoxAddPassword_GenRandom.TabIndex = 9;
             this.mbTextBoxAddPassword_GenRandom.Text = "R";
             this.mbTextBoxAddPassword_GenRandom.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -327,11 +329,34 @@
             this.mbTextBoxAddPassword_GenRandom.UseVisualStyleBackColor = true;
             this.mbTextBoxAddPassword_GenRandom.Click += new System.EventHandler(this.mbTextBoxAddPassword_GenRandom_Click);
             // 
+            // mbTextBoxAddPassword_GetRandomNum
+            // 
+            this.mbTextBoxAddPassword_GetRandomNum.Location = new System.Drawing.Point(534, 175);
+            this.mbTextBoxAddPassword_GetRandomNum.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.mbTextBoxAddPassword_GetRandomNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.mbTextBoxAddPassword_GetRandomNum.Name = "mbTextBoxAddPassword_GetRandomNum";
+            this.mbTextBoxAddPassword_GetRandomNum.Size = new System.Drawing.Size(48, 22);
+            this.mbTextBoxAddPassword_GetRandomNum.TabIndex = 12;
+            this.mbTextBoxAddPassword_GetRandomNum.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
             // mbDialogAddNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 450);
+            this.ClientSize = new System.Drawing.Size(904, 450);
+            this.Controls.Add(this.mbTextBoxAddPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxAddPassword_GenRandom);
             this.Controls.Add(this.mbButtonAddCancel);
             this.Controls.Add(this.mbButtonAddAddItem);
@@ -346,6 +371,7 @@
             this.Name = "mbDialogAddNew";
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
             this.Text = "New Item";
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxAddPassword_GetRandomNum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +388,6 @@
         private MaterialSkin.Controls.MaterialButton mbButtonAddAddItem;
         private MaterialSkin.Controls.MaterialButton mbButtonAddCancel;
         private MaterialSkin.Controls.MaterialButton mbTextBoxAddPassword_GenRandom;
+        private System.Windows.Forms.NumericUpDown mbTextBoxAddPassword_GetRandomNum;
     }
 }

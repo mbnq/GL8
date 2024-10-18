@@ -39,6 +39,8 @@
             this.mbTextBoxEditName = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbCheckBoxEditHidePswd = new MaterialSkin.Controls.MaterialCheckbox();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
+            this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
             // mbButtonEditCancel
@@ -311,7 +313,7 @@
             // 
             this.mbCheckBoxEditHidePswd.AutoSize = true;
             this.mbCheckBoxEditHidePswd.Depth = 0;
-            this.mbCheckBoxEditHidePswd.Location = new System.Drawing.Point(538, 147);
+            this.mbCheckBoxEditHidePswd.Location = new System.Drawing.Point(856, 142);
             this.mbCheckBoxEditHidePswd.Margin = new System.Windows.Forms.Padding(0);
             this.mbCheckBoxEditHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mbCheckBoxEditHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -331,12 +333,12 @@
             this.mbTextBoxEditPassword_GetRandom.Depth = 0;
             this.mbTextBoxEditPassword_GetRandom.HighEmphasis = true;
             this.mbTextBoxEditPassword_GetRandom.Icon = null;
-            this.mbTextBoxEditPassword_GetRandom.Location = new System.Drawing.Point(902, 147);
+            this.mbTextBoxEditPassword_GetRandom.Location = new System.Drawing.Point(537, 147);
             this.mbTextBoxEditPassword_GetRandom.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbTextBoxEditPassword_GetRandom.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbTextBoxEditPassword_GetRandom.Name = "mbTextBoxEditPassword_GetRandom";
             this.mbTextBoxEditPassword_GetRandom.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbTextBoxEditPassword_GetRandom.Size = new System.Drawing.Size(47, 56);
+            this.mbTextBoxEditPassword_GetRandom.Size = new System.Drawing.Size(47, 25);
             this.mbTextBoxEditPassword_GetRandom.TabIndex = 10;
             this.mbTextBoxEditPassword_GetRandom.Text = "R";
             this.mbTextBoxEditPassword_GetRandom.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -344,12 +346,35 @@
             this.mbTextBoxEditPassword_GetRandom.UseVisualStyleBackColor = true;
             this.mbTextBoxEditPassword_GetRandom.Click += new System.EventHandler(this.mbTextBoxEditPassword_GenRandom_Click);
             // 
+            // mbTextBoxEditPassword_GetRandomNum
+            // 
+            this.mbTextBoxEditPassword_GetRandomNum.Location = new System.Drawing.Point(536, 173);
+            this.mbTextBoxEditPassword_GetRandomNum.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.mbTextBoxEditPassword_GetRandomNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.mbTextBoxEditPassword_GetRandomNum.Name = "mbTextBoxEditPassword_GetRandomNum";
+            this.mbTextBoxEditPassword_GetRandomNum.Size = new System.Drawing.Size(48, 22);
+            this.mbTextBoxEditPassword_GetRandomNum.TabIndex = 11;
+            this.mbTextBoxEditPassword_GetRandomNum.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
             // mbDialogEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(971, 450);
+            this.ClientSize = new System.Drawing.Size(904, 450);
+            this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
             this.Controls.Add(this.mbCheckBoxEditHidePswd);
             this.Controls.Add(this.mbButtonEditCancel);
@@ -363,6 +388,7 @@
             this.Controls.Add(this.mbTextBoxEditName);
             this.Name = "mbDialogEdit";
             this.Text = "Edit";
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,5 +407,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditName;
         private MaterialSkin.Controls.MaterialCheckbox mbCheckBoxEditHidePswd;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
+        private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
     }
 }
