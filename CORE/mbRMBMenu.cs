@@ -37,7 +37,6 @@ namespace GL8.CORE
             // assign the ContextMenuStrip to the DataGridView
             mbDataView.ContextMenuStrip = mbContextMenu;
         }
-
         private void CopyMenuItem_Click(DataGridView mbDataView)
         {
             if (mbDataView.CurrentCell != null)

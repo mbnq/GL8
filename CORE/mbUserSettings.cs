@@ -18,8 +18,6 @@ public class mbUserSettings
 {
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
-
-    // Load settings from user.json using the user's password
     public static mbUserSettings LoadSettings(SecureString password)
     {
         if (File.Exists(mbMainMenu.mbFilePathSettings))
@@ -41,8 +39,6 @@ public class mbUserSettings
             return null;
         }
     }
-
-    // Save settings to user.json using the user's password
     public void SaveSettings(SecureString password)
     {
         string json = JsonConvert.SerializeObject(this);
