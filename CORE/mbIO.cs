@@ -25,6 +25,13 @@ namespace GL8.CORE
             if (mbPSWDList == null) { mbPSWDList = new BindingList<mbPSWD>(); }
 
             mbDataView.DataSource = mbPSWDList;
+
+            if (mbDataView.Columns.Contains("pswdCreateTime"))
+                mbDataView.Columns["pswdCreateTime"].HeaderText = "Creation Date";
+
+            if (mbDataView.Columns.Contains("pswdLastEditTime"))
+                mbDataView.Columns["pswdLastEditTime"].HeaderText = "Modify Date";
+
             this.Refresh();
         }
         private void CreateDataFileIfMissing()
