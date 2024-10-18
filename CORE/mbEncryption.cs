@@ -5,6 +5,7 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    https://github.com/kmaragon/Konscious.Security.Cryptography
 */
 
 using System;
@@ -104,8 +105,8 @@ public static class mbEncryption
         {
             Salt = salt,
             DegreeOfParallelism = 8,
-            MemorySize = 65536,
-            Iterations = 4
+            MemorySize = 48152,
+            Iterations = 8
         };
 
         byte[] hash = argon2.GetBytes(KeySize + IvSize);

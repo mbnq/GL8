@@ -16,7 +16,6 @@ using GL8.CORE;
 
 public class mbMasterPasswordManager
 {
-    // Method to generate a random salt
     public static byte[] GenerateSalt(int size = 16)
     {
         var salt = new byte[size];
@@ -26,8 +25,6 @@ public class mbMasterPasswordManager
         }
         return salt;
     }
-
-    // Method to hash a password using Argon2 with a provided salt
     public static string HashPassword(SecureString password, byte[] salt)
     {
         byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
@@ -38,8 +35,8 @@ public class mbMasterPasswordManager
             {
                 Salt = salt,
                 DegreeOfParallelism = 8,
-                MemorySize = 65536,
-                Iterations = 4
+                MemorySize = 48152,
+                Iterations = 8
             };
 
             byte[] hash = argon2.GetBytes(32);
@@ -50,8 +47,6 @@ public class mbMasterPasswordManager
             ClearByteArray(passwordBytes);
         }
     }
-
-    // Method to verify a password against a stored hash and salt
     public static bool VerifyPassword(SecureString enteredPassword, string storedHash, byte[] salt)
     {
         string hashOfEntered = HashPassword(enteredPassword, salt);
