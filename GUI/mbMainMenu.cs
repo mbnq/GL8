@@ -115,7 +115,6 @@ namespace GL8.CORE
                         (!string.IsNullOrEmpty(pswd.pswdAdditionalInfo) && pswd.pswdAdditionalInfo.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0))
                     .ToList()
                 );
-
                 mbDataView.DataSource = filteredList;
             }
             mbDataView.Refresh();
