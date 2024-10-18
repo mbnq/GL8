@@ -51,6 +51,14 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
+            if ((mbButtonSettingsChangeMasterPass_current.Text == string.Empty) ||
+                (mbButtonSettingsChangeMasterPass_new.Text == string.Empty) ||
+                (mbButtonSettingsChangeMasterPass_newConfirm.Text == string.Empty)) 
+            { 
+                MaterialMessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+
             SecureString currentPassword = new SecureString();
 
             foreach (char c in mbButtonSettingsChangeMasterPass_current.Text)
