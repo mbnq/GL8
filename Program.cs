@@ -1,4 +1,13 @@
-﻿using GL8.CORE;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using GL8.CORE;
 using System;
 using System.Security;
 using System.Windows.Forms;

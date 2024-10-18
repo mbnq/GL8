@@ -131,7 +131,6 @@ namespace GL8.CORE
             _DialogAddNew = new mbDialogAddNew(this);
             _DialogAddNew.ShowDialog();
         }
-
         public void mbButtonEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = null;
@@ -277,7 +276,6 @@ namespace GL8.CORE
                 }
             }
         }
-
         private void mbDataView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -291,29 +289,9 @@ namespace GL8.CORE
                 }
             }
         }
-
-        public void UpdatePassword(SecureString oldPassword, SecureString newPassword)
+        public void UpdateUserPassword(SecureString newPassword)
         {
-            try
-            {
-                // Load data with old password
-                byte[] encryptedData = File.ReadAllBytes(mbFilePath);
-                string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
-
-                // Re-encrypt data with new password
-                byte[] newEncryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
-                File.WriteAllBytes(mbFilePath, newEncryptedData);
-
-                // Update the stored password
-                _userPassword = newPassword;
-
-                MaterialMessageBox.Show("Data re-encrypted with new password successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MaterialMessageBox.Show("Error updating data encryption: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            _userPassword = newPassword;
         }
-
     }
 }

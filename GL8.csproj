@@ -77,6 +77,7 @@
     <Compile Include="CORE\mbRMBMenu.cs" />
     <Compile Include="CORE\mbRND.cs" />
     <Compile Include="CORE\mbUserSettings.cs" />
+    <Compile Include="CORE\mbSecureString.cs" />
     <Compile Include="GUI\mbDialogEdit.cs">
       <SubType>Form</SubType>
     </Compile>

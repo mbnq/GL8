@@ -1,9 +1,21 @@
-﻿using Konscious.Security.Cryptography;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using Konscious.Security.Cryptography;
+using MaterialSkin.Controls;
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
+using System.IO;
 
 public class mbPasswordManager
 {
@@ -84,5 +96,27 @@ public class mbPasswordManager
     {
         if (bytes != null)
             Array.Clear(bytes, 0, bytes.Length);
+    }
+
+    public static bool UpdatePassword(string dataFilePath, SecureString oldPassword, SecureString newPassword, out string errorMessage)
+    {
+        errorMessage = null;
+        try
+        {
+            // Load data with old password
+            byte[] encryptedData = File.ReadAllBytes(dataFilePath);
+            string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
+
+            // Re-encrypt data with new password
+            byte[] newEncryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
+            File.WriteAllBytes(dataFilePath, newEncryptedData);
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+            return false;
+        }
     }
 }

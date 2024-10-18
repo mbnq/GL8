@@ -1,4 +1,13 @@
-﻿using MaterialSkin.Controls;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using MaterialSkin.Controls;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -132,7 +141,6 @@ namespace GL8.CORE
                 }
             }
         }
-
         private bool SecureStringsEqual(SecureString ss1, SecureString ss2)
         {
             if (ss1 == null || ss2 == null)

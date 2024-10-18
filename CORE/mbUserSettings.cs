@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.IO;
 using System.Security;
 using System.Security.Cryptography;

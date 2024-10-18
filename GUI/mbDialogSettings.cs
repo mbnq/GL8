@@ -8,7 +8,6 @@
 
 using MaterialSkin.Controls;
 using System;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows.Forms;
@@ -57,6 +56,7 @@ namespace GL8.CORE
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
             SecureString currentPassword = new SecureString();
+
             foreach (char c in mbButtonSettingsChangeMasterPass_current.Text)
             {
                 currentPassword.AppendChar(c);
@@ -77,13 +77,9 @@ namespace GL8.CORE
             }
             newPasswordConfirm.MakeReadOnly();
 
-            // Compare new passwords (requires conversion)
-            string newPasswordString = ConvertToUnsecureString(newPassword);
-            string newPasswordConfirmString = ConvertToUnsecureString(newPasswordConfirm);
-
-            if (newPasswordString != newPasswordConfirmString)
+            if (!mbSecureString.SSEqual(newPassword, newPasswordConfirm))
             {
-                MessageBox.Show("The new passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Entered passwords are not the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -112,27 +108,20 @@ namespace GL8.CORE
             // Save settings with new password
             settings.SaveSettings(newPassword);
 
-            // Update mbMainMenu password
-            _mainMenuInstance.UpdatePassword(currentPassword, newPassword);
+            // Update the data file's encryption
+            string errorMessage;
+            bool success = mbPasswordManager.UpdatePassword(mbMainMenu.mbFilePath, currentPassword, newPassword, out errorMessage);
 
-            MessageBox.Show("Password updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Clear unsecure strings
-            newPasswordString = null;
-            newPasswordConfirmString = null;
-        }
-
-        private string ConvertToUnsecureString(SecureString secureString)
-        {
-            IntPtr unmanagedString = IntPtr.Zero;
-            try
+            if (success)
             {
-                unmanagedString = SecureStringMarshal.SecureStringToGlobalAllocUnicode(secureString);
-                return Marshal.PtrToStringUni(unmanagedString);
+                // Update the stored password in mbMainMenu
+                _mainMenuInstance.UpdateUserPassword(newPassword);
+
+                MaterialMessageBox.Show("Password updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            finally
+            else
             {
-                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+                MaterialMessageBox.Show("Error updating data encryption: " + errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
