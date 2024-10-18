@@ -30,6 +30,7 @@
         {
             this.mbButtonSettingsClose = new MaterialSkin.Controls.MaterialButton();
             this.mbSettingsSwitchHidePswd = new MaterialSkin.Controls.MaterialSwitch();
+            this.mbButtonSettingsDebug = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -64,19 +65,40 @@
             this.mbSettingsSwitchHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mbSettingsSwitchHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbSettingsSwitchHidePswd.Name = "mbSettingsSwitchHidePswd";
-            this.mbSettingsSwitchHidePswd.ReadOnly = false;
             this.mbSettingsSwitchHidePswd.Ripple = true;
-            this.mbSettingsSwitchHidePswd.Size = new System.Drawing.Size(149, 37);
+            this.mbSettingsSwitchHidePswd.Size = new System.Drawing.Size(172, 37);
             this.mbSettingsSwitchHidePswd.TabIndex = 1;
             this.mbSettingsSwitchHidePswd.Text = "Hide Passwords";
             this.mbSettingsSwitchHidePswd.UseVisualStyleBackColor = true;
             this.mbSettingsSwitchHidePswd.CheckedChanged += new System.EventHandler(this.mbSettingsSwtichHidePswd_CheckedChanged);
+            // 
+            // mbButtonSettingsDebug
+            // 
+            this.mbButtonSettingsDebug.AutoSize = false;
+            this.mbButtonSettingsDebug.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonSettingsDebug.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonSettingsDebug.Depth = 0;
+            this.mbButtonSettingsDebug.HighEmphasis = true;
+            this.mbButtonSettingsDebug.Icon = null;
+            this.mbButtonSettingsDebug.Location = new System.Drawing.Point(635, 357);
+            this.mbButtonSettingsDebug.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonSettingsDebug.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonSettingsDebug.Name = "mbButtonSettingsDebug";
+            this.mbButtonSettingsDebug.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonSettingsDebug.Size = new System.Drawing.Size(158, 36);
+            this.mbButtonSettingsDebug.TabIndex = 2;
+            this.mbButtonSettingsDebug.Text = "Debug Button";
+            this.mbButtonSettingsDebug.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonSettingsDebug.UseAccentColor = false;
+            this.mbButtonSettingsDebug.UseVisualStyleBackColor = true;
+            this.mbButtonSettingsDebug.Visible = false;
             // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbButtonSettingsDebug);
             this.Controls.Add(this.mbSettingsSwitchHidePswd);
             this.Controls.Add(this.mbButtonSettingsClose);
             this.Name = "mbDialogSettings";
@@ -90,5 +112,6 @@
 
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsClose;
         private MaterialSkin.Controls.MaterialSwitch mbSettingsSwitchHidePswd;
+        private MaterialSkin.Controls.MaterialButton mbButtonSettingsDebug;
     }
 }

@@ -19,6 +19,10 @@ namespace GL8.CORE
         {
             InitializeComponent();
             _mainMenuInstance = mainMenuInstance;
+
+#if DEBUG   
+            mbButtonSettingsDebug.Visible = true; 
+#endif
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
