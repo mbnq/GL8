@@ -92,6 +92,7 @@
             this.mbButtonSettingsDebug.UseAccentColor = false;
             this.mbButtonSettingsDebug.UseVisualStyleBackColor = true;
             this.mbButtonSettingsDebug.Visible = false;
+            this.mbButtonSettingsDebug.Click += new System.EventHandler(this.mbButtonSettingsDebug_Click);
             // 
             // mbDialogSettings
             // 

@@ -15,6 +15,7 @@ namespace GL8.CORE
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
+        private mbDialogIntro _DialogIntro;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
@@ -42,6 +43,12 @@ namespace GL8.CORE
             }
 
             _mainMenuInstance.mbRefreshMainMenu();
+        }
+
+        private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
+        {
+            _DialogIntro = new mbDialogIntro();
+            _DialogIntro.ShowDialog();
         }
     }
 }

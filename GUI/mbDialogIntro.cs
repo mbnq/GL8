@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GL8.GUI
+namespace GL8.CORE
 {
     public partial class mbDialogIntro : MaterialForm
     {

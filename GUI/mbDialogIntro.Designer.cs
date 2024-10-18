@@ -1,4 +1,4 @@
-﻿namespace GL8.GUI
+﻿namespace GL8.CORE
 {
     partial class mbDialogIntro
     {
@@ -40,11 +40,11 @@
             this.mbIntroTextBoxMasterPswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.mbIntroTextBoxMasterPswd.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.mbIntroTextBoxMasterPswd.Depth = 0;
-            this.mbIntroTextBoxMasterPswd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mbIntroTextBoxMasterPswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbIntroTextBoxMasterPswd.HideSelection = true;
             this.mbIntroTextBoxMasterPswd.Hint = "Enter Password";
             this.mbIntroTextBoxMasterPswd.LeadingIcon = null;
-            this.mbIntroTextBoxMasterPswd.Location = new System.Drawing.Point(63, 98);
+            this.mbIntroTextBoxMasterPswd.Location = new System.Drawing.Point(65, 110);
             this.mbIntroTextBoxMasterPswd.MaxLength = 32767;
             this.mbIntroTextBoxMasterPswd.MouseState = MaterialSkin.MouseState.OUT;
             this.mbIntroTextBoxMasterPswd.Name = "mbIntroTextBoxMasterPswd";
@@ -71,14 +71,14 @@
             this.mbIntroButtonLogin.Depth = 0;
             this.mbIntroButtonLogin.HighEmphasis = true;
             this.mbIntroButtonLogin.Icon = null;
-            this.mbIntroButtonLogin.Location = new System.Drawing.Point(63, 173);
+            this.mbIntroButtonLogin.Location = new System.Drawing.Point(65, 167);
             this.mbIntroButtonLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbIntroButtonLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbIntroButtonLogin.Name = "mbIntroButtonLogin";
             this.mbIntroButtonLogin.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbIntroButtonLogin.Size = new System.Drawing.Size(250, 36);
             this.mbIntroButtonLogin.TabIndex = 1;
-            this.mbIntroButtonLogin.Text = "materialButton1";
+            this.mbIntroButtonLogin.Text = "Login";
             this.mbIntroButtonLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbIntroButtonLogin.UseAccentColor = false;
             this.mbIntroButtonLogin.UseVisualStyleBackColor = true;
