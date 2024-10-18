@@ -10,6 +10,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Text;
 
 namespace GL8.CORE
 {
@@ -73,7 +74,27 @@ namespace GL8.CORE
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
         }
+        public static byte[] SecureStringToByteArray(SecureString secureString)
+        {
+            if (secureString == null)
+                return null;
 
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+                string password = Marshal.PtrToStringUni(unmanagedString);
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
 
+                // No need to clear the password string since we are avoiding unsafe code
+                // Also, due to string immutability, clearing may not be effective
+
+                return bytes;
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
+        }
     }
 }

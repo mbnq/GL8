@@ -22,16 +22,15 @@ namespace GL8.CORE
             InitializeComponent();
             _mainMenuInstance = mainMenuInstance;
 
-#if DEBUG   
-            mbButtonSettingsDebug.Visible = true;
-#endif
+            #if DEBUG   
+                mbButtonSettingsDebug.Visible = true;
+            #endif
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void mbSettingsSwtichHidePswd_CheckedChanged(object sender, EventArgs e)
         {
             if (mbSettingsSwitchHidePswd.Checked)
@@ -45,13 +44,11 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbRefreshMainMenu();
         }
-
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
             _DialogIntro = new mbDialogIntro();
             _DialogIntro.ShowDialog();
         }
-
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
             SecureString currentPassword = new SecureString();

@@ -8,14 +8,11 @@
 */
 
 using Konscious.Security.Cryptography;
-using MaterialSkin.Controls;
 using System;
-using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using GL8.CORE;
 
 public class mbPasswordManager
 {
@@ -33,7 +30,7 @@ public class mbPasswordManager
     // Method to hash a password using Argon2 with a provided salt
     public static string HashPassword(SecureString password, byte[] salt)
     {
-        byte[] passwordBytes = SecureStringToByteArray(password);
+        byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
 
         try
         {
@@ -60,7 +57,6 @@ public class mbPasswordManager
         string hashOfEntered = HashPassword(enteredPassword, salt);
         return SlowEquals(Convert.FromBase64String(hashOfEntered), Convert.FromBase64String(storedHash));
     }
-
     private static bool SlowEquals(byte[] a, byte[] b)
     {
         uint diff = (uint)a.Length ^ (uint)b.Length;
@@ -68,36 +64,11 @@ public class mbPasswordManager
             diff |= (uint)(a[i] ^ b[i]);
         return diff == 0;
     }
-
-    private static byte[] SecureStringToByteArray(SecureString secureString)
-    {
-        if (secureString == null)
-            return null;
-
-        IntPtr unmanagedString = IntPtr.Zero;
-        try
-        {
-            unmanagedString = SecureStringMarshal.SecureStringToGlobalAllocUnicode(secureString);
-            string password = Marshal.PtrToStringUni(unmanagedString);
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-
-            // No need to clear the password string since we are avoiding unsafe code
-            // Also, due to string immutability, clearing may not be effective
-
-            return bytes;
-        }
-        finally
-        {
-            Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-        }
-    }
-
     private static void ClearByteArray(byte[] bytes)
     {
         if (bytes != null)
             Array.Clear(bytes, 0, bytes.Length);
     }
-
     public static bool UpdatePassword(string dataFilePath, SecureString oldPassword, SecureString newPassword, out string errorMessage)
     {
         errorMessage = null;
