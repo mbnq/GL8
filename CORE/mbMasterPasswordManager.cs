@@ -76,10 +76,10 @@ public class mbMasterPasswordManager
         {
             // Load data with old password
             byte[] encryptedData = File.ReadAllBytes(dataFilePath);
-            string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, oldPassword);
+            string jsonData = mbEncryption.DecryptStringFromBytes(encryptedData, oldPassword);
 
             // Re-encrypt data with new password
-            byte[] newEncryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, newPassword);
+            byte[] newEncryptedData = mbEncryption.EncryptStringToBytes(jsonData, newPassword);
             File.WriteAllBytes(dataFilePath, newEncryptedData);
 
             return true;

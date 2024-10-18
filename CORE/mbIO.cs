@@ -26,7 +26,7 @@ namespace GL8.CORE
                 try
                 {
                     byte[] encryptedData = File.ReadAllBytes(mbFilePath);
-                    string jsonData = mbEncryptionUtility.DecryptStringFromBytes(encryptedData, _userPassword);
+                    string jsonData = mbEncryption.DecryptStringFromBytes(encryptedData, _userPassword);
                     mbPSWDList = JsonConvert.DeserializeObject<BindingList<mbPSWD>>(jsonData);
                 }
                 catch (Exception ex)
@@ -62,7 +62,7 @@ namespace GL8.CORE
             try
             {
                 string jsonData = JsonConvert.SerializeObject(mbPSWDList);
-                byte[] encryptedData = mbEncryptionUtility.EncryptStringToBytes(jsonData, _userPassword);
+                byte[] encryptedData = mbEncryption.EncryptStringToBytes(jsonData, _userPassword);
                 File.WriteAllBytes(mbFilePath, encryptedData);
             }
             catch (Exception ex)

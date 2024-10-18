@@ -1,13 +1,20 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 using Konscious.Security.Cryptography;
-using System.Runtime.InteropServices;
 using System.Security;
+using GL8.CORE;
 
-
-public static class mbEncryptionUtility
+public static class mbEncryption
 {
     // Size of the salt (in bytes)
     private const int SaltSize = 16;
@@ -19,7 +26,7 @@ public static class mbEncryptionUtility
     public static byte[] EncryptStringToBytes(string plainText, SecureString password)
     {
         // Convert SecureString to byte array
-        byte[] passwordBytes = SecureStringToByteArray(password);
+        byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
 
         try
         {
@@ -56,11 +63,10 @@ public static class mbEncryptionUtility
             ClearByteArray(passwordBytes);
         }
     }
-
     public static string DecryptStringFromBytes(byte[] cipherText, SecureString password)
     {
         // Convert SecureString to byte array
-        byte[] passwordBytes = SecureStringToByteArray(password);
+        byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
 
         try
         {
@@ -92,7 +98,6 @@ public static class mbEncryptionUtility
             ClearByteArray(passwordBytes);
         }
     }
-
     private static void DeriveKeyAndIV(byte[] passwordBytes, byte[] salt, out byte[] key, out byte[] iv)
     {
         var argon2 = new Argon2id(passwordBytes)
@@ -110,7 +115,6 @@ public static class mbEncryptionUtility
         Array.Copy(hash, 0, key, 0, KeySize);
         Array.Copy(hash, KeySize, iv, 0, IvSize);
     }
-
     private static byte[] GenerateRandomBytes(int size)
     {
         byte[] bytes = new byte[size];
@@ -118,39 +122,11 @@ public static class mbEncryptionUtility
         rng.GetBytes(bytes);
         return bytes;
     }
-
-    private static byte[] SecureStringToByteArray(SecureString secureString)
-    {
-        IntPtr unmanagedString = IntPtr.Zero;
-        try
-        {
-            unmanagedString = SecureStringMarshal.SecureStringToGlobalAllocUnicode(secureString);
-            string password = Marshal.PtrToStringUni(unmanagedString);
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            // Zero out the password string
-            ClearString(password);
-            return bytes;
-        }
-        finally
-        {
-            Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-        }
-    }
-
     private static void ClearByteArray(byte[] bytes)
     {
         if (bytes != null)
         {
             Array.Clear(bytes, 0, bytes.Length);
-        }
-    }
-
-    private static void ClearString(string s)
-    {
-        if (s != null)
-        {
-            // Strings are immutable; cannot be cleared directly.
-            // This is a limitation.
         }
     }
 }
