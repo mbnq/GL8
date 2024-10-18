@@ -49,7 +49,7 @@ namespace GL8.CORE
             }
             finally
             {
-                // Zero and free the unmanaged memory
+                // flush unmanaged memory
                 if (bstr1 != IntPtr.Zero)
                     Marshal.ZeroFreeBSTR(bstr1);
 

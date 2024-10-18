@@ -19,20 +19,21 @@ namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
+        // ------------------- Variables ------------------
         public bool mbHidePasswords = true;
 
         public BindingList<mbPSWD> mbPSWDList = new BindingList<mbPSWD>();
         public static string mbFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "mbData.dat");
 
-        private mbDialogAddNew _DialogAddNew;
-        private mbDialogEdit _DialogEdit;
-        private mbDialogSettings _DialogSettings;
-        private mbRMBMenu _mbRMBMenu;
+        private mbDialogAddNew      _DialogAddNew;
+        private mbDialogEdit        _DialogEdit;
+        private mbDialogSettings    _DialogSettings;
+        private mbRMBMenu           _mbRMBMenu;
 
         private SecureString _userPassword;
         private bool _unsavedChanges = false;
 
-        // ------------------- Main ----------------------
+        // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
         {
             InitializeComponent();
@@ -57,44 +58,8 @@ namespace GL8.CORE
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
         }
-        // ------------------- Main ----------------------
 
-        public void mbRefreshMainMenu()
-        {
-            this.Refresh();
-            mbDataView.Refresh();
-        }
-
-        private void mbDataView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if ((mbHidePasswords) && (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null))
-            {
-                e.Value = new string('*', e.Value.ToString().Length);
-            }
-        }
-
-        private void mbDataView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                if (mbDataView.CurrentCell != null && mbDataView.CurrentCell.ColumnIndex == mbDataView.Columns["pswdPass"].Index)
-                {
-                    var selectedRow = mbDataView.CurrentRow;
-                    if (selectedRow != null)
-                    {
-                        mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
-                        if (selectedPSWD != null)
-                        {
-                            Clipboard.SetText(selectedPSWD.pswdPass);
-                        }
-
-                        e.Handled = true;
-                    }
-                }
-            }
-        }
-
-        // ------------------- Search ----------------------
+        // ------------------- Search ---------------------
 
         private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -124,8 +89,7 @@ namespace GL8.CORE
             mbDataView.Refresh();
         }
 
-
-        // ------------------- GUI Controls ----------------------
+        // ------------------- GUI Controls ---------------
         public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
             _DialogAddNew = new mbDialogAddNew(this);
@@ -169,7 +133,6 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
-
         private void mbButtonRemoveItem_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = null;
@@ -219,42 +182,18 @@ namespace GL8.CORE
                     MessageBoxIcon.Information);
             }
         }
-
         private void mbButtonOptions_Click(object sender, EventArgs e)
         {
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.ShowDialog();
         }
-
         private void mbButtonExit_Click(object sender, EventArgs e)
         {
             SavePSWDData();
             Application.Exit();
         }
-        private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (_unsavedChanges)
-            {
-                var result = MaterialMessageBox.Show(
-                    "You have unsaved changes. Do you want to save them before exiting?",
-                    "Unsaved Changes",
-                    MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
-                {
-                    SavePSWDData();
-                    _unsavedChanges = false;
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
-        // ------------------- DataView ----------------------
-
+        // ------------------- DataView -------------------
         private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             _unsavedChanges = true;
@@ -286,6 +225,61 @@ namespace GL8.CORE
                     mbDataView.CurrentCell = mbDataView.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     // select the entire row if preferred
                     mbDataView.Rows[e.RowIndex].Selected = true;
+                }
+            }
+        }
+        private void mbDataView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((mbHidePasswords) && (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null))
+            {
+                e.Value = new string('*', e.Value.ToString().Length);
+            }
+        }
+        private void mbDataView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                if (mbDataView.CurrentCell != null && mbDataView.CurrentCell.ColumnIndex == mbDataView.Columns["pswdPass"].Index)
+                {
+                    var selectedRow = mbDataView.CurrentRow;
+                    if (selectedRow != null)
+                    {
+                        mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
+                        if (selectedPSWD != null)
+                        {
+                            Clipboard.SetText(selectedPSWD.pswdPass);
+                        }
+
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        // ------------------- Other ----------------------
+        public void mbRefreshMainMenu()
+        {
+            this.Refresh();
+            mbDataView.Refresh();
+        }
+        private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_unsavedChanges)
+            {
+                var result = MaterialMessageBox.Show(
+                    "You have unsaved changes. Do you want to save them before exiting?",
+                    "Unsaved Changes",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    SavePSWDData();
+                    _unsavedChanges = false;
+                }
+                else
+                {
+                    e.Cancel = true;
                 }
             }
         }
