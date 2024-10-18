@@ -82,6 +82,7 @@
             this.mbIntroButtonLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbIntroButtonLogin.UseAccentColor = false;
             this.mbIntroButtonLogin.UseVisualStyleBackColor = true;
+            this.mbIntroButtonLogin.Click += new System.EventHandler(this.mbIntroButtonLogin_Click);
             // 
             // mbDialogIntro
             // 

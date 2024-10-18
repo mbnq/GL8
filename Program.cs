@@ -21,7 +21,7 @@ namespace GL8
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mbMainMenu());
+            Application.Run(new mbDialogIntro());
         }
     }
 }

@@ -17,5 +17,19 @@ namespace GL8.CORE
         {
             InitializeComponent();
         }
+
+        private void mbIntroButtonLogin_Click(object sender, EventArgs e)
+        {
+            if (mbIntroTextBoxMasterPswd.Text == "test")
+            {
+                mbMainMenu mainMenu = new mbMainMenu();
+                mainMenu.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
