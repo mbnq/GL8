@@ -128,5 +128,10 @@ namespace GL8.CORE
                 MaterialMessageBox.Show("Error updating data encryption: " + errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void mbButtonSettingsImportCSV_Click(object sender, EventArgs e)
+        {
+            mbCSVImporter importer = new mbCSVImporter(_mainMenuInstance);
+            importer.ImportCsv();
+        }
     }
 }
