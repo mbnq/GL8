@@ -30,16 +30,6 @@ namespace GL8.CORE
             mbTextBoxEditPassword.Text = _pswdItem.pswdPass;
             mbTextBoxEditEmail.Text = _pswdItem.pswdEmail;
             mbTextBoxEditAdditionalInfo.Text = _pswdItem.pswdAdditionalInfo;
-
-            // Optionally set hint text for better UX
-            mbTextBoxEditName.Hint = "Name";
-            mbTextBoxEditAddress.Hint = "Address";
-            mbTextBoxEditCategory.Hint = "Category";
-            mbTextBoxEditLogin.Hint = "Login";
-            mbTextBoxEditPassword.Hint = "Password";
-            mbTextBoxEditEmail.Hint = "eMail";
-            mbTextBoxEditAdditionalInfo.Hint = "Notes";
-
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {

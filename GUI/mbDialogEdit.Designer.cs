@@ -111,6 +111,7 @@
             this.mbTextBoxEditAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditAdditionalInfo.TrailingIcon = null;
             this.mbTextBoxEditAdditionalInfo.UseSystemPasswordChar = false;
+            this.mbTextBoxEditAdditionalInfo.Hint = "Notes";
             // 
             // mbTextBoxEditEmail
             // 
@@ -142,6 +143,7 @@
             this.mbTextBoxEditEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditEmail.TrailingIcon = null;
             this.mbTextBoxEditEmail.UseSystemPasswordChar = false;
+            this.mbTextBoxEditEmail.Hint = "eMail";
             // 
             // mbTextBoxEditPassword
             // 
@@ -173,6 +175,7 @@
             this.mbTextBoxEditPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditPassword.TrailingIcon = null;
             this.mbTextBoxEditPassword.UseSystemPasswordChar = false;
+            this.mbTextBoxEditPassword.Hint = "Password";
             // 
             // mbTextBoxEditLogin
             // 
@@ -204,6 +207,7 @@
             this.mbTextBoxEditLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditLogin.TrailingIcon = null;
             this.mbTextBoxEditLogin.UseSystemPasswordChar = false;
+            this.mbTextBoxEditLogin.Hint = "Login";
             // 
             // mbTextBoxEditCategory
             // 
@@ -235,6 +239,7 @@
             this.mbTextBoxEditCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditCategory.TrailingIcon = null;
             this.mbTextBoxEditCategory.UseSystemPasswordChar = false;
+            this.mbTextBoxEditCategory.Hint = "Category";
             // 
             // mbTextBoxEditAddress
             // 
@@ -266,6 +271,7 @@
             this.mbTextBoxEditAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditAddress.TrailingIcon = null;
             this.mbTextBoxEditAddress.UseSystemPasswordChar = false;
+            this.mbTextBoxEditAddress.Hint = "Site";
             // 
             // mbTextBoxEditName
             // 
@@ -297,6 +303,7 @@
             this.mbTextBoxEditName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.mbTextBoxEditName.TrailingIcon = null;
             this.mbTextBoxEditName.UseSystemPasswordChar = false;
+            this.mbTextBoxEditName.Hint = "Name";
             // 
             // mbDialogEdit
             // 
