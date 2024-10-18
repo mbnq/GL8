@@ -1,9 +1,18 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.Text;
 
 namespace GL8.CORE
 {
-    internal class mbRND
+    internal class mbRNG
     {
         // Characters to use in password generation
         private const string UppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

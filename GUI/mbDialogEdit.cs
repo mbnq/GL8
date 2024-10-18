@@ -66,7 +66,7 @@ namespace GL8.CORE
 
         private void mbTextBoxEditPassword_GenRandom_Click(object sender, EventArgs e)
         {
-            var passwordGenerator = new mbRND();
+            var passwordGenerator = new mbRNG();
             string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
             mbTextBoxEditPassword.Text = password;
         }

@@ -75,7 +75,7 @@
     <Compile Include="CORE\mbMasterPasswordManager.cs" />
     <Compile Include="CORE\mbPSWD.cs" />
     <Compile Include="CORE\mbRMBMenu.cs" />
-    <Compile Include="CORE\mbRND.cs" />
+    <Compile Include="CORE\mbRNG.cs" />
     <Compile Include="CORE\mbUserSettings.cs" />
     <Compile Include="CORE\mbSecureString.cs" />
     <Compile Include="GUI\mbDialogEdit.cs">
