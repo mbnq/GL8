@@ -1,4 +1,6 @@
-﻿namespace GL8.CORE
+﻿using System.Windows.Forms;
+
+namespace GL8.CORE
 {
     partial class mbDialogAddNew
     {
@@ -34,7 +36,7 @@
             this.mbTextBoxAddLogin = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxAddPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxAddEmail = new MaterialSkin.Controls.MaterialTextBox2();
-            this.mbTextBoxAddAdditionalInfo = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbTextBoxAddAdditionalInfo = new System.Windows.Forms.TextBox();
             this.mbButtonAddAddItem = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonAddCancel = new MaterialSkin.Controls.MaterialButton();
             this.mbTextBoxAddPassword_GenRandom = new MaterialSkin.Controls.MaterialButton();
@@ -236,35 +238,19 @@
             // 
             // mbTextBoxAddAdditionalInfo
             // 
-            this.mbTextBoxAddAdditionalInfo.AnimateReadOnly = false;
-            this.mbTextBoxAddAdditionalInfo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.mbTextBoxAddAdditionalInfo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.mbTextBoxAddAdditionalInfo.BackColor = System.Drawing.Color.Gainsboro;
             this.mbTextBoxAddAdditionalInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mbTextBoxAddAdditionalInfo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.mbTextBoxAddAdditionalInfo.Depth = 0;
+            this.mbTextBoxAddAdditionalInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.mbTextBoxAddAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mbTextBoxAddAdditionalInfo.HideSelection = true;
-            this.mbTextBoxAddAdditionalInfo.Hint = "Notes";
-            this.mbTextBoxAddAdditionalInfo.LeadingIcon = null;
-            this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(7, 309);
+            this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(7, 284);
             this.mbTextBoxAddAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.mbTextBoxAddAdditionalInfo.MaxLength = 32767;
-            this.mbTextBoxAddAdditionalInfo.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbTextBoxAddAdditionalInfo.Multiline = true;
             this.mbTextBoxAddAdditionalInfo.Name = "mbTextBoxAddAdditionalInfo";
-            this.mbTextBoxAddAdditionalInfo.PasswordChar = '\0';
-            this.mbTextBoxAddAdditionalInfo.PrefixSuffixText = null;
-            this.mbTextBoxAddAdditionalInfo.ReadOnly = false;
             this.mbTextBoxAddAdditionalInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mbTextBoxAddAdditionalInfo.SelectedText = "";
-            this.mbTextBoxAddAdditionalInfo.SelectionLength = 0;
-            this.mbTextBoxAddAdditionalInfo.SelectionStart = 0;
-            this.mbTextBoxAddAdditionalInfo.ShortcutsEnabled = true;
-            this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(883, 48);
+            this.mbTextBoxAddAdditionalInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(882, 100);
             this.mbTextBoxAddAdditionalInfo.TabIndex = 0;
             this.mbTextBoxAddAdditionalInfo.TabStop = false;
-            this.mbTextBoxAddAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.mbTextBoxAddAdditionalInfo.TrailingIcon = null;
-            this.mbTextBoxAddAdditionalInfo.UseSystemPasswordChar = false;
             // 
             // mbButtonAddAddItem
             // 
@@ -373,6 +359,7 @@
             this.Text = "New Item";
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxAddPassword_GetRandomNum)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -384,7 +371,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddLogin;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddPassword;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddEmail;
-        private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxAddAdditionalInfo;
+        private TextBox mbTextBoxAddAdditionalInfo;
         private MaterialSkin.Controls.MaterialButton mbButtonAddAddItem;
         private MaterialSkin.Controls.MaterialButton mbButtonAddCancel;
         private MaterialSkin.Controls.MaterialButton mbTextBoxAddPassword_GenRandom;

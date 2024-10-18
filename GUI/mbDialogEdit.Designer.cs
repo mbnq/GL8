@@ -1,4 +1,6 @@
-﻿namespace GL8.CORE
+﻿using System.Windows.Forms;
+
+namespace GL8.CORE
 {
     partial class mbDialogEdit
     {
@@ -30,7 +32,7 @@
         {
             this.mbButtonEditCancel = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonEditSave = new MaterialSkin.Controls.MaterialButton();
-            this.mbTextBoxEditAdditionalInfo = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbTextBoxEditAdditionalInfo = new System.Windows.Forms.TextBox();
             this.mbTextBoxEditEmail = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditLogin = new MaterialSkin.Controls.MaterialTextBox2();
@@ -87,35 +89,18 @@
             // 
             // mbTextBoxEditAdditionalInfo
             // 
-            this.mbTextBoxEditAdditionalInfo.AnimateReadOnly = false;
-            this.mbTextBoxEditAdditionalInfo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.mbTextBoxEditAdditionalInfo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.mbTextBoxEditAdditionalInfo.BackColor = System.Drawing.Color.Gainsboro;
             this.mbTextBoxEditAdditionalInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mbTextBoxEditAdditionalInfo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.mbTextBoxEditAdditionalInfo.Depth = 0;
             this.mbTextBoxEditAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mbTextBoxEditAdditionalInfo.HideSelection = true;
-            this.mbTextBoxEditAdditionalInfo.Hint = "Notes";
-            this.mbTextBoxEditAdditionalInfo.LeadingIcon = null;
-            this.mbTextBoxEditAdditionalInfo.Location = new System.Drawing.Point(8, 304);
+            this.mbTextBoxEditAdditionalInfo.Location = new System.Drawing.Point(6, 279);
             this.mbTextBoxEditAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.mbTextBoxEditAdditionalInfo.MaxLength = 32767;
-            this.mbTextBoxEditAdditionalInfo.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbTextBoxEditAdditionalInfo.Multiline = true;
             this.mbTextBoxEditAdditionalInfo.Name = "mbTextBoxEditAdditionalInfo";
-            this.mbTextBoxEditAdditionalInfo.PasswordChar = '\0';
-            this.mbTextBoxEditAdditionalInfo.PrefixSuffixText = null;
-            this.mbTextBoxEditAdditionalInfo.ReadOnly = false;
             this.mbTextBoxEditAdditionalInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mbTextBoxEditAdditionalInfo.SelectedText = "";
-            this.mbTextBoxEditAdditionalInfo.SelectionLength = 0;
-            this.mbTextBoxEditAdditionalInfo.SelectionStart = 0;
-            this.mbTextBoxEditAdditionalInfo.ShortcutsEnabled = true;
-            this.mbTextBoxEditAdditionalInfo.Size = new System.Drawing.Size(883, 48);
+            this.mbTextBoxEditAdditionalInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.mbTextBoxEditAdditionalInfo.Size = new System.Drawing.Size(888, 106);
             this.mbTextBoxEditAdditionalInfo.TabIndex = 6;
             this.mbTextBoxEditAdditionalInfo.TabStop = false;
-            this.mbTextBoxEditAdditionalInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.mbTextBoxEditAdditionalInfo.TrailingIcon = null;
-            this.mbTextBoxEditAdditionalInfo.UseSystemPasswordChar = false;
             // 
             // mbTextBoxEditEmail
             // 
@@ -398,7 +383,7 @@
 
         private MaterialSkin.Controls.MaterialButton mbButtonEditCancel;
         private MaterialSkin.Controls.MaterialButton mbButtonEditSave;
-        private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditAdditionalInfo;
+        private TextBox mbTextBoxEditAdditionalInfo;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditEmail;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditPassword;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditLogin;
