@@ -1,34 +1,34 @@
 ﻿using System;
+using System.IO;
+using Newtonsoft.Json;
 
 public class mbUserSettings
 {
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
 
-    // Method to load settings (e.g., from a file)
+    // Path to the user data file in the current program directory
+    private static string userSettingsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user.json");
+
+    // Method to load settings from user.json
     public static mbUserSettings LoadSettings()
     {
-        // Example: Load from JSON or database
-        // For example, deserializing a JSON file into the UserSettings object
-        // return JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText("userSettings.json"));
-        // Example data for testing:
-        byte[] salt = mbPasswordManager.GenerateSalt();
-        string base64Salt = Convert.ToBase64String(salt);
-
-        // Hash the password using Argon2 and the generated salt
-        string hashedPassword = mbPasswordManager.HashPassword("test", salt);
-
-        return new mbUserSettings
+        if (File.Exists(userSettingsFilePath))
         {
-            HashedPassword = hashedPassword,  // Store the hashed version of "test"
-            Salt = base64Salt  // Store the Base64-encoded salt
-        };
+            string json = File.ReadAllText(userSettingsFilePath);
+            mbUserSettings settings = JsonConvert.DeserializeObject<mbUserSettings>(json);
+            return settings;
+        }
+        else
+        {
+            return null;  // Return null if the file does not exist
+        }
     }
 
-    // Method to save settings (e.g., to a file)
+    // Method to save settings to user.json
     public void SaveSettings()
     {
-        // Example: Serialize to JSON and save to a file
-        // File.WriteAllText("userSettings.json", JsonConvert.SerializeObject(this));
+        string json = JsonConvert.SerializeObject(this);
+        File.WriteAllText(userSettingsFilePath, json);
     }
 }
