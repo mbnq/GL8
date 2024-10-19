@@ -30,6 +30,8 @@ namespace GL8.CORE
             mbTextBoxEditPassword.Text = _pswdItem.pswdPass;
             mbTextBoxEditEmail.Text = _pswdItem.pswdEmail;
             mbTextBoxEditAdditionalInfo.Text = _pswdItem.pswdAdditionalInfo;
+
+            this.CenterToParent();
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
@@ -51,7 +53,6 @@ namespace GL8.CORE
         {
             this.Close();
         }
-
         private void mbCheckBoxEditHidePswd_CheckedChanged(object sender, EventArgs e)
         {
             if (mbCheckBoxEditHidePswd.Checked) 
@@ -63,7 +64,6 @@ namespace GL8.CORE
                 mbTextBoxEditPassword.PasswordChar = '*';
             }
         }
-
         private void mbTextBoxEditPassword_GenRandom_Click(object sender, EventArgs e)
         {
             var passwordGenerator = new mbRNG();

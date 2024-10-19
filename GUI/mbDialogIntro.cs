@@ -26,12 +26,14 @@ namespace GL8.CORE
             this.CenterToScreen();
 
             this.Icon = Properties.Resources.gl8;
+            this.AcceptButton = mbIntroButtonLogin;
 
             if (File.Exists(mbMainMenu.mbFilePathSettings))
             {
                 isNewUser = false;
 
                 mbIntroButtonLogin.Text = "Login";
+                mbIntroButtonLogin.Focus();
                 this.Height = 180;
 
                 mbIntroTextBoxMasterPswdConfirm.Visible = false;
@@ -48,6 +50,7 @@ namespace GL8.CORE
                 MaterialMessageBox.Show("Welcome! Please set up your master password.", "GL8", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                 mbIntroButtonLogin.Text = "Set Password";
+                mbIntroButtonLogin.Focus();
                 this.Height = 380;
 
                 mbIntroTextBoxMasterPswdConfirm.Visible = true;

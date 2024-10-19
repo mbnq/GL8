@@ -34,5 +34,16 @@ namespace GL8.Properties {
                 this["mbSettingsSwitchHidePswd"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection mbDataViewColumnOrder {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["mbDataViewColumnOrder"]));
+            }
+            set {
+                this["mbDataViewColumnOrder"] = value;
+            }
+        }
     }
 }

@@ -14,39 +14,46 @@ using System.Security.Cryptography;
 using Newtonsoft.Json;
 using GL8.CORE;
 using System.Windows.Forms;
-using System.Net;
 using MaterialSkin.Controls;
+using System.Data;
 
 public class mbUserSettings
 {
+    private static mbWaitDialogManager _mbWaitDialogManager = new mbWaitDialogManager();
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
     public static mbUserSettings LoadSettings(SecureString password)
     {
+        _mbWaitDialogManager.Start(null);
         if (File.Exists(mbMainMenu.mbFilePathSettings))
         {
             byte[] encryptedData = File.ReadAllBytes(mbMainMenu.mbFilePathSettings);
             try
             {
                 string json = mbEncryption.DecryptStringFromBytes(encryptedData, password);
+                _mbWaitDialogManager.Stop();
                 return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
             {
                 // Handle incorrect password
+                _mbWaitDialogManager.Stop();
                 return null;
             }
         }
         else
         {
+            _mbWaitDialogManager.Stop();
             return null;
         }
     }
     public void SaveSettings(SecureString password)
     {
+        _mbWaitDialogManager.Start(null);
         string json = JsonConvert.SerializeObject(this);
         byte[] encryptedData = mbEncryption.EncryptStringToBytes(json, password);
         File.WriteAllBytes(mbMainMenu.mbFilePathSettings, encryptedData);
+        _mbWaitDialogManager.Stop();
     }
 }
 
@@ -54,11 +61,18 @@ namespace GL8.CORE
 {    
     public partial class mbDialogSettings : MaterialForm
     {
-        public void SavePublicSettings()
+        public void SavePublicSettings(mbMainMenu _mainMenuInstance)
         {
             try
             {
                 Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
+
+                var columnOrder = new System.Collections.Specialized.StringCollection();
+                foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
+                {
+                    columnOrder.Add($"{column.Name}:{column.DisplayIndex}");
+                }
+                Properties.Settings.Default.mbDataViewColumnOrder = columnOrder;
 
                 Properties.Settings.Default.Save();
             }
@@ -67,11 +81,28 @@ namespace GL8.CORE
                 MessageBox.Show($"Error saving public settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void LoadPublicSettings()
+        public void LoadPublicSettings(mbMainMenu _mainMenuInstance)
         {
             try
             {
                 mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
+
+                var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;
+                if (columnOrder != null)
+                {
+                    foreach (var columnInfo in columnOrder)
+                    {
+                        var parts = columnInfo.Split(':');
+                        if (parts.Length == 2 && int.TryParse(parts[1], out int displayIndex))
+                        {
+                            var column = _mainMenuInstance.mbDataView.Columns[parts[0]];
+                            if (column != null)
+                            {
+                                column.DisplayIndex = displayIndex;
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -20,7 +20,6 @@ namespace GL8.CORE
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
-        private mbDialogIntro _DialogIntro;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             // right order is crucial
@@ -31,13 +30,13 @@ namespace GL8.CORE
 
             if (mainMenuInstance == null) throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
 
-            LoadPublicSettings();
+            LoadPublicSettings(mainMenuInstance);
 
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
-
-            this.FormClosing += (sender, e) => { SavePublicSettings(); };
+            this.CenterToParent();
+            this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
@@ -57,10 +56,12 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbRefreshMainMenu();
         }
+
+        private mbWaitDialog _mbWaitDialog;
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            _DialogIntro = new mbDialogIntro();
-            _DialogIntro.ShowDialog();
+            _mbWaitDialog = new mbWaitDialog();
+            _mbWaitDialog.ShowDialog();
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
