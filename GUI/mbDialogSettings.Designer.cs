@@ -36,6 +36,7 @@
             this.mbButtonSettingsChangeMasterPass_newConfirm = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbButtonSettingsChangeMasterPassword = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsImportCSV = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonSettingsExportCSV = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -234,11 +235,33 @@
             this.mbButtonSettingsImportCSV.UseVisualStyleBackColor = true;
             this.mbButtonSettingsImportCSV.Click += new System.EventHandler(this.mbButtonSettingsImportCSV_Click);
             // 
+            // mbButtonSettingsExportCSV
+            // 
+            this.mbButtonSettingsExportCSV.AutoSize = false;
+            this.mbButtonSettingsExportCSV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonSettingsExportCSV.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonSettingsExportCSV.Depth = 0;
+            this.mbButtonSettingsExportCSV.HighEmphasis = true;
+            this.mbButtonSettingsExportCSV.Icon = null;
+            this.mbButtonSettingsExportCSV.Location = new System.Drawing.Point(173, 405);
+            this.mbButtonSettingsExportCSV.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonSettingsExportCSV.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonSettingsExportCSV.Name = "mbButtonSettingsExportCSV";
+            this.mbButtonSettingsExportCSV.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonSettingsExportCSV.Size = new System.Drawing.Size(158, 36);
+            this.mbButtonSettingsExportCSV.TabIndex = 4;
+            this.mbButtonSettingsExportCSV.Text = "Export CSV";
+            this.mbButtonSettingsExportCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonSettingsExportCSV.UseAccentColor = false;
+            this.mbButtonSettingsExportCSV.UseVisualStyleBackColor = true;
+            this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbButtonSettingsExportCSV_Click);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbButtonSettingsExportCSV);
             this.Controls.Add(this.mbButtonSettingsImportCSV);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_newConfirm);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_new);
@@ -264,5 +287,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbButtonSettingsChangeMasterPass_newConfirm;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsChangeMasterPassword;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportCSV;
+        private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportCSV;
     }
 }
