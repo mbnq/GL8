@@ -57,7 +57,8 @@ namespace GL8
                 Application.Exit();
                 return;
             }
-            
+
+#if !DEBUG
             if (!IsAdministrator())
             {
                 try
@@ -78,7 +79,8 @@ namespace GL8
                 Application.Exit();
                 return;
             }
- 
+#endif
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

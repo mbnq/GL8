@@ -14,39 +14,45 @@ using System.Security.Cryptography;
 using Newtonsoft.Json;
 using GL8.CORE;
 using System.Windows.Forms;
-using System.Net;
 using MaterialSkin.Controls;
 
 public class mbUserSettings
 {
+    private static mbWaitDialogManager _mbWaitDialogManager = new mbWaitDialogManager();
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
     public static mbUserSettings LoadSettings(SecureString password)
     {
+        _mbWaitDialogManager.Start(null);
         if (File.Exists(mbMainMenu.mbFilePathSettings))
         {
             byte[] encryptedData = File.ReadAllBytes(mbMainMenu.mbFilePathSettings);
             try
             {
                 string json = mbEncryption.DecryptStringFromBytes(encryptedData, password);
+                _mbWaitDialogManager.Stop();
                 return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
             {
                 // Handle incorrect password
+                _mbWaitDialogManager.Stop();
                 return null;
             }
         }
         else
         {
+            _mbWaitDialogManager.Stop();
             return null;
         }
     }
     public void SaveSettings(SecureString password)
     {
+        _mbWaitDialogManager.Start(null);
         string json = JsonConvert.SerializeObject(this);
         byte[] encryptedData = mbEncryption.EncryptStringToBytes(json, password);
         File.WriteAllBytes(mbMainMenu.mbFilePathSettings, encryptedData);
+        _mbWaitDialogManager.Stop();
     }
 }
 
