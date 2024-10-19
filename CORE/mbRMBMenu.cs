@@ -7,6 +7,7 @@
 
 */
 
+using MaterialSkin.Controls;
 using System;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace GL8.CORE
 
         public mbRMBMenu(DataGridView mbDataView)
         {
-            mbContextMenu = new ContextMenuStrip();
+            mbContextMenu = new MaterialContextMenuStrip();
 
             ToolStripMenuItem copyMenuItem = new ToolStripMenuItem("Copy to Clipboard");
             ToolStripMenuItem editMenuItem = new ToolStripMenuItem("Edit");

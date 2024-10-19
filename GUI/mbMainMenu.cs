@@ -64,7 +64,6 @@ namespace GL8.CORE
         }
 
         // ------------------- Search ---------------------
-
         private void mbSearchTextBox_TextChanged0(object sender, EventArgs e)
         {
             string searchText = mbSearchTextBox.Text.ToLower();
