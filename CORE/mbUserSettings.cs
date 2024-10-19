@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using GL8.CORE;
 using System.Windows.Forms;
 using System.Net;
+using MaterialSkin.Controls;
 
 public class mbUserSettings
 {
@@ -46,5 +47,36 @@ public class mbUserSettings
         string json = JsonConvert.SerializeObject(this);
         byte[] encryptedData = mbEncryption.EncryptStringToBytes(json, password);
         File.WriteAllBytes(mbMainMenu.mbFilePathSettings, encryptedData);
+    }
+}
+
+namespace GL8.CORE
+{    
+    public partial class mbDialogSettings : MaterialForm
+    {
+        public void SavePublicSettings()
+        {
+            try
+            {
+                Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
+
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving public settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void LoadPublicSettings()
+        {
+            try
+            {
+                mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading public settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

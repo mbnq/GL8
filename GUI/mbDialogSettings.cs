@@ -142,29 +142,5 @@ namespace GL8.CORE
             mbCSVImporter importer = new mbCSVImporter(_mainMenuInstance);
             importer.ImportCsv();
         }
-        public void SavePublicSettings()
-        {
-            try
-            {
-                Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
-
-                Properties.Settings.Default.Save();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        public void LoadPublicSettings()
-        {
-            try
-            {
-                mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
