@@ -48,16 +48,18 @@ namespace GL8.CORE
             // remove existing to prevent duplicates
             RemoveExistingMappingControls(pswdProperties);
 
-            int spacingY = 50;
-            int startY = spacingY * 2 ;
-            int labelX = spacingY / 3;
-            int comboBoxX = spacingY * 3;
+            int defSpacing = 50;
+            int startY = defSpacing * 2 ;
+            int labelX = defSpacing / 3;
+            int comboBoxX = defSpacing * 3;
 
             foreach (var property in pswdProperties)
             {
+                string labelText = property.StartsWith("pswd") ? property.Substring(4) : property;
+
                 MaterialLabel lbl = new MaterialLabel
                 {
-                    Text = property,
+                    Text = labelText,
                     Left = labelX,
                     Top = startY,
                     Width = 120,
@@ -89,16 +91,15 @@ namespace GL8.CORE
                 this.Controls.Add(cmb);
 
                 cmb.Tag = property;
-                startY += spacingY;
+                startY += defSpacing;
             }
 
-            // this.Height = startY + 70;
-            // this.Width = 400;
+            this.Height = startY + (4 * defSpacing);
+            this.Width = (8 * defSpacing) + (defSpacing / 2);
         }
 
         private void RemoveExistingMappingControls(List<string> pswdProperties)
         {
-            // Identify and remove existing Labels and ComboBoxes for mapping
             var controlsToRemove = this.Controls.OfType<Control>()
                 .Where(c => (c is Label || c is ComboBox) && c.Tag is string tag && pswdProperties.Contains(tag))
                 .ToList();
@@ -137,11 +138,8 @@ namespace GL8.CORE
 
         private void RebuildMappingControls(string delimiter)
         {
-            // Update the SelectedDelimiter
-            SelectedDelimiter = delimiter;
-
-            // Re-initialize mapping controls with the new delimiter
-            InitializeMappingControls();
+            SelectedDelimiter = delimiter;              // Update the SelectedDelimiter
+            InitializeMappingControls();                // Re-initialize mapping controls with the new delimiter
         }
 
         private void cmbDelimiter_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,13 +236,12 @@ namespace GL8.CORE
                 }
             }
 
-            // Validate that all required properties have a mapping
+            // Vrequired properties should have mappings
             var requiredProperties = new List<string>
             {
                 "pswdName",
                 "pswdLogin",
                 "pswdPass"
-                // Add other required properties as needed
             };
 
             foreach (var prop in requiredProperties)

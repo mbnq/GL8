@@ -71,7 +71,7 @@ namespace GL8.CORE
             this.cmbDelimiter.DropDownHeight = 174;
             this.cmbDelimiter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDelimiter.DropDownWidth = 121;
-            this.cmbDelimiter.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbDelimiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.cmbDelimiter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cmbDelimiter.FormattingEnabled = true;
             this.cmbDelimiter.IntegralHeight = false;
@@ -113,7 +113,7 @@ namespace GL8.CORE
             this.txtCustomDelimiter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtCustomDelimiter.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCustomDelimiter.Depth = 0;
-            this.txtCustomDelimiter.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCustomDelimiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtCustomDelimiter.HideSelection = true;
             this.txtCustomDelimiter.Hint = "Custom";
             this.txtCustomDelimiter.LeadingIcon = null;
@@ -205,8 +205,7 @@ namespace GL8.CORE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(561, 793);
+            this.ClientSize = new System.Drawing.Size(300, 300);
             this.Controls.Add(this.lblDelimiter);
             this.Controls.Add(this.cmbDelimiter);
             this.Controls.Add(this.lblCustomDelimiter);
@@ -219,7 +218,7 @@ namespace GL8.CORE
             this.MinimizeBox = false;
             this.Name = "mbCSVImportDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Map CSV Columns";
+            this.Text = "CSV Import";
             this.ResumeLayout(false);
             this.PerformLayout();
 
