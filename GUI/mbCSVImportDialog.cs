@@ -120,6 +120,8 @@ namespace GL8.CORE
                     Delimiter = delimiter,
                     HeaderValidated = null,
                     MissingFieldFound = null,
+                    BadDataFound = null,            // ignore bad data
+                    Quote = '▪',
                     IgnoreBlankLines = true,
                     TrimOptions = TrimOptions.Trim
                 }))
@@ -135,6 +137,7 @@ namespace GL8.CORE
                 return new List<string>();
             }
         }
+
 
         private void RebuildMappingControls(string delimiter)
         {

@@ -88,7 +88,7 @@ namespace GL8.CORE
             if (saveResult == DialogResult.Yes)
             {
                 _mainMenuInstance.SavePSWDData();
-                MaterialMessageBox.Show("Changes saved successfully.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("Changes saved successfully. Please don't forget to check your passwords after import.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             // MaterialMessageBox.Show("CSV import operation completed.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -112,7 +112,6 @@ namespace GL8.CORE
                 return null;
             }
         }
-
         private List<mbPSWD> ImportData(string filePath, Dictionary<string, string> columnMappings, string delimiter)
         {
             List<mbPSWD> pswdList = new List<mbPSWD>();
@@ -124,15 +123,17 @@ namespace GL8.CORE
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
                         Delimiter = delimiter,
-                        MissingFieldFound = null, // ignore missing fields
+                        MissingFieldFound = null,
                         HeaderValidated = null,
+                        BadDataFound = null, // Ignore bad data
+                        Quote = '▪',          // Set the Quote character to '▪'
                         IgnoreBlankLines = true,
                         TrimOptions = TrimOptions.Trim
                     };
 
                     using (var csvReader = new CsvReader(reader, config))
                     {
-                        // read the header
+                        // Read the header
                         csvReader.Read();
                         csvReader.ReadHeader();
 
@@ -142,7 +143,7 @@ namespace GL8.CORE
 
                             foreach (var mapping in columnMappings)
                             {
-                                string pswdProperty = mapping.Key;   // property name
+                                string pswdProperty = mapping.Key;   // Property name
                                 string csvColumn = mapping.Value;    // CSV column name
 
                                 string value = csvReader.GetField(csvColumn);
@@ -178,7 +179,7 @@ namespace GL8.CORE
                             pswd.pswdCreateTime = DateTime.Now;
                             pswd.pswdLastEditTime = DateTime.Now;
 
-                            // validate the pswd object before adding
+                            // Validate the pswd object before adding
                             if (ValidatePswd(pswd))
                             {
                                 pswdList.Add(pswd);
