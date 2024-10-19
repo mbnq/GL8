@@ -42,6 +42,8 @@ namespace GL8.CORE
             this.CenterToScreen();
             _userPassword = userPassword;
 
+            this.Icon = Properties.Resources.gl8;
+
             if (mbPSWDList == null)
             {
                 MaterialMessageBox.Show("Was unable to find existing database. Creating new one.");

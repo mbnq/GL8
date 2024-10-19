@@ -25,6 +25,8 @@ namespace GL8.CORE
             InitializeComponent();
             this.CenterToScreen();
 
+            this.Icon = Properties.Resources.gl8;
+
             if (File.Exists(mbMainMenu.mbFilePathSettings))
             {
                 isNewUser = false;

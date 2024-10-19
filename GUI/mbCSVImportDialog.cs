@@ -21,6 +21,8 @@ namespace GL8.CORE
         {
             InitializeComponent();
 
+            this.Icon = Properties.Resources.gl8;
+
             _filePath = filePath;
             ColumnMappings = new Dictionary<string, string>();
 
