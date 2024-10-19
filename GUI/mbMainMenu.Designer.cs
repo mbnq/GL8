@@ -58,14 +58,14 @@
             this.pswdCategory,
             this.pswdEmail,
             this.pswdAdditionalInfo});
-            this.mbDataView.Location = new System.Drawing.Point(307, 82);
+            this.mbDataView.Location = new System.Drawing.Point(307, 86);
             this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(752, 464);
+            this.mbDataView.Size = new System.Drawing.Size(752, 460);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -151,7 +151,7 @@
             this.mbButtonNewItem.Depth = 0;
             this.mbButtonNewItem.HighEmphasis = true;
             this.mbButtonNewItem.Icon = null;
-            this.mbButtonNewItem.Location = new System.Drawing.Point(10, 82);
+            this.mbButtonNewItem.Location = new System.Drawing.Point(10, 86);
             this.mbButtonNewItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonNewItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonNewItem.Name = "mbButtonNewItem";
@@ -193,7 +193,7 @@
             this.mbButtonRemoveItem.Depth = 0;
             this.mbButtonRemoveItem.HighEmphasis = true;
             this.mbButtonRemoveItem.Icon = null;
-            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 198);
+            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 202);
             this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonRemoveItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonRemoveItem.Name = "mbButtonRemoveItem";
@@ -235,7 +235,7 @@
             this.mbButtonEdit.Depth = 0;
             this.mbButtonEdit.HighEmphasis = true;
             this.mbButtonEdit.Icon = null;
-            this.mbButtonEdit.Location = new System.Drawing.Point(9, 140);
+            this.mbButtonEdit.Location = new System.Drawing.Point(9, 144);
             this.mbButtonEdit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonEdit.Name = "mbButtonEdit";
