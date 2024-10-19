@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
+using MaterialSkin.Controls;
 
 namespace GL8.CORE
 {
@@ -40,7 +41,7 @@ namespace GL8.CORE
 
             if (result != DialogResult.OK)
             {
-                MessageBox.Show("No file selected. Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("No file selected. Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -48,51 +49,49 @@ namespace GL8.CORE
 
             if (!File.Exists(filePath))
             {
-                MessageBox.Show("Selected file does not exist. Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Selected file does not exist. Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Step 2: Show column mapping dialog, passing the file path
             mbCSVImportDialog mappingDialog = new mbCSVImportDialog(filePath);
             DialogResult mappingResult = mappingDialog.ShowDialog();
 
             if (mappingResult != DialogResult.OK)
             {
-                MessageBox.Show("Column mapping was canceled. Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("Import operation canceled.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             Dictionary<string, string> columnMappings = mappingDialog.ColumnMappings;
             string delimiter = mappingDialog.SelectedDelimiter;
 
-            // Step 3: Import and validate data
+            // import and validate data
             List<mbPSWD> importedPswdList = ImportData(filePath, columnMappings, delimiter);
 
             if (importedPswdList == null || importedPswdList.Count == 0)
             {
-                MessageBox.Show("No valid data found to import.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("No valid data found to import.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Step 4: Add imported entries to the BindingList
+            // add entries to mbPSWDList
             foreach (var pswd in importedPswdList)
             {
                 _mainMenuInstance.mbPSWDList.Add(pswd);
             }
 
-            // Step 5: Refresh and ask to save
+            // refresh and ask to save
             _mainMenuInstance.mbDataView.Refresh();
 
-            DialogResult saveResult = MessageBox.Show("CSV data imported successfully. Do you want to save changes?", "Import CSV", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult saveResult = MaterialMessageBox.Show("CSV data imported successfully. Do you want to save changes now?", "Import CSV", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (saveResult == DialogResult.Yes)
             {
                 _mainMenuInstance.SavePSWDData();
-                MessageBox.Show("Changes saved successfully.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MaterialMessageBox.Show("Changes saved successfully.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Step 6: Finish
-            MessageBox.Show("CSV import operation completed.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // MaterialMessageBox.Show("CSV import operation completed.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private List<string> GetCsvHeaders(string filePath)
@@ -104,12 +103,12 @@ namespace GL8.CORE
                 {
                     csv.Read();
                     csv.ReadHeader();
-                    return csv.HeaderRecord.ToList(); // Correct access
+                    return csv.HeaderRecord.ToList();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading CSV headers: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show($"Error reading CSV headers: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -125,7 +124,7 @@ namespace GL8.CORE
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
                         Delimiter = delimiter,
-                        MissingFieldFound = null, // Ignore missing fields
+                        MissingFieldFound = null, // ignore missing fields
                         HeaderValidated = null,
                         IgnoreBlankLines = true,
                         TrimOptions = TrimOptions.Trim
@@ -133,7 +132,7 @@ namespace GL8.CORE
 
                     using (var csvReader = new CsvReader(reader, config))
                     {
-                        // Read the header
+                        // read the header
                         csvReader.Read();
                         csvReader.ReadHeader();
 
@@ -143,7 +142,7 @@ namespace GL8.CORE
 
                             foreach (var mapping in columnMappings)
                             {
-                                string pswdProperty = mapping.Key;   // Property name
+                                string pswdProperty = mapping.Key;   // property name
                                 string csvColumn = mapping.Value;    // CSV column name
 
                                 string value = csvReader.GetField(csvColumn);
@@ -171,18 +170,15 @@ namespace GL8.CORE
                                     case "pswdAdditionalInfo":
                                         pswd.pswdAdditionalInfo = value;
                                         break;
-                                    // Add more cases if mbPSWD has more properties
                                     default:
-                                        // Optionally handle unexpected mappings
                                         break;
                                 }
                             }
 
-                            // Assign timestamps
                             pswd.pswdCreateTime = DateTime.Now;
                             pswd.pswdLastEditTime = DateTime.Now;
 
-                            // Optional: Validate the pswd object before adding
+                            // validate the pswd object before adding
                             if (ValidatePswd(pswd))
                             {
                                 pswdList.Add(pswd);
@@ -195,24 +191,20 @@ namespace GL8.CORE
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error importing CSV data: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show($"Error importing CSV data: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
 
         private bool ValidatePswd(mbPSWD pswd)
         {
-            // Implement validation logic as needed
-            // For example, ensure required fields are not empty
             if (string.IsNullOrWhiteSpace(pswd.pswdName) ||
                 string.IsNullOrWhiteSpace(pswd.pswdLogin) ||
                 string.IsNullOrWhiteSpace(pswd.pswdPass))
             {
-                // Invalid entry
+                // invalid entry
                 return false;
             }
-
-            // Additional validation rules can be added here
 
             return true;
         }
