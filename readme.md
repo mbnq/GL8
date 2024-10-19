@@ -2,6 +2,10 @@
 
 **GL8** is a secure password manager built in C# using the Windows Forms framework with MaterialSkin controls. The application focuses on strong encryption, data privacy, and ease of use. It provides users with an intuitive interface to manage their passwords and sensitive information, offering features such as search, CSV import/export, password generation, and encryption using modern cryptographic algorithms like Argon2 and AES-256.
 
+- This is a hobby project in its early development stage. Any feedback that could help with its development will be appreciated.
+- Always make a backup of your data (you can use the CSV export function for that).
+- Store your master password in a safe place, outside of your device.
+
 ## Features
 
 - **Master Password Protection**: GL8 secures all data with a master password, using Argon2 for password hashing and AES-256 for encryption.
