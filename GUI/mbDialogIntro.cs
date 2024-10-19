@@ -36,7 +36,8 @@ namespace GL8.CORE
                 mbIntroTextBoxMasterPswdWarning.Visible = false;
                 mbIntroTextBoxMasterPswdConfirm.Enabled = false;
                 mbIntroTextBoxMasterPswdWarning.Enabled = false;
-
+                mbIntroTextBoxMasterPswdConfirm.PasswordChar = '*';
+                mbIntroTextBoxMasterPswd.PasswordChar = '*';
             }
             else
             {
@@ -51,6 +52,8 @@ namespace GL8.CORE
                 mbIntroTextBoxMasterPswdWarning.Visible = true;
                 mbIntroTextBoxMasterPswdConfirm.Enabled = true;
                 mbIntroTextBoxMasterPswdWarning.Enabled = true;
+                mbIntroTextBoxMasterPswdConfirm.PasswordChar = '\0';
+                mbIntroTextBoxMasterPswd.PasswordChar = '\0';
             }
         }
 
@@ -116,6 +119,7 @@ namespace GL8.CORE
 
                 if (settings == null)
                 {
+                    mbIntroTextBoxMasterPswd.Text = "";
                     MaterialMessageBox.Show("Incorrect password or user settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -133,6 +137,7 @@ namespace GL8.CORE
                     }
                     else
                     {
+                        mbIntroTextBoxMasterPswd.Text = "";
                         MaterialMessageBox.Show("Incorrect password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

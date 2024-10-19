@@ -146,7 +146,7 @@
             this.mbButtonSettingsChangeMasterPass_new.MaxLength = 32767;
             this.mbButtonSettingsChangeMasterPass_new.MouseState = MaterialSkin.MouseState.OUT;
             this.mbButtonSettingsChangeMasterPass_new.Name = "mbButtonSettingsChangeMasterPass_new";
-            this.mbButtonSettingsChangeMasterPass_new.PasswordChar = '*';
+            this.mbButtonSettingsChangeMasterPass_new.PasswordChar = '\0';
             this.mbButtonSettingsChangeMasterPass_new.PrefixSuffixText = null;
             this.mbButtonSettingsChangeMasterPass_new.ReadOnly = false;
             this.mbButtonSettingsChangeMasterPass_new.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -177,7 +177,7 @@
             this.mbButtonSettingsChangeMasterPass_newConfirm.MaxLength = 32767;
             this.mbButtonSettingsChangeMasterPass_newConfirm.MouseState = MaterialSkin.MouseState.OUT;
             this.mbButtonSettingsChangeMasterPass_newConfirm.Name = "mbButtonSettingsChangeMasterPass_newConfirm";
-            this.mbButtonSettingsChangeMasterPass_newConfirm.PasswordChar = '*';
+            this.mbButtonSettingsChangeMasterPass_newConfirm.PasswordChar = '\0';
             this.mbButtonSettingsChangeMasterPass_newConfirm.PrefixSuffixText = null;
             this.mbButtonSettingsChangeMasterPass_newConfirm.ReadOnly = false;
             this.mbButtonSettingsChangeMasterPass_newConfirm.RightToLeft = System.Windows.Forms.RightToLeft.No;
