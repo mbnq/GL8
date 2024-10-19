@@ -64,6 +64,9 @@ namespace GL8.CORE
             this.FormClosing                += mbMainMenu_FormClosing;
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
+
+            _DialogSettings = new mbDialogSettings(this);
+            _DialogSettings.LoadPublicSettings(this);
         }
 
         // ------------------- Search ---------------------
@@ -337,6 +340,7 @@ namespace GL8.CORE
                     e.Cancel = true;
                 }
             }
+            _DialogSettings.SavePublicSettings(this);
         }
         public void UpdateUserPassword(SecureString newPassword)
         {

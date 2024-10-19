@@ -30,13 +30,13 @@ namespace GL8.CORE
 
             if (mainMenuInstance == null) throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
 
-            LoadPublicSettings();
+            LoadPublicSettings(mainMenuInstance);
 
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
             this.CenterToParent();
-            this.FormClosing += (sender, e) => { SavePublicSettings(); };
+            this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
