@@ -9,6 +9,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security;
@@ -56,6 +57,7 @@ namespace GL8.CORE
             mbDataView.CellFormatting       += mbDataView_CellFormatting;
             mbDataView.KeyDown              += mbDataView_KeyDown;
             mbDataView.CellMouseDown        += mbDataView_CellMouseDown;
+            mbDataView.RowPostPaint         += mbDataView_RowPostPaint;
             this.FormClosing                += mbMainMenu_FormClosing;
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
@@ -288,6 +290,18 @@ namespace GL8.CORE
                         e.Handled = true;
                     }
                 }
+            }
+        }
+        private void mbDataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            using (SolidBrush brush = new SolidBrush(mbDataView.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                string rowNumber = (e.RowIndex + 1).ToString();
+
+                float x = e.RowBounds.Location.X + 20;
+                float y = e.RowBounds.Location.Y + 4;
+
+                e.Graphics.DrawString(rowNumber, e.InheritedRowStyle.Font, brush, x, y);
             }
         }
 

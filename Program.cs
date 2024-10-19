@@ -17,7 +17,7 @@ namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.0.4";
+        public const string mbVersion = "0.0.0.7";
 
         #region DPI
         [DllImport("user32.dll")]
