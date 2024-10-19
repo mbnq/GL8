@@ -15,12 +15,13 @@ using System.Security;
 using System.Threading;
 using System.Windows.Forms;
 using System.Security.Principal;
+using MaterialSkin.Controls;
 
 namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.0.8";
+        public const string mbVersion = "0.0.1.0";
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 
@@ -40,21 +41,25 @@ namespace GL8
         {
             UserPassword = password;
         }
+        private static bool IsAdministrator()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
 
         [STAThread]
         static void Main()
         {
             if (!gl8Mutex.WaitOne(TimeSpan.Zero, true))
             {
-                MessageBox.Show("Another instance of the application is already running.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MaterialMessageBox.Show("Another instance of the application is already running.", "GL8", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Application.Exit();
                 return;
             }
-
-            /*
+            
             if (!IsAdministrator())
             {
-                // Restart the application with admin rights
                 try
                 {
                     ProcessStartInfo proc = new ProcessStartInfo
@@ -68,21 +73,12 @@ namespace GL8
                 }
                 catch
                 {
-                    // The user refused the elevation
-                    MessageBox.Show("This application requires administrator privileges to run.");
+                    MaterialMessageBox.Show("This application requires administrator privileges to run.", "GL8");
                 }
                 Application.Exit();
                 return;
             }
-
-            private static bool IsAdministrator()
-            {
-                WindowsIdentity identity = WindowsIdentity.GetCurrent();
-                WindowsPrincipal principal = new WindowsPrincipal(identity);
-                return principal.IsInRole(WindowsBuiltInRole.Administrator);
-            }
-            */
-
+ 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
