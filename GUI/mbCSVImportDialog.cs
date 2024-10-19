@@ -6,10 +6,11 @@ using System.Windows.Forms;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
+using MaterialSkin.Controls;
 
 namespace GL8.CORE
 {
-    public partial class mbCSVImportDialog : Form
+    public partial class mbCSVImportDialog : MaterialForm
     {
         public Dictionary<string, string> ColumnMappings { get; private set; }
         public string SelectedDelimiter { get; private set; }
@@ -19,21 +20,20 @@ namespace GL8.CORE
         public mbCSVImportDialog(string filePath)
         {
             InitializeComponent();
+
             _filePath = filePath;
             ColumnMappings = new Dictionary<string, string>();
-            SelectedDelimiter = ","; // Default delimiter
 
-            cmbDelimiter.SelectedIndex = 0; // Set default selection to Comma
+            SelectedDelimiter = ",";        // def
+            cmbDelimiter.SelectedIndex = 0; // def
 
             InitializeMappingControls();
         }
 
         private void InitializeMappingControls()
         {
-            // Read headers with the current delimiter
             List<string> csvColumns = GetCsvHeaders(SelectedDelimiter);
 
-            // Define mbPSWD properties to map
             var pswdProperties = new List<string>
             {
                 "pswdName",
@@ -43,21 +43,19 @@ namespace GL8.CORE
                 "pswdPass",
                 "pswdEmail",
                 "pswdAdditionalInfo"
-                // Add more properties if needed
             };
 
-            // Remove existing mapping controls to prevent duplicates
+            // remove existing to prevent duplicates
             RemoveExistingMappingControls(pswdProperties);
 
-            int startY = 70; // Start below the delimiter controls
-            int labelX = 20;
-            int comboBoxX = 150;
-            int spacingY = 35;
+            int spacingY = 50;
+            int startY = spacingY * 2 ;
+            int labelX = spacingY / 3;
+            int comboBoxX = spacingY * 3;
 
             foreach (var property in pswdProperties)
             {
-                // Create Label
-                Label lbl = new Label
+                MaterialLabel lbl = new MaterialLabel
                 {
                     Text = property,
                     Left = labelX,
@@ -67,17 +65,18 @@ namespace GL8.CORE
                 };
                 this.Controls.Add(lbl);
 
-                // Create ComboBox
-                ComboBox cmb = new ComboBox
+                MaterialComboBox cmb = new MaterialComboBox
                 {
                     Left = comboBoxX,
-                    Top = startY - 3,
+                    Top = startY - 12,
                     Width = 200,
                     DropDownStyle = ComboBoxStyle.DropDownList
                 };
                 cmb.Items.AddRange(csvColumns.ToArray());
 
-                // Optional: Set default selection if possible
+                // ---
+
+                // set default selection if possible
                 foreach (var column in csvColumns)
                 {
                     if (string.Equals(column, property.Replace("pswd", ""), StringComparison.OrdinalIgnoreCase))
@@ -89,15 +88,12 @@ namespace GL8.CORE
 
                 this.Controls.Add(cmb);
 
-                // Store the ComboBox with Tag as the property name
                 cmb.Tag = property;
-
                 startY += spacingY;
             }
 
-            // Adjust dialog size based on the number of controls
-            this.Height = startY + 70;
-            this.Width = 400;
+            // this.Height = startY + 70;
+            // this.Width = 400;
         }
 
         private void RemoveExistingMappingControls(List<string> pswdProperties)
@@ -113,7 +109,6 @@ namespace GL8.CORE
                 ctrl.Dispose();
             }
         }
-
         private List<string> GetCsvHeaders(string delimiter)
         {
             try
@@ -135,7 +130,7 @@ namespace GL8.CORE
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading CSV headers: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show($"Error reading CSV headers: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
         }
@@ -212,12 +207,12 @@ namespace GL8.CORE
                 SelectedDelimiter = txtCustomDelimiter.Text;
                 if (string.IsNullOrEmpty(SelectedDelimiter))
                 {
-                    MessageBox.Show("Please enter a custom delimiter or select a predefined one.", "Delimiter Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MaterialMessageBox.Show("Please enter a custom delimiter or select a predefined one.", "Delimiter Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else if (SelectedDelimiter.Length != 1)
                 {
-                    DialogResult dlgResult = MessageBox.Show("Delimiters longer than one character may lead to unexpected results. Do you want to proceed?", "Delimiter Length Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dlgResult = MaterialMessageBox.Show("Delimiters longer than one character may lead to unexpected results. Do you want to proceed?", "Delimiter Length Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dlgResult == DialogResult.No)
                     {
                         return;
@@ -234,7 +229,7 @@ namespace GL8.CORE
             // Collect mappings
             foreach (Control control in this.Controls)
             {
-                if (control is ComboBox cmb && cmb.Tag is string property)
+                if (control is MaterialComboBox cmb && cmb.Tag is string property)
                 {
                     if (cmb.SelectedItem != null)
                     {
@@ -256,7 +251,7 @@ namespace GL8.CORE
             {
                 if (!ColumnMappings.ContainsKey(prop) || string.IsNullOrWhiteSpace(ColumnMappings[prop]))
                 {
-                    MessageBox.Show($"Please map the '{prop}' property to a CSV column.", "Mapping Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MaterialMessageBox.Show($"Please map the '{prop}' property to a CSV column.", "Mapping Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.DialogResult = DialogResult.None; // Prevent dialog from closing
                     return;
                 }
@@ -265,7 +260,7 @@ namespace GL8.CORE
             // Validate and capture the delimiter
             if (string.IsNullOrEmpty(SelectedDelimiter))
             {
-                MessageBox.Show("Please specify a delimiter.", "Delimiter Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MaterialMessageBox.Show("Please specify a delimiter.", "Delimiter Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.None;
                 return;
             }

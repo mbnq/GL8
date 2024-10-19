@@ -23,12 +23,12 @@ namespace GL8.CORE
 
         public mbCSVImporter(mbMainMenu mainMenuInstance)
         {
-            _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
+            _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
         }
 
         public void ImportCsv()
         {
-            // Step 1: Prompt user to select CSV file
+
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Select CSV File",
