@@ -60,6 +60,7 @@ namespace GL8.CORE
             mbDataView.KeyDown              += mbDataView_KeyDown;
             mbDataView.CellMouseDown        += mbDataView_CellMouseDown;
             mbDataView.RowPostPaint         += mbDataView_RowPostPaint;
+            mbDataView.DoubleClick          += (sender, e) => mbButtonEdit_Click(sender, e);
             this.FormClosing                += mbMainMenu_FormClosing;
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
@@ -272,6 +273,10 @@ namespace GL8.CORE
             {
                 e.Value = new string('*', e.Value.ToString().Length);
             }
+        }
+        private void mbDataView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mbButtonEdit_Click(sender, e);
         }
         private void mbDataView_KeyDown(object sender, KeyEventArgs e)
         {
