@@ -21,6 +21,7 @@ namespace GL8.CORE
         public mbDialogAddNew(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
+            this.CenterToParent();
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace GL8.CORE
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
-
+            this.CenterToParent();
             this.FormClosing += (sender, e) => { SavePublicSettings(); };
         }
 
