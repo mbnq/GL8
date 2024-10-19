@@ -19,12 +19,21 @@ namespace GL8.CORE
         private mbDialogIntro _DialogIntro;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
+            // right order is crucial
+
             InitializeComponent();
+            
             _mainMenuInstance = mainMenuInstance;
 
-            #if DEBUG   
-                mbButtonSettingsDebug.Visible = true;
+            if (mainMenuInstance == null) throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
+
+            LoadPublicSettings();
+
+            #if DEBUG
+            mbButtonSettingsDebug.Visible = true;
             #endif
+
+            this.FormClosing += (sender, e) => { SavePublicSettings(); };
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
@@ -132,6 +141,30 @@ namespace GL8.CORE
         {
             mbCSVImporter importer = new mbCSVImporter(_mainMenuInstance);
             importer.ImportCsv();
+        }
+        public void SavePublicSettings()
+        {
+            try
+            {
+                Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
+
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void LoadPublicSettings()
+        {
+            try
+            {
+                mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

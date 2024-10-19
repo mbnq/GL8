@@ -13,6 +13,8 @@ using System.Security;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
 using GL8.CORE;
+using System.Windows.Forms;
+using System.Net;
 
 public class mbUserSettings
 {
