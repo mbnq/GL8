@@ -59,20 +59,26 @@ namespace GL8.CORE
 
             LoadPSWDData();
 
-            mbDataView.CellValueChanged     += mbDataView_CellValueChanged;
-            mbDataView.RowValidated         += mbDataView_RowValidated;
-            mbDataView.CellFormatting       += mbDataView_CellFormatting;
-            mbDataView.KeyDown              += mbDataView_KeyDown;
-            mbDataView.CellMouseDown        += mbDataView_CellMouseDown;
-            mbDataView.RowPostPaint         += mbDataView_RowPostPaint;
-            mbDataView.DoubleClick          += (sender, e) => mbButtonEdit_Click(sender, e);
-            this.FormClosing                += mbMainMenu_FormClosing;
+            AddEventHandlers();
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
 
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.LoadPublicSettings(this);
+
             mbSwitchColorScheme();
+        }
+
+        private void AddEventHandlers()
+        {
+            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
+            mbDataView.RowValidated += mbDataView_RowValidated;
+            mbDataView.CellFormatting += mbDataView_CellFormatting;
+            mbDataView.KeyDown += mbDataView_KeyDown;
+            mbDataView.CellMouseDown += mbDataView_CellMouseDown;
+            mbDataView.RowPostPaint += mbDataView_RowPostPaint;
+            mbDataView.DoubleClick += (sender, e) => mbButtonEdit_Click(sender, e);
+            this.FormClosing += mbMainMenu_FormClosing;
         }
 
         // ------------------- Search ---------------------
