@@ -45,5 +45,17 @@ namespace GL8.Properties {
                 this["mbDataViewColumnOrder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1067")]
+        public int mbMainMenuWidth {
+            get {
+                return ((int)(this["mbMainMenuWidth"]));
+            }
+            set {
+                this["mbMainMenuWidth"] = value;
+            }
+        }
     }
 }

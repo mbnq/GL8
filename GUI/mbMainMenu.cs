@@ -70,26 +70,36 @@ namespace GL8.CORE
         }
 
         // ------------------- Search ---------------------
-        private void mbSearchTextBox_TextChanged0(object sender, EventArgs e)
+
+
+        private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            string searchText = mbSearchTextBox.Text.ToLower();
+            string searchText = mbSearchTextBox.Text;
+            string filter = mbSearchFilter.SelectedItem?.ToString();  // Get selected filter from MaterialComboBox
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
-                // When the search box is empty, show all items
                 mbDataView.DataSource = mbPSWDList;
             }
             else
             {
-                // Filter the list based on the search text
+                string lowerSearchText = searchText.ToLower();
+
                 var filteredList = new BindingList<mbPSWD>(
                     mbPSWDList.Where(pswd =>
-                        pswd.pswdName.ToLower().Contains(searchText) ||
-                        pswd.pswdAddress.ToLower().Contains(searchText) ||
-                        pswd.pswdCategory.ToLower().Contains(searchText) ||
-                        pswd.pswdLogin.ToLower().Contains(searchText) ||
-                        pswd.pswdEmail.ToLower().Contains(searchText) ||
-                        pswd.pswdAdditionalInfo.ToLower().Contains(searchText))
+                        (filter == "ALL" && (
+                            (!string.IsNullOrEmpty(pswd.pswdName) && pswd.pswdName.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                            (!string.IsNullOrEmpty(pswd.pswdAddress) && pswd.pswdAddress.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                            (!string.IsNullOrEmpty(pswd.pswdCategory) && pswd.pswdCategory.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                            (!string.IsNullOrEmpty(pswd.pswdLogin) && pswd.pswdLogin.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                            (!string.IsNullOrEmpty(pswd.pswdEmail) && pswd.pswdEmail.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                            (!string.IsNullOrEmpty(pswd.pswdAdditionalInfo) && pswd.pswdAdditionalInfo.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0))) ||
+                        (filter == "Name" && !string.IsNullOrEmpty(pswd.pswdName) && pswd.pswdName.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (filter == "Address" && !string.IsNullOrEmpty(pswd.pswdAddress) && pswd.pswdAddress.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (filter == "Category" && !string.IsNullOrEmpty(pswd.pswdCategory) && pswd.pswdCategory.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (filter == "Login" && !string.IsNullOrEmpty(pswd.pswdLogin) && pswd.pswdLogin.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (filter == "Email" && !string.IsNullOrEmpty(pswd.pswdEmail) && pswd.pswdEmail.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (filter == "Additional Info" && !string.IsNullOrEmpty(pswd.pswdAdditionalInfo) && pswd.pswdAdditionalInfo.IndexOf(lowerSearchText, StringComparison.OrdinalIgnoreCase) >= 0))
                     .ToList()
                 );
 
@@ -97,33 +107,10 @@ namespace GL8.CORE
             }
             mbDataView.Refresh();
         }
-        private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
+
+        private void mbSearchFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string searchText = mbSearchTextBox.Text;
-
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                // When the search box is empty, show all items
-                mbDataView.DataSource = mbPSWDList;
-            }
-            else
-            {
-                // Convert search text to lowercase once for efficiency
-                string lowerSearchText = searchText.ToLower();
-
-                // Filter the list based on the search text
-                var filteredList = new BindingList<mbPSWD>(
-                    mbPSWDList.Where(pswd =>
-                        (!string.IsNullOrEmpty(pswd.pswdName) && pswd.pswdName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (!string.IsNullOrEmpty(pswd.pswdAddress) && pswd.pswdAddress.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (!string.IsNullOrEmpty(pswd.pswdCategory) && pswd.pswdCategory.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (!string.IsNullOrEmpty(pswd.pswdLogin) && pswd.pswdLogin.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (!string.IsNullOrEmpty(pswd.pswdEmail) && pswd.pswdEmail.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (!string.IsNullOrEmpty(pswd.pswdAdditionalInfo) && pswd.pswdAdditionalInfo.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0))
-                    .ToList()
-                );
-                mbDataView.DataSource = filteredList;
-            }
+            mbSearchTextBox_TextChanged(this, EventArgs.Empty);
             mbDataView.Refresh();
         }
 

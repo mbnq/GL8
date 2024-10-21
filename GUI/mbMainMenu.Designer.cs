@@ -43,6 +43,7 @@
             this.mbButtonOptions = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonEdit = new MaterialSkin.Controls.MaterialButton();
             this.mbSearchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            this.mbSearchFilter = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,8 @@
             this.mbDataView.AllowUserToAddRows = false;
             this.mbDataView.AllowUserToDeleteRows = false;
             this.mbDataView.AllowUserToOrderColumns = true;
+            this.mbDataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mbDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.mbDataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mbDataView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -73,14 +76,14 @@
             this.pswdEmail,
             this.pswdAdditionalInfo});
             this.mbDataView.GridColor = System.Drawing.Color.Gainsboro;
-            this.mbDataView.Location = new System.Drawing.Point(307, 86);
+            this.mbDataView.Location = new System.Drawing.Point(304, 86);
             this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(752, 460);
+            this.mbDataView.Size = new System.Drawing.Size(771, 460);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -126,7 +129,7 @@
             this.pswdAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.pswdAddress.ToolTipText = "Contains URL (link) to related site.";
             this.pswdAddress.VisitedLinkColor = System.Drawing.Color.Gray;
-            this.pswdAddress.Width = 125;
+            this.pswdAddress.Width = 101;
             // 
             // pswdCategory
             // 
@@ -275,7 +278,7 @@
             this.mbSearchTextBox.HideSelection = true;
             this.mbSearchTextBox.Hint = "Search:";
             this.mbSearchTextBox.LeadingIcon = null;
-            this.mbSearchTextBox.Location = new System.Drawing.Point(9, 363);
+            this.mbSearchTextBox.Location = new System.Drawing.Point(9, 302);
             this.mbSearchTextBox.MaxLength = 32767;
             this.mbSearchTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.mbSearchTextBox.Name = "mbSearchTextBox";
@@ -295,11 +298,43 @@
             this.mbSearchTextBox.UseSystemPasswordChar = false;
             this.mbSearchTextBox.TextChanged += new System.EventHandler(this.mbSearchTextBox_TextChanged);
             // 
+            // mbSearchFilter
+            // 
+            this.mbSearchFilter.AutoResize = false;
+            this.mbSearchFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mbSearchFilter.Depth = 0;
+            this.mbSearchFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.mbSearchFilter.DropDownHeight = 174;
+            this.mbSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mbSearchFilter.DropDownWidth = 121;
+            this.mbSearchFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbSearchFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mbSearchFilter.FormattingEnabled = true;
+            this.mbSearchFilter.IntegralHeight = false;
+            this.mbSearchFilter.ItemHeight = 43;
+            this.mbSearchFilter.Items.AddRange(new object[] {
+            "ALL",
+            "Name",
+            "Address",
+            "Category",
+            "Login",
+            "Email",
+            "Additional Info"});
+            this.mbSearchFilter.Location = new System.Drawing.Point(11, 368);
+            this.mbSearchFilter.MaxDropDownItems = 4;
+            this.mbSearchFilter.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbSearchFilter.Name = "mbSearchFilter";
+            this.mbSearchFilter.Size = new System.Drawing.Size(287, 49);
+            this.mbSearchFilter.StartIndex = 0;
+            this.mbSearchFilter.TabIndex = 8;
+            this.mbSearchFilter.SelectedIndexChanged += new System.EventHandler(this.mbSearchFilter_SelectedIndexChanged);
+            // 
             // mbMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1085, 554);
+            this.Controls.Add(this.mbSearchFilter);
             this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
             this.Controls.Add(this.mbButtonRemoveItem);
@@ -307,9 +342,13 @@
             this.Controls.Add(this.mbButtonEdit);
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1800, 554);
+            this.MinimumSize = new System.Drawing.Size(1067, 554);
             this.Name = "mbMainMenu";
-            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
+            this.Padding = new System.Windows.Forms.Padding(3, 64, 4, 4);
+            this.Sizable = true;
             this.Text = "GL8";
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
             this.ResumeLayout(false);
@@ -332,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn pswdAdditionalInfo;
+        private MaterialSkin.Controls.MaterialComboBox mbSearchFilter;
     }
 }

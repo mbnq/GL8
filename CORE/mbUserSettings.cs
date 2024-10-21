@@ -65,14 +65,21 @@ namespace GL8.CORE
         {
             try
             {
+                // main menu width
+                Properties.Settings.Default.mbMainMenuWidth = _mainMenuInstance.Width;
+
+                // show passwords
                 Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
 
+                // Column order
                 var columnOrder = new System.Collections.Specialized.StringCollection();
                 foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
                 {
                     columnOrder.Add($"{column.Name}:{column.DisplayIndex}");
                 }
                 Properties.Settings.Default.mbDataViewColumnOrder = columnOrder;
+
+                // ---
 
                 Properties.Settings.Default.Save();
             }
@@ -85,8 +92,13 @@ namespace GL8.CORE
         {
             try
             {
+                // main menu width
+                _mainMenuInstance.Width = Properties.Settings.Default.mbMainMenuWidth;
+
+                // show passwords
                 mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
 
+                // columnorder
                 var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;
                 if (columnOrder != null)
                 {

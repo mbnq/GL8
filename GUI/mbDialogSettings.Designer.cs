@@ -37,6 +37,8 @@
             this.mbButtonSettingsChangeMasterPassword = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsImportCSV = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsExportCSV = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonSettingsLabel1 = new System.Windows.Forms.Label();
+            this.mbButtonSettingsLabel2 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -256,11 +258,40 @@
             this.mbButtonSettingsExportCSV.UseVisualStyleBackColor = true;
             this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbButtonSettingsExportCSV_Click);
             // 
+            // mbButtonSettingsLabel1
+            // 
+            this.mbButtonSettingsLabel1.AutoSize = true;
+            this.mbButtonSettingsLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.mbButtonSettingsLabel1.Location = new System.Drawing.Point(692, 35);
+            this.mbButtonSettingsLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.mbButtonSettingsLabel1.Name = "mbButtonSettingsLabel1";
+            this.mbButtonSettingsLabel1.Size = new System.Drawing.Size(44, 16);
+            this.mbButtonSettingsLabel1.TabIndex = 5;
+            this.mbButtonSettingsLabel1.Text = "GL8 v.";
+            this.mbButtonSettingsLabel1.Click += new System.EventHandler(this.mbButtonSettingsLabel1_Click);
+            // 
+            // mbButtonSettingsLabel2
+            // 
+            this.mbButtonSettingsLabel2.AutoSize = true;
+            this.mbButtonSettingsLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.mbButtonSettingsLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.mbButtonSettingsLabel2.LinkColor = System.Drawing.Color.Silver;
+            this.mbButtonSettingsLabel2.Location = new System.Drawing.Point(692, 51);
+            this.mbButtonSettingsLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.mbButtonSettingsLabel2.Name = "mbButtonSettingsLabel2";
+            this.mbButtonSettingsLabel2.Size = new System.Drawing.Size(85, 16);
+            this.mbButtonSettingsLabel2.TabIndex = 6;
+            this.mbButtonSettingsLabel2.TabStop = true;
+            this.mbButtonSettingsLabel2.Text = "www.mbnq.pl";
+            this.mbButtonSettingsLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mbButtonSettingsLabel2_LinkClicked);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbButtonSettingsLabel2);
+            this.Controls.Add(this.mbButtonSettingsLabel1);
             this.Controls.Add(this.mbButtonSettingsExportCSV);
             this.Controls.Add(this.mbButtonSettingsImportCSV);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_newConfirm);
@@ -288,5 +319,7 @@
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsChangeMasterPassword;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportCSV;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportCSV;
+        private System.Windows.Forms.Label mbButtonSettingsLabel1;
+        private System.Windows.Forms.LinkLabel mbButtonSettingsLabel2;
     }
 }
