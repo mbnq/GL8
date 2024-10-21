@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mbDataView = new System.Windows.Forms.DataGridView();
             this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,18 +52,20 @@
             this.mbDataView.AllowUserToAddRows = false;
             this.mbDataView.AllowUserToDeleteRows = false;
             this.mbDataView.AllowUserToOrderColumns = true;
+            this.mbDataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mbDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.mbDataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mbDataView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.mbDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mbDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mbDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.mbDataView.ColumnHeadersHeight = 30;
             this.mbDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pswdName,
@@ -92,7 +94,6 @@
             this.pswdName.Name = "pswdName";
             this.pswdName.ReadOnly = true;
             this.pswdName.ToolTipText = "Contains Name or other reference for credentials entry.";
-            this.pswdName.Width = 125;
             // 
             // pswdLogin
             // 
@@ -102,7 +103,6 @@
             this.pswdLogin.Name = "pswdLogin";
             this.pswdLogin.ReadOnly = true;
             this.pswdLogin.ToolTipText = "Contains Login for credentials entry.";
-            this.pswdLogin.Width = 125;
             // 
             // pswdPass
             // 
@@ -112,7 +112,6 @@
             this.pswdPass.Name = "pswdPass";
             this.pswdPass.ReadOnly = true;
             this.pswdPass.ToolTipText = "Contains Password for credentials entry.";
-            this.pswdPass.Width = 125;
             // 
             // pswdAddress
             // 
@@ -127,7 +126,7 @@
             this.pswdAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.pswdAddress.ToolTipText = "Contains URL (link) to related site.";
             this.pswdAddress.VisitedLinkColor = System.Drawing.Color.Gray;
-            this.pswdAddress.Width = 125;
+            this.pswdAddress.Width = 101;
             // 
             // pswdCategory
             // 
@@ -137,7 +136,6 @@
             this.pswdCategory.Name = "pswdCategory";
             this.pswdCategory.ReadOnly = true;
             this.pswdCategory.ToolTipText = "Contains Category of credentials entry. Can be empty.";
-            this.pswdCategory.Width = 125;
             // 
             // pswdEmail
             // 
@@ -147,7 +145,6 @@
             this.pswdEmail.Name = "pswdEmail";
             this.pswdEmail.ReadOnly = true;
             this.pswdEmail.ToolTipText = "Contains eMail address for credentials entry.";
-            this.pswdEmail.Width = 125;
             // 
             // pswdAdditionalInfo
             // 
@@ -157,7 +154,6 @@
             this.pswdAdditionalInfo.Name = "pswdAdditionalInfo";
             this.pswdAdditionalInfo.ReadOnly = true;
             this.pswdAdditionalInfo.ToolTipText = "Contains notes related to credentials entry.";
-            this.pswdAdditionalInfo.Width = 125;
             // 
             // mbButtonNewItem
             // 
@@ -340,9 +336,13 @@
             this.Controls.Add(this.mbButtonEdit);
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1610, 554);
+            this.MinimumSize = new System.Drawing.Size(1067, 554);
             this.Name = "mbMainMenu";
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
+            this.Sizable = true;
             this.Text = "GL8";
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
             this.ResumeLayout(false);
