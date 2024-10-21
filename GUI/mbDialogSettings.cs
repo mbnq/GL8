@@ -48,6 +48,7 @@ namespace GL8.CORE
             this.mbDropDownSettingsColorScheme.SelectedIndex = mbMainMenu.mbColorSchemeIndex;
 
             this.CenterToParent();
+            this.ShowIcon = false;
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
         }
 

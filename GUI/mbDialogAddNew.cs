@@ -22,6 +22,7 @@ namespace GL8.CORE
         {
             InitializeComponent();
             this.CenterToParent();
+            this.ShowIcon = false;
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)

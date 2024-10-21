@@ -32,6 +32,7 @@ namespace GL8.CORE
             mbTextBoxEditAdditionalInfo.Text = _pswdItem.pswdAdditionalInfo;
 
             this.CenterToParent();
+            this.ShowIcon = false;
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
