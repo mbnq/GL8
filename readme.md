@@ -1,25 +1,25 @@
 # GL8 Password Manager
 
-**GL8** is a secure password manager built in C# using the Windows Forms framework with MaterialSkin controls. The application focuses on strong encryption, data privacy, and ease of use. It provides users with an intuitive interface to manage their passwords and sensitive information, offering features such as search, CSV import/export, password generation, and encryption using modern cryptographic algorithms like Argon2 and AES-256.
+**GL8** is a password manager built in C# using the Windows Forms framework with MaterialSkin controls. The application focuses on strong encryption, data privacy, and ease of use. It provides users with an intuitive interface to manage their passwords and sensitive information, offering features such as search, CSV import/export, password generation, and encryption using modern cryptographic algorithms like [Argon2](https://en.wikipedia.org/wiki/Argon2) and [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
 - This is a hobby project in its early development stage. Any feedback that could help with its development will be appreciated.
 - Always make a backup of your data (you can use the CSV export function for that).
-- Store your master password in a safe place, outside of your device.
+- Create strong, atleast 8 characters long master password. Store your master password in a safe place, outside of your device.
 
 ## Features
 
-- **Master Password Protection**: GL8 secures all data with a master password, using Argon2 for password hashing and AES-256 for encryption.
+- **Master Password Protection**: GL8 secures all data with a master password, using [Argon2](https://en.wikipedia.org/wiki/Argon2) for password hashing and [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) for encryption.
 - **Password Management**: Add, edit, delete, and search password entries with fields such as website address, login, category, and additional info.
 - **Secure Encryption**: All sensitive data is stored encrypted using the Argon2id algorithm for key derivation and AES-256 for encryption, ensuring high security.
-- **CSV Import/Export**: Easily import or export password data using CSV files, with customizable column mappings and delimiters.
+- **CSV Import/Export**: Easily import or export password data using [CSV files](https://en.wikipedia.org/wiki/Comma-separated_values), with customizable column mappings and delimiters.
 - **Random Password Generation**: Generate strong, random passwords with custom options for length, character sets, and complexity.
-- **User-Friendly Interface**: A MaterialSkin-powered interface with clear dialogs and context menus for copying or editing entries.
+- **User-Friendly Interface**: A [MaterialSkin-powered](https://www.nuget.org/packages/MaterialSkin.2) interface with clear dialogs and context menus for copying or editing entries.
 - **Data Persistence**: Passwords are securely saved to encrypted files, with support for creating new files if none exist.
 - **Public and Private Settings**: Toggle password visibility and other public settings, while saving them securely for future use.
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/a7279056-64f9-4f7a-8ef3-c7a751ebccc2)
+![image](https://github.com/user-attachments/assets/5cda2902-f6c0-46cd-ab1a-cc8922a7a9e0)
 
 ## Getting Started
 
@@ -29,12 +29,15 @@
 
 ### Installation
 
+1. get latest .zip from here [https://github.com/mbnq/GL8/releases](https://github.com/mbnq/GL8/releases)
+
+or
+
 1. Clone this repository:
    ```sh
    git clone https://github.com/your-repo/GL8-Password-Manager.git
 
-
-   ### **Security Overview of GL8 Password Manager**
+## **Security Overview of GL8 Password Manager**
 
 GL8 Password Manager is designed with strong security measures to ensure the protection of user data. Below is an overview (written by AI) of the key security features implemented in the program:
 
@@ -73,13 +76,7 @@ While GL8 Password Manager incorporates strong security mechanisms, users should
    - The security of the stored data depends on the strength of the master password. Users are encouraged to create strong passwords (e.g., at least 12 characters, including upper/lowercase letters, numbers, and symbols).
    - Implementing a password strength meter can guide users toward selecting stronger passwords.
 
-2. **Memory Attack Protection**:
-   - Although **SecureString** helps mitigate memory-related risks, complete protection against advanced memory attacks (such as memory dumps) requires further security precautions, such as regularly clearing sensitive data from memory.
-
-3. **Keeping Software Updated**:
-   - The cryptographic algorithms used, such as AES-256 and Argon2id, are considered secure today. However, it's important to keep dependencies like `Konscious.Security.Cryptography` updated to address any future vulnerabilities.
-
-4. **Master Password Management**:
+2. **Master Password Management**:
    - Users are advised to periodically change their master password. The application provides options to re-encrypt data when the master password is updated, ensuring continued security.
 
 ### **Conclusion**
