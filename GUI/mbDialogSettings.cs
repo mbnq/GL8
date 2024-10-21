@@ -76,6 +76,14 @@ namespace GL8.CORE
                 return;
             }
 
+            if (mbButtonSettingsChangeMasterPass_new.Text.Length < 8)
+            {
+                MaterialMessageBox.Show("Password must be at least 8 characters long for security reasons.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mbButtonSettingsChangeMasterPass_new.Text = "";
+                mbButtonSettingsChangeMasterPass_newConfirm.Text = "";
+                return;
+            }
+
             SecureString currentPassword = new SecureString();
 
             foreach (char c in mbButtonSettingsChangeMasterPass_current.Text)
@@ -192,7 +200,6 @@ namespace GL8.CORE
                 }
             }
         }
-
         private void mbButtonSettingsLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(new ProcessStartInfo
@@ -201,7 +208,6 @@ namespace GL8.CORE
                 UseShellExecute = true
             });
         }
-
         private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
         {
 
