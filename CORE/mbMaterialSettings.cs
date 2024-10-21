@@ -59,7 +59,7 @@ namespace GL8.CORE
         }
 
         public ColorScheme mbActiveColorScheme = mbColorSchemeBlue; // default color scheme
-        public static int mbColorSchemeIndex; // default color scheme index
+        public static int mbColorSchemeIndex;                       // default color scheme index
         public void mbSwitchColorScheme()
         {
             switch (mbColorSchemeIndex)

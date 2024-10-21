@@ -9,7 +9,6 @@
 
 using GL8.CORE;
 using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
