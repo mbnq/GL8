@@ -25,6 +25,7 @@ namespace GL8.CORE
         public mbWaitDialog()
         {
             InitializeComponent();
+            this.ShowIcon = false;
         }
     }
 }

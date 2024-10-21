@@ -229,6 +229,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="gfx\gl8.ico" />
     <Content Include="gl8.ico" />
     <None Include="Resources\gl8icon.ico" />
   </ItemGroup>

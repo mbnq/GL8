@@ -22,7 +22,8 @@ namespace GL8.CORE
             InitializeComponent();
 
             this.CenterToParent();
-            this.Icon = Properties.Resources.gl8;
+            this.ShowIcon = false;
+            // this.Icon = Properties.Resources.gl8;
 
             _filePath = filePath;
             ColumnMappings = new Dictionary<string, string>();
