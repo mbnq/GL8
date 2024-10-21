@@ -77,9 +77,16 @@ namespace GL8.CORE
                 return;
             }
 
-            if (isNewUser)
+            if (isNewUser) // User is setting up a new master password
             {
-                // User is setting up a new master password
+
+                if (mbIntroTextBoxMasterPswd.Text.Length < 8)
+                {
+                    MaterialMessageBox.Show("Password must be at least 8 characters long for security reasons.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mbIntroTextBoxMasterPswd.Text = "";
+                    mbIntroTextBoxMasterPswdConfirm.Text = "";
+                    return;
+                }
 
                 SecureString enteredPasswordConfirmation = new SecureString();
                 foreach (char c in mbIntroTextBoxMasterPswdConfirm.Text)

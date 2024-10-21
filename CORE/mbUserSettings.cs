@@ -71,6 +71,9 @@ namespace GL8.CORE
                 // show passwords
                 Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
 
+                // Color Scheme Index
+                Properties.Settings.Default.mbColorSchemeIndex = mbMainMenu.mbColorSchemeIndex;
+
                 // Column order
                 var columnOrder = new System.Collections.Specialized.StringCollection();
                 foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
@@ -97,6 +100,9 @@ namespace GL8.CORE
 
                 // show passwords
                 mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
+
+                // Color Scheme Index
+                mbMainMenu.mbColorSchemeIndex = Properties.Settings.Default.mbColorSchemeIndex;
 
                 // columnorder
                 var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;

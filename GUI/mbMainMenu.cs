@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.Windows.Forms;
+using MaterialSkin;
 using MaterialSkin.Controls;
 
 namespace GL8.CORE
@@ -26,9 +27,12 @@ namespace GL8.CORE
         public static string mbFilePath             = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbData.dat");
         public static string mbFilePathSettings     = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
+        public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+
         private mbDialogAddNew      _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
         private mbDialogSettings    _DialogSettings;
+        private mbDialogSettings    _DialogSettingsDummy;
         private mbRMBMenu           _mbRMBMenu;
 
         private SecureString _userPassword;
@@ -39,6 +43,7 @@ namespace GL8.CORE
         public mbMainMenu(SecureString userPassword)
         {
             InitializeComponent();
+
             this.CenterToScreen();
             _userPassword = userPassword;
 
@@ -54,19 +59,26 @@ namespace GL8.CORE
 
             LoadPSWDData();
 
-            mbDataView.CellValueChanged     += mbDataView_CellValueChanged;
-            mbDataView.RowValidated         += mbDataView_RowValidated;
-            mbDataView.CellFormatting       += mbDataView_CellFormatting;
-            mbDataView.KeyDown              += mbDataView_KeyDown;
-            mbDataView.CellMouseDown        += mbDataView_CellMouseDown;
-            mbDataView.RowPostPaint         += mbDataView_RowPostPaint;
-            mbDataView.DoubleClick          += (sender, e) => mbButtonEdit_Click(sender, e);
-            this.FormClosing                += mbMainMenu_FormClosing;
+            AddEventHandlers();
 
             _mbRMBMenu = new mbRMBMenu(mbDataView);
 
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.LoadPublicSettings(this);
+
+            mbSwitchColorScheme();
+        }
+
+        private void AddEventHandlers()
+        {
+            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
+            mbDataView.RowValidated += mbDataView_RowValidated;
+            mbDataView.CellFormatting += mbDataView_CellFormatting;
+            mbDataView.KeyDown += mbDataView_KeyDown;
+            mbDataView.CellMouseDown += mbDataView_CellMouseDown;
+            mbDataView.RowPostPaint += mbDataView_RowPostPaint;
+            mbDataView.DoubleClick += (sender, e) => mbButtonEdit_Click(sender, e);
+            this.FormClosing += mbMainMenu_FormClosing;
         }
 
         // ------------------- Search ---------------------

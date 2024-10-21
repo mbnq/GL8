@@ -9,7 +9,6 @@
 
 using GL8.CORE;
 using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
@@ -21,7 +20,7 @@ namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.1.4";
+        public const string mbVersion = "0.0.1.7";
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 

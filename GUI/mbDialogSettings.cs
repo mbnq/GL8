@@ -15,6 +15,7 @@ using System.IO;
 using System.Security;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MaterialSkin;
 
 namespace GL8.CORE
 {
@@ -37,6 +38,14 @@ namespace GL8.CORE
             mbButtonSettingsDebug.Visible = true;
 #endif
             this.mbButtonSettingsLabel1.Text = $"GL8 v.{Program.mbVersion}";
+
+            this.mbDropDownSettingsColorScheme.Items.Add("Grey");
+            this.mbDropDownSettingsColorScheme.Items.Add("Red");
+            this.mbDropDownSettingsColorScheme.Items.Add("Green");
+            this.mbDropDownSettingsColorScheme.Items.Add("Blue");
+            this.mbDropDownSettingsColorScheme.Items.Add("Mono");
+
+            this.mbDropDownSettingsColorScheme.SelectedIndex = mbMainMenu.mbColorSchemeIndex;
 
             this.CenterToParent();
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
@@ -73,6 +82,14 @@ namespace GL8.CORE
                 (mbButtonSettingsChangeMasterPass_newConfirm.Text == string.Empty))
             {
                 MaterialMessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (mbButtonSettingsChangeMasterPass_new.Text.Length < 8)
+            {
+                MaterialMessageBox.Show("Password must be at least 8 characters long for security reasons.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mbButtonSettingsChangeMasterPass_new.Text = "";
+                mbButtonSettingsChangeMasterPass_newConfirm.Text = "";
                 return;
             }
 
@@ -192,7 +209,6 @@ namespace GL8.CORE
                 }
             }
         }
-
         private void mbButtonSettingsLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(new ProcessStartInfo
@@ -201,10 +217,41 @@ namespace GL8.CORE
                 UseShellExecute = true
             });
         }
-
         private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void mbDropDownSettingsColorScheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ColorScheme selectedScheme;
+
+            // Determine which scheme was selected
+            switch (mbDropDownSettingsColorScheme.SelectedIndex)
+            {
+                case 0:
+                    selectedScheme = mbMainMenu.mbColorSchemeGrey;
+                    break;
+                case 1:
+                    selectedScheme = mbMainMenu.mbColorSchemeRed;
+                    break;
+                case 2:
+                    selectedScheme = mbMainMenu.mbColorSchemeGreen;
+                    break;                
+                case 3:
+                    selectedScheme = mbMainMenu.mbColorSchemeBlue; 
+                    break;                
+                case 4:
+                    selectedScheme = mbMainMenu.mbColorSchemeMono; 
+                    break;
+                default:
+                    selectedScheme = mbMainMenu.mbColorSchemeBlue;
+                    break;
+            }
+
+            mbMainMenu.mbColorSchemeIndex = mbDropDownSettingsColorScheme.SelectedIndex;
+            _mainMenuInstance.InitializeMaterialSkin(selectedScheme);
+            _mainMenuInstance.Refresh();
+            this.Refresh();
         }
     }
 }
