@@ -14,6 +14,7 @@ using System.Globalization;
 using System.IO;
 using System.Security;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace GL8.CORE
 {
@@ -35,6 +36,8 @@ namespace GL8.CORE
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
+            this.mbButtonSettingsLabel1.Text = $"GL8 v.{Program.mbVersion}";
+
             this.CenterToParent();
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
         }
@@ -188,6 +191,20 @@ namespace GL8.CORE
                     }
                 }
             }
+        }
+
+        private void mbButtonSettingsLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.mbnq.pl",
+                UseShellExecute = true
+            });
+        }
+
+        private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
