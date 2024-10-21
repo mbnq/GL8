@@ -60,5 +60,30 @@ namespace GL8.CORE
 
         public ColorScheme mbActiveColorScheme = mbColorSchemeBlue; // default color scheme
         public static int mbColorSchemeIndex; // default color scheme index
+        public void mbSwitchColorScheme()
+        {
+            switch (mbColorSchemeIndex)
+            {
+                case 0:
+                    mbActiveColorScheme = mbColorSchemeGrey;
+                    break;
+                case 1:
+                    mbActiveColorScheme = mbColorSchemeRed;
+                    break;
+                case 2:
+                    mbActiveColorScheme = mbColorSchemeGreen;
+                    break;
+                case 3:
+                    mbActiveColorScheme = mbColorSchemeBlue;
+                    break;
+                case 4:
+                    mbActiveColorScheme = mbColorSchemeMono;
+                    break;
+                default:
+                    mbActiveColorScheme = mbColorSchemeBlue;
+                    break;
+            }
+            InitializeMaterialSkin(mbActiveColorScheme);
+        }
     }
 }  
