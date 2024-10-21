@@ -124,6 +124,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CORE\mbMasterPasswordManager.cs" />
+    <Compile Include="CORE\mbMaterialSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CORE\mbPSWD.cs" />
     <Compile Include="CORE\mbRMBMenu.cs" />
     <Compile Include="CORE\mbRNG.cs" />

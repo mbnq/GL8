@@ -43,6 +43,7 @@ namespace GL8.CORE
             this.mbDropDownSettingsColorScheme.Items.Add("Red");
             this.mbDropDownSettingsColorScheme.Items.Add("Green");
             this.mbDropDownSettingsColorScheme.Items.Add("Blue");
+            this.mbDropDownSettingsColorScheme.Items.Add("Mono");
 
             this.mbDropDownSettingsColorScheme.SelectedIndex = mbMainMenu.mbColorSchemeIndex;
 
@@ -238,6 +239,9 @@ namespace GL8.CORE
                     break;                
                 case 3:
                     selectedScheme = mbMainMenu.mbColorSchemeBlue; 
+                    break;                
+                case 4:
+                    selectedScheme = mbMainMenu.mbColorSchemeMono; 
                     break;
                 default:
                     selectedScheme = mbMainMenu.mbColorSchemeBlue;
