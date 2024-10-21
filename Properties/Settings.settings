@@ -11,5 +11,8 @@
     <Setting Name="mbMainMenuWidth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1067</Value>
     </Setting>
+    <Setting Name="mbColorSchemeIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

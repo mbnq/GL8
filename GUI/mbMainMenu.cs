@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.Windows.Forms;
+using MaterialSkin;
 using MaterialSkin.Controls;
 
 namespace GL8.CORE
@@ -26,19 +27,42 @@ namespace GL8.CORE
         public static string mbFilePath             = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbData.dat");
         public static string mbFilePathSettings     = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
+        public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+
         private mbDialogAddNew      _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
         private mbDialogSettings    _DialogSettings;
+        private mbDialogSettings    _DialogSettingsDummy;
         private mbRMBMenu           _mbRMBMenu;
 
         private SecureString _userPassword;
         public bool mbHidePasswords     = true;
         private bool _unsavedChanges    = false;
 
+        // ------------------- MaterialSkin setup ---------
+
+        public static ColorScheme mbColorSchemeGrey = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+        public static ColorScheme mbColorSchemeRed = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Red500, Accent.Red200, TextShade.WHITE);
+        public static ColorScheme mbColorSchemeGreen = new ColorScheme(Primary.Green800, Primary.Green900, Primary.Green500, Accent.LightGreen200, TextShade.WHITE);
+        public static ColorScheme mbColorSchemeBlue = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+        public void InitializeMaterialSkin(ColorScheme _colorSchemeInput = null, string brightness = "LIGHT")
+        {
+            if (_colorSchemeInput == null) { _colorSchemeInput = mbColorSchemeGrey; }
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            if (brightness.ToUpper() == "DARK") { materialSkinManager.Theme = MaterialSkinManager.Themes.DARK; } 
+               else{materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT; }
+            materialSkinManager.ColorScheme = _colorSchemeInput;
+        }
+
+        public ColorScheme mbActiveColorScheme = mbColorSchemeBlue;     // default color scheme
+        public static int mbColorSchemeIndex;                           // default color scheme index
+
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
         {
             InitializeComponent();
+
             this.CenterToScreen();
             _userPassword = userPassword;
 
@@ -67,6 +91,27 @@ namespace GL8.CORE
 
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.LoadPublicSettings(this);
+
+            switch (mbColorSchemeIndex)
+            {
+                case 0:
+                    mbActiveColorScheme = mbColorSchemeGrey;
+                    break;
+                case 1:
+                    mbActiveColorScheme = mbColorSchemeRed;
+                    break;
+                case 2:
+                    mbActiveColorScheme = mbColorSchemeGreen;
+                    break;
+                case 3:
+                    mbActiveColorScheme = mbColorSchemeBlue;
+                    break;
+                default:
+                    mbActiveColorScheme = mbColorSchemeBlue;
+                    break;
+            }
+
+            InitializeMaterialSkin(mbActiveColorScheme);
         }
 
         // ------------------- Search ---------------------

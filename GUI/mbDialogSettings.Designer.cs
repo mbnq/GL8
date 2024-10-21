@@ -39,6 +39,7 @@
             this.mbButtonSettingsExportCSV = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsLabel1 = new System.Windows.Forms.Label();
             this.mbButtonSettingsLabel2 = new System.Windows.Forms.LinkLabel();
+            this.mbDropDownSettingsColorScheme = new MaterialSkin.Controls.MaterialComboBox();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -285,11 +286,36 @@
             this.mbButtonSettingsLabel2.Text = "www.mbnq.pl";
             this.mbButtonSettingsLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mbButtonSettingsLabel2_LinkClicked);
             // 
+            // mbDropDownSettingsColorScheme
+            // 
+            this.mbDropDownSettingsColorScheme.AutoResize = false;
+            this.mbDropDownSettingsColorScheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mbDropDownSettingsColorScheme.Depth = 0;
+            this.mbDropDownSettingsColorScheme.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.mbDropDownSettingsColorScheme.DropDownHeight = 174;
+            this.mbDropDownSettingsColorScheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mbDropDownSettingsColorScheme.DropDownWidth = 121;
+            this.mbDropDownSettingsColorScheme.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsColorScheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mbDropDownSettingsColorScheme.FormattingEnabled = true;
+            this.mbDropDownSettingsColorScheme.Hint = "Color Scheme";
+            this.mbDropDownSettingsColorScheme.IntegralHeight = false;
+            this.mbDropDownSettingsColorScheme.ItemHeight = 43;
+            this.mbDropDownSettingsColorScheme.Location = new System.Drawing.Point(7, 149);
+            this.mbDropDownSettingsColorScheme.MaxDropDownItems = 4;
+            this.mbDropDownSettingsColorScheme.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbDropDownSettingsColorScheme.Name = "mbDropDownSettingsColorScheme";
+            this.mbDropDownSettingsColorScheme.Size = new System.Drawing.Size(324, 49);
+            this.mbDropDownSettingsColorScheme.StartIndex = 0;
+            this.mbDropDownSettingsColorScheme.TabIndex = 7;
+            this.mbDropDownSettingsColorScheme.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsColorScheme_SelectedIndexChanged);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbDropDownSettingsColorScheme);
             this.Controls.Add(this.mbButtonSettingsLabel2);
             this.Controls.Add(this.mbButtonSettingsLabel1);
             this.Controls.Add(this.mbButtonSettingsExportCSV);
@@ -321,5 +347,6 @@
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportCSV;
         private System.Windows.Forms.Label mbButtonSettingsLabel1;
         private System.Windows.Forms.LinkLabel mbButtonSettingsLabel2;
+        private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsColorScheme;
     }
 }

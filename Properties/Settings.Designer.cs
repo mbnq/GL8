@@ -57,5 +57,17 @@ namespace GL8.Properties {
                 this["mbMainMenuWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int mbColorSchemeIndex {
+            get {
+                return ((int)(this["mbColorSchemeIndex"]));
+            }
+            set {
+                this["mbColorSchemeIndex"] = value;
+            }
+        }
     }
 }

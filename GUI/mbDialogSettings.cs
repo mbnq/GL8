@@ -15,6 +15,7 @@ using System.IO;
 using System.Security;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MaterialSkin;
 
 namespace GL8.CORE
 {
@@ -37,6 +38,13 @@ namespace GL8.CORE
             mbButtonSettingsDebug.Visible = true;
 #endif
             this.mbButtonSettingsLabel1.Text = $"GL8 v.{Program.mbVersion}";
+
+            this.mbDropDownSettingsColorScheme.Items.Add("Grey");
+            this.mbDropDownSettingsColorScheme.Items.Add("Red");
+            this.mbDropDownSettingsColorScheme.Items.Add("Green");
+            this.mbDropDownSettingsColorScheme.Items.Add("Blue");
+
+            this.mbDropDownSettingsColorScheme.SelectedIndex = mbMainMenu.mbColorSchemeIndex;
 
             this.CenterToParent();
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
@@ -211,6 +219,35 @@ namespace GL8.CORE
         private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void mbDropDownSettingsColorScheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ColorScheme selectedScheme;
+
+            // Determine which scheme was selected
+            switch (mbDropDownSettingsColorScheme.SelectedIndex)
+            {
+                case 0:
+                    selectedScheme = mbMainMenu.mbColorSchemeGrey;
+                    break;
+                case 1:
+                    selectedScheme = mbMainMenu.mbColorSchemeRed;
+                    break;
+                case 2:
+                    selectedScheme = mbMainMenu.mbColorSchemeGreen;
+                    break;                
+                case 3:
+                    selectedScheme = mbMainMenu.mbColorSchemeBlue; 
+                    break;
+                default:
+                    selectedScheme = mbMainMenu.mbColorSchemeBlue;
+                    break;
+            }
+
+            mbMainMenu.mbColorSchemeIndex = mbDropDownSettingsColorScheme.SelectedIndex;
+            _mainMenuInstance.InitializeMaterialSkin(selectedScheme);
+            _mainMenuInstance.Refresh();
+            this.Refresh();
         }
     }
 }
