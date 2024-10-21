@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mbDataView = new System.Windows.Forms.DataGridView();
             this.pswdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pswdLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,14 +58,14 @@
             this.mbDataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mbDataView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.mbDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mbDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mbDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mbDataView.ColumnHeadersHeight = 30;
             this.mbDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pswdName,
@@ -76,14 +76,14 @@
             this.pswdEmail,
             this.pswdAdditionalInfo});
             this.mbDataView.GridColor = System.Drawing.Color.Gainsboro;
-            this.mbDataView.Location = new System.Drawing.Point(307, 86);
+            this.mbDataView.Location = new System.Drawing.Point(304, 86);
             this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(770, 460);
+            this.mbDataView.Size = new System.Drawing.Size(771, 460);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -347,7 +347,7 @@
             this.MaximumSize = new System.Drawing.Size(1800, 554);
             this.MinimumSize = new System.Drawing.Size(1067, 554);
             this.Name = "mbMainMenu";
-            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
+            this.Padding = new System.Windows.Forms.Padding(3, 64, 4, 4);
             this.Sizable = true;
             this.Text = "GL8";
             ((System.ComponentModel.ISupportInitialize)(this.mbDataView)).EndInit();
