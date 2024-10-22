@@ -9,6 +9,7 @@
 
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Drawing;
 
 namespace GL8.CORE
 {
@@ -18,7 +19,7 @@ namespace GL8.CORE
 
         public static ColorScheme mbColorSchemeGrey = new ColorScheme(
             Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500,
-            Accent.LightBlue200, TextShade.WHITE);
+            Accent.Grey400, TextShade.WHITE);
 
         public static ColorScheme mbColorSchemeRed = new ColorScheme(
             Primary.Red800, Primary.Red900, Primary.Red500,
@@ -66,24 +67,35 @@ namespace GL8.CORE
             {
                 case 0:
                     mbActiveColorScheme = mbColorSchemeGrey;
+                    mbDataView.GridColor = Color.LightSlateGray;
+                    mbDataView.BackgroundColor = Color.LightGray;
                     break;
                 case 1:
                     mbActiveColorScheme = mbColorSchemeRed;
+                    mbDataView.GridColor = Color.MistyRose;
                     break;
                 case 2:
                     mbActiveColorScheme = mbColorSchemeGreen;
+                    mbDataView.GridColor = Color.LightGreen;
                     break;
                 case 3:
                     mbActiveColorScheme = mbColorSchemeBlue;
+                    mbDataView.GridColor = Color.LightBlue;
                     break;
                 case 4:
                     mbActiveColorScheme = mbColorSchemeMono;
+                    mbDataView.GridColor = Color.LightGray;
+                    mbDataView.BackgroundColor = Color.Gray;
+                    mbDataView.ForeColor = Color.Gray;
+                    mbDataView.BackColor = Color.LightGray;
                     break;
                 default:
                     mbActiveColorScheme = mbColorSchemeBlue;
                     break;
             }
             InitializeMaterialSkin(mbActiveColorScheme);
+            mbDataView.Refresh();
+            this.Refresh();
         }
     }
 }  
