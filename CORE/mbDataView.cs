@@ -15,6 +15,16 @@ namespace GL8.CORE
 {
     public partial class mbMainMenu : MaterialForm
     {
+        private void AddEventHandlers()
+        {
+            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
+            mbDataView.RowValidated += mbDataView_RowValidated;
+            mbDataView.CellFormatting += mbDataView_CellFormatting;
+            mbDataView.KeyDown += mbDataView_KeyDown;
+            mbDataView.CellMouseDown += mbDataView_CellMouseDown;
+            mbDataView.RowPostPaint += mbDataView_RowPostPaint;
+            mbDataView.DoubleClick += (sender, e) => mbButtonEdit_Click(sender, e);
+        }
         private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             _unsavedChanges = true;
@@ -80,18 +90,6 @@ namespace GL8.CORE
                 }
             }
         }
-        private void mbDataView_RowPostPaint_old(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush brush = new SolidBrush(mbDataView.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                string rowNumber = (e.RowIndex + 1).ToString();
-
-                float x = e.RowBounds.Location.X + 20;
-                float y = e.RowBounds.Location.Y + 4;
-
-                e.Graphics.DrawString(rowNumber, e.InheritedRowStyle.Font, brush, x, y);
-            }
-        }
         private void mbDataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             string rowNumber = (e.RowIndex + 1).ToString();
@@ -115,6 +113,13 @@ namespace GL8.CORE
                 SystemBrushes.ControlText,
                 headerBounds,
                 centerFormat);
+        }
+        private void mbDataView_Sorted(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            for (int i = 0; i < mbDataView.Rows.Count; i++)
+            {
+                mbDataView.Rows[i].HeaderCell.Value = (i + 1).ToString();
+            }
         }
 
     }
