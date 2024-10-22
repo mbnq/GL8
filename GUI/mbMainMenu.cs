@@ -139,7 +139,7 @@ namespace GL8.CORE
                 selectedRow = mbDataView.Rows[rowIndex];
             }
 
-            if (selectedRow != null)
+            if (selectedRow != null && (mbDataView.CurrentCell.ColumnIndex >= 0 && mbDataView.CurrentCell.RowIndex >= 0))   // not really needed
             {
                 mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
 
