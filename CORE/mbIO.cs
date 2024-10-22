@@ -54,7 +54,21 @@ namespace GL8.CORE
         {
             if (!File.Exists(mbFilePath))
             {
-                SavePSWDData();
+                var result = MaterialMessageBox.Show(
+                    "Database not found. Do you want to create a new Database?",
+                    "GL8 - Create Database",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    SavePSWDData();
+                }
+                else
+                {
+                    // Application.Exit();
+                    this.BeginInvoke(new MethodInvoker(delegate { this.Close(); }));
+                }
             }
         }
         public void SavePSWDData()

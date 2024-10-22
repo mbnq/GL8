@@ -45,6 +45,7 @@ namespace GL8.CORE
             InitializeComponent();
 
             this.CenterToScreen();
+
             _userPassword = userPassword;
 
             this.Icon = Properties.Resources.gl8;
