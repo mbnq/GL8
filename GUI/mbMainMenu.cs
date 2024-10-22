@@ -9,6 +9,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -42,6 +43,8 @@ namespace GL8.CORE
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
         {
+            Debug.WriteLine("Initializing...");
+
             InitializeComponent();
 
             this.CenterToScreen();
@@ -70,6 +73,8 @@ namespace GL8.CORE
             mbSwitchColorScheme();
 
             this.FormClosing += mbMainMenu_FormClosing;
+
+            Debug.WriteLine("Init ok");
         }
 
         // ------------------- Search ---------------------

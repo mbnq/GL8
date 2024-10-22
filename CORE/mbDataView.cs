@@ -8,6 +8,7 @@
 */
 
 using MaterialSkin.Controls;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -23,7 +24,7 @@ namespace GL8.CORE
             mbDataView.KeyDown += mbDataView_KeyDown;
             mbDataView.CellMouseDown += mbDataView_CellMouseDown;
             mbDataView.RowPostPaint += mbDataView_RowPostPaint;
-            mbDataView.DoubleClick += (sender, e) => mbButtonEdit_Click(sender, e);
+            mbDataView.CellDoubleClick += mbDataView_CellDoubleClick;
         }
         private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -65,10 +66,6 @@ namespace GL8.CORE
             {
                 e.Value = new string('*', e.Value.ToString().Length);
             }
-        }
-        private void mbDataView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            mbButtonEdit_Click(sender, e);
         }
         private void mbDataView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -121,6 +118,12 @@ namespace GL8.CORE
                 mbDataView.Rows[i].HeaderCell.Value = (i + 1).ToString();
             }
         }
-
+        private void mbDataView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                mbButtonEdit_Click(sender, e);
+            }
+        }
     }
 }
