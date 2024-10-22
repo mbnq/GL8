@@ -9,6 +9,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -42,9 +43,12 @@ namespace GL8.CORE
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
         {
+            Debug.WriteLine("Initializing...");
+
             InitializeComponent();
 
             this.CenterToScreen();
+
             _userPassword = userPassword;
 
             this.Icon = Properties.Resources.gl8;
@@ -67,23 +71,13 @@ namespace GL8.CORE
             _DialogSettings.LoadPublicSettings(this);
 
             mbSwitchColorScheme();
-        }
 
-        private void AddEventHandlers()
-        {
-            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
-            mbDataView.RowValidated += mbDataView_RowValidated;
-            mbDataView.CellFormatting += mbDataView_CellFormatting;
-            mbDataView.KeyDown += mbDataView_KeyDown;
-            mbDataView.CellMouseDown += mbDataView_CellMouseDown;
-            mbDataView.RowPostPaint += mbDataView_RowPostPaint;
-            mbDataView.DoubleClick += (sender, e) => mbButtonEdit_Click(sender, e);
             this.FormClosing += mbMainMenu_FormClosing;
+
+            Debug.WriteLine("Init ok");
         }
 
         // ------------------- Search ---------------------
-
-
         private void mbSearchTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchText = mbSearchTextBox.Text;
@@ -119,7 +113,6 @@ namespace GL8.CORE
             }
             mbDataView.Refresh();
         }
-
         private void mbSearchFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             mbSearchTextBox_TextChanged(this, EventArgs.Empty);
@@ -146,7 +139,7 @@ namespace GL8.CORE
                 selectedRow = mbDataView.Rows[rowIndex];
             }
 
-            if (selectedRow != null)
+            if (selectedRow != null && (mbDataView.CurrentCell.ColumnIndex >= 0 && mbDataView.CurrentCell.RowIndex >= 0))   // not really needed
             {
                 mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
 
@@ -232,85 +225,6 @@ namespace GL8.CORE
         {
             SavePSWDData();
             Application.Exit();
-        }
-
-        // ------------------- DataView -------------------
-        private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            _unsavedChanges = true;
-        }
-        private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (_unsavedChanges)
-            {
-                var result = MaterialMessageBox.Show(
-                    "You have made changes to this row. Do you want to save them now?",
-                    "Save Changes",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    SavePSWDData();
-                    _unsavedChanges = false;
-                }
-            }
-        }
-        private void mbDataView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                // check if the click was inside a valid cell
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                {
-                    mbDataView.CurrentCell = mbDataView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    // select the entire row if preferred
-                    mbDataView.Rows[e.RowIndex].Selected = true;
-                }
-            }
-        }
-        private void mbDataView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if ((mbHidePasswords) && (mbDataView.Columns[e.ColumnIndex].Name == "pswdPass" && e.Value != null))
-            {
-                e.Value = new string('*', e.Value.ToString().Length);
-            }
-        }
-        private void mbDataView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            mbButtonEdit_Click(sender, e);
-        }
-        private void mbDataView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                if (mbDataView.CurrentCell != null && mbDataView.CurrentCell.ColumnIndex == mbDataView.Columns["pswdPass"].Index)
-                {
-                    var selectedRow = mbDataView.CurrentRow;
-                    if (selectedRow != null)
-                    {
-                        mbPSWD selectedPSWD = (mbPSWD)selectedRow.DataBoundItem;
-                        if (selectedPSWD != null)
-                        {
-                            Clipboard.SetText(selectedPSWD.pswdPass);
-                        }
-
-                        e.Handled = true;
-                    }
-                }
-            }
-        }
-        private void mbDataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush brush = new SolidBrush(mbDataView.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                string rowNumber = (e.RowIndex + 1).ToString();
-
-                float x = e.RowBounds.Location.X + 20;
-                float y = e.RowBounds.Location.Y + 4;
-
-                e.Graphics.DrawString(rowNumber, e.InheritedRowStyle.Font, brush, x, y);
-            }
         }
 
         // ------------------- Other ----------------------

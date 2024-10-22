@@ -16,12 +16,15 @@ using System.Security;
 using System.Windows.Forms;
 using System.Diagnostics;
 using MaterialSkin;
+using System.Data;
 
 namespace GL8.CORE
 {
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
+
+        private mbWaitDialog _mbWaitDialog;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             // right order is crucial
@@ -69,8 +72,6 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbRefreshMainMenu();
         }
-
-        private mbWaitDialog _mbWaitDialog;
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
             _mbWaitDialog = new mbWaitDialog();
@@ -252,6 +253,7 @@ namespace GL8.CORE
             mbMainMenu.mbColorSchemeIndex = mbDropDownSettingsColorScheme.SelectedIndex;
             _mainMenuInstance.InitializeMaterialSkin(selectedScheme);
             _mainMenuInstance.Refresh();
+            _mainMenuInstance.mbSwitchColorScheme();
             this.Refresh();
         }
     }
