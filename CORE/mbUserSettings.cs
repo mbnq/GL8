@@ -66,6 +66,9 @@ namespace GL8.CORE
         {
             try
             {
+                // run but rather saveload count
+                Properties.Settings.Default.mbRunCount = mbMainMenu.mbRunCount;
+
                 // main menu width
                 Properties.Settings.Default.mbMainMenuWidth = _mainMenuInstance.Width;
 
@@ -96,6 +99,9 @@ namespace GL8.CORE
         {
             try
             {
+                // run but rather saveload count
+                mbMainMenu.mbRunCount = Properties.Settings.Default.mbRunCount;
+
                 // main menu width
                 _mainMenuInstance.Width = Properties.Settings.Default.mbMainMenuWidth;
 

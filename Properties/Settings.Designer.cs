@@ -69,5 +69,17 @@ namespace GL8.Properties {
                 this["mbColorSchemeIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int mbRunCount {
+            get {
+                return ((int)(this["mbRunCount"]));
+            }
+            set {
+                this["mbRunCount"] = value;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@
 
 using MaterialSkin.Controls;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace GL8.CORE

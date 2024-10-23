@@ -40,6 +40,9 @@ namespace GL8.CORE
         public bool mbHidePasswords     = true;
         private bool _unsavedChanges    = false;
 
+        public static int mbRunCount = 0;
+        private readonly mbBackup _backupManager;
+
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
         {
@@ -74,7 +77,12 @@ namespace GL8.CORE
 
             this.FormClosing += mbMainMenu_FormClosing;
 
-            Debug.WriteLine("Init ok");
+            mbRunCount++;
+
+            _backupManager = new mbBackup(this);
+            _backupManager.CheckAndGo();
+
+            Debug.WriteLine($"Init ok. SaveLoad number: {mbRunCount}");
         }
 
         // ------------------- Search ---------------------
