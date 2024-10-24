@@ -48,7 +48,7 @@ namespace GL8.CORE
             this.mbWaitDialogLabel1.Depth = 0;
             this.mbWaitDialogLabel1.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.mbWaitDialogLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.mbWaitDialogLabel1.Location = new System.Drawing.Point(72, 93);
+            this.mbWaitDialogLabel1.Location = new System.Drawing.Point(86, 119);
             this.mbWaitDialogLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbWaitDialogLabel1.Name = "mbWaitDialogLabel1";
             this.mbWaitDialogLabel1.Size = new System.Drawing.Size(355, 41);
@@ -63,7 +63,7 @@ namespace GL8.CORE
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(600, 240);
+            this.ClientSize = new System.Drawing.Size(490, 208);
             this.ControlBox = false;
             this.Controls.Add(this.mbWaitDialogLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -74,8 +74,7 @@ namespace GL8.CORE
             this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            // this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.StartPosition = FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GL8 - Please Wait";
             this.TopMost = true;
             this.UseWaitCursor = true;
