@@ -9,6 +9,7 @@
 
 using MaterialSkin.Controls;
 using System;
+using System.Windows.Forms;
 
 namespace GL8.CORE
 {
@@ -19,6 +20,7 @@ namespace GL8.CORE
         public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();
+
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
             _pswdItem = pswdItem ?? throw new ArgumentNullException(nameof(pswdItem));
 
@@ -33,9 +35,20 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAre you sure you want to save changes?",
+                "Confirmation",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (mbRUSure != DialogResult.OK) return;
+
             _pswdItem.pswdName = mbTextBoxEditName.Text;
             _pswdItem.pswdAddress = mbTextBoxEditAddress.Text;
             _pswdItem.pswdCategory = mbTextBoxEditCategory.Text;
@@ -70,6 +83,11 @@ namespace GL8.CORE
             var passwordGenerator = new mbRNG();
             string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
             mbTextBoxEditPassword.Text = password;
+        }
+
+        private void mbTextBoxEditPassword_GetRandomNum_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace GL8.CORE
             this.mbTextBoxEditCategory = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditAddress = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbTextBoxEditName = new MaterialSkin.Controls.MaterialTextBox2();
-            this.mbCheckBoxEditHidePswd = new MaterialSkin.Controls.MaterialCheckbox();
+            this.mbCheckBoxEditHidePswd = new MaterialSkin.Controls.MaterialSwitch();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
@@ -159,7 +159,7 @@ namespace GL8.CORE
             this.mbTextBoxEditPassword.SelectionLength = 0;
             this.mbTextBoxEditPassword.SelectionStart = 0;
             this.mbTextBoxEditPassword.ShortcutsEnabled = true;
-            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(302, 48);
+            this.mbTextBoxEditPassword.Size = new System.Drawing.Size(300, 48);
             this.mbTextBoxEditPassword.TabIndex = 4;
             this.mbTextBoxEditPassword.TabStop = false;
             this.mbTextBoxEditPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -223,7 +223,7 @@ namespace GL8.CORE
             this.mbTextBoxEditCategory.SelectionLength = 0;
             this.mbTextBoxEditCategory.SelectionStart = 0;
             this.mbTextBoxEditCategory.ShortcutsEnabled = true;
-            this.mbTextBoxEditCategory.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxEditCategory.Size = new System.Drawing.Size(454, 48);
             this.mbTextBoxEditCategory.TabIndex = 2;
             this.mbTextBoxEditCategory.TabStop = false;
             this.mbTextBoxEditCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -255,7 +255,7 @@ namespace GL8.CORE
             this.mbTextBoxEditAddress.SelectionLength = 0;
             this.mbTextBoxEditAddress.SelectionStart = 0;
             this.mbTextBoxEditAddress.ShortcutsEnabled = true;
-            this.mbTextBoxEditAddress.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxEditAddress.Size = new System.Drawing.Size(455, 48);
             this.mbTextBoxEditAddress.TabIndex = 1;
             this.mbTextBoxEditAddress.TabStop = false;
             this.mbTextBoxEditAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -287,7 +287,7 @@ namespace GL8.CORE
             this.mbTextBoxEditName.SelectionLength = 0;
             this.mbTextBoxEditName.SelectionStart = 0;
             this.mbTextBoxEditName.ShortcutsEnabled = true;
-            this.mbTextBoxEditName.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxEditName.Size = new System.Drawing.Size(454, 48);
             this.mbTextBoxEditName.TabIndex = 0;
             this.mbTextBoxEditName.TabStop = false;
             this.mbTextBoxEditName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -297,17 +297,17 @@ namespace GL8.CORE
             // mbCheckBoxEditHidePswd
             // 
             this.mbCheckBoxEditHidePswd.AutoSize = true;
+            this.mbCheckBoxEditHidePswd.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.mbCheckBoxEditHidePswd.Depth = 0;
-            this.mbCheckBoxEditHidePswd.Location = new System.Drawing.Point(856, 142);
+            this.mbCheckBoxEditHidePswd.Location = new System.Drawing.Point(463, 152);
             this.mbCheckBoxEditHidePswd.Margin = new System.Windows.Forms.Padding(0);
             this.mbCheckBoxEditHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mbCheckBoxEditHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbCheckBoxEditHidePswd.Name = "mbCheckBoxEditHidePswd";
-            this.mbCheckBoxEditHidePswd.ReadOnly = false;
             this.mbCheckBoxEditHidePswd.Ripple = true;
-            this.mbCheckBoxEditHidePswd.Size = new System.Drawing.Size(35, 37);
+            this.mbCheckBoxEditHidePswd.Size = new System.Drawing.Size(58, 37);
             this.mbCheckBoxEditHidePswd.TabIndex = 9;
-            this.mbCheckBoxEditHidePswd.UseVisualStyleBackColor = true;
+            this.mbCheckBoxEditHidePswd.UseVisualStyleBackColor = false;
             this.mbCheckBoxEditHidePswd.CheckedChanged += new System.EventHandler(this.mbCheckBoxEditHidePswd_CheckedChanged);
             // 
             // mbTextBoxEditPassword_GetRandom
@@ -352,6 +352,7 @@ namespace GL8.CORE
             0,
             0,
             0});
+            this.mbTextBoxEditPassword_GetRandomNum.ValueChanged += new System.EventHandler(this.mbTextBoxEditPassword_GetRandomNum_ValueChanged);
             // 
             // mbDialogEdit
             // 
@@ -390,7 +391,7 @@ namespace GL8.CORE
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditCategory;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditAddress;
         private MaterialSkin.Controls.MaterialTextBox2 mbTextBoxEditName;
-        private MaterialSkin.Controls.MaterialCheckbox mbCheckBoxEditHidePswd;
+        private MaterialSkin.Controls.MaterialSwitch mbCheckBoxEditHidePswd;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
     }

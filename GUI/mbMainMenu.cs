@@ -17,6 +17,7 @@ using System.Security;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GL8.CORE
 {
@@ -30,11 +31,19 @@ namespace GL8.CORE
 
         public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
 
-        private mbDialogAddNew      _DialogAddNew;
+        private mbDialogNew         _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
         private mbDialogSettings    _DialogSettings;
         private mbDialogSettings    _DialogSettingsDummy;
         private mbRMBMenu           _mbRMBMenu;
+
+        public static System.Windows.Forms.ToolTip toolTipGeneral = new System.Windows.Forms.ToolTip()
+        {
+            AutoPopDelay = 5000,
+            InitialDelay = 1000,
+            ReshowDelay = 500,
+            ShowAlways = true
+        };
 
         private SecureString _userPassword;
         public bool mbHidePasswords     = true;
@@ -49,6 +58,7 @@ namespace GL8.CORE
             Debug.WriteLine("Initializing...");
 
             InitializeComponent();
+            InitializeTooltipsForControls();
 
             this.CenterToScreen();
 
@@ -128,9 +138,23 @@ namespace GL8.CORE
         }
 
         // ------------------- GUI Controls ---------------
+        private void InitializeTooltipsForControls()
+        {
+            toolTipGeneral.SetToolTip(this.mbButtonNewItem, "Add a new item to the list");
+            toolTipGeneral.SetToolTip(this.mbButtonEdit, "Edit the selected item");
+            toolTipGeneral.SetToolTip(this.mbButtonRemoveItem, "Remove the selected item");
+            toolTipGeneral.SetToolTip(this.mbButtonOptions, "Open the options menu");
+            toolTipGeneral.SetToolTip(this.mbButtonExit, "Close the application");
+            toolTipGeneral.SetToolTip(this.mbSearchTextBox, "Search in items");
+            toolTipGeneral.SetToolTip(this.mbSearchFilter, "Search filter");
+        }
+        public void mbSwitchEnableMainMenuControls(bool enable)
+        {
+            this.Enabled = enable;
+        }
         public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
-            _DialogAddNew = new mbDialogAddNew(this);
+            _DialogAddNew = new mbDialogNew(this);
             _DialogAddNew.ShowDialog();
         }
         public void mbButtonEdit_Click(object sender, EventArgs e)

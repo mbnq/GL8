@@ -13,29 +13,30 @@ using System.ComponentModel;
 
 namespace GL8.CORE
 {
-    public partial class mbDialogAddNew : MaterialForm
+    public partial class mbDialogNew : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
 
         public static BindingList<mbPSWD> mbPSWDList = mbPSWDList ?? new BindingList<mbPSWD>();
-        public mbDialogAddNew(mbMainMenu mainMenuInstance)
+        public mbDialogNew(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
             this.CenterToParent();
             this.ShowIcon = false;
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
+
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void mbButtonAddAddItem_Click(object sender, EventArgs e)
         {
             AddPSWD();
             this.Close();
         }
-
         private void AddPSWD()
         {
             var mbPSWDData = new mbPSWD
@@ -53,7 +54,6 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbPSWDList.Add(mbPSWDData);
         }
-
         private void mbTextBoxAddPassword_GenRandom_Click(object sender, EventArgs e)
         {
             var passwordGenerator = new mbRNG();

@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using MaterialSkin.Controls;
+using System.Windows.Forms;
 
 namespace GL8.CORE
 {
@@ -18,16 +19,18 @@ namespace GL8.CORE
     {
         private readonly mbMainMenu _mainMenu;
         private const string BackupFolderName = "backup";
+        private bool forceBackup;
 
         // not really using instance of mbMainMenu atm, but let's leave it for future use
-        public mbBackup(mbMainMenu mainMenu)    
+        public mbBackup(mbMainMenu mainMenu, bool forceBackup = false)    
         {
+            this.forceBackup = forceBackup;
             _mainMenu = mainMenu ?? throw new ArgumentNullException(nameof(mainMenu));
         }
 
         public void CheckAndGo()
         {
-            if (mbMainMenu.mbRunCount > 0 && mbMainMenu.mbRunCount % 20 == 0)
+            if ((mbMainMenu.mbRunCount > 0 && mbMainMenu.mbRunCount % 20 == 0) || forceBackup)
             {
                 DoBackup();
             }
@@ -80,7 +83,18 @@ namespace GL8.CORE
                 File.Copy(filePathSettings, backupFilePathSettings, overwrite: true);
 
                 Debug.WriteLine($"Backup completed successfully at run count {mbMainMenu.mbRunCount}.");
-                MaterialMessageBox.Show("Automated Backup completed successfully.\nCheck backup folder in program location.", "Backup", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                // MaterialMessageBox.Show("Automated Backup completed successfully.\nCheck backup folder in program location.", "Backup", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
+                DialogResult mbRUSure = MaterialMessageBox.Show(
+                   "\nBackup completed successfully!\nDo you want to open the backup folder now?",
+                   "Backup Successful",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question);
+
+                if (mbRUSure == DialogResult.Yes) 
+                {
+                    if (Directory.Exists(backupDirectory)) { Process.Start("explorer.exe", backupDirectory); }
+                }
             }
             catch (Exception ex)
             {

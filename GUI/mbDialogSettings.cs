@@ -52,7 +52,11 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
+
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)
@@ -74,11 +78,18 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            _mbWaitDialog = new mbWaitDialog();
-            _mbWaitDialog.ShowDialog();
+            MaterialMessageBox.Show("Debugging is enabled.", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAre you sure you want to continue?\n\nDo not lose your new password, the old one will no longer work.",
+                "Confirmation",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning);
+
+            if (mbRUSure != DialogResult.OK) return;
+
             if ((mbButtonSettingsChangeMasterPass_current.Text == string.Empty) ||
                 (mbButtonSettingsChangeMasterPass_new.Text == string.Empty) ||
                 (mbButtonSettingsChangeMasterPass_newConfirm.Text == string.Empty))
@@ -128,7 +139,7 @@ namespace GL8.CORE
 
             if (settings == null)
             {
-                MessageBox.Show("Current password is incorrect or settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Current password is incorrect or settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -255,6 +266,35 @@ namespace GL8.CORE
             _mainMenuInstance.Refresh();
             _mainMenuInstance.mbSwitchColorScheme();
             this.Refresh();
+        }
+        private void mbTextBoxEditPassword_GetRandom_Click(object sender, EventArgs e)
+        {
+            var passwordGenerator = new mbRNG();
+            string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
+            mbButtonSettingsChangeMasterPass_new.Text = password;
+            mbButtonSettingsChangeMasterPass_newConfirm.Text = password;
+        }
+        private void mbButtonSettingsBackup_Click(object sender, EventArgs e)
+        {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAn encrypted backup of your data will be created in the application's directory to ensure your information is safely stored.\nDo you want to continue?",
+                "Backup",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (mbRUSure != DialogResult.OK) return;
+
+            try
+            {
+                mbBackup _backupManager;
+                _backupManager = new mbBackup(_mainMenuInstance, true);
+                _backupManager.CheckAndGo();
+            }
+            catch (Exception exception)
+            {
+                MaterialMessageBox.Show("Error creating backup: " + exception.Message, "Backup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
     }
 }
