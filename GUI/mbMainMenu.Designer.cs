@@ -82,7 +82,7 @@
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(635, 374);
+            this.mbDataView.Size = new System.Drawing.Size(651, 374);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -278,7 +278,7 @@
             this.mbSearchTextBox.Hint = "Search:";
             this.mbSearchTextBox.LeadingIcon = null;
             this.mbSearchTextBox.Location = new System.Drawing.Point(7, 245);
-            this.mbSearchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mbSearchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.mbSearchTextBox.MaxLength = 32767;
             this.mbSearchTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.mbSearchTextBox.Name = "mbSearchTextBox";
@@ -321,7 +321,7 @@
             "Email",
             "Additional Info"});
             this.mbSearchFilter.Location = new System.Drawing.Point(8, 299);
-            this.mbSearchFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mbSearchFilter.Margin = new System.Windows.Forms.Padding(2);
             this.mbSearchFilter.MaxDropDownItems = 4;
             this.mbSearchFilter.MouseState = MaterialSkin.MouseState.OUT;
             this.mbSearchFilter.Name = "mbSearchFilter";
@@ -334,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 457);
+            this.ClientSize = new System.Drawing.Size(890, 457);
             this.Controls.Add(this.mbSearchFilter);
             this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
