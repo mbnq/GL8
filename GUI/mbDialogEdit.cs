@@ -28,28 +28,28 @@ namespace GL8.CORE
             _pswdItem = pswdItem ?? throw new ArgumentNullException(nameof(pswdItem));
 
             // Pre-fill the textboxes with the existing data
-            mbTextBoxEditName.Text = _pswdItem.pswdName;
-            mbTextBoxEditAddress.Text = _pswdItem.pswdAddress;
-            mbTextBoxEditCategory.Text = _pswdItem.pswdCategory;
-            mbTextBoxEditLogin.Text = _pswdItem.pswdLogin;
-            mbTextBoxEditPassword.Text = _pswdItem.pswdPass;
-            mbTextBoxEditEmail.Text = _pswdItem.pswdEmail;
+            mbTextBoxEditName.Text      = _pswdItem.pswdName;
+            mbTextBoxEditAddress.Text   = _pswdItem.pswdAddress;
+            mbTextBoxEditCategory.Text  = _pswdItem.pswdCategory;
+            mbTextBoxEditLogin.Text     = _pswdItem.pswdLogin;
+            mbTextBoxEditPassword.Text  = _pswdItem.pswdPass;
+            mbTextBoxEditEmail.Text     = _pswdItem.pswdEmail;
             mbTextBoxEditAdditionalInfo.Text = _pswdItem.pswdAdditionalInfo;
 
             this.CenterToParent();
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
 
-            mbTextBoxEditName.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxEditAddress.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxEditCategory.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxEditLogin.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxEditPassword.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxEditEmail.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditName.TextChanged       += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditAddress.TextChanged    += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditCategory.TextChanged   += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditLogin.TextChanged      += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditPassword.TextChanged   += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditEmail.TextChanged      += (sender, e) => { mbChangesCount++; };
             mbTextBoxEditAdditionalInfo.TextChanged += (sender, e) => { mbChangesCount++; };
 
-            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
-            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
+            this.Shown += (sender, e)        => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e)   => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {

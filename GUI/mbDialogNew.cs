@@ -31,16 +31,16 @@ namespace GL8.CORE
 
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
 
-            mbTextBoxAddName.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddAddress.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddCategory.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddLogin.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddPassword.TextChanged += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddEmail.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddName.TextChanged        += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddAddress.TextChanged     += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddCategory.TextChanged    += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddLogin.TextChanged       += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddPassword.TextChanged    += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddEmail.TextChanged       += (sender, e) => { mbChangesCount++; };
             mbTextBoxAddAdditionalInfo.TextChanged += (sender, e) => { mbChangesCount++; };
 
-            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
-            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
+            this.Shown += (sender, e)       => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e)  => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
