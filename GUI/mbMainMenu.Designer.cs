@@ -77,13 +77,13 @@
             this.pswdAdditionalInfo});
             this.mbDataView.GridColor = System.Drawing.Color.Gainsboro;
             this.mbDataView.Location = new System.Drawing.Point(304, 86);
-            this.mbDataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(886, 460);
+            this.mbDataView.Size = new System.Drawing.Size(904, 460);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -335,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 552);
+            this.ClientSize = new System.Drawing.Size(1217, 552);
             this.Controls.Add(this.mbSearchFilter);
             this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
@@ -345,7 +345,7 @@
             this.Controls.Add(this.mbButtonNewItem);
             this.Controls.Add(this.mbDataView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1799, 552);
             this.MinimumSize = new System.Drawing.Size(1066, 552);
             this.Name = "mbMainMenu";

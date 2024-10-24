@@ -18,34 +18,11 @@ namespace GL8.CORE
     {
         private void AddEventHandlers()
         {
-            mbDataView.CellValueChanged += mbDataView_CellValueChanged;
-            mbDataView.RowValidated += mbDataView_RowValidated;
             mbDataView.CellFormatting += mbDataView_CellFormatting;
             mbDataView.KeyDown += mbDataView_KeyDown;
             mbDataView.CellMouseDown += mbDataView_CellMouseDown;
             mbDataView.RowPostPaint += mbDataView_RowPostPaint;
             mbDataView.CellDoubleClick += mbDataView_CellDoubleClick;
-        }
-        private void mbDataView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            _unsavedChanges = true;
-        }
-        private void mbDataView_RowValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (_unsavedChanges)
-            {
-                var result = MaterialMessageBox.Show(
-                    "You have made changes to this row. Do you want to save them now?",
-                    "Save Changes",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    SavePSWDData();
-                    _unsavedChanges = false;
-                }
-            }
         }
         private void mbDataView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
