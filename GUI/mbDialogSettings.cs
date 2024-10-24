@@ -74,8 +74,7 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            _mbWaitDialog = new mbWaitDialog();
-            _mbWaitDialog.ShowDialog();
+            MaterialMessageBox.Show("Debugging is enabled.", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
