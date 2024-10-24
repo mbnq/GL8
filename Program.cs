@@ -25,6 +25,9 @@ namespace GL8
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 
+        public static bool mbPassOK = false;
+        public static SecureString UserPassword { get; private set; }
+
         #region DPI
         [DllImport("user32.dll")]
         static extern bool SetProcessDPIAware();
@@ -35,8 +38,6 @@ namespace GL8
         private static readonly IntPtr DPI_AWARENESS_CONTEXT_SYSTEM_AWARE = new IntPtr(-2);
         #endregion
 
-        public static bool mbPassOK = false;
-        public static SecureString UserPassword { get; private set; }
         public static void SetUserPassword(SecureString password)
         {
             UserPassword = password;
