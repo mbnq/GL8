@@ -17,13 +17,13 @@ namespace GL8.CORE
     public partial class mbDialogNew : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
-        private int mbChangesCount;
+        private int _mbChangesCount;
 
         public static BindingList<mbPSWD> mbPSWDList = mbPSWDList ?? new BindingList<mbPSWD>();
         public mbDialogNew(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
-            mbChangesCount = 0;
+            _mbChangesCount = 0;
 
             this.CenterToParent();
             this.ShowIcon = false;
@@ -31,20 +31,20 @@ namespace GL8.CORE
 
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
 
-            mbTextBoxAddName.TextChanged        += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddAddress.TextChanged     += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddCategory.TextChanged    += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddLogin.TextChanged       += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddPassword.TextChanged    += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddEmail.TextChanged       += (sender, e) => { mbChangesCount++; };
-            mbTextBoxAddAdditionalInfo.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxAddName.TextChanged        += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddAddress.TextChanged     += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddCategory.TextChanged    += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddLogin.TextChanged       += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddPassword.TextChanged    += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddEmail.TextChanged       += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddAdditionalInfo.TextChanged += (sender, e) => { _mbChangesCount++; };
 
             this.Shown += (sender, e)       => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
             this.FormClosed += (sender, e)  => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
-            if (mbChangesCount > 0)
+            if (_mbChangesCount > 0)
             {
                 DialogResult mbRUSure = MaterialMessageBox.Show(
                     "Are you sure you want to cancel?\nChanges will not be saved.",
@@ -58,7 +58,7 @@ namespace GL8.CORE
         }
         private void mbButtonAddAddItem_Click(object sender, EventArgs e)
         {
-            if (mbChangesCount == 0)
+            if (_mbChangesCount == 0)
             {
                 MaterialMessageBox.Show(
                     "Fill atleast one field before saving.",
@@ -68,7 +68,7 @@ namespace GL8.CORE
                 return;
             }
 
-            if (mbChangesCount > 0)
+            if (_mbChangesCount > 0)
             {
                 DialogResult mbRUSure = MaterialMessageBox.Show(
                 "Are you sure you want to save changes?",
