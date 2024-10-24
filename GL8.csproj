@@ -195,6 +195,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbMainMenu.resx">
       <DependentUpon>mbMainMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbWaitDialog.resx">
       <DependentUpon>mbWaitDialog.cs</DependentUpon>
