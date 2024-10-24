@@ -76,14 +76,14 @@
             this.pswdEmail,
             this.pswdAdditionalInfo});
             this.mbDataView.GridColor = System.Drawing.Color.Gainsboro;
-            this.mbDataView.Location = new System.Drawing.Point(304, 86);
+            this.mbDataView.Location = new System.Drawing.Point(302, 71);
             this.mbDataView.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataView.MultiSelect = false;
             this.mbDataView.Name = "mbDataView";
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(843, 460);
+            this.mbDataView.Size = new System.Drawing.Size(879, 456);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -169,7 +169,7 @@
             this.mbButtonNewItem.Depth = 0;
             this.mbButtonNewItem.HighEmphasis = true;
             this.mbButtonNewItem.Icon = null;
-            this.mbButtonNewItem.Location = new System.Drawing.Point(10, 86);
+            this.mbButtonNewItem.Location = new System.Drawing.Point(8, 71);
             this.mbButtonNewItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonNewItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonNewItem.Name = "mbButtonNewItem";
@@ -190,7 +190,7 @@
             this.mbButtonExit.Depth = 0;
             this.mbButtonExit.HighEmphasis = true;
             this.mbButtonExit.Icon = null;
-            this.mbButtonExit.Location = new System.Drawing.Point(9, 498);
+            this.mbButtonExit.Location = new System.Drawing.Point(7, 483);
             this.mbButtonExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonExit.Name = "mbButtonExit";
@@ -211,7 +211,7 @@
             this.mbButtonRemoveItem.Depth = 0;
             this.mbButtonRemoveItem.HighEmphasis = true;
             this.mbButtonRemoveItem.Icon = null;
-            this.mbButtonRemoveItem.Location = new System.Drawing.Point(9, 202);
+            this.mbButtonRemoveItem.Location = new System.Drawing.Point(7, 187);
             this.mbButtonRemoveItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonRemoveItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonRemoveItem.Name = "mbButtonRemoveItem";
@@ -232,7 +232,7 @@
             this.mbButtonOptions.Depth = 0;
             this.mbButtonOptions.HighEmphasis = true;
             this.mbButtonOptions.Icon = null;
-            this.mbButtonOptions.Location = new System.Drawing.Point(9, 439);
+            this.mbButtonOptions.Location = new System.Drawing.Point(7, 424);
             this.mbButtonOptions.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonOptions.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonOptions.Name = "mbButtonOptions";
@@ -253,7 +253,7 @@
             this.mbButtonEdit.Depth = 0;
             this.mbButtonEdit.HighEmphasis = true;
             this.mbButtonEdit.Icon = null;
-            this.mbButtonEdit.Location = new System.Drawing.Point(9, 144);
+            this.mbButtonEdit.Location = new System.Drawing.Point(7, 129);
             this.mbButtonEdit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.mbButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonEdit.Name = "mbButtonEdit";
@@ -278,7 +278,7 @@
             this.mbSearchTextBox.HideSelection = true;
             this.mbSearchTextBox.Hint = "Search:";
             this.mbSearchTextBox.LeadingIcon = null;
-            this.mbSearchTextBox.Location = new System.Drawing.Point(9, 302);
+            this.mbSearchTextBox.Location = new System.Drawing.Point(7, 287);
             this.mbSearchTextBox.MaxLength = 32767;
             this.mbSearchTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.mbSearchTextBox.Name = "mbSearchTextBox";
@@ -320,7 +320,7 @@
             "Login",
             "Email",
             "Additional Info"});
-            this.mbSearchFilter.Location = new System.Drawing.Point(11, 368);
+            this.mbSearchFilter.Location = new System.Drawing.Point(9, 353);
             this.mbSearchFilter.MaxDropDownItems = 4;
             this.mbSearchFilter.MouseState = MaterialSkin.MouseState.OUT;
             this.mbSearchFilter.Name = "mbSearchFilter";
@@ -333,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 554);
+            this.ClientSize = new System.Drawing.Size(1139, 554);
             this.Controls.Add(this.mbSearchFilter);
             this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
@@ -344,8 +344,8 @@
             this.Controls.Add(this.mbDataView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1800, 554);
-            this.MinimumSize = new System.Drawing.Size(1067, 554);
+            this.MaximumSize = new System.Drawing.Size(1444, 536);
+            this.MinimumSize = new System.Drawing.Size(860, 536);
             this.Name = "mbMainMenu";
             this.Padding = new System.Windows.Forms.Padding(3, 64, 4, 4);
             this.Sizable = true;

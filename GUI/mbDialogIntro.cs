@@ -34,7 +34,7 @@ namespace GL8.CORE
 
                 mbIntroButtonLogin.Text = "Login";
                 mbIntroButtonLogin.Focus();
-                this.Height = 180;
+                this.Height = 240;
 
                 mbIntroTextBoxMasterPswdConfirm.Visible = false;
                 mbIntroTextBoxMasterPswdWarning.Visible = false;
@@ -51,7 +51,7 @@ namespace GL8.CORE
 
                 mbIntroButtonLogin.Text = "Set Password";
                 mbIntroButtonLogin.Focus();
-                this.Height = 380;
+                this.Height = 440;
 
                 mbIntroTextBoxMasterPswdConfirm.Visible = true;
                 mbIntroTextBoxMasterPswdWarning.Visible = true;

@@ -21,11 +21,13 @@ namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.2.4";
+        public const string mbVersion = "0.0.2.5";
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 
         #region DPI
+        // added DPI awareness properly, via manifest file now
+        /*
         [DllImport("user32.dll")]
         static extern bool SetProcessDPIAware();
 
@@ -33,6 +35,7 @@ namespace GL8
         private static extern bool SetProcessDpiAwarenessContext(IntPtr dpiFlag);
         private static readonly IntPtr DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = new IntPtr(-4);
         private static readonly IntPtr DPI_AWARENESS_CONTEXT_SYSTEM_AWARE = new IntPtr(-2);
+        */
         #endregion
 
         public static bool mbPassOK = false;
