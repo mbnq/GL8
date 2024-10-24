@@ -52,6 +52,7 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
 
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
 

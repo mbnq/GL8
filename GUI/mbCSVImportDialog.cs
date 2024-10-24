@@ -23,6 +23,7 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             // this.Icon = Properties.Resources.gl8;
 
             _filePath = filePath;

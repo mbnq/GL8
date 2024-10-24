@@ -26,6 +26,7 @@ namespace GL8.CORE
         {
             InitializeComponent();
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
         }
     }
 }

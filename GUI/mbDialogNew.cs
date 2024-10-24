@@ -10,6 +10,7 @@
 using MaterialSkin.Controls;
 using System;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace GL8.CORE
 {
@@ -23,6 +24,8 @@ namespace GL8.CORE
             InitializeComponent();
             this.CenterToParent();
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
 
             this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };

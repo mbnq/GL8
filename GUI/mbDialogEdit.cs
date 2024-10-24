@@ -35,6 +35,7 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
 
             this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
             this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
@@ -65,6 +66,13 @@ namespace GL8.CORE
         }
         private void mbButtonEditCancel_Click(object sender, EventArgs e)
         {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "Are you sure you want to cancel?\nChanges will not be saved.",
+                "Confirmation",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+            if (mbRUSure != DialogResult.OK) return;
+
             this.Close();
         }
         private void mbCheckBoxEditHidePswd_CheckedChanged(object sender, EventArgs e)
