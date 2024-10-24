@@ -267,7 +267,7 @@
             // 
             this.mbButtonSettingsLabel1.AutoSize = true;
             this.mbButtonSettingsLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.mbButtonSettingsLabel1.Location = new System.Drawing.Point(692, 35);
+            this.mbButtonSettingsLabel1.Location = new System.Drawing.Point(708, 27);
             this.mbButtonSettingsLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.mbButtonSettingsLabel1.Name = "mbButtonSettingsLabel1";
             this.mbButtonSettingsLabel1.Size = new System.Drawing.Size(44, 16);
@@ -281,7 +281,7 @@
             this.mbButtonSettingsLabel2.BackColor = System.Drawing.Color.Transparent;
             this.mbButtonSettingsLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.mbButtonSettingsLabel2.LinkColor = System.Drawing.Color.Silver;
-            this.mbButtonSettingsLabel2.Location = new System.Drawing.Point(692, 51);
+            this.mbButtonSettingsLabel2.Location = new System.Drawing.Point(708, 43);
             this.mbButtonSettingsLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.mbButtonSettingsLabel2.Name = "mbButtonSettingsLabel2";
             this.mbButtonSettingsLabel2.Size = new System.Drawing.Size(85, 16);

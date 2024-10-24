@@ -55,7 +55,7 @@ namespace GL8.CORE
             this.lblDelimiter.AutoSize = true;
             this.lblDelimiter.Depth = 0;
             this.lblDelimiter.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDelimiter.Location = new System.Drawing.Point(40, 606);
+            this.lblDelimiter.Location = new System.Drawing.Point(40, 487);
             this.lblDelimiter.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDelimiter.Name = "lblDelimiter";
             this.lblDelimiter.Size = new System.Drawing.Size(68, 19);
@@ -83,7 +83,7 @@ namespace GL8.CORE
             "Pipe (|)",
             "Space ( )",
             "Custom"});
-            this.cmbDelimiter.Location = new System.Drawing.Point(180, 588);
+            this.cmbDelimiter.Location = new System.Drawing.Point(180, 469);
             this.cmbDelimiter.MaxDropDownItems = 4;
             this.cmbDelimiter.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbDelimiter.Name = "cmbDelimiter";
@@ -97,7 +97,7 @@ namespace GL8.CORE
             this.lblCustomDelimiter.AutoSize = true;
             this.lblCustomDelimiter.Depth = 0;
             this.lblCustomDelimiter.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCustomDelimiter.Location = new System.Drawing.Point(40, 669);
+            this.lblCustomDelimiter.Location = new System.Drawing.Point(40, 550);
             this.lblCustomDelimiter.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomDelimiter.Name = "lblCustomDelimiter";
             this.lblCustomDelimiter.Size = new System.Drawing.Size(60, 19);
@@ -117,7 +117,7 @@ namespace GL8.CORE
             this.txtCustomDelimiter.HideSelection = true;
             this.txtCustomDelimiter.Hint = "Custom";
             this.txtCustomDelimiter.LeadingIcon = null;
-            this.txtCustomDelimiter.Location = new System.Drawing.Point(180, 657);
+            this.txtCustomDelimiter.Location = new System.Drawing.Point(180, 538);
             this.txtCustomDelimiter.MaxLength = 32767;
             this.txtCustomDelimiter.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustomDelimiter.Name = "txtCustomDelimiter";
@@ -145,7 +145,7 @@ namespace GL8.CORE
             this.btnApplyCustomDelimiter.Depth = 0;
             this.btnApplyCustomDelimiter.HighEmphasis = true;
             this.btnApplyCustomDelimiter.Icon = null;
-            this.btnApplyCustomDelimiter.Location = new System.Drawing.Point(352, 669);
+            this.btnApplyCustomDelimiter.Location = new System.Drawing.Point(352, 550);
             this.btnApplyCustomDelimiter.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnApplyCustomDelimiter.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnApplyCustomDelimiter.Name = "btnApplyCustomDelimiter";
@@ -167,7 +167,7 @@ namespace GL8.CORE
             this.btnOK.Depth = 0;
             this.btnOK.HighEmphasis = true;
             this.btnOK.Icon = null;
-            this.btnOK.Location = new System.Drawing.Point(353, 754);
+            this.btnOK.Location = new System.Drawing.Point(248, 611);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOK.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnOK.Name = "btnOK";
@@ -188,7 +188,7 @@ namespace GL8.CORE
             this.btnCancel.Depth = 0;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(457, 754);
+            this.btnCancel.Location = new System.Drawing.Point(352, 611);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
@@ -205,7 +205,7 @@ namespace GL8.CORE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.ClientSize = new System.Drawing.Size(468, 684);
             this.Controls.Add(this.lblDelimiter);
             this.Controls.Add(this.cmbDelimiter);
             this.Controls.Add(this.lblCustomDelimiter);

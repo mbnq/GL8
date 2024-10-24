@@ -99,9 +99,8 @@ namespace GL8.CORE
             }
 
             this.Height = startY + (4 * defSpacing);
-            this.Width = (8 * defSpacing) + (defSpacing / 2);
+            this.Width = (8 * defSpacing) + 64;
         }
-
         private void RemoveExistingMappingControls(List<string> pswdProperties)
         {
             var controlsToRemove = this.Controls.OfType<Control>()
