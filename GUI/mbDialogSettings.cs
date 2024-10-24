@@ -52,7 +52,11 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+
             this.FormClosing += (sender, e) => { SavePublicSettings(mainMenuInstance); };
+
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
 
         private void mbButtonSettingsClose_Click(object sender, EventArgs e)

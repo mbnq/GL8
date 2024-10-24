@@ -148,6 +148,10 @@ namespace GL8.CORE
             toolTipGeneral.SetToolTip(this.mbSearchTextBox, "Search in items");
             toolTipGeneral.SetToolTip(this.mbSearchFilter, "Search filter");
         }
+        public void mbSwitchEnableMainMenuControls(bool enable)
+        {
+            this.Enabled = enable;
+        }
         public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
             _DialogAddNew = new mbDialogNew(this);

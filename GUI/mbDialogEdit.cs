@@ -35,6 +35,9 @@ namespace GL8.CORE
 
             this.CenterToParent();
             this.ShowIcon = false;
+
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
