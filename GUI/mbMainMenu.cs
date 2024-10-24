@@ -30,7 +30,7 @@ namespace GL8.CORE
 
         public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
 
-        private mbDialogAddNew      _DialogAddNew;
+        private mbDialogNew      _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
         private mbDialogSettings    _DialogSettings;
         private mbDialogSettings    _DialogSettingsDummy;
@@ -130,7 +130,7 @@ namespace GL8.CORE
         // ------------------- GUI Controls ---------------
         public void mbButtonNewItem_Click(object sender, EventArgs e)
         {
-            _DialogAddNew = new mbDialogAddNew(this);
+            _DialogAddNew = new mbDialogNew(this);
             _DialogAddNew.ShowDialog();
         }
         public void mbButtonEdit_Click(object sender, EventArgs e)

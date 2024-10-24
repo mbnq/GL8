@@ -2,7 +2,7 @@
 
 namespace GL8.CORE
 {
-    partial class mbDialogAddNew
+    partial class mbDialogNew
     {
         /// <summary>
         /// Required designer variable.

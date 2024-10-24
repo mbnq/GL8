@@ -13,12 +13,12 @@ using System.ComponentModel;
 
 namespace GL8.CORE
 {
-    public partial class mbDialogAddNew : MaterialForm
+    public partial class mbDialogNew : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
 
         public static BindingList<mbPSWD> mbPSWDList = mbPSWDList ?? new BindingList<mbPSWD>();
-        public mbDialogAddNew(mbMainMenu mainMenuInstance)
+        public mbDialogNew(mbMainMenu mainMenuInstance)
         {
             InitializeComponent();
             this.CenterToParent();
