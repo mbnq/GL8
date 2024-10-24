@@ -352,7 +352,6 @@ namespace GL8.CORE
             0,
             0,
             0});
-            this.mbTextBoxEditPassword_GetRandomNum.ValueChanged += new System.EventHandler(this.mbTextBoxEditPassword_GetRandomNum_ValueChanged);
             // 
             // mbDialogEdit
             // 

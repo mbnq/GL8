@@ -47,8 +47,6 @@ namespace GL8.CORE
 
         private SecureString _userPassword;
         public bool mbHidePasswords     = true;
-        private bool _unsavedChanges    = false;
-
         public static int mbRunCount = 0;
         private readonly mbBackup _backupManager;
 
@@ -267,24 +265,7 @@ namespace GL8.CORE
         }
         private void mbMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_unsavedChanges)
-            {
-                var result = MaterialMessageBox.Show(
-                    "You have unsaved changes. Do you want to save them before exiting?",
-                    "Unsaved Changes",
-                    MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
-                {
-                    SavePSWDData();
-                    _unsavedChanges = false;
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
+            SavePSWDData();
             _DialogSettings.SavePublicSettings(this);
         }
         public void UpdateUserPassword(SecureString newPassword)
