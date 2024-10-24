@@ -71,5 +71,10 @@ namespace GL8.CORE
             string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
             mbTextBoxEditPassword.Text = password;
         }
+
+        private void mbTextBoxEditPassword_GetRandomNum_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

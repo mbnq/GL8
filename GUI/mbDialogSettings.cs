@@ -255,5 +255,12 @@ namespace GL8.CORE
             _mainMenuInstance.mbSwitchColorScheme();
             this.Refresh();
         }
+        private void mbTextBoxEditPassword_GetRandom_Click(object sender, EventArgs e)
+        {
+            var passwordGenerator = new mbRNG();
+            string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
+            mbButtonSettingsChangeMasterPass_new.Text = password;
+            mbButtonSettingsChangeMasterPass_newConfirm.Text = password;
+        }
     }
 }

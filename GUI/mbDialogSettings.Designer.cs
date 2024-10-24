@@ -40,6 +40,9 @@
             this.mbButtonSettingsLabel1 = new System.Windows.Forms.Label();
             this.mbButtonSettingsLabel2 = new System.Windows.Forms.LinkLabel();
             this.mbDropDownSettingsColorScheme = new MaterialSkin.Controls.MaterialComboBox();
+            this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
+            this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -295,7 +298,7 @@
             this.mbDropDownSettingsColorScheme.DropDownHeight = 174;
             this.mbDropDownSettingsColorScheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mbDropDownSettingsColorScheme.DropDownWidth = 121;
-            this.mbDropDownSettingsColorScheme.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsColorScheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.mbDropDownSettingsColorScheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.mbDropDownSettingsColorScheme.FormattingEnabled = true;
             this.mbDropDownSettingsColorScheme.Hint = "Color Scheme";
@@ -310,11 +313,56 @@
             this.mbDropDownSettingsColorScheme.TabIndex = 7;
             this.mbDropDownSettingsColorScheme.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsColorScheme_SelectedIndexChanged);
             // 
+            // mbTextBoxEditPassword_GetRandomNum
+            // 
+            this.mbTextBoxEditPassword_GetRandomNum.Location = new System.Drawing.Point(406, 175);
+            this.mbTextBoxEditPassword_GetRandomNum.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.mbTextBoxEditPassword_GetRandomNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.mbTextBoxEditPassword_GetRandomNum.Name = "mbTextBoxEditPassword_GetRandomNum";
+            this.mbTextBoxEditPassword_GetRandomNum.Size = new System.Drawing.Size(48, 22);
+            this.mbTextBoxEditPassword_GetRandomNum.TabIndex = 13;
+            this.mbTextBoxEditPassword_GetRandomNum.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // mbTextBoxEditPassword_GetRandom
+            // 
+            this.mbTextBoxEditPassword_GetRandom.AutoSize = false;
+            this.mbTextBoxEditPassword_GetRandom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbTextBoxEditPassword_GetRandom.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbTextBoxEditPassword_GetRandom.Depth = 0;
+            this.mbTextBoxEditPassword_GetRandom.HighEmphasis = true;
+            this.mbTextBoxEditPassword_GetRandom.Icon = null;
+            this.mbTextBoxEditPassword_GetRandom.Location = new System.Drawing.Point(407, 149);
+            this.mbTextBoxEditPassword_GetRandom.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbTextBoxEditPassword_GetRandom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbTextBoxEditPassword_GetRandom.Name = "mbTextBoxEditPassword_GetRandom";
+            this.mbTextBoxEditPassword_GetRandom.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbTextBoxEditPassword_GetRandom.Size = new System.Drawing.Size(47, 25);
+            this.mbTextBoxEditPassword_GetRandom.TabIndex = 12;
+            this.mbTextBoxEditPassword_GetRandom.Text = "R";
+            this.mbTextBoxEditPassword_GetRandom.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbTextBoxEditPassword_GetRandom.UseAccentColor = false;
+            this.mbTextBoxEditPassword_GetRandom.UseVisualStyleBackColor = true;
+            this.mbTextBoxEditPassword_GetRandom.Click += new System.EventHandler(this.mbTextBoxEditPassword_GetRandom_Click);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
+            this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
             this.Controls.Add(this.mbDropDownSettingsColorScheme);
             this.Controls.Add(this.mbButtonSettingsLabel2);
             this.Controls.Add(this.mbButtonSettingsLabel1);
@@ -329,6 +377,7 @@
             this.Controls.Add(this.mbButtonSettingsClose);
             this.Name = "mbDialogSettings";
             this.Text = "Settings";
+            ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +397,7 @@
         private System.Windows.Forms.Label mbButtonSettingsLabel1;
         private System.Windows.Forms.LinkLabel mbButtonSettingsLabel2;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsColorScheme;
+        private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
+        private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
     }
 }
