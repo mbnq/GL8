@@ -9,6 +9,7 @@
 
 using MaterialSkin.Controls;
 using System;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace GL8.CORE
@@ -17,9 +18,11 @@ namespace GL8.CORE
     {
         private mbPSWD _pswdItem;
         private mbMainMenu _mainMenuInstance;
+        private int mbChangesCount;
         public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();
+            mbChangesCount = 0;
 
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
             _pswdItem = pswdItem ?? throw new ArgumentNullException(nameof(pswdItem));
@@ -37,18 +40,29 @@ namespace GL8.CORE
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
 
+            mbTextBoxEditName.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditAddress.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditCategory.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditLogin.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditPassword.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditEmail.TextChanged += (sender, e) => { mbChangesCount++; };
+            mbTextBoxEditAdditionalInfo.TextChanged += (sender, e) => { mbChangesCount++; };
+
             this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
             this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
-            DialogResult mbRUSure = MaterialMessageBox.Show(
+            if (mbChangesCount > 0)
+            {
+                DialogResult mbRUSure = MaterialMessageBox.Show(
                 "\nAre you sure you want to save changes?",
                 "Confirmation",
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Question);
 
-            if (mbRUSure != DialogResult.OK) return;
+                if (mbRUSure != DialogResult.OK) return;
+            }
 
             _pswdItem.pswdName = mbTextBoxEditName.Text;
             _pswdItem.pswdAddress = mbTextBoxEditAddress.Text;
@@ -66,12 +80,15 @@ namespace GL8.CORE
         }
         private void mbButtonEditCancel_Click(object sender, EventArgs e)
         {
-            DialogResult mbRUSure = MaterialMessageBox.Show(
-                "Are you sure you want to cancel?\nChanges will not be saved.",
-                "Confirmation",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question);
-            if (mbRUSure != DialogResult.OK) return;
+            if (mbChangesCount > 0)
+            {
+                DialogResult mbRUSure = MaterialMessageBox.Show(
+                    "Are you sure you want to cancel?\nChanges will not be saved.",
+                    "Confirmation",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question);
+                if (mbRUSure != DialogResult.OK) return;
+            }
 
             this.Close();
         }
@@ -91,11 +108,6 @@ namespace GL8.CORE
             var passwordGenerator = new mbRNG();
             string password = passwordGenerator.GeneratePassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
             mbTextBoxEditPassword.Text = password;
-        }
-
-        private void mbTextBoxEditPassword_GetRandomNum_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
