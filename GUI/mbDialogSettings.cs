@@ -78,6 +78,14 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAre you sure you want to continue?\n\nDo not lose your new password, the old one will no longer work.",
+                "Confirmation",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning);
+
+            if (mbRUSure != DialogResult.OK) return;
+
             if ((mbButtonSettingsChangeMasterPass_current.Text == string.Empty) ||
                 (mbButtonSettingsChangeMasterPass_new.Text == string.Empty) ||
                 (mbButtonSettingsChangeMasterPass_newConfirm.Text == string.Empty))
@@ -127,7 +135,7 @@ namespace GL8.CORE
 
             if (settings == null)
             {
-                MessageBox.Show("Current password is incorrect or settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialMessageBox.Show("Current password is incorrect or settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
