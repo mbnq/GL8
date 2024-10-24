@@ -20,6 +20,7 @@ namespace GL8.CORE
         public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();
+
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
             _pswdItem = pswdItem ?? throw new ArgumentNullException(nameof(pswdItem));
 

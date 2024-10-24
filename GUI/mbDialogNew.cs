@@ -29,13 +29,11 @@ namespace GL8.CORE
         {
             this.Close();
         }
-
         private void mbButtonAddAddItem_Click(object sender, EventArgs e)
         {
             AddPSWD();
             this.Close();
         }
-
         private void AddPSWD()
         {
             var mbPSWDData = new mbPSWD
@@ -53,7 +51,6 @@ namespace GL8.CORE
 
             _mainMenuInstance.mbPSWDList.Add(mbPSWDData);
         }
-
         private void mbTextBoxAddPassword_GenRandom_Click(object sender, EventArgs e)
         {
             var passwordGenerator = new mbRNG();
