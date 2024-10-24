@@ -9,6 +9,7 @@
 
 using MaterialSkin.Controls;
 using System;
+using System.Windows.Forms;
 
 namespace GL8.CORE
 {
@@ -36,6 +37,14 @@ namespace GL8.CORE
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAre you sure you want to save changes?",
+                "Confirmation",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (mbRUSure != DialogResult.OK) return;
+
             _pswdItem.pswdName = mbTextBoxEditName.Text;
             _pswdItem.pswdAddress = mbTextBoxEditAddress.Text;
             _pswdItem.pswdCategory = mbTextBoxEditCategory.Text;
