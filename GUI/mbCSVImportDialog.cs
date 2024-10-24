@@ -33,7 +33,6 @@ namespace GL8.CORE
             this.CenterToParent();
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            // this.Icon = Properties.Resources.gl8;
 
             _filePath = filePath;
             ColumnMappings = new Dictionary<string, string>();
@@ -43,7 +42,6 @@ namespace GL8.CORE
 
             InitializeMappingControls();
         }
-
         private void InitializeMappingControls()
         {
             List<string> csvColumns = GetCsvHeaders(SelectedDelimiter);
@@ -111,7 +109,6 @@ namespace GL8.CORE
             this.Height = startY + (4 * defSpacing);
             this.Width = (8 * defSpacing) + (defSpacing / 2);
         }
-
         private void RemoveExistingMappingControls(List<string> pswdProperties)
         {
             var controlsToRemove = this.Controls.OfType<Control>()
@@ -151,14 +148,11 @@ namespace GL8.CORE
                 return new List<string>();
             }
         }
-
-
         private void RebuildMappingControls(string delimiter)
         {
             SelectedDelimiter = delimiter;              // Update the SelectedDelimiter
             InitializeMappingControls();                // Re-initialize mapping controls with the new delimiter
         }
-
         private void cmbDelimiter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selected = cmbDelimiter.SelectedItem.ToString();
@@ -214,7 +208,6 @@ namespace GL8.CORE
                     break;
             }
         }
-
         private void btnApplyCustomDelimiter_Click(object sender, EventArgs e)
         {
             if (cmbDelimiter.SelectedItem.ToString() == "Custom")
@@ -238,7 +231,6 @@ namespace GL8.CORE
                 RebuildMappingControls(SelectedDelimiter);
             }
         }
-
         private void BtnOK_Click(object sender, EventArgs e)
         {
             // Collect mappings
@@ -282,7 +274,6 @@ namespace GL8.CORE
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
