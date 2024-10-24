@@ -83,7 +83,7 @@
             this.mbDataView.ReadOnly = true;
             this.mbDataView.RowHeadersWidth = 51;
             this.mbDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mbDataView.Size = new System.Drawing.Size(879, 456);
+            this.mbDataView.Size = new System.Drawing.Size(861, 460);
             this.mbDataView.TabIndex = 0;
             // 
             // pswdName
@@ -333,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 554);
+            this.ClientSize = new System.Drawing.Size(1175, 536);
             this.Controls.Add(this.mbSearchFilter);
             this.Controls.Add(this.mbSearchTextBox);
             this.Controls.Add(this.mbButtonOptions);
