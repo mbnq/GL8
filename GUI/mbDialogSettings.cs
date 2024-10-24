@@ -36,7 +36,7 @@ namespace GL8.CORE
 
             if (mainMenuInstance == null) throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
 
-            LoadPublicSettings(mainMenuInstance);
+            // LoadPublicSettings(mainMenuInstance);
 
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
