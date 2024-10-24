@@ -270,5 +270,27 @@ namespace GL8.CORE
             mbButtonSettingsChangeMasterPass_new.Text = password;
             mbButtonSettingsChangeMasterPass_newConfirm.Text = password;
         }
+        private void mbButtonSettingsBackup_Click(object sender, EventArgs e)
+        {
+            DialogResult mbRUSure = MaterialMessageBox.Show(
+                "\nAn encrypted backup of your data will be created in the application's directory to ensure your information is safely stored.\nDo you want to continue?",
+                "Backup",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (mbRUSure != DialogResult.OK) return;
+
+            try
+            {
+                mbBackup _backupManager;
+                _backupManager = new mbBackup(_mainMenuInstance, true);
+                _backupManager.CheckAndGo();
+            }
+            catch (Exception exception)
+            {
+                MaterialMessageBox.Show("Error creating backup: " + exception.Message, "Backup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.mbDropDownSettingsColorScheme = new MaterialSkin.Controls.MaterialComboBox();
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonSettingsBackup = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -356,6 +357,27 @@
             this.mbTextBoxEditPassword_GetRandom.UseVisualStyleBackColor = true;
             this.mbTextBoxEditPassword_GetRandom.Click += new System.EventHandler(this.mbTextBoxEditPassword_GetRandom_Click);
             // 
+            // mbButtonSettingsBackup
+            // 
+            this.mbButtonSettingsBackup.AutoSize = false;
+            this.mbButtonSettingsBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonSettingsBackup.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonSettingsBackup.Depth = 0;
+            this.mbButtonSettingsBackup.HighEmphasis = true;
+            this.mbButtonSettingsBackup.Icon = null;
+            this.mbButtonSettingsBackup.Location = new System.Drawing.Point(339, 405);
+            this.mbButtonSettingsBackup.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonSettingsBackup.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonSettingsBackup.Name = "mbButtonSettingsBackup";
+            this.mbButtonSettingsBackup.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonSettingsBackup.Size = new System.Drawing.Size(158, 36);
+            this.mbButtonSettingsBackup.TabIndex = 4;
+            this.mbButtonSettingsBackup.Text = "Backup";
+            this.mbButtonSettingsBackup.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonSettingsBackup.UseAccentColor = false;
+            this.mbButtonSettingsBackup.UseVisualStyleBackColor = true;
+            this.mbButtonSettingsBackup.Click += new System.EventHandler(this.mbButtonSettingsBackup_Click);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,6 +388,7 @@
             this.Controls.Add(this.mbDropDownSettingsColorScheme);
             this.Controls.Add(this.mbButtonSettingsLabel2);
             this.Controls.Add(this.mbButtonSettingsLabel1);
+            this.Controls.Add(this.mbButtonSettingsBackup);
             this.Controls.Add(this.mbButtonSettingsExportCSV);
             this.Controls.Add(this.mbButtonSettingsImportCSV);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_newConfirm);
@@ -399,5 +422,6 @@
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsColorScheme;
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
+        private MaterialSkin.Controls.MaterialButton mbButtonSettingsBackup;
     }
 }
