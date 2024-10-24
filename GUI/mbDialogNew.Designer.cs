@@ -56,8 +56,7 @@ namespace GL8.CORE
             this.mbTextBoxAddName.HideSelection = true;
             this.mbTextBoxAddName.Hint = "Name";
             this.mbTextBoxAddName.LeadingIcon = null;
-            this.mbTextBoxAddName.Location = new System.Drawing.Point(8, 82);
-            this.mbTextBoxAddName.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddName.Location = new System.Drawing.Point(6, 67);
             this.mbTextBoxAddName.MaxLength = 32767;
             this.mbTextBoxAddName.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddName.Name = "mbTextBoxAddName";
@@ -69,7 +68,7 @@ namespace GL8.CORE
             this.mbTextBoxAddName.SelectionLength = 0;
             this.mbTextBoxAddName.SelectionStart = 0;
             this.mbTextBoxAddName.ShortcutsEnabled = true;
-            this.mbTextBoxAddName.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxAddName.Size = new System.Drawing.Size(375, 48);
             this.mbTextBoxAddName.TabIndex = 0;
             this.mbTextBoxAddName.TabStop = false;
             this.mbTextBoxAddName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -88,8 +87,7 @@ namespace GL8.CORE
             this.mbTextBoxAddAddress.HideSelection = true;
             this.mbTextBoxAddAddress.Hint = "Site";
             this.mbTextBoxAddAddress.LeadingIcon = null;
-            this.mbTextBoxAddAddress.Location = new System.Drawing.Point(7, 149);
-            this.mbTextBoxAddAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddAddress.Location = new System.Drawing.Point(5, 121);
             this.mbTextBoxAddAddress.MaxLength = 32767;
             this.mbTextBoxAddAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddAddress.Name = "mbTextBoxAddAddress";
@@ -101,7 +99,7 @@ namespace GL8.CORE
             this.mbTextBoxAddAddress.SelectionLength = 0;
             this.mbTextBoxAddAddress.SelectionStart = 0;
             this.mbTextBoxAddAddress.ShortcutsEnabled = true;
-            this.mbTextBoxAddAddress.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxAddAddress.Size = new System.Drawing.Size(375, 48);
             this.mbTextBoxAddAddress.TabIndex = 0;
             this.mbTextBoxAddAddress.TabStop = false;
             this.mbTextBoxAddAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -120,8 +118,7 @@ namespace GL8.CORE
             this.mbTextBoxAddCategory.HideSelection = true;
             this.mbTextBoxAddCategory.Hint = "Category";
             this.mbTextBoxAddCategory.LeadingIcon = null;
-            this.mbTextBoxAddCategory.Location = new System.Drawing.Point(8, 215);
-            this.mbTextBoxAddCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddCategory.Location = new System.Drawing.Point(6, 175);
             this.mbTextBoxAddCategory.MaxLength = 32767;
             this.mbTextBoxAddCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddCategory.Name = "mbTextBoxAddCategory";
@@ -133,7 +130,7 @@ namespace GL8.CORE
             this.mbTextBoxAddCategory.SelectionLength = 0;
             this.mbTextBoxAddCategory.SelectionStart = 0;
             this.mbTextBoxAddCategory.ShortcutsEnabled = true;
-            this.mbTextBoxAddCategory.Size = new System.Drawing.Size(500, 48);
+            this.mbTextBoxAddCategory.Size = new System.Drawing.Size(375, 48);
             this.mbTextBoxAddCategory.TabIndex = 0;
             this.mbTextBoxAddCategory.TabStop = false;
             this.mbTextBoxAddCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -152,8 +149,7 @@ namespace GL8.CORE
             this.mbTextBoxAddLogin.HideSelection = true;
             this.mbTextBoxAddLogin.Hint = "Login";
             this.mbTextBoxAddLogin.LeadingIcon = null;
-            this.mbTextBoxAddLogin.Location = new System.Drawing.Point(590, 82);
-            this.mbTextBoxAddLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddLogin.Location = new System.Drawing.Point(442, 67);
             this.mbTextBoxAddLogin.MaxLength = 32767;
             this.mbTextBoxAddLogin.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddLogin.Name = "mbTextBoxAddLogin";
@@ -165,7 +161,7 @@ namespace GL8.CORE
             this.mbTextBoxAddLogin.SelectionLength = 0;
             this.mbTextBoxAddLogin.SelectionStart = 0;
             this.mbTextBoxAddLogin.ShortcutsEnabled = true;
-            this.mbTextBoxAddLogin.Size = new System.Drawing.Size(300, 48);
+            this.mbTextBoxAddLogin.Size = new System.Drawing.Size(225, 48);
             this.mbTextBoxAddLogin.TabIndex = 0;
             this.mbTextBoxAddLogin.TabStop = false;
             this.mbTextBoxAddLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -184,8 +180,7 @@ namespace GL8.CORE
             this.mbTextBoxAddPassword.HideSelection = true;
             this.mbTextBoxAddPassword.Hint = "Password";
             this.mbTextBoxAddPassword.LeadingIcon = null;
-            this.mbTextBoxAddPassword.Location = new System.Drawing.Point(590, 149);
-            this.mbTextBoxAddPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddPassword.Location = new System.Drawing.Point(442, 121);
             this.mbTextBoxAddPassword.MaxLength = 32767;
             this.mbTextBoxAddPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddPassword.Name = "mbTextBoxAddPassword";
@@ -197,7 +192,7 @@ namespace GL8.CORE
             this.mbTextBoxAddPassword.SelectionLength = 0;
             this.mbTextBoxAddPassword.SelectionStart = 0;
             this.mbTextBoxAddPassword.ShortcutsEnabled = true;
-            this.mbTextBoxAddPassword.Size = new System.Drawing.Size(300, 48);
+            this.mbTextBoxAddPassword.Size = new System.Drawing.Size(225, 48);
             this.mbTextBoxAddPassword.TabIndex = 0;
             this.mbTextBoxAddPassword.TabStop = false;
             this.mbTextBoxAddPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -216,8 +211,7 @@ namespace GL8.CORE
             this.mbTextBoxAddEmail.HideSelection = true;
             this.mbTextBoxAddEmail.Hint = "eMail";
             this.mbTextBoxAddEmail.LeadingIcon = null;
-            this.mbTextBoxAddEmail.Location = new System.Drawing.Point(590, 215);
-            this.mbTextBoxAddEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddEmail.Location = new System.Drawing.Point(442, 175);
             this.mbTextBoxAddEmail.MaxLength = 32767;
             this.mbTextBoxAddEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddEmail.Name = "mbTextBoxAddEmail";
@@ -229,7 +223,7 @@ namespace GL8.CORE
             this.mbTextBoxAddEmail.SelectionLength = 0;
             this.mbTextBoxAddEmail.SelectionStart = 0;
             this.mbTextBoxAddEmail.ShortcutsEnabled = true;
-            this.mbTextBoxAddEmail.Size = new System.Drawing.Size(300, 48);
+            this.mbTextBoxAddEmail.Size = new System.Drawing.Size(225, 48);
             this.mbTextBoxAddEmail.TabIndex = 0;
             this.mbTextBoxAddEmail.TabStop = false;
             this.mbTextBoxAddEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -242,13 +236,12 @@ namespace GL8.CORE
             this.mbTextBoxAddAdditionalInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.mbTextBoxAddAdditionalInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.mbTextBoxAddAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(7, 284);
-            this.mbTextBoxAddAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(5, 231);
             this.mbTextBoxAddAdditionalInfo.Multiline = true;
             this.mbTextBoxAddAdditionalInfo.Name = "mbTextBoxAddAdditionalInfo";
             this.mbTextBoxAddAdditionalInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.mbTextBoxAddAdditionalInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(882, 100);
+            this.mbTextBoxAddAdditionalInfo.Size = new System.Drawing.Size(662, 82);
             this.mbTextBoxAddAdditionalInfo.TabIndex = 0;
             this.mbTextBoxAddAdditionalInfo.TabStop = false;
             // 
@@ -260,12 +253,12 @@ namespace GL8.CORE
             this.mbButtonAddAddItem.Depth = 0;
             this.mbButtonAddAddItem.HighEmphasis = true;
             this.mbButtonAddAddItem.Icon = null;
-            this.mbButtonAddAddItem.Location = new System.Drawing.Point(679, 395);
-            this.mbButtonAddAddItem.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.mbButtonAddAddItem.Location = new System.Drawing.Point(509, 321);
+            this.mbButtonAddAddItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbButtonAddAddItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddAddItem.Name = "mbButtonAddAddItem";
             this.mbButtonAddAddItem.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonAddAddItem.Size = new System.Drawing.Size(211, 44);
+            this.mbButtonAddAddItem.Size = new System.Drawing.Size(158, 36);
             this.mbButtonAddAddItem.TabIndex = 1;
             this.mbButtonAddAddItem.Text = "Add and Save";
             this.mbButtonAddAddItem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -281,12 +274,12 @@ namespace GL8.CORE
             this.mbButtonAddCancel.Depth = 0;
             this.mbButtonAddCancel.HighEmphasis = true;
             this.mbButtonAddCancel.Icon = null;
-            this.mbButtonAddCancel.Location = new System.Drawing.Point(458, 395);
-            this.mbButtonAddCancel.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.mbButtonAddCancel.Location = new System.Drawing.Point(344, 321);
+            this.mbButtonAddCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbButtonAddCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbButtonAddCancel.Name = "mbButtonAddCancel";
             this.mbButtonAddCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonAddCancel.Size = new System.Drawing.Size(211, 44);
+            this.mbButtonAddCancel.Size = new System.Drawing.Size(158, 36);
             this.mbButtonAddCancel.TabIndex = 8;
             this.mbButtonAddCancel.Text = "Cancel";
             this.mbButtonAddCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -302,12 +295,12 @@ namespace GL8.CORE
             this.mbTextBoxAddPassword_GenRandom.Depth = 0;
             this.mbTextBoxAddPassword_GenRandom.HighEmphasis = true;
             this.mbTextBoxAddPassword_GenRandom.Icon = null;
-            this.mbTextBoxAddPassword_GenRandom.Location = new System.Drawing.Point(535, 149);
-            this.mbTextBoxAddPassword_GenRandom.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbTextBoxAddPassword_GenRandom.Location = new System.Drawing.Point(401, 121);
+            this.mbTextBoxAddPassword_GenRandom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.mbTextBoxAddPassword_GenRandom.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbTextBoxAddPassword_GenRandom.Name = "mbTextBoxAddPassword_GenRandom";
             this.mbTextBoxAddPassword_GenRandom.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbTextBoxAddPassword_GenRandom.Size = new System.Drawing.Size(47, 26);
+            this.mbTextBoxAddPassword_GenRandom.Size = new System.Drawing.Size(35, 21);
             this.mbTextBoxAddPassword_GenRandom.TabIndex = 9;
             this.mbTextBoxAddPassword_GenRandom.Text = "R";
             this.mbTextBoxAddPassword_GenRandom.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -317,7 +310,8 @@ namespace GL8.CORE
             // 
             // mbTextBoxAddPassword_GetRandomNum
             // 
-            this.mbTextBoxAddPassword_GetRandomNum.Location = new System.Drawing.Point(534, 175);
+            this.mbTextBoxAddPassword_GetRandomNum.Location = new System.Drawing.Point(400, 149);
+            this.mbTextBoxAddPassword_GetRandomNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mbTextBoxAddPassword_GetRandomNum.Maximum = new decimal(new int[] {
             64,
             0,
@@ -329,7 +323,7 @@ namespace GL8.CORE
             0,
             0});
             this.mbTextBoxAddPassword_GetRandomNum.Name = "mbTextBoxAddPassword_GetRandomNum";
-            this.mbTextBoxAddPassword_GetRandomNum.Size = new System.Drawing.Size(48, 22);
+            this.mbTextBoxAddPassword_GetRandomNum.Size = new System.Drawing.Size(36, 20);
             this.mbTextBoxAddPassword_GetRandomNum.TabIndex = 12;
             this.mbTextBoxAddPassword_GetRandomNum.Value = new decimal(new int[] {
             8,
@@ -337,11 +331,11 @@ namespace GL8.CORE
             0,
             0});
             // 
-            // mbDialogAddNew
+            // mbDialogNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 450);
+            this.ClientSize = new System.Drawing.Size(678, 366);
             this.Controls.Add(this.mbTextBoxAddPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxAddPassword_GenRandom);
             this.Controls.Add(this.mbButtonAddCancel);
@@ -353,9 +347,7 @@ namespace GL8.CORE
             this.Controls.Add(this.mbTextBoxAddCategory);
             this.Controls.Add(this.mbTextBoxAddAddress);
             this.Controls.Add(this.mbTextBoxAddName);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "mbDialogAddNew";
-            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
+            this.Name = "mbDialogNew";
             this.Text = "New Item";
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxAddPassword_GetRandomNum)).EndInit();
             this.ResumeLayout(false);
