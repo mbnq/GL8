@@ -17,7 +17,6 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using MaterialSkin;
 using System.Data;
-using System.Media;
 
 namespace GL8.CORE
 {

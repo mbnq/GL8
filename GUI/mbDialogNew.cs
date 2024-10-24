@@ -10,7 +10,6 @@
 using MaterialSkin.Controls;
 using System;
 using System.ComponentModel;
-using System.Media;
 using System.Windows.Forms;
 
 namespace GL8.CORE

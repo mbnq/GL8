@@ -11,7 +11,6 @@ using MaterialSkin.Controls;
 using System;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using System.Media;
 
 namespace GL8.CORE
 {
