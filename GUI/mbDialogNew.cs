@@ -80,6 +80,7 @@ namespace GL8.CORE
             }
 
             AddPSWD();
+            _mainMenuInstance.SavePSWDData();
             this.Close();
         }
         private void AddPSWD()

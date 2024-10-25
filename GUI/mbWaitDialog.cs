@@ -25,11 +25,8 @@ namespace GL8.CORE
         public mbWaitDialog()
         {
             InitializeComponent();
-            this.Cursor = Cursors.WaitCursor;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-
-            this.FormClosed += (sender, e) => { this.Cursor = Cursors.Default; };
         }
     }
 }

@@ -32,7 +32,6 @@ public class mbUserSettings
             try
             {
                 string json = mbEncryption.DecryptStringFromBytes(encryptedData, password);
-                _mbWaitDialogManager.Stop();
                 return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
