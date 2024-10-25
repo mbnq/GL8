@@ -255,7 +255,8 @@ namespace GL8.CORE
         private void mbButtonExit_Click(object sender, EventArgs e)
         {
             SavePSWDData();
-            Application.Exit();
+            // Application.Exit();
+            this.Close();
         }
 
         // ------------------- Other ----------------------
