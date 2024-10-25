@@ -30,6 +30,7 @@ namespace GL8.CORE
         public static string mbFilePathSettings     = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
         public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+        private static mbWaitDialogManager _mbWaitDialogManager = new mbWaitDialogManager();
 
         private mbDialogNew         _DialogAddNew;
         private mbDialogEdit        _DialogEdit;

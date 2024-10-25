@@ -21,7 +21,7 @@ public static class mbEncryption
     private const int SaltSize = 16;
 
     // Size of the key and IV (in bytes)
-    private const int KeySize = 32; // 256 bits for AES-256
+    private const int KeySize = 32;  // 256 bits for AES-256
     private const int IvSize = 16;  // 128 bits for AES block size
 
     public static byte[] EncryptStringToBytes(string plainText, SecureString password)
@@ -104,9 +104,9 @@ public static class mbEncryption
         var argon2 = new Argon2id(passwordBytes)
         {
             Salt = salt,
-            DegreeOfParallelism = 8,
-            MemorySize = 48152,
-            Iterations = 8
+            DegreeOfParallelism = 16,
+            MemorySize = 131072,
+            Iterations = 24
         };
 
         byte[] hash = argon2.GetBytes(KeySize + IvSize);

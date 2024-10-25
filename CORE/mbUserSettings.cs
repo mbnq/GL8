@@ -140,6 +140,7 @@ namespace GL8.CORE
         // ------------------- Data Handling ----------------------
         public void LoadPSWDData()
         {
+            _mbWaitDialogManager.Start(null);
             if (File.Exists(mbFilePath))
             {
                 try
@@ -150,6 +151,7 @@ namespace GL8.CORE
                 }
                 catch (Exception ex)
                 {
+                    _mbWaitDialogManager.Start(null);
                     MaterialMessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mbPSWDList = new BindingList<mbPSWD>();
                 }
@@ -167,6 +169,7 @@ namespace GL8.CORE
             if (mbDataView.Columns.Contains("pswdLastEditTime"))
                 mbDataView.Columns["pswdLastEditTime"].HeaderText = "Modify Date";
 
+            _mbWaitDialogManager.Stop();
             this.Refresh();
         }
         public void CreateDataFileIfMissing()
@@ -192,14 +195,17 @@ namespace GL8.CORE
         }
         public void SavePSWDData()
         {
+            _mbWaitDialogManager.Start(null);
             try
             {
                 string jsonData = JsonConvert.SerializeObject(mbPSWDList);
                 byte[] encryptedData = mbEncryption.EncryptStringToBytes(jsonData, _userPassword);
                 File.WriteAllBytes(mbFilePath, encryptedData);
+                _mbWaitDialogManager.Stop();
             }
             catch (Exception ex)
             {
+                _mbWaitDialogManager.Stop();
                 MaterialMessageBox.Show("Error saving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
