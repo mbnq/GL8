@@ -201,7 +201,7 @@ namespace GL8.CORE
                 string jsonData = JsonConvert.SerializeObject(mbPSWDList);
                 byte[] encryptedData = mbEncryption.EncryptStringToBytes(jsonData, _userPassword);
                 File.WriteAllBytes(mbFilePath, encryptedData);
-                _mbWaitDialogManager.Stop();
+                // _mbWaitDialogManager.Stop(); // don't uncomment this line
             }
             catch (Exception ex)
             {
