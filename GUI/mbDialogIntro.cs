@@ -170,6 +170,7 @@ namespace GL8.CORE
         {
             byte _timeInSeconds = 6;
 
+            this.Enabled = false;
             mbIntroTextBoxMasterPswd.Enabled = false;
             mbIntroButtonLogin.Enabled = false;
 
@@ -180,6 +181,7 @@ namespace GL8.CORE
             }
 
             mbIntroButtonLogin.Text = "Login";
+            this.Enabled = true;
             mbIntroButtonLogin.Enabled = true;
             mbIntroTextBoxMasterPswd.Enabled = true;
         }

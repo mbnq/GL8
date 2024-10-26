@@ -16,10 +16,10 @@ using GL8.CORE;
 
 public class mbMasterPasswordManager
 {
-    public static byte[] GenerateSalt(int size = 16)
+    public static byte[] GenerateSalt(int size = 64)
     {
         var salt = new byte[size];
-        using (var rng = new RNGCryptoServiceProvider())
+        using (var rng = RandomNumberGenerator.Create())
         {
             rng.GetBytes(salt);
         }
@@ -28,6 +28,7 @@ public class mbMasterPasswordManager
     public static string HashPassword(SecureString password, byte[] salt)
     {
         byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
+        byte[] hash = null;
 
         try
         {
@@ -39,18 +40,22 @@ public class mbMasterPasswordManager
                 Iterations = 24
             };
 
-            byte[] hash = argon2.GetBytes(32);
+            hash = argon2.GetBytes(32);
             return Convert.ToBase64String(hash);
         }
         finally
         {
             ClearByteArray(passwordBytes);
+            ClearByteArray(hash);
         }
     }
     public static bool VerifyPassword(SecureString enteredPassword, string storedHash, byte[] salt)
     {
         string hashOfEntered = HashPassword(enteredPassword, salt);
-        return SlowEquals(Convert.FromBase64String(hashOfEntered), Convert.FromBase64String(storedHash));
+        byte[] enteredHashBytes = Convert.FromBase64String(hashOfEntered);
+        byte[] storedHashBytes = Convert.FromBase64String(storedHash);
+
+        return SlowEquals(enteredHashBytes, storedHashBytes);
     }
     private static bool SlowEquals(byte[] a, byte[] b)
     {
@@ -79,9 +84,18 @@ public class mbMasterPasswordManager
 
             return true;
         }
+        catch (CryptographicException)
+        {
+            errorMessage = "The old password is incorrect.";
+            return false;
+        }
         catch (Exception ex)
         {
-            errorMessage = ex.Message;
+            #if DEBUG
+            errorMessage = $"An unexpected error occurred while updating the password. {ex}";
+            #else
+            errorMessage = "An unexpected error occurred while updating the password.";
+            #endif
             return false;
         }
     }

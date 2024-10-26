@@ -8,16 +8,16 @@
     https://github.com/kmaragon/Konscious.Security.Cryptography
 */
 
+using GL8.CORE;
 using System;
 using System.IO;
+using System.Security;
 using System.Security.Cryptography;
 using Konscious.Security.Cryptography;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Security;
-using System.Security;
-using GL8.CORE;
 using Org.BouncyCastle.Crypto.Modes;
 
 public static class mbEncryption
@@ -117,7 +117,7 @@ public static class mbEncryption
             Salt = salt,
             DegreeOfParallelism = 4,
             MemorySize = 131072,
-            Iterations = 32
+            Iterations = 24
         };
 
         return argon2.GetBytes(KeySize);
