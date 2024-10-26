@@ -185,7 +185,7 @@ namespace GL8.CORE
                 editDialog.ShowDialog();
 
                 this.Refresh();
-                SavePSWDData();
+                // SavePSWDData(); // not needed here, as the dialog will save the data
             }
             else
             {
