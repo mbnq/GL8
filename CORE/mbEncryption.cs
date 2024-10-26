@@ -12,13 +12,18 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using Konscious.Security.Cryptography;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Security;
 using System.Security;
 using GL8.CORE;
+using Org.BouncyCastle.Crypto.Modes;
 
 public static class mbEncryption
 {
     // Size of the salt (in bytes)
-    private const int SaltSize = 16;
+    private const int SaltSize = 32;
 
     // Size of the key and IV (in bytes)
     private const int KeySize = 32;  // 256 bits for AES-256
@@ -26,95 +31,96 @@ public static class mbEncryption
 
     public static byte[] EncryptStringToBytes(string plainText, SecureString password)
     {
-        // Convert SecureString to byte array
         byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
+        byte[] key = null;
+        byte[] nonce = null;
+        byte[] cipherBytes = null;
 
         try
         {
-            // Generate a random salt
             byte[] salt = GenerateRandomBytes(SaltSize);
+            key = DeriveKey(passwordBytes, salt);
+            nonce = GenerateRandomBytes(12);
 
-            // Derive key and IV from the password and salt using Argon2
-            byte[] key, iv;
-            DeriveKeyAndIV(passwordBytes, salt, out key, out iv);
+            byte[] plainBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
 
-            // Proceed with encryption as before
-            using (Aes aesAlg = Aes.Create())
+            GcmBlockCipher gcm = new GcmBlockCipher(new AesEngine());
+            AeadParameters parameters = new AeadParameters(new KeyParameter(key), 128, nonce, null);
+            gcm.Init(true, parameters);
+
+            cipherBytes = new byte[gcm.GetOutputSize(plainBytes.Length)];
+            int len = gcm.ProcessBytes(plainBytes, 0, plainBytes.Length, cipherBytes, 0);
+            gcm.DoFinal(cipherBytes, len);
+
+            using (MemoryStream msEncrypt = new MemoryStream())
             {
-                aesAlg.Key = key;
-                aesAlg.IV = iv;
-
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-
-                MemoryStream msEncrypt = new MemoryStream();
                 msEncrypt.Write(salt, 0, salt.Length);
-
-                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                {
-                    swEncrypt.Write(plainText);
-                }
-
+                msEncrypt.Write(nonce, 0, nonce.Length);
+                msEncrypt.Write(cipherBytes, 0, cipherBytes.Length);
                 return msEncrypt.ToArray();
             }
         }
         finally
         {
-            // Zero out the passwordBytes array
             ClearByteArray(passwordBytes);
+            ClearByteArray(key);
+            ClearByteArray(nonce);
+            ClearByteArray(cipherBytes);
         }
     }
     public static string DecryptStringFromBytes(byte[] cipherText, SecureString password)
     {
-        // Convert SecureString to byte array
         byte[] passwordBytes = mbSecureString.SecureStringToByteArray(password);
+        byte[] key = null;
+        byte[] nonce = new byte[12];
 
         try
         {
-            MemoryStream msDecrypt = new MemoryStream(cipherText);
-            byte[] salt = new byte[SaltSize];
-            msDecrypt.Read(salt, 0, salt.Length);
-
-            // Derive key and IV from the password and salt using Argon2
-            byte[] key, iv;
-            DeriveKeyAndIV(passwordBytes, salt, out key, out iv);
-
-            using (Aes aesAlg = Aes.Create())
+            using (MemoryStream msDecrypt = new MemoryStream(cipherText))
             {
-                aesAlg.Key = key;
-                aesAlg.IV = iv;
+                byte[] salt = new byte[SaltSize];
+                msDecrypt.Read(salt, 0, salt.Length);
+                msDecrypt.Read(nonce, 0, nonce.Length);
 
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+                key = DeriveKey(passwordBytes, salt);
 
-                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                {
-                    return srDecrypt.ReadToEnd();
-                }
+                byte[] cipherBytes = new byte[msDecrypt.Length - msDecrypt.Position];
+                msDecrypt.Read(cipherBytes, 0, cipherBytes.Length);
+
+                GcmBlockCipher gcm = new GcmBlockCipher(new AesEngine());
+                AeadParameters parameters = new AeadParameters(new KeyParameter(key), 128, nonce, null);
+                gcm.Init(false, parameters);
+
+                byte[] plainBytes = new byte[gcm.GetOutputSize(cipherBytes.Length)];
+                int len = gcm.ProcessBytes(cipherBytes, 0, cipherBytes.Length, plainBytes, 0);
+                gcm.DoFinal(plainBytes, len);
+
+                return System.Text.Encoding.UTF8.GetString(plainBytes).TrimEnd('\0');
             }
+        }
+        catch (InvalidCipherTextException)
+        {
+            // Handle authentication failure
+            throw new CryptographicException("Decryption failed due to invalid ciphertext or authentication failure.");
         }
         finally
         {
-            // Zero out the passwordBytes array
             ClearByteArray(passwordBytes);
+            ClearByteArray(key);
+            ClearByteArray(nonce);
         }
     }
-    private static void DeriveKeyAndIV(byte[] passwordBytes, byte[] salt, out byte[] key, out byte[] iv)
+    private static byte[] DeriveKey(byte[] passwordBytes, byte[] salt)
     {
         var argon2 = new Argon2id(passwordBytes)
         {
             Salt = salt,
-            DegreeOfParallelism = 8,
-            MemorySize = 65536,
-            Iterations = 24
+            DegreeOfParallelism = 4,
+            MemorySize = 131072,
+            Iterations = 32
         };
 
-        byte[] hash = argon2.GetBytes(KeySize + IvSize);
-
-        key = new byte[KeySize];
-        iv = new byte[IvSize];
-        Array.Copy(hash, 0, key, 0, KeySize);
-        Array.Copy(hash, KeySize, iv, 0, IvSize);
+        return argon2.GetBytes(KeySize);
     }
     private static byte[] GenerateRandomBytes(int size)
     {

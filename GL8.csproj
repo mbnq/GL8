@@ -70,7 +70,13 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GL8.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.NetCore.2.2.1\lib\net45\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CsvHelper, Version=33.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>packages\CsvHelper.33.0.1\lib\net48\CsvHelper.dll</HintPath>
     </Reference>
