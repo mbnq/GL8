@@ -20,7 +20,7 @@ using System.ComponentModel;
 
 public class mbUserSettings
 {
-    private static mbWaitDialogManager _mbWaitDialogManager = new mbWaitDialogManager();
+    private static mbWaitPrompter _mbWaitDialogManager = new mbWaitPrompter();
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
     public static mbUserSettings LoadSettings(SecureString password)

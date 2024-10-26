@@ -1,7 +1,7 @@
 ﻿using GL8.CORE;
 using System.Windows.Forms;
 
-public class mbWaitDialogManager
+public class mbWaitPrompter
 {
     private mbWaitDialog _waitDialog;
 
