@@ -125,7 +125,7 @@ namespace GL8.CORE
                         Delimiter = delimiter,
                         MissingFieldFound = null,
                         HeaderValidated = null,
-                        BadDataFound = null, // Ignore bad data
+                        BadDataFound = null,  // Ignore bad data
                         Quote = '▪',          // Set the Quote character to '▪'
                         IgnoreBlankLines = true,
                         TrimOptions = TrimOptions.Trim

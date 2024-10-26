@@ -30,6 +30,7 @@ namespace GL8.CORE
         public static string mbFilePathSettings     = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mbUser.dat");
 
         public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+        private static mbWaitPrompter _mbWaitDialogManager = new mbWaitPrompter();
 
         private mbDialogNew         _DialogAddNew;
         private mbDialogEdit        _DialogEdit;
@@ -39,16 +40,19 @@ namespace GL8.CORE
 
         public static System.Windows.Forms.ToolTip toolTipGeneral = new System.Windows.Forms.ToolTip()
         {
-            AutoPopDelay = 5000,
-            InitialDelay = 1000,
-            ReshowDelay = 500,
-            ShowAlways = true
+            AutoPopDelay    = 5000,
+            InitialDelay    = 1000,
+            ReshowDelay     = 500,
+            ShowAlways      = true
         };
 
-        private SecureString _userPassword;
-        public bool mbHidePasswords     = true;
-        public static int mbRunCount = 0;
-        private readonly mbBackup _backupManager;
+        private SecureString            _userPassword;
+        private readonly mbBackup       _backupManager;
+
+        public bool                     mbHidePasswords       = true;
+        public static int               mbRunCount            = 0;
+        public static int               mbClipboardClearIndex = 2;
+        public static int               mbClipboardClearDelay = 30;
 
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
@@ -81,6 +85,7 @@ namespace GL8.CORE
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.LoadPublicSettings(this);
 
+            UpdateClipboardClearDelay();
             mbSwitchColorScheme();
 
             this.FormClosing += mbMainMenu_FormClosing;
@@ -254,7 +259,8 @@ namespace GL8.CORE
         private void mbButtonExit_Click(object sender, EventArgs e)
         {
             SavePSWDData();
-            Application.Exit();
+            // Application.Exit();
+            this.Close();
         }
 
         // ------------------- Other ----------------------
@@ -271,6 +277,25 @@ namespace GL8.CORE
         public void UpdateUserPassword(SecureString newPassword)
         {
             _userPassword = newPassword;
+        }
+        public void UpdateClipboardClearDelay()
+        {
+            switch (mbMainMenu.mbClipboardClearIndex)
+            {
+                case 0:
+                    mbMainMenu.mbClipboardClearDelay = 15;
+                    break;
+                case 1:
+                    mbMainMenu.mbClipboardClearDelay = 30;
+                    break;
+                case 2:
+                    mbMainMenu.mbClipboardClearDelay = 45;
+                    break;
+                case 3:
+                default:
+                    mbMainMenu.mbClipboardClearDelay = 60;
+                    break;
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.2.6";
+        public const string mbVersion = "0.0.4.0";
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 

@@ -20,7 +20,7 @@ using System.ComponentModel;
 
 public class mbUserSettings
 {
-    private static mbWaitDialogManager _mbWaitDialogManager = new mbWaitDialogManager();
+    private static mbWaitPrompter _mbWaitDialogManager = new mbWaitPrompter();
     public string HashedPassword { get; set; }
     public string Salt { get; set; }
     public static mbUserSettings LoadSettings(SecureString password)
@@ -32,7 +32,6 @@ public class mbUserSettings
             try
             {
                 string json = mbEncryption.DecryptStringFromBytes(encryptedData, password);
-                _mbWaitDialogManager.Stop();
                 return JsonConvert.DeserializeObject<mbUserSettings>(json);
             }
             catch (CryptographicException)
@@ -78,6 +77,9 @@ namespace GL8.CORE
                 // Color Scheme Index
                 Properties.Settings.Default.mbColorSchemeIndex = mbMainMenu.mbColorSchemeIndex;
 
+                // Clipboard Clear Index
+                Properties.Settings.Default.mbClipboardClearIndex = mbMainMenu.mbClipboardClearIndex;
+
                 // Column order
                 var columnOrder = new System.Collections.Specialized.StringCollection();
                 foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
@@ -111,6 +113,9 @@ namespace GL8.CORE
                 // Color Scheme Index
                 mbMainMenu.mbColorSchemeIndex = Properties.Settings.Default.mbColorSchemeIndex;
 
+                // Clipboard Clear Index
+                mbMainMenu.mbClipboardClearIndex = Properties.Settings.Default.mbClipboardClearIndex;
+
                 // columnorder
                 var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;
                 if (columnOrder != null)
@@ -140,6 +145,7 @@ namespace GL8.CORE
         // ------------------- Data Handling ----------------------
         public void LoadPSWDData()
         {
+            _mbWaitDialogManager.Start(null);
             if (File.Exists(mbFilePath))
             {
                 try
@@ -150,6 +156,7 @@ namespace GL8.CORE
                 }
                 catch (Exception ex)
                 {
+                    _mbWaitDialogManager.Start(null);
                     MaterialMessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mbPSWDList = new BindingList<mbPSWD>();
                 }
@@ -167,6 +174,7 @@ namespace GL8.CORE
             if (mbDataView.Columns.Contains("pswdLastEditTime"))
                 mbDataView.Columns["pswdLastEditTime"].HeaderText = "Modify Date";
 
+            _mbWaitDialogManager.Stop();
             this.Refresh();
         }
         public void CreateDataFileIfMissing()
@@ -192,14 +200,17 @@ namespace GL8.CORE
         }
         public void SavePSWDData()
         {
+            _mbWaitDialogManager.Start(null);
             try
             {
                 string jsonData = JsonConvert.SerializeObject(mbPSWDList);
                 byte[] encryptedData = mbEncryption.EncryptStringToBytes(jsonData, _userPassword);
                 File.WriteAllBytes(mbFilePath, encryptedData);
+                _mbWaitDialogManager.Stop();
             }
             catch (Exception ex)
             {
+                _mbWaitDialogManager.Stop();
                 MaterialMessageBox.Show("Error saving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -12,6 +12,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GL8.CORE
@@ -62,7 +63,7 @@ namespace GL8.CORE
             }
         }
 
-        private void mbIntroButtonLogin_Click(object sender, EventArgs e)
+        private async void mbIntroButtonLogin_Click(object sender, EventArgs e)
         {
             SecureString enteredPassword = new SecureString();
             foreach (char c in mbIntroTextBoxMasterPswd.Text)
@@ -133,6 +134,10 @@ namespace GL8.CORE
                 {
                     mbIntroTextBoxMasterPswd.Text = "";
                     MaterialMessageBox.Show("Incorrect password or user settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // wait couple of seconds to prevent brute force attacks
+                    await AntiBruteForceWaiter();
+
                     return;
                 }
 
@@ -151,6 +156,7 @@ namespace GL8.CORE
                     {
                         mbIntroTextBoxMasterPswd.Text = "";
                         MaterialMessageBox.Show("Incorrect password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        await AntiBruteForceWaiter();
                     }
                 }
                 catch (FormatException)
@@ -159,6 +165,25 @@ namespace GL8.CORE
                 }
             }
         }
+
+        private async Task AntiBruteForceWaiter()
+        {
+            byte _timeInSeconds = 6;
+
+            mbIntroTextBoxMasterPswd.Enabled = false;
+            mbIntroButtonLogin.Enabled = false;
+
+            for (int i = 0; i < _timeInSeconds; i++)
+            {
+                mbIntroButtonLogin.Text = $"Please wait... {_timeInSeconds - i}s";
+                await Task.Delay(1000);
+            }
+
+            mbIntroButtonLogin.Text = "Login";
+            mbIntroButtonLogin.Enabled = true;
+            mbIntroTextBoxMasterPswd.Enabled = true;
+        }
+
         private bool SecureStringsEqual(SecureString ss1, SecureString ss2)
         {
             if (ss1 == null || ss2 == null)

@@ -1,7 +1,7 @@
 ﻿using GL8.CORE;
 using System.Windows.Forms;
 
-public class mbWaitDialogManager
+public class mbWaitPrompter
 {
     private mbWaitDialog _waitDialog;
 
@@ -11,6 +11,7 @@ public class mbWaitDialogManager
             return;
 
         _waitDialog = new mbWaitDialog();
+        _waitDialog.Cursor = Cursors.WaitCursor;
 
         if (parentForm != null)
         {
@@ -29,6 +30,7 @@ public class mbWaitDialogManager
     {
         if (_waitDialog != null && !_waitDialog.IsDisposed)
         {
+            _waitDialog.Cursor = Cursors.Default;
             _waitDialog.Close();
             _waitDialog = null;
         }

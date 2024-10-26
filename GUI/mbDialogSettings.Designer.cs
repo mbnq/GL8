@@ -43,6 +43,7 @@
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsBackup = new MaterialSkin.Controls.MaterialButton();
+            this.mbDropDownSettingsClipboardDelay = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -378,11 +379,36 @@
             this.mbButtonSettingsBackup.UseVisualStyleBackColor = true;
             this.mbButtonSettingsBackup.Click += new System.EventHandler(this.mbButtonSettingsBackup_Click);
             // 
+            // mbDropDownSettingsClipboardDelay
+            // 
+            this.mbDropDownSettingsClipboardDelay.AutoResize = false;
+            this.mbDropDownSettingsClipboardDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mbDropDownSettingsClipboardDelay.Depth = 0;
+            this.mbDropDownSettingsClipboardDelay.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.mbDropDownSettingsClipboardDelay.DropDownHeight = 174;
+            this.mbDropDownSettingsClipboardDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mbDropDownSettingsClipboardDelay.DropDownWidth = 121;
+            this.mbDropDownSettingsClipboardDelay.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsClipboardDelay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mbDropDownSettingsClipboardDelay.FormattingEnabled = true;
+            this.mbDropDownSettingsClipboardDelay.Hint = "Clear clipboard after";
+            this.mbDropDownSettingsClipboardDelay.IntegralHeight = false;
+            this.mbDropDownSettingsClipboardDelay.ItemHeight = 43;
+            this.mbDropDownSettingsClipboardDelay.Location = new System.Drawing.Point(7, 213);
+            this.mbDropDownSettingsClipboardDelay.MaxDropDownItems = 4;
+            this.mbDropDownSettingsClipboardDelay.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbDropDownSettingsClipboardDelay.Name = "mbDropDownSettingsClipboardDelay";
+            this.mbDropDownSettingsClipboardDelay.Size = new System.Drawing.Size(324, 49);
+            this.mbDropDownSettingsClipboardDelay.StartIndex = 0;
+            this.mbDropDownSettingsClipboardDelay.TabIndex = 14;
+            this.mbDropDownSettingsClipboardDelay.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsClipboardDelay_SelectedIndexChanged);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbDropDownSettingsClipboardDelay);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
             this.Controls.Add(this.mbDropDownSettingsColorScheme);
@@ -423,5 +449,6 @@
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsBackup;
+        private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsClipboardDelay;
     }
 }

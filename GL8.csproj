@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CORE\mbBackup.cs" />
+    <Compile Include="CORE\mbClipboardCleaner.cs" />
     <Compile Include="CORE\mbCSVImporter.cs" />
     <Compile Include="CORE\mbDataView.cs">
       <SubType>Form</SubType>
@@ -133,7 +134,7 @@
     <Compile Include="CORE\mbRNG.cs" />
     <Compile Include="CORE\mbUserSettings.cs" />
     <Compile Include="CORE\mbSecureString.cs" />
-    <Compile Include="CORE\mbWaitDialogManager.cs" />
+    <Compile Include="CORE\mbWaitPrompter.cs" />
     <Compile Include="GUI\mbCSVImportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
