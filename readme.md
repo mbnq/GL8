@@ -1,6 +1,6 @@
 # GL8 Password Manager
 
-**GL8** is a password manager built in C# using the Windows Forms framework with MaterialSkin controls. The application focuses on strong encryption, data privacy, and ease of use. It provides users with an intuitive interface to manage their passwords and sensitive information, offering features such as search, CSV import/export, password generation, and encryption using modern cryptographic algorithms like [Argon2](https://en.wikipedia.org/wiki/Argon2) and [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+**GL8** is a password manager built in C# using the Windows Forms framework with MaterialSkin controls. The application focuses on strong encryption, data privacy, and ease of use. It provides users with an intuitive interface to manage their passwords and sensitive information, offering features such as search, CSV import/export, password generation, and encryption using modern cryptographic algorithms like [Argon2](https://en.wikipedia.org/wiki/Argon2), [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), [Bouncy Castle](https://www.bouncycastle.org/).
 
 - This is a hobby project in its early development stage. Any feedback that could help with its development will be appreciated.
 - Always make a backup of your data (you can use the CSV export function for that).
