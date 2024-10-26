@@ -35,8 +35,8 @@ public class mbMasterPasswordManager
             {
                 Salt = salt,
                 DegreeOfParallelism = 8,
-                MemorySize = 48152,
-                Iterations = 8
+                MemorySize = 65536,
+                Iterations = 24
             };
 
             byte[] hash = argon2.GetBytes(32);
