@@ -31,17 +31,29 @@ namespace GL8.CORE
 
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
 
-            mbTextBoxAddName.TextChanged        += (sender, e) => { _mbChangesCount++; };
-            mbTextBoxAddAddress.TextChanged     += (sender, e) => { _mbChangesCount++; };
-            mbTextBoxAddCategory.TextChanged    += (sender, e) => { _mbChangesCount++; };
-            mbTextBoxAddLogin.TextChanged       += (sender, e) => { _mbChangesCount++; };
-            mbTextBoxAddPassword.TextChanged    += (sender, e) => { _mbChangesCount++; };
-            mbTextBoxAddEmail.TextChanged       += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddName.TextChanged += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddAddress.TextChanged += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddCategory.TextChanged += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddLogin.TextChanged += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddPassword.TextChanged += (sender, e) => { _mbChangesCount++; };
+            mbTextBoxAddEmail.TextChanged += (sender, e) => { _mbChangesCount++; };
             mbTextBoxAddAdditionalInfo.TextChanged += (sender, e) => { _mbChangesCount++; };
 
-            this.Shown += (sender, e)       => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
-            this.FormClosed += (sender, e)  => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
+            this.Shown += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
+            this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
+
+            mbAddSuggestionsToCategory();
         }
+
+        private void mbAddSuggestionsToCategory()
+        {
+            var suggestionsCollectionCategory = mbSuggestions.mbBuildSuggestionsForCategory();
+
+            mbTextBoxAddCategory.AutoCompleteMode = AutoCompleteMode.Suggest;
+            mbTextBoxAddCategory.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            mbTextBoxAddCategory.AutoCompleteCustomSource = suggestionsCollectionCategory;
+        }
+
         private void mbButtonAddCancel_Click(object sender, EventArgs e)
         {
             if (_mbChangesCount > 0)
