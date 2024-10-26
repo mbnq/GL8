@@ -81,5 +81,17 @@ namespace GL8.Properties {
                 this["mbRunCount"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int mbClipboardClearIndex {
+            get {
+                return ((int)(this["mbClipboardClearIndex"]));
+            }
+            set {
+                this["mbClipboardClearIndex"] = value;
+            }
+        }
     }
 }

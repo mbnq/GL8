@@ -49,7 +49,13 @@ namespace GL8.CORE
             this.mbDropDownSettingsColorScheme.Items.Add("Blue");
             this.mbDropDownSettingsColorScheme.Items.Add("Mono");
 
-            this.mbDropDownSettingsColorScheme.SelectedIndex = mbMainMenu.mbColorSchemeIndex;
+            this.mbDropDownSettingsClipboardDelay.Items.Add("15");
+            this.mbDropDownSettingsClipboardDelay.Items.Add("30");
+            this.mbDropDownSettingsClipboardDelay.Items.Add("45");
+            this.mbDropDownSettingsClipboardDelay.Items.Add("60");
+
+            this.mbDropDownSettingsColorScheme.SelectedIndex    = mbMainMenu.mbColorSchemeIndex;
+            this.mbDropDownSettingsClipboardDelay.SelectedIndex = mbMainMenu.mbClipboardClearIndex;
 
             this.CenterToParent();
             this.ShowIcon = false;
@@ -79,7 +85,7 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.Show("Debugging is enabled.", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MaterialMessageBox.Show($"Debugging is enabled. {mbMainMenu.mbClipboardClearDelay}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
@@ -266,6 +272,30 @@ namespace GL8.CORE
             _mainMenuInstance.InitializeMaterialSkin(selectedScheme);
             _mainMenuInstance.Refresh();
             _mainMenuInstance.mbSwitchColorScheme();
+            this.Refresh();
+        }
+        private void mbDropDownSettingsClipboardDelay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            switch (mbDropDownSettingsClipboardDelay.SelectedIndex)
+            {
+                case 0:
+                    mbMainMenu.mbClipboardClearDelay = 15;
+                    break;
+                case 1:
+                    mbMainMenu.mbClipboardClearDelay = 30;
+                    break;
+                case 2:
+                    mbMainMenu.mbClipboardClearDelay = 45;
+                    break;
+                case 3:
+                default:
+                    mbMainMenu.mbClipboardClearDelay = 60;
+                    break;
+            }
+
+            mbMainMenu.mbClipboardClearIndex = mbDropDownSettingsClipboardDelay.SelectedIndex;
+            _mainMenuInstance.Refresh();
             this.Refresh();
         }
         private void mbTextBoxEditPassword_GetRandom_Click(object sender, EventArgs e)

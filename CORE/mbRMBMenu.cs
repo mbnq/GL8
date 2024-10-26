@@ -47,7 +47,7 @@ namespace GL8.CORE
                 if (!string.IsNullOrEmpty(cellValue))
                 {
                     Clipboard.SetText(cellValue);
-                    _ = mbClipboardCleaner.AutoClearAsync(10);
+                    _ = mbClipboardCleaner.AutoClearAsync(mbMainMenu.mbClipboardClearDelay);
                 }
             }
         }

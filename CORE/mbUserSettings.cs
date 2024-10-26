@@ -77,6 +77,9 @@ namespace GL8.CORE
                 // Color Scheme Index
                 Properties.Settings.Default.mbColorSchemeIndex = mbMainMenu.mbColorSchemeIndex;
 
+                // Clipboard Clear Index
+                Properties.Settings.Default.mbClipboardClearIndex = mbMainMenu.mbClipboardClearIndex;
+
                 // Column order
                 var columnOrder = new System.Collections.Specialized.StringCollection();
                 foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
@@ -109,6 +112,9 @@ namespace GL8.CORE
 
                 // Color Scheme Index
                 mbMainMenu.mbColorSchemeIndex = Properties.Settings.Default.mbColorSchemeIndex;
+
+                // Clipboard Clear Index
+                mbMainMenu.mbClipboardClearIndex = Properties.Settings.Default.mbClipboardClearIndex;
 
                 // columnorder
                 var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;

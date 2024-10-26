@@ -61,7 +61,7 @@ namespace GL8.CORE
 
                         e.Handled = true;
                     }
-                    _ = mbClipboardCleaner.AutoClearAsync(10);
+                    _ = mbClipboardCleaner.AutoClearAsync(mbClipboardClearDelay);
                 }
             }
         }

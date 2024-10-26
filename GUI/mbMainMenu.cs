@@ -51,7 +51,8 @@ namespace GL8.CORE
 
         public bool                     mbHidePasswords       = true;
         public static int               mbRunCount            = 0;
-        public static int               mbClipboardClearDelay = 60;
+        public static int               mbClipboardClearIndex = 2;
+        public static int               mbClipboardClearDelay = 30;
 
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
@@ -84,6 +85,7 @@ namespace GL8.CORE
             _DialogSettings = new mbDialogSettings(this);
             _DialogSettings.LoadPublicSettings(this);
 
+            UpdateClipboardClearDelay();
             mbSwitchColorScheme();
 
             this.FormClosing += mbMainMenu_FormClosing;
@@ -275,6 +277,25 @@ namespace GL8.CORE
         public void UpdateUserPassword(SecureString newPassword)
         {
             _userPassword = newPassword;
+        }
+        public void UpdateClipboardClearDelay()
+        {
+            switch (mbMainMenu.mbClipboardClearIndex)
+            {
+                case 0:
+                    mbMainMenu.mbClipboardClearDelay = 15;
+                    break;
+                case 1:
+                    mbMainMenu.mbClipboardClearDelay = 30;
+                    break;
+                case 2:
+                    mbMainMenu.mbClipboardClearDelay = 45;
+                    break;
+                case 3:
+                default:
+                    mbMainMenu.mbClipboardClearDelay = 60;
+                    break;
+            }
         }
     }
 }
