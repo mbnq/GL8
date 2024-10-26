@@ -47,6 +47,7 @@ To update your application from an older version, please follow these steps:
 
 - It's recommended to keep a copy of the `.csv` file until you're certain everything is working correctly.
 - If you encounter any issues during the update process, consider restoring from the **Backup** folder using your old program version or contact me for assistance.
+- Whole process will be improved in future versions.
 </details>
 
 ## Features
