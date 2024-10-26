@@ -24,8 +24,6 @@ namespace GL8.CORE
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
-
-        private mbWaitDialog _mbWaitDialog;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             // right order is crucial

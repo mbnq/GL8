@@ -33,9 +33,7 @@ namespace GL8.CORE
         private static mbWaitPrompter _mbWaitDialogManager = new mbWaitPrompter();
 
         private mbDialogNew         _DialogAddNew;
-        private mbDialogEdit        _DialogEdit;
         private mbDialogSettings    _DialogSettings;
-        private mbDialogSettings    _DialogSettingsDummy;
         private mbRMBMenu           _mbRMBMenu;
 
         public static System.Windows.Forms.ToolTip toolTipGeneral = new System.Windows.Forms.ToolTip()
