@@ -40,16 +40,18 @@ namespace GL8.CORE
 
         public static System.Windows.Forms.ToolTip toolTipGeneral = new System.Windows.Forms.ToolTip()
         {
-            AutoPopDelay = 5000,
-            InitialDelay = 1000,
-            ReshowDelay = 500,
-            ShowAlways = true
+            AutoPopDelay    = 5000,
+            InitialDelay    = 1000,
+            ReshowDelay     = 500,
+            ShowAlways      = true
         };
 
-        private SecureString _userPassword;
-        public bool mbHidePasswords     = true;
-        public static int mbRunCount = 0;
-        private readonly mbBackup _backupManager;
+        private SecureString            _userPassword;
+        private readonly mbBackup       _backupManager;
+
+        public bool                     mbHidePasswords       = true;
+        public static int               mbRunCount            = 0;
+        public static int               mbClipboardClearDelay = 60;
 
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
