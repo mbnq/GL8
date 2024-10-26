@@ -132,6 +132,7 @@
     <Compile Include="CORE\mbPSWD.cs" />
     <Compile Include="CORE\mbRMBMenu.cs" />
     <Compile Include="CORE\mbRNG.cs" />
+    <Compile Include="CORE\mbSuggestions.cs" />
     <Compile Include="CORE\mbUserSettings.cs" />
     <Compile Include="CORE\mbSecureString.cs" />
     <Compile Include="CORE\mbWaitPrompter.cs" />
