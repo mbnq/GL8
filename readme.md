@@ -6,6 +6,49 @@
 - Always make a backup of your data (you can use the CSV export function for that).
 - Create strong, atleast 8 characters long master password. Store your master password in a safe place, outside of your device.
 
+## Updating from Older Versions
+<details>
+<summary>💾 Click here display 💾</summary>
+To update your application from an older version, please follow these steps:
+
+1. **Backup Your Data:**
+
+   - Open the application and navigate to **Settings**.
+   - Click on **Backup** to create a backup of your current data.
+
+2. **Export Data as CSV:**
+
+   - While still in **Settings**, select **Export as .csv**.
+   - Save the exported `.csv` file to a safe and easily accessible location.
+
+3. **Prepare for the New Version:**
+
+   - Close the application if it's running.
+   - Navigate to your application installation directory.
+   - **Important:** Delete all files **except** the **Backup** folder. This ensures your backup remains intact.
+
+4. **Install the New Version:**
+
+   - Download and unzip the latest version of the application into your installation directory.
+
+5. **Import Your Data:**
+
+   - Launch the updated application.
+   - Go to **Settings** and select **Import**.
+   - Choose the `.csv` file you exported earlier.
+   - **Note:** When prompted, select **semicolon** as the delimiter during the import process.
+
+6. **Clean Up:**
+
+   - After confirming that your data has been successfully imported, you should delete the `.csv` file.
+   - To permanently delete the file on Windows, select it and press **Shift + Delete**.
+
+**Additional Tips:**
+
+- It's recommended to keep a copy of the `.csv` file until you're certain everything is working correctly.
+- If you encounter any issues during the update process, consider restoring from the **Backup** folder using your old program version or contact me for assistance.
+</details>
+
 ## Features
 
 - **Master Password Protection**: GL8 secures all data with a master password, using [Argon2](https://en.wikipedia.org/wiki/Argon2) for password hashing and [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) for encryption.
