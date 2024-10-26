@@ -103,7 +103,7 @@ namespace GL8.CORE
         private void mbTextBoxAddPassword_GenRandom_Click(object sender, EventArgs e)
         {
             var passwordGenerator = new mbRNG();
-            string password = passwordGenerator.GeneratePassword(((int)mbTextBoxAddPassword_GetRandomNum.Value), true, true, true, true);
+            string password = passwordGenerator.mbGenerateRandomPassword(((int)mbTextBoxAddPassword_GetRandomNum.Value), true, true, true, true);
             mbTextBoxAddPassword.Text = password;
         }
     }
