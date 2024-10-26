@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CORE\mbBackup.cs" />
+    <Compile Include="CORE\mbClipboardCleaner.cs" />
     <Compile Include="CORE\mbCSVImporter.cs" />
     <Compile Include="CORE\mbDataView.cs">
       <SubType>Form</SubType>
