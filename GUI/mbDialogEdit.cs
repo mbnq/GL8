@@ -50,6 +50,16 @@ namespace GL8.CORE
 
             this.Shown += (sender, e)        => { _mainMenuInstance.mbSwitchEnableMainMenuControls(false); };
             this.FormClosed += (sender, e)   => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
+
+            mbAddSuggestionsToCategory();
+        }
+        private void mbAddSuggestionsToCategory()
+        {
+            var suggestionsCollectionCategory = mbSuggestions.mbBuildSuggestionsForCategory();
+
+            mbTextBoxEditCategory.AutoCompleteMode = AutoCompleteMode.Suggest;
+            mbTextBoxEditCategory.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            mbTextBoxEditCategory.AutoCompleteCustomSource = suggestionsCollectionCategory;
         }
         private void mbButtonEditSave_Click(object sender, EventArgs e)
         {

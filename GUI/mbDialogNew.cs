@@ -47,11 +47,11 @@ namespace GL8.CORE
 
         private void mbAddSuggestionsToCategory()
         {
-            mbSuggestions.mbBuildSuggestionsForCategory(mbSuggestions.suggestionsCollectionCategory);
+            var suggestionsCollectionCategory = mbSuggestions.mbBuildSuggestionsForCategory();
 
             mbTextBoxAddCategory.AutoCompleteMode = AutoCompleteMode.Suggest;
             mbTextBoxAddCategory.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            mbTextBoxAddCategory.AutoCompleteCustomSource = mbSuggestions.suggestionsCollectionCategory;
+            mbTextBoxAddCategory.AutoCompleteCustomSource = suggestionsCollectionCategory;
         }
 
         private void mbButtonAddCancel_Click(object sender, EventArgs e)

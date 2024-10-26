@@ -133,14 +133,16 @@ namespace GL8.CORE
         };
 
         static public string[] categorySuggestions = categorySuggestions0.Concat(categorySuggestions1).ToArray();
-        static public void mbBuildSuggestionsForCategory(AutoCompleteStringCollection suggestionsCollectionCategory)
+        public static AutoCompleteStringCollection mbBuildSuggestionsForCategory()
         {
-            suggestionsCollectionCategory.Clear();
+            var suggestionsCollectionCategory = new AutoCompleteStringCollection();
 
             foreach (string suggestion in categorySuggestions)
             {
                 suggestionsCollectionCategory.Add(suggestion);
             }
+
+            return suggestionsCollectionCategory;
         }
     }
 }
