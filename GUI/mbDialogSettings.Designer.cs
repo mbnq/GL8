@@ -447,6 +447,7 @@
             // 
             // mbDropDownSettings
             // 
+            this.mbDropDownSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mbDropDownSettings.Image = global::GL8.Properties.Resources.icon_image_0_40;
             this.mbDropDownSettings.InitialImage = global::GL8.Properties.Resources.icon_image_0_40;
             this.mbDropDownSettings.Location = new System.Drawing.Point(758, 38);
