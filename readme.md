@@ -18,8 +18,8 @@ To update your application from an older version, please follow these steps:
 
 2. **Export Data as CSV:**
 
-   - While still in **Settings**, select **Export as .csv**.
-   - Save the exported `.csv` file to a safe and easily accessible location.
+   - While still in **Settings**, select **Export JSON**.
+   - Save the exported `.json` file to a safe and easily accessible location.
 
 3. **Prepare for the New Version:**
 
@@ -34,13 +34,13 @@ To update your application from an older version, please follow these steps:
 5. **Import Your Data:**
 
    - Launch the updated application.
-   - Go to **Settings** and select **Import**.
-   - Choose the `.csv` file you exported earlier.
+   - Go to **Settings** and select **Import JSON**.
+   - Choose the `.json` file you exported earlier.
    - **Note:** When prompted, select **semicolon** as the delimiter during the import process.
 
 6. **Clean Up:**
 
-   - After confirming that your data has been successfully imported, you should delete the `.csv` file.
+   - After confirming that your data has been successfully imported, you should delete the `.json` file.
    - To permanently delete the file on Windows, select it and press **Shift + Delete**.
 
 **Additional Tips:**
