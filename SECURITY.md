@@ -11,7 +11,7 @@
 
 To report a vulnerability, please follow these steps:
 
-1. **Contact Information**: Send an email to [mbnq00@gmail.com](mailto:mbnq00@gmail.com) with details about the vulnerability. Include any relevant information such as the affected version, potential impact, and steps to reproduce.
+1. **Contact Information**: Contact me [https://www.mbnq.pl/](https://www.mbnq.pl/) with details about the vulnerability. Include any relevant information such as the affected version, potential impact, and steps to reproduce.
 
 2. **Response Timeline**: We aim to acknowledge the report within 48 hours and provide regular updates every two weeks until the issue is resolved.
 
