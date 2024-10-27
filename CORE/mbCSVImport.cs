@@ -18,11 +18,11 @@ using MaterialSkin.Controls;
 
 namespace GL8.CORE
 {
-    public class mbCSVImporter
+    public class mbCSVImport
     {
         private mbMainMenu _mainMenuInstance;
 
-        public mbCSVImporter(mbMainMenu mainMenuInstance)
+        public mbCSVImport(mbMainMenu mainMenuInstance)
         {
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
         }

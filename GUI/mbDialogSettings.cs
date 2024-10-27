@@ -182,50 +182,12 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsImportCSV_Click(object sender, EventArgs e)
         {
-            mbCSVImporter importer = new mbCSVImporter(_mainMenuInstance);
+            mbCSVImport importer = new mbCSVImport(_mainMenuInstance);
             importer.ImportCsv();
         }
         private void mbButtonSettingsExportCSV_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-                saveFileDialog.Title = "Export to CSV";
-                saveFileDialog.FileName = "Export.csv";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-
-                    string delimiter = ";";
-
-                    try
-                    {
-                        using (var writer = new StreamWriter(saveFileDialog.FileName))
-                        using (var csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture)
-                        {
-                            Delimiter = delimiter,
-                        }))
-                        {
-                            // write header
-                            csv.WriteHeader<mbPSWD>();
-                            csv.NextRecord();
-
-                            // write records
-                            foreach (var record in _mainMenuInstance.mbPSWDList)
-                            {
-                                csv.WriteRecord(record);
-                                csv.NextRecord();
-                            }
-                        }
-
-                        MaterialMessageBox.Show("Data exported successfully!", "Export CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MaterialMessageBox.Show($"Error exporting data: {ex.Message}", "Export CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+            mbCSVExport(_mainMenuInstance);
         }
         private void mbButtonSettingsLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
