@@ -52,8 +52,15 @@ namespace GL8.CORE
             this.mbDropDownSettingsClipboardDelay.Items.Add("45");
             this.mbDropDownSettingsClipboardDelay.Items.Add("60");
 
+            this.mbDropDownSettingsImportExportBackup.Items.Add("Backup");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("JSON Import");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("JSON Export");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Import");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Export");
+
             this.mbDropDownSettingsColorScheme.SelectedIndex    = mbMainMenu.mbColorSchemeIndex;
             this.mbDropDownSettingsClipboardDelay.SelectedIndex = mbMainMenu.mbClipboardClearIndex;
+            // this.mbDropDownSettingsImportExportBackup.SelectedIndex = 0;
 
             this.CenterToParent();
             this.ShowIcon = false;
@@ -234,6 +241,29 @@ namespace GL8.CORE
             _mainMenuInstance.mbSwitchColorScheme();
             this.Refresh();
         }
+        private void mbDropDownSettingsImportExportBackup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (mbDropDownSettingsImportExportBackup.SelectedIndex)
+            {
+                case 0:
+                    mbButtonSettingsBackup_Click(this, EventArgs.Empty);
+                    break;
+                case 1:
+                    mbJSONImport(_mainMenuInstance);
+                    break;
+                case 2:
+                    mbJSONExport(_mainMenuInstance);
+                    break;
+                case 3:
+                    mbButtonSettingsImportCSV_Click(this, EventArgs.Empty);
+                    break;
+                case 4:
+                    mbButtonSettingsExportCSV_Click(this, EventArgs.Empty);
+                    break;
+                default:
+                    break;
+            }
+        }        
         private void mbDropDownSettingsClipboardDelay_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -287,12 +317,10 @@ namespace GL8.CORE
                 throw;
             }
         }
-
         private void mbButtonSettingsExportJSON_Click(object sender, EventArgs e)
         {
             mbJSONExport(_mainMenuInstance);
         }
-
         private void mbButtonSettingsImportJSON_Click(object sender, EventArgs e)
         {
             mbJSONImport(_mainMenuInstance);

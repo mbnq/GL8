@@ -74,7 +74,7 @@ namespace GL8.CORE
             {
                 openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
                 openFileDialog.Title = "Import from JSON";
-                openFileDialog.FileName = "Export.json";
+                // openFileDialog.FileName = "Export.json";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
