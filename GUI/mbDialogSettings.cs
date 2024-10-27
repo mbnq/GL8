@@ -24,6 +24,8 @@ namespace GL8.CORE
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
+
+        private mbAbout mbAboutDialog;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             // right order is crucial
@@ -39,8 +41,6 @@ namespace GL8.CORE
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
-            this.mbButtonSettingsLabel1.Text = $"GL8 v.{Program.mbVersion}";
-
             this.mbDropDownSettingsColorScheme.Items.Add("Grey");
             this.mbDropDownSettingsColorScheme.Items.Add("Red");
             this.mbDropDownSettingsColorScheme.Items.Add("Green");
@@ -52,8 +52,15 @@ namespace GL8.CORE
             this.mbDropDownSettingsClipboardDelay.Items.Add("45");
             this.mbDropDownSettingsClipboardDelay.Items.Add("60");
 
+            this.mbDropDownSettingsImportExportBackup.Items.Add("Backup");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("JSON Import");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("JSON Export");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Import");
+            this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Export");
+
             this.mbDropDownSettingsColorScheme.SelectedIndex    = mbMainMenu.mbColorSchemeIndex;
             this.mbDropDownSettingsClipboardDelay.SelectedIndex = mbMainMenu.mbClipboardClearIndex;
+            // this.mbDropDownSettingsImportExportBackup.SelectedIndex = 0;
 
             this.CenterToParent();
             this.ShowIcon = false;
@@ -83,7 +90,9 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.Show($"Debugging is enabled. {mbMainMenu.mbClipboardClearDelay}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            // MaterialMessageBox.Show($"Debugging is enabled. {mbMainMenu.mbClipboardClearDelay}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            mbAboutDialog = new mbAbout();
+            mbAboutDialog.ShowDialog();
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
@@ -197,10 +206,6 @@ namespace GL8.CORE
                 UseShellExecute = true
             });
         }
-        private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void mbDropDownSettingsColorScheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColorScheme selectedScheme;
@@ -234,6 +239,29 @@ namespace GL8.CORE
             _mainMenuInstance.mbSwitchColorScheme();
             this.Refresh();
         }
+        private void mbDropDownSettingsImportExportBackup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (mbDropDownSettingsImportExportBackup.SelectedIndex)
+            {
+                case 0:
+                    mbButtonSettingsBackup_Click(this, EventArgs.Empty);
+                    break;
+                case 1:
+                    mbJSONImport(_mainMenuInstance);
+                    break;
+                case 2:
+                    mbJSONExport(_mainMenuInstance);
+                    break;
+                case 3:
+                    mbButtonSettingsImportCSV_Click(this, EventArgs.Empty);
+                    break;
+                case 4:
+                    mbButtonSettingsExportCSV_Click(this, EventArgs.Empty);
+                    break;
+                default:
+                    break;
+            }
+        }        
         private void mbDropDownSettingsClipboardDelay_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -287,15 +315,18 @@ namespace GL8.CORE
                 throw;
             }
         }
-
         private void mbButtonSettingsExportJSON_Click(object sender, EventArgs e)
         {
             mbJSONExport(_mainMenuInstance);
         }
-
         private void mbButtonSettingsImportJSON_Click(object sender, EventArgs e)
         {
             mbJSONImport(_mainMenuInstance);
+        }
+        private void mbDropDownSettings_Click(object sender, EventArgs e)
+        {
+            mbAboutDialog = new mbAbout();
+            mbAboutDialog.ShowDialog();
         }
     }
 }

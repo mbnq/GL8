@@ -37,8 +37,6 @@
             this.mbButtonSettingsChangeMasterPassword = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsImportCSV = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsExportCSV = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonSettingsLabel1 = new System.Windows.Forms.Label();
-            this.mbButtonSettingsLabel2 = new System.Windows.Forms.LinkLabel();
             this.mbDropDownSettingsColorScheme = new MaterialSkin.Controls.MaterialComboBox();
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
@@ -46,7 +44,10 @@
             this.mbDropDownSettingsClipboardDelay = new MaterialSkin.Controls.MaterialComboBox();
             this.mbButtonSettingsExportJSON = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsImportJSON = new MaterialSkin.Controls.MaterialButton();
+            this.mbDropDownSettingsImportExportBackup = new MaterialSkin.Controls.MaterialComboBox();
+            this.mbDropDownSettings = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbDropDownSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // mbButtonSettingsClose
@@ -76,7 +77,7 @@
             this.mbSettingsSwitchHidePswd.Checked = true;
             this.mbSettingsSwitchHidePswd.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mbSettingsSwitchHidePswd.Depth = 0;
-            this.mbSettingsSwitchHidePswd.Location = new System.Drawing.Point(3, 84);
+            this.mbSettingsSwitchHidePswd.Location = new System.Drawing.Point(7, 91);
             this.mbSettingsSwitchHidePswd.Margin = new System.Windows.Forms.Padding(0);
             this.mbSettingsSwitchHidePswd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mbSettingsSwitchHidePswd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -266,33 +267,6 @@
             this.mbButtonSettingsExportCSV.UseVisualStyleBackColor = true;
             this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbButtonSettingsExportCSV_Click);
             // 
-            // mbButtonSettingsLabel1
-            // 
-            this.mbButtonSettingsLabel1.AutoSize = true;
-            this.mbButtonSettingsLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.mbButtonSettingsLabel1.Location = new System.Drawing.Point(692, 35);
-            this.mbButtonSettingsLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.mbButtonSettingsLabel1.Name = "mbButtonSettingsLabel1";
-            this.mbButtonSettingsLabel1.Size = new System.Drawing.Size(44, 16);
-            this.mbButtonSettingsLabel1.TabIndex = 5;
-            this.mbButtonSettingsLabel1.Text = "GL8 v.";
-            this.mbButtonSettingsLabel1.Click += new System.EventHandler(this.mbButtonSettingsLabel1_Click);
-            // 
-            // mbButtonSettingsLabel2
-            // 
-            this.mbButtonSettingsLabel2.AutoSize = true;
-            this.mbButtonSettingsLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.mbButtonSettingsLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.mbButtonSettingsLabel2.LinkColor = System.Drawing.Color.Silver;
-            this.mbButtonSettingsLabel2.Location = new System.Drawing.Point(692, 51);
-            this.mbButtonSettingsLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.mbButtonSettingsLabel2.Name = "mbButtonSettingsLabel2";
-            this.mbButtonSettingsLabel2.Size = new System.Drawing.Size(85, 16);
-            this.mbButtonSettingsLabel2.TabIndex = 6;
-            this.mbButtonSettingsLabel2.TabStop = true;
-            this.mbButtonSettingsLabel2.Text = "www.mbnq.pl";
-            this.mbButtonSettingsLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mbButtonSettingsLabel2_LinkClicked);
-            // 
             // mbDropDownSettingsColorScheme
             // 
             this.mbDropDownSettingsColorScheme.AutoResize = false;
@@ -447,22 +421,54 @@
             this.mbButtonSettingsImportJSON.UseVisualStyleBackColor = true;
             this.mbButtonSettingsImportJSON.Click += new System.EventHandler(this.mbButtonSettingsImportJSON_Click);
             // 
+            // mbDropDownSettingsImportExportBackup
+            // 
+            this.mbDropDownSettingsImportExportBackup.AutoResize = false;
+            this.mbDropDownSettingsImportExportBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mbDropDownSettingsImportExportBackup.Depth = 0;
+            this.mbDropDownSettingsImportExportBackup.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.mbDropDownSettingsImportExportBackup.DropDownHeight = 174;
+            this.mbDropDownSettingsImportExportBackup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mbDropDownSettingsImportExportBackup.DropDownWidth = 121;
+            this.mbDropDownSettingsImportExportBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsImportExportBackup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mbDropDownSettingsImportExportBackup.FormattingEnabled = true;
+            this.mbDropDownSettingsImportExportBackup.Hint = "Backup / Import / Export";
+            this.mbDropDownSettingsImportExportBackup.IntegralHeight = false;
+            this.mbDropDownSettingsImportExportBackup.ItemHeight = 43;
+            this.mbDropDownSettingsImportExportBackup.Location = new System.Drawing.Point(6, 280);
+            this.mbDropDownSettingsImportExportBackup.MaxDropDownItems = 4;
+            this.mbDropDownSettingsImportExportBackup.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbDropDownSettingsImportExportBackup.Name = "mbDropDownSettingsImportExportBackup";
+            this.mbDropDownSettingsImportExportBackup.Size = new System.Drawing.Size(324, 49);
+            this.mbDropDownSettingsImportExportBackup.StartIndex = 0;
+            this.mbDropDownSettingsImportExportBackup.TabIndex = 17;
+            this.mbDropDownSettingsImportExportBackup.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsImportExportBackup_SelectedIndexChanged);
+            // 
+            // mbDropDownSettings
+            // 
+            this.mbDropDownSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mbDropDownSettings.Image = global::GL8.Properties.Resources.icon_image_0_40;
+            this.mbDropDownSettings.InitialImage = global::GL8.Properties.Resources.icon_image_0_40;
+            this.mbDropDownSettings.Location = new System.Drawing.Point(758, 38);
+            this.mbDropDownSettings.Name = "mbDropDownSettings";
+            this.mbDropDownSettings.Size = new System.Drawing.Size(36, 33);
+            this.mbDropDownSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mbDropDownSettings.TabIndex = 18;
+            this.mbDropDownSettings.TabStop = false;
+            this.mbDropDownSettings.Click += new System.EventHandler(this.mbDropDownSettings_Click);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.mbButtonSettingsImportJSON);
-            this.Controls.Add(this.mbButtonSettingsExportJSON);
+            this.Controls.Add(this.mbDropDownSettings);
+            this.Controls.Add(this.mbDropDownSettingsImportExportBackup);
             this.Controls.Add(this.mbDropDownSettingsClipboardDelay);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
             this.Controls.Add(this.mbDropDownSettingsColorScheme);
-            this.Controls.Add(this.mbButtonSettingsLabel2);
-            this.Controls.Add(this.mbButtonSettingsLabel1);
-            this.Controls.Add(this.mbButtonSettingsBackup);
-            this.Controls.Add(this.mbButtonSettingsExportCSV);
-            this.Controls.Add(this.mbButtonSettingsImportCSV);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_newConfirm);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_new);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPass_current);
@@ -470,9 +476,12 @@
             this.Controls.Add(this.mbSettingsSwitchHidePswd);
             this.Controls.Add(this.mbButtonSettingsChangeMasterPassword);
             this.Controls.Add(this.mbButtonSettingsClose);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mbDialogSettings";
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbDropDownSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,8 +498,6 @@
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsChangeMasterPassword;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportCSV;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportCSV;
-        private System.Windows.Forms.Label mbButtonSettingsLabel1;
-        private System.Windows.Forms.LinkLabel mbButtonSettingsLabel2;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsColorScheme;
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
@@ -498,5 +505,7 @@
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsClipboardDelay;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportJSON;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportJSON;
+        private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsImportExportBackup;
+        private System.Windows.Forms.PictureBox mbDropDownSettings;
     }
 }

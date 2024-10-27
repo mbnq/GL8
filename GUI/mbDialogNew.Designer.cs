@@ -57,7 +57,7 @@ namespace GL8.CORE
             this.mbTextBoxAddName.Hint = "Name";
             this.mbTextBoxAddName.LeadingIcon = null;
             this.mbTextBoxAddName.Location = new System.Drawing.Point(8, 82);
-            this.mbTextBoxAddName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddName.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddName.MaxLength = 32767;
             this.mbTextBoxAddName.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddName.Name = "mbTextBoxAddName";
@@ -89,7 +89,7 @@ namespace GL8.CORE
             this.mbTextBoxAddAddress.Hint = "Site";
             this.mbTextBoxAddAddress.LeadingIcon = null;
             this.mbTextBoxAddAddress.Location = new System.Drawing.Point(7, 149);
-            this.mbTextBoxAddAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddAddress.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddAddress.MaxLength = 32767;
             this.mbTextBoxAddAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddAddress.Name = "mbTextBoxAddAddress";
@@ -121,7 +121,7 @@ namespace GL8.CORE
             this.mbTextBoxAddCategory.Hint = "Category";
             this.mbTextBoxAddCategory.LeadingIcon = null;
             this.mbTextBoxAddCategory.Location = new System.Drawing.Point(8, 215);
-            this.mbTextBoxAddCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddCategory.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddCategory.MaxLength = 32767;
             this.mbTextBoxAddCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddCategory.Name = "mbTextBoxAddCategory";
@@ -153,7 +153,7 @@ namespace GL8.CORE
             this.mbTextBoxAddLogin.Hint = "Login";
             this.mbTextBoxAddLogin.LeadingIcon = null;
             this.mbTextBoxAddLogin.Location = new System.Drawing.Point(589, 82);
-            this.mbTextBoxAddLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddLogin.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddLogin.MaxLength = 32767;
             this.mbTextBoxAddLogin.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddLogin.Name = "mbTextBoxAddLogin";
@@ -185,7 +185,7 @@ namespace GL8.CORE
             this.mbTextBoxAddPassword.Hint = "Password";
             this.mbTextBoxAddPassword.LeadingIcon = null;
             this.mbTextBoxAddPassword.Location = new System.Drawing.Point(589, 149);
-            this.mbTextBoxAddPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddPassword.MaxLength = 32767;
             this.mbTextBoxAddPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddPassword.Name = "mbTextBoxAddPassword";
@@ -217,7 +217,7 @@ namespace GL8.CORE
             this.mbTextBoxAddEmail.Hint = "eMail";
             this.mbTextBoxAddEmail.LeadingIcon = null;
             this.mbTextBoxAddEmail.Location = new System.Drawing.Point(589, 215);
-            this.mbTextBoxAddEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddEmail.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddEmail.MaxLength = 32767;
             this.mbTextBoxAddEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.mbTextBoxAddEmail.Name = "mbTextBoxAddEmail";
@@ -243,7 +243,7 @@ namespace GL8.CORE
             this.mbTextBoxAddAdditionalInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.mbTextBoxAddAdditionalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mbTextBoxAddAdditionalInfo.Location = new System.Drawing.Point(7, 284);
-            this.mbTextBoxAddAdditionalInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTextBoxAddAdditionalInfo.Margin = new System.Windows.Forms.Padding(4);
             this.mbTextBoxAddAdditionalInfo.Multiline = true;
             this.mbTextBoxAddAdditionalInfo.Name = "mbTextBoxAddAdditionalInfo";
             this.mbTextBoxAddAdditionalInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -354,7 +354,9 @@ namespace GL8.CORE
             this.Controls.Add(this.mbTextBoxAddCategory);
             this.Controls.Add(this.mbTextBoxAddAddress);
             this.Controls.Add(this.mbTextBoxAddName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mbDialogNew";
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
             this.Text = "New Item";

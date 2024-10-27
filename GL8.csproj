@@ -148,6 +148,12 @@
     <Compile Include="CORE\mbUserSettings.cs" />
     <Compile Include="CORE\mbSecureString.cs" />
     <Compile Include="CORE\mbWaitPrompter.cs" />
+    <Compile Include="GUI\mbAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\mbAbout.Designer.cs">
+      <DependentUpon>mbAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\mbCSVImportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\mbAbout.resx">
+      <DependentUpon>mbAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\mbCSVImportDialog.resx">
       <DependentUpon>mbCSVImportDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="gfx\gl8.ico" />
+    <None Include="gfx\icon_image_0_40.png" />
     <Content Include="gl8.ico" />
     <None Include="Resources\gl8icon.ico" />
   </ItemGroup>

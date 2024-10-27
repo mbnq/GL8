@@ -93,6 +93,12 @@ namespace GL8.CORE
             _backupManager = new mbBackup(this);
             _backupManager.CheckAndGo();
 
+            this.HelpButtonClicked += (sender, e) =>
+            {
+                var mbAboutDialog = new mbAbout();
+                mbAboutDialog.ShowDialog();
+            };
+
             Debug.WriteLine($"Init ok. SaveLoad number: {mbRunCount}");
         }
 
