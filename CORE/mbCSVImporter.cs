@@ -94,12 +94,21 @@ namespace GL8.CORE
             // MaterialMessageBox.Show("CSV import operation completed.", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private List<string> GetCsvHeaders(string filePath)
+        private List<string> GetCsvHeaders(string filePath, string delimiter)
         {
             try
             {
                 using (var reader = new StreamReader(filePath))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    Delimiter = delimiter,
+                    HeaderValidated = null,
+                    MissingFieldFound = null,
+                    BadDataFound = null,
+                    Mode = CsvMode.NoEscape,
+                    IgnoreBlankLines = true,
+                    TrimOptions = TrimOptions.Trim
+                }))
                 {
                     csv.Read();
                     csv.ReadHeader();
@@ -109,9 +118,10 @@ namespace GL8.CORE
             catch (Exception ex)
             {
                 MaterialMessageBox.Show($"Error reading CSV headers: {ex.Message}", "Import CSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new List<string>();
             }
         }
+
         private List<mbPSWD> ImportData(string filePath, Dictionary<string, string> columnMappings, string delimiter)
         {
             List<mbPSWD> pswdList = new List<mbPSWD>();
@@ -125,8 +135,8 @@ namespace GL8.CORE
                         Delimiter = delimiter,
                         MissingFieldFound = null,
                         HeaderValidated = null,
-                        BadDataFound = null,  // Ignore bad data
-                        Quote = '▪',          // Set the Quote character to '▪'
+                        BadDataFound = null,        // Ignore bad data
+                        Mode = CsvMode.NoEscape,    // Disable escape character processing
                         IgnoreBlankLines = true,
                         TrimOptions = TrimOptions.Trim
                     };
