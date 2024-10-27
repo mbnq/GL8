@@ -140,8 +140,11 @@
             this.Controls.Add(this.mbIntroTextBoxMasterPswdConfirm);
             this.Controls.Add(this.mbIntroButtonLogin);
             this.Controls.Add(this.mbIntroTextBoxMasterPswd);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mbDialogIntro";
             this.Text = "GL8 - Welcome";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

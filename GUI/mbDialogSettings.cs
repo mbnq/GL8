@@ -41,8 +41,6 @@ namespace GL8.CORE
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
 #endif
-            this.mbButtonSettingsLabel1.Text = $"GL8 v.{Program.mbVersion}";
-
             this.mbDropDownSettingsColorScheme.Items.Add("Grey");
             this.mbDropDownSettingsColorScheme.Items.Add("Red");
             this.mbDropDownSettingsColorScheme.Items.Add("Green");
@@ -208,10 +206,6 @@ namespace GL8.CORE
                 UseShellExecute = true
             });
         }
-        private void mbButtonSettingsLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void mbDropDownSettingsColorScheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColorScheme selectedScheme;
@@ -328,6 +322,11 @@ namespace GL8.CORE
         private void mbButtonSettingsImportJSON_Click(object sender, EventArgs e)
         {
             mbJSONImport(_mainMenuInstance);
+        }
+        private void mbDropDownSettings_Click(object sender, EventArgs e)
+        {
+            mbAboutDialog = new mbAbout();
+            mbAboutDialog.ShowDialog();
         }
     }
 }

@@ -371,6 +371,8 @@ namespace GL8.CORE
             this.Controls.Add(this.mbTextBoxEditCategory);
             this.Controls.Add(this.mbTextBoxEditAddress);
             this.Controls.Add(this.mbTextBoxEditName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mbDialogEdit";
             this.Text = "Edit";
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).EndInit();
