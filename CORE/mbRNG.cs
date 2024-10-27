@@ -17,7 +17,7 @@ namespace GL8.CORE
         private const string UppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string LowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
         private const string Numbers = "0123456789";
-        private const string SpecialCharacters = "!@#$%^&*()_+[]{}|;:,.<>?";
+        private const string SpecialCharacters = "!@#$%^&*()_+[]{}:.<>?";           // ; , | <- removed to avoid problems with CSV
 
         public string mbGenerateRandomPassword
         (
