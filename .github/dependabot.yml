@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "" # Specify the ecosystem, e.g., "npm", "pip", etc.
+  - package-ecosystem: "npm" # Specify the ecosystem, e.g., "npm", "pip", etc.
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
