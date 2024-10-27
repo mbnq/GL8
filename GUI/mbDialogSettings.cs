@@ -24,6 +24,8 @@ namespace GL8.CORE
     public partial class mbDialogSettings : MaterialForm
     {
         private mbMainMenu _mainMenuInstance;
+
+        private mbAbout mbAboutDialog;
         public mbDialogSettings(mbMainMenu mainMenuInstance)
         {
             // right order is crucial
@@ -90,7 +92,9 @@ namespace GL8.CORE
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.Show($"Debugging is enabled. {mbMainMenu.mbClipboardClearDelay}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            // MaterialMessageBox.Show($"Debugging is enabled. {mbMainMenu.mbClipboardClearDelay}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            mbAboutDialog = new mbAbout();
+            mbAboutDialog.ShowDialog();
         }
         private void mbButtonSettingsChangeMasterPassword_Click(object sender, EventArgs e)
         {
