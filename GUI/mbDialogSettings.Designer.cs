@@ -44,6 +44,8 @@
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
             this.mbButtonSettingsBackup = new MaterialSkin.Controls.MaterialButton();
             this.mbDropDownSettingsClipboardDelay = new MaterialSkin.Controls.MaterialComboBox();
+            this.mbButtonSettingsExportJSON = new MaterialSkin.Controls.MaterialButton();
+            this.mbButtonSettingsImportJSON = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -388,7 +390,7 @@
             this.mbDropDownSettingsClipboardDelay.DropDownHeight = 174;
             this.mbDropDownSettingsClipboardDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mbDropDownSettingsClipboardDelay.DropDownWidth = 121;
-            this.mbDropDownSettingsClipboardDelay.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsClipboardDelay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.mbDropDownSettingsClipboardDelay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.mbDropDownSettingsClipboardDelay.FormattingEnabled = true;
             this.mbDropDownSettingsClipboardDelay.Hint = "Clear clipboard after";
@@ -403,11 +405,55 @@
             this.mbDropDownSettingsClipboardDelay.TabIndex = 14;
             this.mbDropDownSettingsClipboardDelay.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsClipboardDelay_SelectedIndexChanged);
             // 
+            // mbButtonSettingsExportJSON
+            // 
+            this.mbButtonSettingsExportJSON.AutoSize = false;
+            this.mbButtonSettingsExportJSON.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonSettingsExportJSON.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonSettingsExportJSON.Depth = 0;
+            this.mbButtonSettingsExportJSON.HighEmphasis = true;
+            this.mbButtonSettingsExportJSON.Icon = null;
+            this.mbButtonSettingsExportJSON.Location = new System.Drawing.Point(173, 357);
+            this.mbButtonSettingsExportJSON.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonSettingsExportJSON.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonSettingsExportJSON.Name = "mbButtonSettingsExportJSON";
+            this.mbButtonSettingsExportJSON.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonSettingsExportJSON.Size = new System.Drawing.Size(158, 36);
+            this.mbButtonSettingsExportJSON.TabIndex = 15;
+            this.mbButtonSettingsExportJSON.Text = "EXPORT JSON";
+            this.mbButtonSettingsExportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonSettingsExportJSON.UseAccentColor = false;
+            this.mbButtonSettingsExportJSON.UseVisualStyleBackColor = true;
+            this.mbButtonSettingsExportJSON.Click += new System.EventHandler(this.mbButtonSettingsExportJSON_Click);
+            // 
+            // mbButtonSettingsImportJSON
+            // 
+            this.mbButtonSettingsImportJSON.AutoSize = false;
+            this.mbButtonSettingsImportJSON.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonSettingsImportJSON.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonSettingsImportJSON.Depth = 0;
+            this.mbButtonSettingsImportJSON.HighEmphasis = true;
+            this.mbButtonSettingsImportJSON.Icon = null;
+            this.mbButtonSettingsImportJSON.Location = new System.Drawing.Point(7, 357);
+            this.mbButtonSettingsImportJSON.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbButtonSettingsImportJSON.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonSettingsImportJSON.Name = "mbButtonSettingsImportJSON";
+            this.mbButtonSettingsImportJSON.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonSettingsImportJSON.Size = new System.Drawing.Size(158, 36);
+            this.mbButtonSettingsImportJSON.TabIndex = 16;
+            this.mbButtonSettingsImportJSON.Text = "Import JSON";
+            this.mbButtonSettingsImportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonSettingsImportJSON.UseAccentColor = false;
+            this.mbButtonSettingsImportJSON.UseVisualStyleBackColor = true;
+            this.mbButtonSettingsImportJSON.Click += new System.EventHandler(this.mbButtonSettingsImportJSON_Click);
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbButtonSettingsImportJSON);
+            this.Controls.Add(this.mbButtonSettingsExportJSON);
             this.Controls.Add(this.mbDropDownSettingsClipboardDelay);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
@@ -450,5 +496,7 @@
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsBackup;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsClipboardDelay;
+        private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportJSON;
+        private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportJSON;
     }
 }

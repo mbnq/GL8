@@ -287,5 +287,15 @@ namespace GL8.CORE
                 throw;
             }
         }
+
+        private void mbButtonSettingsExportJSON_Click(object sender, EventArgs e)
+        {
+            mbJSONExport(_mainMenuInstance);
+        }
+
+        private void mbButtonSettingsImportJSON_Click(object sender, EventArgs e)
+        {
+            mbJSONImport(_mainMenuInstance);
+        }
     }
 }
