@@ -1,6 +1,16 @@
-﻿using System;
+﻿
+/* 
+
+    www.mbnq.pl 2024 
+    https://mbnq.pl/
+    mbnq00 on gmail
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -18,8 +28,10 @@ namespace GL8.CORE
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.labelCompanyName.Text = "https://github.com/mbnq/GL8/";
+            this.textBoxDescription.Text = "GL8 is a secure password manager built in C# with strong encryption using Argon2, Bouncy Castle, AES-256.\nIt offers password management, CSV import/export, and random password generation through a modern, user-friendly interface powered by MaterialSkin.";
+
+            this.labelCompanyName.LinkClicked += new LinkLabelLinkClickedEventHandler(this.labelCompanyName_LinkClicked);
         }
 
         #region Assembly Attribute Accessors
@@ -101,5 +113,23 @@ namespace GL8.CORE
             }
         }
         #endregion
+
+        private void labelCompanyName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                labelCompanyName.LinkVisited = true;
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = labelCompanyName.Text,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Was unable to open link. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

@@ -255,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="gfx\gl8.ico" />
+    <None Include="gfx\icon_image_0_40.png" />
     <Content Include="gl8.ico" />
     <None Include="Resources\gl8icon.ico" />
   </ItemGroup>
