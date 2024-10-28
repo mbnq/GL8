@@ -35,15 +35,10 @@
             this.mbButtonSettingsChangeMasterPass_new = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbButtonSettingsChangeMasterPass_newConfirm = new MaterialSkin.Controls.MaterialTextBox2();
             this.mbButtonSettingsChangeMasterPassword = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonSettingsImportCSV = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonSettingsExportCSV = new MaterialSkin.Controls.MaterialButton();
             this.mbDropDownSettingsColorScheme = new MaterialSkin.Controls.MaterialComboBox();
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonSettingsBackup = new MaterialSkin.Controls.MaterialButton();
             this.mbDropDownSettingsClipboardDelay = new MaterialSkin.Controls.MaterialComboBox();
-            this.mbButtonSettingsExportJSON = new MaterialSkin.Controls.MaterialButton();
-            this.mbButtonSettingsImportJSON = new MaterialSkin.Controls.MaterialButton();
             this.mbDropDownSettingsImportExportBackup = new MaterialSkin.Controls.MaterialComboBox();
             this.mbDropDownSettings = new System.Windows.Forms.PictureBox();
             this.mbDropDownSettingsImportBackupFrequency = new MaterialSkin.Controls.MaterialComboBox();
@@ -226,48 +221,6 @@
             this.mbButtonSettingsChangeMasterPassword.UseVisualStyleBackColor = true;
             this.mbButtonSettingsChangeMasterPassword.Click += new System.EventHandler(this.mbButtonSettingsChangeMasterPassword_Click);
             // 
-            // mbButtonSettingsImportCSV
-            // 
-            this.mbButtonSettingsImportCSV.AutoSize = false;
-            this.mbButtonSettingsImportCSV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonSettingsImportCSV.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonSettingsImportCSV.Depth = 0;
-            this.mbButtonSettingsImportCSV.HighEmphasis = true;
-            this.mbButtonSettingsImportCSV.Icon = null;
-            this.mbButtonSettingsImportCSV.Location = new System.Drawing.Point(7, 405);
-            this.mbButtonSettingsImportCSV.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonSettingsImportCSV.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonSettingsImportCSV.Name = "mbButtonSettingsImportCSV";
-            this.mbButtonSettingsImportCSV.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonSettingsImportCSV.Size = new System.Drawing.Size(158, 36);
-            this.mbButtonSettingsImportCSV.TabIndex = 4;
-            this.mbButtonSettingsImportCSV.Text = "Import CSV";
-            this.mbButtonSettingsImportCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonSettingsImportCSV.UseAccentColor = false;
-            this.mbButtonSettingsImportCSV.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsImportCSV.Click += new System.EventHandler(this.mbSettingsImportCSV_DD);
-            // 
-            // mbButtonSettingsExportCSV
-            // 
-            this.mbButtonSettingsExportCSV.AutoSize = false;
-            this.mbButtonSettingsExportCSV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonSettingsExportCSV.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonSettingsExportCSV.Depth = 0;
-            this.mbButtonSettingsExportCSV.HighEmphasis = true;
-            this.mbButtonSettingsExportCSV.Icon = null;
-            this.mbButtonSettingsExportCSV.Location = new System.Drawing.Point(173, 405);
-            this.mbButtonSettingsExportCSV.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonSettingsExportCSV.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonSettingsExportCSV.Name = "mbButtonSettingsExportCSV";
-            this.mbButtonSettingsExportCSV.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonSettingsExportCSV.Size = new System.Drawing.Size(158, 36);
-            this.mbButtonSettingsExportCSV.TabIndex = 4;
-            this.mbButtonSettingsExportCSV.Text = "Export CSV";
-            this.mbButtonSettingsExportCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonSettingsExportCSV.UseAccentColor = false;
-            this.mbButtonSettingsExportCSV.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbSettingsExportCSV_DD);
-            // 
             // mbDropDownSettingsColorScheme
             // 
             this.mbDropDownSettingsColorScheme.AutoResize = false;
@@ -335,27 +288,6 @@
             this.mbTextBoxEditPassword_GetRandom.UseVisualStyleBackColor = true;
             this.mbTextBoxEditPassword_GetRandom.Click += new System.EventHandler(this.mbTextBoxEditPassword_GetRandom_Click);
             // 
-            // mbButtonSettingsBackup
-            // 
-            this.mbButtonSettingsBackup.AutoSize = false;
-            this.mbButtonSettingsBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonSettingsBackup.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonSettingsBackup.Depth = 0;
-            this.mbButtonSettingsBackup.HighEmphasis = true;
-            this.mbButtonSettingsBackup.Icon = null;
-            this.mbButtonSettingsBackup.Location = new System.Drawing.Point(339, 405);
-            this.mbButtonSettingsBackup.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonSettingsBackup.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonSettingsBackup.Name = "mbButtonSettingsBackup";
-            this.mbButtonSettingsBackup.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonSettingsBackup.Size = new System.Drawing.Size(158, 36);
-            this.mbButtonSettingsBackup.TabIndex = 4;
-            this.mbButtonSettingsBackup.Text = "Backup";
-            this.mbButtonSettingsBackup.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonSettingsBackup.UseAccentColor = false;
-            this.mbButtonSettingsBackup.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsBackup.Click += new System.EventHandler(this.mbSettingsBackup_DD);
-            // 
             // mbDropDownSettingsClipboardDelay
             // 
             this.mbDropDownSettingsClipboardDelay.AutoResize = false;
@@ -379,48 +311,6 @@
             this.mbDropDownSettingsClipboardDelay.StartIndex = 0;
             this.mbDropDownSettingsClipboardDelay.TabIndex = 14;
             this.mbDropDownSettingsClipboardDelay.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsClipboardDelay_SelectedIndexChanged);
-            // 
-            // mbButtonSettingsExportJSON
-            // 
-            this.mbButtonSettingsExportJSON.AutoSize = false;
-            this.mbButtonSettingsExportJSON.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonSettingsExportJSON.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonSettingsExportJSON.Depth = 0;
-            this.mbButtonSettingsExportJSON.HighEmphasis = true;
-            this.mbButtonSettingsExportJSON.Icon = null;
-            this.mbButtonSettingsExportJSON.Location = new System.Drawing.Point(173, 357);
-            this.mbButtonSettingsExportJSON.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonSettingsExportJSON.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonSettingsExportJSON.Name = "mbButtonSettingsExportJSON";
-            this.mbButtonSettingsExportJSON.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonSettingsExportJSON.Size = new System.Drawing.Size(158, 36);
-            this.mbButtonSettingsExportJSON.TabIndex = 15;
-            this.mbButtonSettingsExportJSON.Text = "EXPORT JSON";
-            this.mbButtonSettingsExportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonSettingsExportJSON.UseAccentColor = false;
-            this.mbButtonSettingsExportJSON.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsExportJSON.Click += new System.EventHandler(this.mbSettingsExportJSON_DD);
-            // 
-            // mbButtonSettingsImportJSON
-            // 
-            this.mbButtonSettingsImportJSON.AutoSize = false;
-            this.mbButtonSettingsImportJSON.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbButtonSettingsImportJSON.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbButtonSettingsImportJSON.Depth = 0;
-            this.mbButtonSettingsImportJSON.HighEmphasis = true;
-            this.mbButtonSettingsImportJSON.Icon = null;
-            this.mbButtonSettingsImportJSON.Location = new System.Drawing.Point(7, 357);
-            this.mbButtonSettingsImportJSON.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbButtonSettingsImportJSON.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbButtonSettingsImportJSON.Name = "mbButtonSettingsImportJSON";
-            this.mbButtonSettingsImportJSON.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbButtonSettingsImportJSON.Size = new System.Drawing.Size(158, 36);
-            this.mbButtonSettingsImportJSON.TabIndex = 16;
-            this.mbButtonSettingsImportJSON.Text = "Import JSON";
-            this.mbButtonSettingsImportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbButtonSettingsImportJSON.UseAccentColor = false;
-            this.mbButtonSettingsImportJSON.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsImportJSON.Click += new System.EventHandler(this.mbSettingsImportJSON_DD);
             // 
             // mbDropDownSettingsImportExportBackup
             // 
@@ -522,15 +412,10 @@
         private MaterialSkin.Controls.MaterialTextBox2 mbButtonSettingsChangeMasterPass_new;
         private MaterialSkin.Controls.MaterialTextBox2 mbButtonSettingsChangeMasterPass_newConfirm;
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsChangeMasterPassword;
-        private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportCSV;
-        private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportCSV;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsColorScheme;
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
-        private MaterialSkin.Controls.MaterialButton mbButtonSettingsBackup;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsClipboardDelay;
-        private MaterialSkin.Controls.MaterialButton mbButtonSettingsExportJSON;
-        private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportJSON;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsImportExportBackup;
         private System.Windows.Forms.PictureBox mbDropDownSettings;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsImportBackupFrequency;
