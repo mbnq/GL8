@@ -197,15 +197,6 @@ namespace GL8.CORE
                 MaterialMessageBox.Show("Error updating data encryption: " + errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void mbButtonSettingsImportCSV_Click(object sender, EventArgs e)
-        {
-            mbCSVImport importer = new mbCSVImport(_mainMenuInstance);
-            importer.ImportCsv();
-        }
-        private void mbButtonSettingsExportCSV_Click(object sender, EventArgs e)
-        {
-            mbCSVExport(_mainMenuInstance);
-        }
         private void mbButtonSettingsLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(new ProcessStartInfo
@@ -252,7 +243,7 @@ namespace GL8.CORE
             switch (mbDropDownSettingsImportExportBackup.SelectedIndex)
             {
                 case 0:
-                    mbButtonSettingsBackup_Click(this, EventArgs.Empty);
+                    mbSettingsBackup_DD(this, EventArgs.Empty);
                     break;
                 case 1:
                     mbJSONImport(_mainMenuInstance);
@@ -261,10 +252,10 @@ namespace GL8.CORE
                     mbJSONExport(_mainMenuInstance);
                     break;
                 case 3:
-                    mbButtonSettingsImportCSV_Click(this, EventArgs.Empty);
+                    mbSettingsImportCSV_DD(this, EventArgs.Empty);
                     break;
                 case 4:
-                    mbButtonSettingsExportCSV_Click(this, EventArgs.Empty);
+                    mbSettingsExportCSV_DD(this, EventArgs.Empty);
                     break;
                 default:
                     break;
@@ -325,7 +316,7 @@ namespace GL8.CORE
             mbButtonSettingsChangeMasterPass_new.Text = password;
             mbButtonSettingsChangeMasterPass_newConfirm.Text = password;
         }
-        private void mbButtonSettingsBackup_Click(object sender, EventArgs e)
+        private void mbSettingsBackup_DD(object sender, EventArgs e)
         {
             DialogResult mbRUSure = MaterialMessageBox.Show(
                 "\nAn encrypted backup of your data will be created in \\AppData\\Roaming\\ directory to ensure your information is safely stored.\nDo you want to continue?",
@@ -347,13 +338,22 @@ namespace GL8.CORE
                 throw;
             }
         }
-        private void mbButtonSettingsExportJSON_Click(object sender, EventArgs e)
+        private void mbSettingsExportJSON_DD(object sender, EventArgs e)
         {
             mbJSONExport(_mainMenuInstance);
         }
-        private void mbButtonSettingsImportJSON_Click(object sender, EventArgs e)
+        private void mbSettingsImportJSON_DD(object sender, EventArgs e)
         {
             mbJSONImport(_mainMenuInstance);
+        }
+        private void mbSettingsImportCSV_DD(object sender, EventArgs e)
+        {
+            mbCSVImport importer = new mbCSVImport(_mainMenuInstance);
+            importer.ImportCsv();
+        }
+        private void mbSettingsExportCSV_DD(object sender, EventArgs e)
+        {
+            mbCSVExport(_mainMenuInstance);
         }
         private void mbDropDownSettings_Click(object sender, EventArgs e)
         {

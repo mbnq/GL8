@@ -245,7 +245,7 @@
             this.mbButtonSettingsImportCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsImportCSV.UseAccentColor = false;
             this.mbButtonSettingsImportCSV.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsImportCSV.Click += new System.EventHandler(this.mbButtonSettingsImportCSV_Click);
+            this.mbButtonSettingsImportCSV.Click += new System.EventHandler(this.mbSettingsImportCSV_DD);
             // 
             // mbButtonSettingsExportCSV
             // 
@@ -266,7 +266,7 @@
             this.mbButtonSettingsExportCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsExportCSV.UseAccentColor = false;
             this.mbButtonSettingsExportCSV.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbButtonSettingsExportCSV_Click);
+            this.mbButtonSettingsExportCSV.Click += new System.EventHandler(this.mbSettingsExportCSV_DD);
             // 
             // mbDropDownSettingsColorScheme
             // 
@@ -354,7 +354,7 @@
             this.mbButtonSettingsBackup.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsBackup.UseAccentColor = false;
             this.mbButtonSettingsBackup.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsBackup.Click += new System.EventHandler(this.mbButtonSettingsBackup_Click);
+            this.mbButtonSettingsBackup.Click += new System.EventHandler(this.mbSettingsBackup_DD);
             // 
             // mbDropDownSettingsClipboardDelay
             // 
@@ -399,7 +399,7 @@
             this.mbButtonSettingsExportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsExportJSON.UseAccentColor = false;
             this.mbButtonSettingsExportJSON.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsExportJSON.Click += new System.EventHandler(this.mbButtonSettingsExportJSON_Click);
+            this.mbButtonSettingsExportJSON.Click += new System.EventHandler(this.mbSettingsExportJSON_DD);
             // 
             // mbButtonSettingsImportJSON
             // 
@@ -420,7 +420,7 @@
             this.mbButtonSettingsImportJSON.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbButtonSettingsImportJSON.UseAccentColor = false;
             this.mbButtonSettingsImportJSON.UseVisualStyleBackColor = true;
-            this.mbButtonSettingsImportJSON.Click += new System.EventHandler(this.mbButtonSettingsImportJSON_Click);
+            this.mbButtonSettingsImportJSON.Click += new System.EventHandler(this.mbSettingsImportJSON_DD);
             // 
             // mbDropDownSettingsImportExportBackup
             // 
