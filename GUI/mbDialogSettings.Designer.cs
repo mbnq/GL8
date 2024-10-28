@@ -283,7 +283,7 @@
             this.mbDropDownSettingsColorScheme.Hint = "Color Scheme";
             this.mbDropDownSettingsColorScheme.IntegralHeight = false;
             this.mbDropDownSettingsColorScheme.ItemHeight = 43;
-            this.mbDropDownSettingsColorScheme.Location = new System.Drawing.Point(7, 149);
+            this.mbDropDownSettingsColorScheme.Location = new System.Drawing.Point(7, 148);
             this.mbDropDownSettingsColorScheme.MaxDropDownItems = 4;
             this.mbDropDownSettingsColorScheme.MouseState = MaterialSkin.MouseState.OUT;
             this.mbDropDownSettingsColorScheme.Name = "mbDropDownSettingsColorScheme";
@@ -437,7 +437,7 @@
             this.mbDropDownSettingsImportExportBackup.Hint = "Backup / Import / Export";
             this.mbDropDownSettingsImportExportBackup.IntegralHeight = false;
             this.mbDropDownSettingsImportExportBackup.ItemHeight = 43;
-            this.mbDropDownSettingsImportExportBackup.Location = new System.Drawing.Point(6, 280);
+            this.mbDropDownSettingsImportExportBackup.Location = new System.Drawing.Point(7, 344);
             this.mbDropDownSettingsImportExportBackup.MaxDropDownItems = 4;
             this.mbDropDownSettingsImportExportBackup.MouseState = MaterialSkin.MouseState.OUT;
             this.mbDropDownSettingsImportExportBackup.Name = "mbDropDownSettingsImportExportBackup";
@@ -468,19 +468,20 @@
             this.mbDropDownSettingsImportBackupFrequency.DropDownHeight = 174;
             this.mbDropDownSettingsImportBackupFrequency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mbDropDownSettingsImportBackupFrequency.DropDownWidth = 121;
-            this.mbDropDownSettingsImportBackupFrequency.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsImportBackupFrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.mbDropDownSettingsImportBackupFrequency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.mbDropDownSettingsImportBackupFrequency.FormattingEnabled = true;
             this.mbDropDownSettingsImportBackupFrequency.Hint = "AutoBackup every X startups:";
             this.mbDropDownSettingsImportBackupFrequency.IntegralHeight = false;
             this.mbDropDownSettingsImportBackupFrequency.ItemHeight = 43;
-            this.mbDropDownSettingsImportBackupFrequency.Location = new System.Drawing.Point(7, 344);
+            this.mbDropDownSettingsImportBackupFrequency.Location = new System.Drawing.Point(7, 280);
             this.mbDropDownSettingsImportBackupFrequency.MaxDropDownItems = 4;
             this.mbDropDownSettingsImportBackupFrequency.MouseState = MaterialSkin.MouseState.OUT;
             this.mbDropDownSettingsImportBackupFrequency.Name = "mbDropDownSettingsImportBackupFrequency";
             this.mbDropDownSettingsImportBackupFrequency.Size = new System.Drawing.Size(323, 49);
             this.mbDropDownSettingsImportBackupFrequency.StartIndex = 0;
             this.mbDropDownSettingsImportBackupFrequency.TabIndex = 19;
+            this.mbDropDownSettingsImportBackupFrequency.SelectedIndexChanged += new System.EventHandler(this.mbDropDownSettingsImportBackupFrequency_SelectedIndexChanged);
             // 
             // mbDialogSettings
             // 

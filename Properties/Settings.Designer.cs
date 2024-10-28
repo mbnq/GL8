@@ -93,5 +93,17 @@ namespace GL8.Properties {
                 this["mbClipboardClearIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int mbAutoBackupIndex {
+            get {
+                return ((int)(this["mbAutoBackupIndex"]));
+            }
+            set {
+                this["mbAutoBackupIndex"] = value;
+            }
+        }
     }
 }

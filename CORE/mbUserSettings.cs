@@ -80,6 +80,9 @@ namespace GL8.CORE
                 // Clipboard Clear Index
                 Properties.Settings.Default.mbClipboardClearIndex = mbMainMenu.mbClipboardClearIndex;
 
+                // AutoBackup Frequency Index
+                Properties.Settings.Default.mbAutoBackupIndex = mbMainMenu.mbAutoBackupIndex;
+
                 // Column order
                 var columnOrder = new System.Collections.Specialized.StringCollection();
                 foreach (DataGridViewColumn column in _mainMenuInstance.mbDataView.Columns)
@@ -115,6 +118,9 @@ namespace GL8.CORE
 
                 // Clipboard Clear Index
                 mbMainMenu.mbClipboardClearIndex = Properties.Settings.Default.mbClipboardClearIndex;
+
+                // AutoBackup Frequency Index
+                mbMainMenu.mbAutoBackupIndex = Properties.Settings.Default.mbAutoBackupIndex;
 
                 // columnorder
                 var columnOrder = Properties.Settings.Default.mbDataViewColumnOrder;

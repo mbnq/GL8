@@ -51,6 +51,8 @@ namespace GL8.CORE
         public static int               mbRunCount            = 0;
         public static int               mbClipboardClearIndex = 2;
         public static int               mbClipboardClearDelay = 30;
+        public static int               mbAutoBackupIndex     = 1;
+        public static int               mbAutoBackupFrequency = 20;
 
         // ------------------- Main -----------------------
         public mbMainMenu(SecureString userPassword)
@@ -84,6 +86,7 @@ namespace GL8.CORE
             _DialogSettings.LoadPublicSettings(this);
 
             UpdateClipboardClearDelay();
+            UpdateAutoBackupFrequency();
             mbSwitchColorScheme();
 
             this.FormClosing += mbMainMenu_FormClosing;
@@ -298,6 +301,25 @@ namespace GL8.CORE
                 case 3:
                 default:
                     mbMainMenu.mbClipboardClearDelay = 60;
+                    break;
+            }
+        }
+        public void UpdateAutoBackupFrequency()
+        {
+            switch (mbMainMenu.mbAutoBackupIndex)
+            {
+                case 0:
+                    mbMainMenu.mbAutoBackupFrequency = -1;
+                    break;
+                default:
+                case 1:
+                    mbMainMenu.mbAutoBackupFrequency = 20;
+                    break;
+                case 2:
+                    mbMainMenu.mbAutoBackupFrequency = 50;
+                    break;
+                case 3:
+                    mbMainMenu.mbAutoBackupFrequency = 100;
                     break;
             }
         }

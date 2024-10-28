@@ -58,8 +58,16 @@ namespace GL8.CORE
             this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Import");
             this.mbDropDownSettingsImportExportBackup.Items.Add("CSV Export");
 
+            this.mbDropDownSettingsImportBackupFrequency.Items.Add("Disabled");
+            this.mbDropDownSettingsImportBackupFrequency.Items.Add("20");
+            this.mbDropDownSettingsImportBackupFrequency.Items.Add("50");
+            this.mbDropDownSettingsImportBackupFrequency.Items.Add("100");
+
             this.mbDropDownSettingsColorScheme.SelectedIndex    = mbMainMenu.mbColorSchemeIndex;
             this.mbDropDownSettingsClipboardDelay.SelectedIndex = mbMainMenu.mbClipboardClearIndex;
+            this.mbDropDownSettingsImportBackupFrequency.SelectedIndex = mbMainMenu.mbAutoBackupIndex;
+
+
             // this.mbDropDownSettingsImportExportBackup.SelectedIndex = 0;
 
             this.CenterToParent();
@@ -261,7 +269,31 @@ namespace GL8.CORE
                 default:
                     break;
             }
-        }        
+        }
+        private void mbDropDownSettingsImportBackupFrequency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (mbDropDownSettingsImportBackupFrequency.SelectedIndex)
+            {
+                case 0:
+                    mbMainMenu.mbAutoBackupFrequency = -1;
+                    break;
+                default:
+                case 1:
+                    mbMainMenu.mbAutoBackupFrequency = 20;
+                    break;
+                case 2:
+                    mbMainMenu.mbAutoBackupFrequency = 50;
+                    break;
+                case 3:
+                    mbMainMenu.mbAutoBackupFrequency = 100;
+                    break;
+            }
+
+            // Correct variable being assigned
+            mbMainMenu.mbAutoBackupIndex = mbDropDownSettingsImportBackupFrequency.SelectedIndex;
+            _mainMenuInstance.Refresh();
+            this.Refresh();
+        }
         private void mbDropDownSettingsClipboardDelay_SelectedIndexChanged(object sender, EventArgs e)
         {
 

@@ -31,7 +31,13 @@ namespace GL8.CORE
 
         public void CheckAndGo()
         {
-            if ((mbMainMenu.mbRunCount > 0 && mbMainMenu.mbRunCount % 20 == 0) || forceBackup)
+            if (forceBackup)
+            {
+                DoBackup();
+            }
+            else if (mbMainMenu.mbRunCount > 0
+                     && mbMainMenu.mbRunCount % 20 == 0
+                     && mbMainMenu.mbAutoBackupFrequency > -1)
             {
                 DoBackup();
             }
