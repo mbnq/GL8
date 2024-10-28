@@ -41,7 +41,7 @@ namespace GL8.CORE
         {
             try
             {
-                string filePath = mbMainMenu.mbFilePath;
+                string filePath         = mbMainMenu.mbFilePath;
                 string filePathSettings = mbMainMenu.mbFilePathSettings;
 
                 if (string.IsNullOrWhiteSpace(filePath) || string.IsNullOrWhiteSpace(filePathSettings))
@@ -50,7 +50,7 @@ namespace GL8.CORE
                     return;
                 }
 
-                bool fileExists = File.Exists(filePath);
+                bool fileExists         = File.Exists(filePath);
                 bool fileSettingsExists = File.Exists(filePathSettings);
 
                 if (!fileExists || !fileSettingsExists)
@@ -66,7 +66,8 @@ namespace GL8.CORE
                     return;
                 }
 
-                string backupDirectory = Path.Combine(mbAppDataUserFilesPath, BackupFolderName);     // directory
+                string backupDirectory = Path.Combine(mbAppDataUserFilesPath, BackupFolderName);     // backup target directory
+
                 if (!Directory.Exists(backupDirectory))
                 {
                     Directory.CreateDirectory(backupDirectory);
@@ -77,8 +78,8 @@ namespace GL8.CORE
                     Debug.WriteLine($"Backup directory already exists at: {backupDirectory}");
                 }
 
-                string backupFilePath = Path.Combine(backupDirectory, Path.GetFileName(filePath));
-                string backupFilePathSettings = Path.Combine(backupDirectory, Path.GetFileName(filePathSettings));
+                string backupFilePath           = Path.Combine(backupDirectory, Path.GetFileName(filePath));
+                string backupFilePathSettings   = Path.Combine(backupDirectory, Path.GetFileName(filePathSettings));
 
                 File.Copy(filePath, backupFilePath, overwrite: true);
                 File.Copy(filePathSettings, backupFilePathSettings, overwrite: true);
