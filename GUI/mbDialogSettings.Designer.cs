@@ -46,6 +46,7 @@
             this.mbButtonSettingsImportJSON = new MaterialSkin.Controls.MaterialButton();
             this.mbDropDownSettingsImportExportBackup = new MaterialSkin.Controls.MaterialComboBox();
             this.mbDropDownSettings = new System.Windows.Forms.PictureBox();
+            this.mbDropDownSettingsImportBackupFrequency = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbDropDownSettings)).BeginInit();
             this.SuspendLayout();
@@ -367,7 +368,7 @@
             this.mbDropDownSettingsClipboardDelay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.mbDropDownSettingsClipboardDelay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.mbDropDownSettingsClipboardDelay.FormattingEnabled = true;
-            this.mbDropDownSettingsClipboardDelay.Hint = "Clear clipboard after";
+            this.mbDropDownSettingsClipboardDelay.Hint = "Clear clipboard after:";
             this.mbDropDownSettingsClipboardDelay.IntegralHeight = false;
             this.mbDropDownSettingsClipboardDelay.ItemHeight = 43;
             this.mbDropDownSettingsClipboardDelay.Location = new System.Drawing.Point(7, 213);
@@ -458,11 +459,35 @@
             this.mbDropDownSettings.TabStop = false;
             this.mbDropDownSettings.Click += new System.EventHandler(this.mbDropDownSettings_Click);
             // 
+            // mbDropDownSettingsImportBackupFrequency
+            // 
+            this.mbDropDownSettingsImportBackupFrequency.AutoResize = false;
+            this.mbDropDownSettingsImportBackupFrequency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mbDropDownSettingsImportBackupFrequency.Depth = 0;
+            this.mbDropDownSettingsImportBackupFrequency.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.mbDropDownSettingsImportBackupFrequency.DropDownHeight = 174;
+            this.mbDropDownSettingsImportBackupFrequency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mbDropDownSettingsImportBackupFrequency.DropDownWidth = 121;
+            this.mbDropDownSettingsImportBackupFrequency.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mbDropDownSettingsImportBackupFrequency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mbDropDownSettingsImportBackupFrequency.FormattingEnabled = true;
+            this.mbDropDownSettingsImportBackupFrequency.Hint = "AutoBackup every X startups:";
+            this.mbDropDownSettingsImportBackupFrequency.IntegralHeight = false;
+            this.mbDropDownSettingsImportBackupFrequency.ItemHeight = 43;
+            this.mbDropDownSettingsImportBackupFrequency.Location = new System.Drawing.Point(7, 344);
+            this.mbDropDownSettingsImportBackupFrequency.MaxDropDownItems = 4;
+            this.mbDropDownSettingsImportBackupFrequency.MouseState = MaterialSkin.MouseState.OUT;
+            this.mbDropDownSettingsImportBackupFrequency.Name = "mbDropDownSettingsImportBackupFrequency";
+            this.mbDropDownSettingsImportBackupFrequency.Size = new System.Drawing.Size(323, 49);
+            this.mbDropDownSettingsImportBackupFrequency.StartIndex = 0;
+            this.mbDropDownSettingsImportBackupFrequency.TabIndex = 19;
+            // 
             // mbDialogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mbDropDownSettingsImportBackupFrequency);
             this.Controls.Add(this.mbDropDownSettings);
             this.Controls.Add(this.mbDropDownSettingsImportExportBackup);
             this.Controls.Add(this.mbDropDownSettingsClipboardDelay);
@@ -507,5 +532,6 @@
         private MaterialSkin.Controls.MaterialButton mbButtonSettingsImportJSON;
         private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsImportExportBackup;
         private System.Windows.Forms.PictureBox mbDropDownSettings;
+        private MaterialSkin.Controls.MaterialComboBox mbDropDownSettingsImportBackupFrequency;
     }
 }
