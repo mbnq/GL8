@@ -18,8 +18,9 @@ namespace GL8.CORE
     public class mbBackup
     {
         private readonly mbMainMenu _mainMenu;
-        private const string BackupFolderName = "backup";
+        private string BackupFolderName = $"backup_{DateTime.Now.Date.ToString("yyyy_MM_dd")}_{Program.mbVersion}";
         private bool forceBackup;
+        private readonly static string mbAppDataUserFilesPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GL8");
 
         // not really using instance of mbMainMenu atm, but let's leave it for future use
         public mbBackup(mbMainMenu mainMenu, bool forceBackup = false)    
@@ -65,7 +66,7 @@ namespace GL8.CORE
                     return;
                 }
 
-                string backupDirectory = Path.Combine(directory, BackupFolderName);
+                string backupDirectory = Path.Combine(mbAppDataUserFilesPath, BackupFolderName);     // directory
                 if (!Directory.Exists(backupDirectory))
                 {
                     Directory.CreateDirectory(backupDirectory);

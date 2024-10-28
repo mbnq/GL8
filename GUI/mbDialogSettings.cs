@@ -296,7 +296,7 @@ namespace GL8.CORE
         private void mbButtonSettingsBackup_Click(object sender, EventArgs e)
         {
             DialogResult mbRUSure = MaterialMessageBox.Show(
-                "\nAn encrypted backup of your data will be created in the application's directory to ensure your information is safely stored.\nDo you want to continue?",
+                "\nAn encrypted backup of your data will be created in \\AppData\\Roaming\\ directory to ensure your information is safely stored.\nDo you want to continue?",
                 "Backup",
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Question);
