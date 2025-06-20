@@ -25,6 +25,7 @@ namespace GL8.CORE
         {
             InitializeComponent();
             this.CenterToScreen();
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
 
             this.Icon = Properties.Resources.gl8;
             this.AcceptButton = mbIntroButtonLogin;

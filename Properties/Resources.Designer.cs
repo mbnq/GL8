@@ -79,5 +79,14 @@ namespace GL8.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mbkeypress {
+            get {
+                return ResourceManager.GetStream("mbkeypress", resourceCulture);
+            }
+        }
     }
 }

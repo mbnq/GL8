@@ -144,6 +144,7 @@
     <Compile Include="CORE\mbPSWD.cs" />
     <Compile Include="CORE\mbRMBMenu.cs" />
     <Compile Include="CORE\mbRNG.cs" />
+    <Compile Include="CORE\mbSound.cs" />
     <Compile Include="CORE\mbSuggestions.cs" />
     <Compile Include="CORE\mbUserSettings.cs" />
     <Compile Include="CORE\mbSecureString.cs" />
@@ -254,6 +255,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sfx\mbkeypress.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="gfx\gl8.ico" />
     <None Include="gfx\icon_image_0_40.png" />
     <Content Include="gl8.ico" />
@@ -271,5 +275,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

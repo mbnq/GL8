@@ -46,6 +46,7 @@ namespace GL8.CORE
         private readonly mbBackup       _backupManager;
 
         public bool                     mbHidePasswords       = true;
+        public bool                     mbEnableSoundEffects = true;
         public static int               mbRunCount            = 0;
         public static int               mbClipboardClearIndex = 2;
         public static int               mbClipboardClearDelay = 30;
@@ -100,6 +101,7 @@ namespace GL8.CORE
                 mbAboutDialog.ShowDialog();
             };
 
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
             Debug.WriteLine($"Init ok. SaveLoad number: {mbRunCount}");
         }
 
