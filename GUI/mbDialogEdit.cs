@@ -17,10 +17,13 @@ namespace GL8.CORE
     {
         private mbPSWD      _pswdItem;
         private mbMainMenu  _mainMenuInstance;
+        private bool        _mbLockEdit;
         private int         _mbChangesCount;
-        public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
+        public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem, bool _mbLockEdit = false)
         {
             InitializeComponent();
+            if (_mbLockEdit) { mbLockEdit(); } else { mbButtonEditUnlock.Hide(); };
+
             _mbChangesCount = 0;
 
             _mainMenuInstance = mainMenuInstance ?? throw new ArgumentNullException(nameof(mainMenuInstance));
@@ -112,11 +115,54 @@ namespace GL8.CORE
                 mbTextBoxEditPassword.PasswordChar = '*';
             }
         }
+        private void mbLockEdit()
+        {
+            mbLockEditControls(this.Controls, true);
+            mbButtonEditUnlock.Show();
+            mbButtonEditSave.Hide();
+        }
+        private void mbUnlockEdit()
+        {
+            mbLockEditControls(this.Controls, false);
+            System.Threading.Thread.Sleep(500);                 // debouncer
+            mbButtonEditUnlock.Hide();
+            mbButtonEditSave.Show();
+        }
+        private void mbLockEditControls(Control.ControlCollection controls, bool isReadOnly)
+        {
+            foreach (Control ctrl in controls)
+            {
+                if (ctrl.Name == "mbButtonEditUnlock" || ctrl.Name == "mbButtonEditCancel" || ctrl.Name == "mbCheckBoxEditHidePswd")
+                    continue;
+
+                if (ctrl is TextBoxBase tb)
+                {
+                    tb.ReadOnly = isReadOnly;
+                }
+                else if (ctrl is MaterialTextBox2 mtb2)
+                {
+                    mtb2.ReadOnly = isReadOnly;
+                }
+                else
+                {
+                    ctrl.Enabled = !isReadOnly;
+                }
+
+                if (ctrl.HasChildren)
+                {
+                    mbLockEditControls(ctrl.Controls, isReadOnly);
+                }
+            }
+        }
         private void mbTextBoxEditPassword_GenRandom_Click(object sender, EventArgs e)
         {
             var passwordGenerator = new mbRNG();
             string password = passwordGenerator.mbGenerateRandomPassword((int)mbTextBoxEditPassword_GetRandomNum.Value, true, true, true, true);
             mbTextBoxEditPassword.Text = password;
+        }
+        private void mbButtonEditUnlock_Click(object sender, EventArgs e)
+        {
+            mbUnlockEdit();
         }
     }
 }

@@ -187,7 +187,7 @@ namespace GL8.CORE
                 string selectedColumnName = mbDataView.Columns[mbDataView.CurrentCell.ColumnIndex].Name;
 
                 // Pass the selected column name to the dialog
-                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD);
+                mbDialogEdit editDialog = new mbDialogEdit(this, selectedPSWD, true);
 
                 editDialog.ShowDialog();
 

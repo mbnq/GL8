@@ -42,6 +42,7 @@ namespace GL8.CORE
             this.mbCheckBoxEditHidePswd = new MaterialSkin.Controls.MaterialSwitch();
             this.mbTextBoxEditPassword_GetRandom = new MaterialSkin.Controls.MaterialButton();
             this.mbTextBoxEditPassword_GetRandomNum = new System.Windows.Forms.NumericUpDown();
+            this.mbButtonEditUnlock = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.mbTextBoxEditPassword_GetRandomNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -353,12 +354,34 @@ namespace GL8.CORE
             0,
             0});
             // 
+            // mbButtonEditUnlock
+            // 
+            this.mbButtonEditUnlock.AutoSize = false;
+            this.mbButtonEditUnlock.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbButtonEditUnlock.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbButtonEditUnlock.Depth = 0;
+            this.mbButtonEditUnlock.HighEmphasis = true;
+            this.mbButtonEditUnlock.Icon = null;
+            this.mbButtonEditUnlock.Location = new System.Drawing.Point(681, 396);
+            this.mbButtonEditUnlock.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.mbButtonEditUnlock.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbButtonEditUnlock.Name = "mbButtonEditUnlock";
+            this.mbButtonEditUnlock.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbButtonEditUnlock.Size = new System.Drawing.Size(211, 44);
+            this.mbButtonEditUnlock.TabIndex = 12;
+            this.mbButtonEditUnlock.Text = "unlock edit";
+            this.mbButtonEditUnlock.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbButtonEditUnlock.UseAccentColor = false;
+            this.mbButtonEditUnlock.UseVisualStyleBackColor = true;
+            this.mbButtonEditUnlock.Click += new System.EventHandler(this.mbButtonEditUnlock_Click);
+            // 
             // mbDialogEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(904, 450);
+            this.Controls.Add(this.mbButtonEditUnlock);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandomNum);
             this.Controls.Add(this.mbTextBoxEditPassword_GetRandom);
             this.Controls.Add(this.mbCheckBoxEditHidePswd);
@@ -395,5 +418,6 @@ namespace GL8.CORE
         private MaterialSkin.Controls.MaterialSwitch mbCheckBoxEditHidePswd;
         private MaterialSkin.Controls.MaterialButton mbTextBoxEditPassword_GetRandom;
         private System.Windows.Forms.NumericUpDown mbTextBoxEditPassword_GetRandomNum;
+        private MaterialSkin.Controls.MaterialButton mbButtonEditUnlock;
     }
 }
