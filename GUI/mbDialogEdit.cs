@@ -118,12 +118,14 @@ namespace GL8.CORE
         private void mbLockEdit()
         {
             mbLockEditControls(this.Controls, true);
+            this.Text = "Read Only";
             mbButtonEditUnlock.Show();
             mbButtonEditSave.Hide();
         }
         private void mbUnlockEdit()
         {
             mbLockEditControls(this.Controls, false);
+            this.Text = "Edit";
             System.Threading.Thread.Sleep(500);                 // debouncer
             mbButtonEditUnlock.Hide();
             mbButtonEditSave.Show();
