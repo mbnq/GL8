@@ -1,7 +1,7 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail
 
@@ -9,7 +9,6 @@
 
 using MaterialSkin.Controls;
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace GL8.CORE

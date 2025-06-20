@@ -1,7 +1,7 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail
 
@@ -9,16 +9,15 @@
 
 using MaterialSkin.Controls;
 using System;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace GL8.CORE
 {
     public partial class mbDialogEdit : MaterialForm
     {
-        private mbPSWD _pswdItem;
-        private mbMainMenu _mainMenuInstance;
-        private int _mbChangesCount;
+        private mbPSWD      _pswdItem;
+        private mbMainMenu  _mainMenuInstance;
+        private int         _mbChangesCount;
         public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem)
         {
             InitializeComponent();

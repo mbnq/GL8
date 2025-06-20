@@ -1,7 +1,7 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail 
 
@@ -15,7 +15,6 @@ using Newtonsoft.Json;
 using GL8.CORE;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
-using System.Data;
 using System.ComponentModel;
 
 public class mbUserSettings

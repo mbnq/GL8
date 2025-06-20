@@ -1,7 +1,7 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail
 
@@ -74,7 +74,9 @@ namespace GL8.CORE
 
             if (enteredPassword == null || enteredPassword.Length == 0)
             {
+                this.Hide();
                 MaterialMessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Show();
                 return;
             }
 
@@ -83,7 +85,9 @@ namespace GL8.CORE
 
                 if (mbIntroTextBoxMasterPswd.Text.Length < 8)
                 {
+                    this.Hide();
                     MaterialMessageBox.Show("Password must be at least 8 characters long for security reasons.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
                     mbIntroTextBoxMasterPswd.Text = "";
                     mbIntroTextBoxMasterPswdConfirm.Text = "";
                     return;
@@ -98,7 +102,9 @@ namespace GL8.CORE
 
                 if (!SecureStringsEqual(enteredPassword, enteredPasswordConfirmation))
                 {
+                    this.Hide();
                     MaterialMessageBox.Show("Entered passwords are not the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
                     return;
                 }
 
@@ -117,8 +123,9 @@ namespace GL8.CORE
                 };
                 settings.SaveSettings(enteredPassword); // Use the password to encrypt the file
 
+                this.Hide();
                 MaterialMessageBox.Show("Master password set successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                this.Show();
                 Program.mbPassOK = true;
                 Program.SetUserPassword(enteredPassword);
                 this.Close();
@@ -133,7 +140,9 @@ namespace GL8.CORE
                 if (settings == null)
                 {
                     mbIntroTextBoxMasterPswd.Text = "";
+                    this.Hide();
                     MaterialMessageBox.Show("Incorrect password or user settings could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
 
                     // wait couple of seconds to prevent brute force attacks
                     await AntiBruteForceWaiter();
@@ -155,13 +164,17 @@ namespace GL8.CORE
                     else
                     {
                         mbIntroTextBoxMasterPswd.Text = "";
+                        this.Hide();
                         MaterialMessageBox.Show("Incorrect password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Show();
                         await AntiBruteForceWaiter();
                     }
                 }
                 catch (FormatException)
                 {
+                    this.Hide();
                     MaterialMessageBox.Show("The stored salt value is not in a valid Base64 format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
                 }
             }
         }

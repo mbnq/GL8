@@ -1,16 +1,13 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail
 
 */
 
-using CsvHelper.Configuration;
-using CsvHelper;
 using MaterialSkin.Controls;
-using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using System;

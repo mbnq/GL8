@@ -1,7 +1,7 @@
 ﻿
 /* 
 
-    www.mbnq.pl 2024 
+    www.mbnq.pl 2025 
     https://mbnq.pl/
     mbnq00 on gmail
 
@@ -15,13 +15,12 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Security.Principal;
 using MaterialSkin.Controls;
-using System.Diagnostics;
 
 namespace GL8
 {
     internal static class Program
     {
-        public const string mbVersion = "0.0.5.0";
+        public const string mbVersion = "0.0.5.1";
 
         static Mutex gl8Mutex = new Mutex(true, "{GL8}");
 
