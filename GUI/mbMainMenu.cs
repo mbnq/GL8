@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    mbMainMenu.cs
+
 */
 
 using System;
@@ -34,7 +36,7 @@ namespace GL8.CORE
         private mbDialogSettings    _DialogSettings;
         private mbRMBMenu           _mbRMBMenu;
 
-        public static System.Windows.Forms.ToolTip toolTipGeneral = new System.Windows.Forms.ToolTip()
+        public static ToolTip toolTipGeneral = new ToolTip()
         {
             AutoPopDelay    = 5000,
             InitialDelay    = 1000,
@@ -46,7 +48,7 @@ namespace GL8.CORE
         private readonly mbBackup       _backupManager;
 
         public bool                     mbHidePasswords       = true;
-        public bool                     mbEnableSoundEffects = true;
+        public bool                     mbEnableSoundEffects  = true;
         public static int               mbRunCount            = 0;
         public static int               mbClipboardClearIndex = 2;
         public static int               mbClipboardClearDelay = 30;
@@ -101,7 +103,7 @@ namespace GL8.CORE
                 mbAboutDialog.ShowDialog();
             };
 
-            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls, this);
             Debug.WriteLine($"Init ok. SaveLoad number: {mbRunCount}");
         }
 

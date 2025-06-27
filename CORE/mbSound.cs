@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    mbSound.cs
+
 */
 
 using MaterialSkin.Controls;
@@ -16,13 +18,18 @@ namespace GL8.CORE
 {
     public static class mbKeySoundHandler
     {
+        private static mbMainMenu _mainMenuInstance;
+
         public static void mbKeyPressSoundHandler(object sender, KeyPressEventArgs e)
         {
             try
             {
-                using (SoundPlayer player = new SoundPlayer("sfx/mbkeypress.wav"))
+                if (_mainMenuInstance != null && _mainMenuInstance.mbEnableSoundEffects)
                 {
-                    player.Play();
+                    using (SoundPlayer player = new SoundPlayer("sfx/mbkeypress.wav"))
+                    {
+                        player.Play();
+                    }
                 }
             }
             catch (Exception ex)
@@ -30,20 +37,24 @@ namespace GL8.CORE
                 Console.WriteLine("Audio error: " + ex.Message);
             }
         }
-        public static void RegisterKeySoundHandler(Control.ControlCollection controls)
+
+        public static void RegisterKeySoundHandler(Control.ControlCollection controls, mbMainMenu mainMenuInstance)
         {
+            _mainMenuInstance = mainMenuInstance; // zapisujemy referencję
+
             foreach (Control ctrl in controls)
             {
                 if (ctrl is TextBoxBase || ctrl is MaterialTextBox2)
                 {
-                    ctrl.KeyPress += mbKeySoundHandler.mbKeyPressSoundHandler;
+                    ctrl.KeyPress += mbKeyPressSoundHandler; // poprawnie przypisujemy handler
                 }
 
                 if (ctrl.HasChildren)
                 {
-                    RegisterKeySoundHandler(ctrl.Controls);
+                    RegisterKeySoundHandler(ctrl.Controls, mainMenuInstance);
                 }
             }
         }
     }
+
 }

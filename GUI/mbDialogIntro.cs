@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    mbDialogIntro.cs
+
 */
 
 using MaterialSkin.Controls;
@@ -20,12 +22,12 @@ namespace GL8.CORE
     public partial class mbDialogIntro : MaterialForm
     {
         private bool isNewUser = false;
-
+        private mbMainMenu _mainMenuInstance;
         public mbDialogIntro()
         {
             InitializeComponent();
             this.CenterToScreen();
-            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls, _mainMenuInstance);
 
             this.Icon = Properties.Resources.gl8;
             this.AcceptButton = mbIntroButtonLogin;

@@ -17,7 +17,7 @@ namespace GL8.CORE
     {
         private mbPSWD      _pswdItem;
         private mbMainMenu  _mainMenuInstance;
-        private bool        _mbLockEdit;
+        // private bool        _mbLockEdit;
         private int         _mbChangesCount;
         public mbDialogEdit(mbMainMenu mainMenuInstance, mbPSWD pswdItem, bool _mbLockEdit = false)
         {
@@ -54,7 +54,7 @@ namespace GL8.CORE
             this.FormClosed += (sender, e)   => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
 
             mbAddSuggestionsToCategory();
-            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls, _mainMenuInstance);
         }
         private void mbAddSuggestionsToCategory()
         {

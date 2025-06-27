@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail 
 
+    mbUserSettings.cs
+
 */
 
 using System;
@@ -73,6 +75,9 @@ namespace GL8.CORE
                 // show passwords
                 Properties.Settings.Default.mbSettingsSwitchHidePswd = mbSettingsSwitchHidePswd.Checked;
 
+                // mute sounds
+                Properties.Settings.Default.mbSettingsMuteSounds = mbSettingsSwitchMute.Checked;
+
                 // Color Scheme Index
                 Properties.Settings.Default.mbColorSchemeIndex = mbMainMenu.mbColorSchemeIndex;
 
@@ -111,6 +116,11 @@ namespace GL8.CORE
 
                 // show passwords
                 mbSettingsSwitchHidePswd.Checked = Properties.Settings.Default.mbSettingsSwitchHidePswd;
+                _mainMenuInstance.mbHidePasswords = mbSettingsSwitchHidePswd.Checked;
+
+                // mute sounds
+                mbSettingsSwitchMute.Checked = Properties.Settings.Default.mbSettingsMuteSounds;
+                _mainMenuInstance.mbEnableSoundEffects = !mbSettingsSwitchMute.Checked;
 
                 // Color Scheme Index
                 mbMainMenu.mbColorSchemeIndex = Properties.Settings.Default.mbColorSchemeIndex;

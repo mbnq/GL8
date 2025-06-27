@@ -390,6 +390,7 @@
             this.mbSettingsSwitchMute.TabIndex = 20;
             this.mbSettingsSwitchMute.Text = "Mute Sounds";
             this.mbSettingsSwitchMute.UseVisualStyleBackColor = true;
+            this.mbSettingsSwitchMute.CheckedChanged += new System.EventHandler(this.mbSettingsSwitchMute_CheckedChanged);
             // 
             // mbDialogSettings
             // 

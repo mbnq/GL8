@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    mbDialogSettings.cs
+
 */
 
 using MaterialSkin.Controls;
@@ -31,7 +33,7 @@ namespace GL8.CORE
 
             if (mainMenuInstance == null) throw new ArgumentNullException(nameof(mainMenuInstance), "Critical: Main menu instance cannot be null.");
 
-            // LoadPublicSettings(mainMenuInstance);
+            LoadPublicSettings(mainMenuInstance);
 
 #if DEBUG
             mbButtonSettingsDebug.Visible = true;
@@ -89,6 +91,18 @@ namespace GL8.CORE
                 _mainMenuInstance.mbHidePasswords = false;
             }
 
+            _mainMenuInstance.mbRefreshMainMenu();
+        }
+        private void mbSettingsSwitchMute_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mbSettingsSwitchMute.Checked)
+            {
+                _mainMenuInstance.mbEnableSoundEffects = false;
+            }
+            else
+            {
+                _mainMenuInstance.mbEnableSoundEffects = true;
+            }
             _mainMenuInstance.mbRefreshMainMenu();
         }
         private void mbButtonSettingsDebug_Click(object sender, EventArgs e)

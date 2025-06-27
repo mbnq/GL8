@@ -43,7 +43,7 @@ namespace GL8.CORE
             this.FormClosed += (sender, e) => { _mainMenuInstance.mbSwitchEnableMainMenuControls(true); };
 
             mbAddSuggestionsToCategory();
-            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls);
+            mbKeySoundHandler.RegisterKeySoundHandler(this.Controls, _mainMenuInstance);
         }
 
         private void mbAddSuggestionsToCategory()
