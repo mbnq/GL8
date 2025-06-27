@@ -17,6 +17,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Security.Principal;
 using MaterialSkin.Controls;
+using System.Diagnostics;
 
 namespace GL8
 {
