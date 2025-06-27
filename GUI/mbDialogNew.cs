@@ -5,6 +5,8 @@
     https://mbnq.pl/
     mbnq00 on gmail
 
+    mbDialogNew.cs
+
 */
 
 using MaterialSkin.Controls;

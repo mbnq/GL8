@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("www.mbnq.pl")]
 [assembly: AssemblyProduct("GL8")]
-[assembly: AssemblyCopyright("Copyright © mbnq.pl 2024")]
+[assembly: AssemblyCopyright("Copyright © mbnq.pl 2025")]
 [assembly: AssemblyTrademark("mbnq.pl")]
 [assembly: AssemblyCulture("")]
 
